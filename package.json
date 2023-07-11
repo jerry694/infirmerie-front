@@ -1,5 +1,5 @@
 {
-  "name": "intervention-front",
+  "name": "infirmeriefront",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,7 +11,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.0",
-    "@angular/cdk": "^16.0.1",
     "@angular/common": "^16.0.0",
     "@angular/compiler": "^16.0.0",
     "@angular/core": "^16.0.0",
@@ -19,23 +18,13 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
-    "@auth0/angular-jwt": "^5.1.2",
-    "@flaticon/flaticon-uicons": "^2.2.0",
-    "bootstrap": "^5.2.3",
-    "bootstrap-icons": "^1.10.5",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.7.0",
-    "popper.js": "^1.16.1",
-    "primeicons": "^6.0.1",
-    "primeng": "^16.0.0-rc.2",
     "rxjs": "~7.8.0",
-    "sweetalert2": "^11.4.8",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.0.2",
-    "@angular/cli": "~16.0.2",
+    "@angular-devkit/build-angular": "^16.0.1",
+    "@angular/cli": "~16.0.1",
     "@angular/compiler-cli": "^16.0.0",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",

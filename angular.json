@@ -3,11 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "intervention_front": {
+    "infirmeriefront": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -17,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/intervention_front",
+            "outputPath": "dist/infirmeriefront",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,22 +52,9 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/saga-green/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/sweetalert2/src/sweetalert2.scss",
-              "node_modules/sweetalert2/src/sweetalert2.scss"
+              "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/sweetalert2/dist/sweetalert2.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -78,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "intervention_front:build:production"
+              "browserTarget": "infirmeriefront:build:production"
             },
             "development": {
-              "browserTarget": "intervention_front:build:development"
+              "browserTarget": "infirmeriefront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "intervention_front:build"
+            "browserTarget": "infirmeriefront:build"
           }
         },
         "test": {
@@ -106,7 +115,6 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -114,8 +122,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "77502509-7f1d-4000-9fae-5cda678baafb"
   }
 }
