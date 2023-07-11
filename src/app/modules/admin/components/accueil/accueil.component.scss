@@ -1,0 +1,156 @@
+.contenu {
+  width: 111em;
+  position: fixed;
+  top: 7em;
+  margin-left: -2em;
+  height: 89vh;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 10px rgb(199, 199, 199);
+  padding: 2em;
+  background-color: var(--clr-background);
+}
+
+
+.bvn {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.invent_user {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.student_inter {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bloc_user {
+  position: relative;
+  width: 30%;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px #303d49;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #303d49;
+  text-align: center;
+  color: white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  cursor: pointer;
+
+  .icone_user {
+    font-size: 5em;
+    font-weight: 100;
+  }
+
+  .bilan_user {
+    font-size: 1.5em;
+  }
+}
+
+.bloc_intervention {
+  position: relative;
+  width: 30%;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px #4fa55c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #4fa55c;
+  text-align: center;
+  color: white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  cursor: pointer;
+
+
+  .icone_inter {
+    font-size: 5em;
+    font-weight: 100;
+  }
+
+  .bilan_inter {
+    font-size: 1.5em;
+  }
+}
+
+.bloc_personel{
+  position: relative;
+  width: 30%;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px #774fa5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #774fa5;
+  text-align: center;
+  color: white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  cursor: pointer;
+
+  .icone_person {
+    font-size: 5em;
+    font-weight: 100;
+  }
+
+  .bilan_person {
+    font-size: 1.5em;
+  }
+}
+
+.bloc_user:hover {
+  margin-top: -10px;
+}
+
+.bloc_intervention:hover {
+  margin-top: -10px;
+}
+.bloc_personel:hover {
+  margin-top: -10px;
+}
+
+.other_content{
+  position: relative;
+  width: 90%;
+  // background: black;
+  height: 55vh;
+}
+
+.btn_chat{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 4em;
+  height: 4em;
+  padding-top: 0.5em;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--main-clr-smb);
+  box-shadow: 0px 0px 15px var(--main-clr-smb);
+  color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  i{
+    background-color: none;
+    font-size: 1.5em;
+  }
+}

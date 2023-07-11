@@ -1,0 +1,130 @@
+<!-- to top button  -->
+
+<button class="toTop" (click)="gotoTop()"><i class="fi fi-br-arrow-small-up"
+  style="font-size: 1.2rem; color: var(--clr-background)"></i></button>
+
+<!-- header  -->
+<header>
+<div class="nav container">
+  <a href="index.html" class="logo"><img src="../../assets/images/usj.png" alt=""></a>
+  <div class="nav-menus">
+    <ul class="first-ul">
+      <li class="li"><a href="#" class="a">Accueil</a></li>
+      <li class="li"><a href="#a_propos" class="a">A propos</a></li>
+      <li class="li"><a href="#contact" class="a">Contact</a></li>
+      <li class="li"><a href="#localisation" class="a">Localisation</a></li>
+      <li class="sign-in"><a (click) = "navigateToLogin()">Connexion</a></li>
+    </ul>
+  </div>
+  <div class="menu">
+    <div class="navbar">
+      <li><a href="#" class="a">Accueil</a></li>
+      <li class="li"><a href="#a_propos" class="a">A propos</a></li>
+      <li class="li"><a href="#contact" class="a">Contact</a></li>
+      <li class="li"><a href="#localisation" class="a">Localisation</a></li>
+      <li class="sign-in"><a (click) = "navigateToLogin()">Connexion</a></li>
+    </div>
+  </div>
+</div>
+
+<div class="menu-icon" (click)="responsive()">
+  <div class="line1"></div>
+  <div class="line2"></div>
+  <div class="line3"></div>
+</div>
+</header>
+
+<!-- sous header  -->
+<section class="sous-header">
+<div class="sous-header-content container">
+  <div class="row content-header">
+    <div class="col-md-6 col-ms-12">
+      <h2>Gestion des interventions</h2>
+      <p>
+        Bienvenue dans notre application permettant de gérer les interventions de l'institut Saint Jean! Application
+        qui permettra de faciliter la communication entre le personnel et les étudiants et permettra aussi de régler
+        plus rapidement leurs différents soucis.
+      </p>
+      <button class="btn btn1">Commençons</button>
+    </div>
+    <div class="col-md-6 col-ms-12">
+      <div class="image">
+        <div class="cover"></div>
+        <img src="../../assets/images/Campus-1.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- A propos section  -->
+<section class="about-section" id="a_propos">
+<div class="sous-about-content container">
+  <div class="row content-about">
+    <div class="col-md-6 col-ms-12">
+      <h2>A Propos</h2>
+      <p>L’institut Universitaire Saint Jean, portée par la Congrégation des Frères Saint Jean est très recement passé
+        de ISJ à IUSJ. Cette institution se développe dans la même lignée que deux aînés bien connus, le Collège Vogt
+        pour le secondaire, et Prépa Vogt pour le supérieur. Son but est de répondre aux besoins de formation
+        techniques professionnelles et d’ingénierie de haut niveau sans avoir à quitter le Cameroun. L’ISJ entend de
+        poursuivre son projet initial qu’es d’assurer une formation de qualité au plus grand nombre possible de jeunes
+        Camerounais, en offrant sur place l’opportunité de préparer et d’obtenir des diplômes aux standards
+        internationaux, reconnus au Cameroun et partout dans le monde à travers ses deux principales Filières connus
+        sous les appellations de: <b> Licence Professionnelle, Ingénieur, Master et Management</b></p>
+    </div>
+    <div class="col-md-6 col-ms-12">
+      <div class="image">
+        <img src="../../assets/images/Studying-amico (1).png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- contact section  -->
+<section class="contact-section" (load)="apparition()" id="contact">
+<div class="sous-section-content container">
+  <h2>Contactez-nous !</h2>
+  <div class="row d-flex justify-content-between text-align-center content-about">
+    <div class="col-md-3 col-xs-12 col-sm-6 text-align-center">
+      <i class="fi fi-br-globe"></i>
+      <h6>Web:</h6>
+      <p>www.institutsaintjean.org</p>
+    </div>
+    <div class="col-md-3 col-xs-12 col-sm-6 text-align-center">
+      <i class="fi fi-br-at"></i>
+      <h6>Email:</h6>
+      <p>info@institutsaintjean.org</p>
+    </div>
+    <div class="col-md-3 col-xs-12 col-sm-6 text-align-center">
+      <i class="fi fi-br-box-open"></i>
+      <h6>Bp:</h6>
+      <p>175 yaoundé, Cameroun</p>
+    </div>
+    <div class="col-md-3 col-xs-12 col-sm-6 text-align-center">
+      <i class="fi fi-br-phone-office"></i>
+      <h6>Telephone:</h6>
+      <p>+237 33 43 99 80</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- localisation  -->
+<section class="localisation-section" id="localisation">
+<div class="location-content container">
+  <h2>Localisation</h2>
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8152794.364542331!2d7.006139125000019!3d3.8409399999999922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcfcf0621381b%3A0xbc12792dae9abba2!2sCarrefour%20des%20ACACIAS!5e0!3m2!1sfr!2scm!4v1626771084246!5m2!1sfr!2scm"
+      width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
+</section>
+
+<!-- footer  -->
+<section class="footer-section">
+<div class="footer-content container-fluid">
+  <p>Copyright c this was made by ISJCompanie 2023</p>
+</div>
+</section>
