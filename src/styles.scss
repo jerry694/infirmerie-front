@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("assets/css/bootstrap.min.css");
+@font-face {
+    font-family: 'poppins';
+    src: url('assets/font/Poppins-Regular.ttf') format('truetype');
+    /* Ajoutez d'autres formats de police si nécessaire */
+  }
+  @font-face {
+    font-family: 'poppins medium';
+    src: url('assets/font/Poppins-Medium.ttf') format('truetype');
+    /* Ajoutez d'autres formats de police si nécessaire */
+  }
+  @font-face {
+    font-family: 'poppins bold';
+    src: url('assets/font/Poppins-Bold.ttf') format('truetype');
+    /* Ajoutez d'autres formats de police si nécessaire */
+  }
+  *{
+    font-family: "poppins";
+  }
+  

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="login">
+          <img src="../../assets/img/Saint Jean ingenieur.png" alt="">
+          <h3>SE CONNECTER</h3>
+          <form>
+            <div class="form-group">
+              <div class="input-group rect">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><img src="../../assets/img/Icon awesome-user-alt.svg" alt=""></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Identifiant" [(ngModel)]="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group rect">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><img src="../../assets/img/Icon awesome-lock.svg" alt=""></span>
+                </div>
+                <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control" placeholder="Mot de passe" [(ngModel)]="password">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <img (click)="togglePasswordVisibility()" [src]="passwordVisible ? '../../assets/img/Icon awesome-eye-slash.svg' : '../../assets/img/Icon awesome-eye.svg'" alt="">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-check rect-left">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label " for="flexCheckIndeterminate">
+                <u>Se souvenir de moi</u>
+              </label>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Connexion" class="rect rect-connect">
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    
+</body>
+</html>
