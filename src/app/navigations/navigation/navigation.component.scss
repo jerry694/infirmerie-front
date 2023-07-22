@@ -1,0 +1,46 @@
+*{
+    text-decoration: none; 
+    list-style: none;
+}
+$borderradius : 7px 0 0 7px;
+.container-fluid{
+    height: 100vh;
+    padding: 0;
+    .sidenav{
+        width: 17rem;
+        height: 100vh;
+        background-color: gray;
+        .logo-container{
+            height: 6rem;
+            width: auto;
+            background-color: aquamarine;
+            margin-bottom: 4rem;
+            img{
+                height: 100%;
+                width: auto;
+            }
+        }
+    }
+}
+.sidenav-nav-link{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 2.1rem;
+    border-radius: $borderradius;
+    background-color:#107EC2 ;
+    color:white;
+}
+.sidenav-nav-link:hover{
+    background-color :white;
+    color: #107EC2;
+}
+.sidenav-nav-link:hover{
+    background-color :white;
+    color: #107EC2;
+}
+.sidenav-nav-link img{
+    height: 1.25rem;
+    width: auto;
+    margin-right: 1.3rem;
+}
