@@ -1,0 +1,94 @@
+@mixin bord($top, $right, $bottom, $left, $color) {
+    border-top: solid $top $color;
+    border-right: solid $right $color;
+    border-bottom: solid $bottom $color;
+    border-left: solid $left $color;
+}
+
+.container-fluid {
+    width: calc(100% - 17rem);
+    position: absolute;
+    right: 0;
+}
+
+* {
+    font-size: small;
+}
+
+span {
+    margin-right: 10px;
+}
+.row{
+    height: 3.8rem;
+    background-color: #e7f2f961;
+}
+.col {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.input-group {
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.input-group-text,
+.form-control {
+    border: none;
+    border-radius: 0px;
+    background: none;
+    height: 35px;
+}
+
+.form-control {
+    padding-left: 0px;
+    border-radius: 0px 7px 7px 0px;
+    @include bord(2px, 2px, 2px, 0px, #107EC2)
+}
+
+.input-group-text {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 7px 0px 0px 7px;
+    @include bord(2px, 0px, 2px, 2px, #107EC2)
+}
+
+.input-group-text img {
+    height: 100%;
+    width: auto;
+}
+.aCenter{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0px ;
+}
+.aCenterl{
+    @extend .aCenter;
+    padding-left: 5rem;
+    justify-content: flex-start;
+   .logo{
+        height: 70%;
+        width: auto;
+    }
+
+
+} 
+.aCenterr{
+    @extend .aCenter;
+    padding-right: 5rem;
+    .circle{
+        border-radius: 50%;
+    }
+}
+.aCenter span{
+    color: #107EC2;
+}

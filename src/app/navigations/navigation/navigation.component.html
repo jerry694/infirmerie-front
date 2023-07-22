@@ -1,15 +1,23 @@
-<div class="container-fluid bg-white">
+
+
+<div class="container-fluid ">
     <div class="sidenav">
         <div class="logo-container">
             <img src="../../../assets/img/Bienvenue a l'infirmerie.svg" alt="">
         </div>
         <ul class="sidenav-nav bg-primary">
             <li class="sidenav-nav-item" *ngFor="let data of navData">
-                <a [routerLink]="data.routeLink" class="sidenav-nav-link">
+                <a [routerLink]="data.routeLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="sidenav-nav-link">
                     <img [src]="data.icon" alt="">
                     <span class="sidenav-link-text">{{data.label}}</span>
                 </a>
             </li>
         </ul>
+        <div class="exit-button">
+            <a [routerLink]="" class="exit">
+                <img src="../../../assets/img/Deconnexion.svg" alt="">
+                <span>Deconnexion</span>
+            </a>
+        </div>
     </div>
 </div>

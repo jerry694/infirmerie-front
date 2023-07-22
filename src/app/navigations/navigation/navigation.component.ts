@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { navItems } from './nav-items';
 
 @Component({
@@ -6,7 +6,16 @@ import { navItems } from './nav-items';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent {
-  navData = navItems
+// interface sideNav{
+//   screenWidth:number;
+// }
+export class NavigationComponent implements OnInit {
 
+//  @Output() screenW : EventEmitter<sideNav> = new EventEmitter;
+// screenWidth:number | undefined;
+  navData = navItems
+  
+  ngOnInit(): void {
+    // this.screenWidth = window.innerWidth
+  }
 }

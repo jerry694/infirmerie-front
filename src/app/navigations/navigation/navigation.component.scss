@@ -1,20 +1,32 @@
+@mixin dFlex($height){
+    height: $height;
+    display: flex;
+    align-items: center;
+}
 *{
     text-decoration: none; 
     list-style: none;
 }
 $borderradius : 7px 0 0 7px;
 .container-fluid{
+    background-color: #FDD300;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 17rem;
     height: 100vh;
     padding: 0;
     .sidenav{
+        position: relative;
         width: 17rem;
         height: 100vh;
-        background-color: gray;
+        background-color: #107EC2;
+        justify-content: center;
+        // position: relative;
         .logo-container{
             height: 6rem;
             width: auto;
-            background-color: aquamarine;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             img{
                 height: 100%;
                 width: auto;
@@ -23,10 +35,10 @@ $borderradius : 7px 0 0 7px;
     }
 }
 .sidenav-nav-link{
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    padding-left: 2.1rem;
+    transition: all .3s ease;
+    @include dFlex(2.7rem);
+    padding-left: 1.8rem;
+    font-size: small;
     border-radius: $borderradius;
     background-color:#107EC2 ;
     color:white;
@@ -35,12 +47,41 @@ $borderradius : 7px 0 0 7px;
     background-color :white;
     color: #107EC2;
 }
-.sidenav-nav-link:hover{
+
+.sidenav-nav-link img{
+    height: 1rem;
+    width: auto;
+    margin-right: 1.15rem;
+}
+.exit-button{
+    bottom: 6.5rem;
+    width: 100%;
+    position: absolute;
+    // background-color: aliceblue;
+    .exit{
+        
+    background-color: #FDD300;
+    color: white;
+    width: 75%;
+    padding: 15px 15px;
+    margin: auto;
+    @include dFlex(1rem);
+    justify-content: center;
+    font-size: small;
+    border-radius: 5px 5px 5px 5px;
+    // box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.269);
+    }
+        .exit img{
+            height: 1rem;
+            margin-right: 1.3rem;
+        }
+}
+
+.active{
     background-color :white;
     color: #107EC2;
 }
-.sidenav-nav-link img{
-    height: 1.25rem;
-    width: auto;
-    margin-right: 1.3rem;
+
+.headerx{
+    z-index: 3;
 }
