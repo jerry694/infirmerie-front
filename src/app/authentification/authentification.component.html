@@ -11,21 +11,21 @@
         <div class="login">
           <img src="../../assets/img/Saint Jean ingenieur.png" alt="">
           <h3>SE CONNECTER</h3>
-          <form>
+          <form (ngSubmit)='userAuth()'>
             <div class="form-group">
               <div class="input-group rect">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><img src="../../assets/img/Icon awesome-user-alt.svg" alt=""></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Identifiant" [(ngModel)]="username">
+                <input type="text" class="form-control" placeholder="Identifiant" [(ngModel)]="user.login" name="name">
               </div>
-            </div>
+            </div> 
             <div class="form-group">
               <div class="input-group rect">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><img src="../../assets/img/Icon awesome-lock.svg" alt=""></span>
                 </div>
-                <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control" placeholder="Mot de passe" [(ngModel)]="password">
+                <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control" placeholder="Mot de passe" [(ngModel)]="user.password" name="password">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <img (click)="togglePasswordVisibility()" [src]="passwordVisible ? '../../assets/img/Icon awesome-eye-slash.svg' : '../../assets/img/Icon awesome-eye.svg'" alt="">
