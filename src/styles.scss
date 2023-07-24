@@ -1,21 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
-@import url("assets/css/bootstrap.min.css");
 @font-face {
-    font-family: 'poppins';
-    src: url('assets/font/Poppins-Regular.ttf') format('truetype');
-    /* Ajoutez d'autres formats de police si nécessaire */
-  }
-  @font-face {
-    font-family: 'poppins medium';
-    src: url('assets/font/Poppins-Medium.ttf') format('truetype');
-    /* Ajoutez d'autres formats de police si nécessaire */
-  }
-  @font-face {
-    font-family: 'poppins bold';
-    src: url('assets/font/Poppins-Bold.ttf') format('truetype');
-    /* Ajoutez d'autres formats de police si nécessaire */
-  }
-  *{
-    font-family: "poppins";
-  }
-  
+  font-family: 'poppins';
+  src: url('assets/font/Poppins-Regular.ttf') format('truetype');
+  /* Ajoutez d'autres formats de police si nécessaire */
+}
+@font-face {
+  font-family: 'poppins medium';
+  src: url('assets/font/Poppins-Medium.ttf') format('truetype');
+  /* Ajoutez d'autres formats de police si nécessaire */
+}
+@font-face {
+  font-family: 'poppins bold';
+  src: url('assets/font/Poppins-Bold.ttf') format('truetype');
+  /* Ajoutez d'autres formats de police si nécessaire */
+}
+
+
+$font-family-sans-serif :"poppins";
+$font-family-monospace : "poppins";
+$blue:    #107EC2 !default;
+$indigo:  #312783 !default;
+$purple:  #74226B !default;
+$pink:    #d63384 !default;
+$red:     #CC151A !default;
+$yellow:  #FDD300 !default;
+$green:   #007759 !default;
+@import "app/bootstrap/scss/bootstrap.scss";
+
+// /* You can add global styles to this file, and also import other style files */
+
+// // @import url("assets/css/bootstrap.min.css");
+// @import "app/bootstrap/scss/functions";
+
+// // 2. Include any default variable overrides here
+// $font-family-sans-serif:      "poppins" !default;
+// $font-family-monospace:       "poppins" !default;
+// @import "app/bootstrap/scss/variables";
+// // @import "app/bootstrap/scss/variables-dark";
+
+// // 4. Include any default map overrides here
+// // 5. Include remainder of required parts
+// // @import "app/bootstrap/scss/maps";
+// @import "app/bootstrap/scss/mixins";
+// @import "app/bootstrap/scss/root";
+
+
+// // 6. Optionally include any other parts as needed
+// @import "app/bootstrap/scss/utilities";
+// @import "app/bootstrap/scss/reboot";
+// @import "app/bootstrap/scss/type";
+// // @import "app/bootstrap/scss/images";
+// // @import "app/bootstrap/scss/helpers";
+// @import "app/bootstrap/scss/containers";
+// @import "app/bootstrap/scss/grid";
+// //*******formulaire********
+// // @import "app/bootstrap/scss/forms/floating-labels";
+// @import "app/bootstrap/scss/forms/form-check";// color-adjust: exact; // Keep themed appearance for print
+// @import "app/bootstrap/scss/forms/form-control";
+// @import "app/bootstrap/scss/forms/input-group";
+// //@import "app/bootstrap/scss/forms/form-range";
+// //@import "app/bootstrap/scss/forms/form-select";
+// //@import "app/bootstrap/scss/forms/form-text";
+// //@import "app/bootstrap/scss/forms/labels";
+// // @import "app/bootstrap/scss/forms/validation";
+
+// @import "app/bootstrap/scss/mixins/buttons";
+
+// .btn{
+//   @include button-variant($background:#FDD300,$border:#FDD300);
+// }
