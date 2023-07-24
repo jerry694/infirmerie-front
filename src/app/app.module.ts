@@ -30,6 +30,7 @@ import { BodyComponent } from './body/body.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
