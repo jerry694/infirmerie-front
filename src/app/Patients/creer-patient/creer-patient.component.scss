@@ -1,0 +1,36 @@
+$margin : 1rem;
+h2 {
+    margin-right: calc(1rem/1.5);
+}
+
+hr {
+    height: calc(1rem/6);
+    opacity: 100%;
+    width: auto;
+}
+
+form {
+    background-color: bisque;
+    padding: calc($margin ) ;
+ 
+    .form-container {
+        display: flex;
+        min-height: 300px;
+        font-size: medium;
+
+        .gauche {
+            background-color: cadetblue;
+            height: auto;
+            width: 50%;
+            margin-right: $margin
+        }
+
+        .droite {
+            background-color: cornflowerblue;
+            height: auto;
+            width: 50%;
+            margin-left: $margin;
+        }
+    }
+
+}
