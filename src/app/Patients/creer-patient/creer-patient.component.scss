@@ -1,5 +1,10 @@
-$margin : 1rem;
-h2 {
+$margin : 2rem;
+$heiht: 2.5rem;
+
+@mixin positionBouton {}
+
+h2,
+h5 {
     margin-right: calc(1rem/1.5);
 }
 
@@ -7,30 +12,118 @@ hr {
     height: calc(1rem/6);
     opacity: 100%;
     width: auto;
+
 }
 
 form {
-    background-color: bisque;
-    padding: calc($margin ) ;
- 
+    background-color: rgb(247, 251, 253, .8);
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.101);
+
     .form-container {
         display: flex;
         min-height: 300px;
         font-size: medium;
+        padding-top: calc($margin - .75rem);
+        padding-left: calc($margin );
+        padding-right: calc($margin );
+        padding-bottom: calc(3.5rem);
+        margin-top: 10px;
+        margin-bottom: 1rem;
+        // background-color: bisque;
 
         .gauche {
-            background-color: cadetblue;
+            // background-color: cadetblue;
             height: auto;
             width: 50%;
             margin-right: $margin
         }
 
         .droite {
-            background-color: cornflowerblue;
+            // background-color: cornflowerblue;    
             height: auto;
             width: 50%;
             margin-left: $margin;
         }
     }
 
+    .bgauche {
+        position: absolute;
+        border-radius: 10px;
+        // font-size: small;
+        // left: calc($margin );
+
+    }
+
+    .bdroite {
+        @extend .bgauche;
+        right: calc($margin * 2.5);
+    }
+
+}
+
+.noMargintop {
+    padding-top: 0px;
+}
+
+.placeH {}
+
+
+
+
+
+
+
+// dfddddddddddddddddddddddddddddddddddddddddddddddddd
+
+
+
+@mixin input($top) {
+    border-top: $top solid rgb(112, 112, 112, .1);
+    border-bottom: $top solid rgb(112, 112, 112, .1);
+    height: $heiht;
+}
+
+.fc {
+    // background: none;
+
+    @include input(2px);
+    border-left: none;
+    border-right: 2px solid rgb(112, 112, 112, .1);
+    // border-left: none;
+    border-radius: 0px 7px 7px 0px;
+    padding-left: 0px;
+}
+
+.igt {
+
+    @include input(2px);
+    border-right: none;
+    border-left: 2px solid rgb(112, 112, 112, .1);
+    background-color: white;
+    border-radius: 7px 0px 0px 7px;
+}
+
+////////////////////////////////////////////
+
+
+::placeholder {
+    color: rgb(112, 112, 112, .5);
+    font-size: smaller;
+}
+
+select,
+input {
+    // border-color: #70707020;
+    border: 2px solid rgb(112, 112, 112, .1);
+    border-radius: 7px;
+}
+
+.form-control {
+    height: $heiht;
+}
+
+img {
+    height: 65%;
+    width: auto;
 }

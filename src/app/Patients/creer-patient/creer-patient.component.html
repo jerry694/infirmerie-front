@@ -22,71 +22,97 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                            <label class="col-form-label noMargintop" >Nom*</label>
+                            <input type="text" class="form-control ">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control" placeholder="Prenom">
+                        <div class="form-group col-md-6 ">
+                            <label class="col-form-label noMargintop " >Prenom</label>
+                            <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-form-label" for="inputnom">Nom</label>
-                            <input type="text" class="form-control " id="inputAddress" placeholder="1234 Main St">
+                            <label class="col-form-label" >Date de naissance*</label>
+                            <input type="text" class="form-control ">
                         </div>
+                        <!-- <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+                            <input placeholder="Select date" type="text" id="example" class="form-control">
+                            <label for="example">Try me...</label>
+                            <i class="fas fa-calendar input-prefix"></i>
+                          </div> -->
                         <div class="form-group col-md-6">
-                            <label class="col-form-label ">Address</label>
+                            <label class="col-form-label ">Sexe*</label>
                             <div class="row m-0">
                                 <div class="form-check col-6">
-                                    <input class="form-check-input" type="radio" name="radio" id="radio1"
+                                    <input class="form-check-input" type="radio" name="radio"
                                         value="option1">
-                                    <label class="form-check-label" for="radio1">Option 1</label>
+                                    <label class="form-check-label">Feminin</label>
                                 </div>
                                 <div class="form-check col-6">
                                     <input class="form-check-input" type="radio" name="radio" id="radio2"
                                         value="option2">
-                                    <label class="form-check-label" for="radio2">Option 2</label>
+                                    <label class="form-check-label" >Masculin</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                            <label class="col-form-label ">Matricule*</label>
+                            <input type="text" class="form-control " placeholder="2021x000">
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Prenom">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <select class="form-control ">
-                                <option>Small select</option>
-                                <option>Small select</option>
-                                <option>Small select</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <select class="form-control ">
-                                <option>Small select</option>
-                                <option>Small select</option>
-                                <option>Small select</option>
-                            </select>
+                            <label class="col-form-label ">Addresse
+                                Institutionnelle</label>
+                            <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                            <label class="col-form-label ">Filiere</label>
+                            <select class="form-control ">
+                                <option disabled selected>Sélectionnez</option>
+                                <option value="Ingenieur Generaliste">Ingenieur Generaliste</option>
+                                <option value="ISI">ISI</option>
+                                <option value="SRT">SRT</option>
+                                <option value="Management">Management</option>
+                                <option value="Genie Civil">Genie Civil</option>
+                                <option value="Genie Electrique">Genie Electrique</option>
+                                <option value="Genie Environnement">Genie Environnement</option>
+                            </select>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Prenom">
+                        <div class="form-group col-md-3">
+                            <label class="col-form-label ">Niveau*</label>
+                            <select class="form-control ">
+                                <option disabled selected>Sélectionnez une option...</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="col-form-label ">Numero de telephone</label>
+                            <div class="input-group rect">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text igt"><img
+                                            src="../../../assets/img/phone.svg" alt=""></span>
+                                </div>
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" name="name">
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="col-form-label ">Numero whatsapp</label>
+                            <div class="input-group rect">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text igt"><img
+                                            src="../../../assets/img/phone.svg" alt=""></span>
+                                </div>
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" name="name">
+                            </div>
                         </div>
                     </div>
 
@@ -105,40 +131,90 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                            <label class="col-form-label noMargintop">Nom</label>
+                            <input type="text" class="form-control ">
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <select class="form-control ">
-                                <option>Small select</option>
-                                <option>Small select</option>
-                                <option>Small select</option>
+                            <label class="col-form-label noMargintop">Relation</label>
+                            <select class="form-control placeH">
+                                <option disabled selected>Sélectionnez</option>
+                                <option value="">xxxxxxx</option>
+                                <option value="">xxxxxxx</option>
+                                <option value="">xxxxxxx</option>
                             </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                    <div class="row mb-4">
+                        <div class="form-group col-6">
+                            <label class="col-form-label ">Numero de telephone</label>
+                            <div class="input-group rect">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text igt"><img
+                                            src="../../../assets/img/phone.svg" alt=""></span>
+                                </div>
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" name="name">
+                            </div>
                         </div>
                     </div>
+                    <span class="spacer"></span>
                     <div class="d-flex align-items-end">
                         <h5 class="text-primary">Donnees vitales</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                            <label class="col-form-label noMargintop">Taille (m)</label>
+                            <div class="input-group rect">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text igt"><img
+                                            src="../../../assets/img/taille.svg" alt=""></span>
+                                </div>
+                                <input type="text" class="form-control fc" name="taille">
+                            </div>
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                            <label class="col-form-label noMargintop">Poids (kg)</label>
+                            <div class="input-group rect">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text igt"><img
+                                            src="../../../assets/img/poids.svg" alt=""></span>
+                                </div>
+                                <input type="text" class="form-control fc" name="Poids">
+                            </div>
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="col-form-label " for="inputnom">Nom</label>
+                            <label class="col-form-label noMargintop">Groupe Sanguin</label>
+                            <div class="input-group rect">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text igt"><img
+                                            src="../../../assets/img/sang.svg" alt=""></span>
+                                </div>
+                                <select class="form-control fc text-center">
+                                    <option disabled selected>Sélectionnez</option>
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>AB</option>
+                                    <option>O</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group col-md-4">
+                            <label class="col-form-label noMargintop" for="inputnom">Groupe Sanguin</label>
                             <select class="form-control ">
+                                <option disabled selected>Sélectionnez</option>
+                                <option>A</option>
+                                <option>B</option>
+                                <option>AB</option>
+                                <option>O</option>
+                            </select>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        
+                        <div class="form-group col-md-9">
+                            <label class="col-form-label">Antecedants medicaux</label>
+                            <select class="form-control ">
+                                <option disabled selected>Sélectionnez</option>
                                 <option>Small select</option>
                                 <option>Small select</option>
                                 <option>Small select</option>
@@ -146,18 +222,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label " for="inputnom">Nom</label>
-                            <input type="text" class="form-control " placeholder="Nom">
+                        <div class="form-group col">
+                            <label class="col-form-label ">Autres</label>
+                            <div class="input-group rect">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text igt"><img
+                                            src="../../../assets/img/autres.svg" alt=""></span>
+                                </div>
+                                <input type="text" class="form-control fc" placeholder="Identifiant" name="name">
+                            </div>
                         </div>
                     </div>
 
-                    
+
 
                 </div>
             </div>
-            <button class="btn btn-danger gauche" type="reset">Annuler</button>
-            <button class="btn btn-success droite" type="submit">Enregistrer</button>
+            <a href="" class="btn btn-danger bgauche">Annuler</a>
+            <button class="btn btn-success bdroite" type="submit">Enregistrer</button>
         </form>
     </div>
 </body>
