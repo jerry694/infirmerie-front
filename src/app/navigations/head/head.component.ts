@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeadComponent {
 
+  login!:any;
+  ngOnInit() {
+    // Récupérez la valeur du LocalStorage pour la clé 'login'
+    this.login = localStorage.getItem('login');
+   
+  }
 }

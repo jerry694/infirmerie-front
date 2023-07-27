@@ -14,6 +14,8 @@ import { CreerPatientComponent } from './Patients/creer-patient/creer-patient.co
 import { ListeFactureComponent } from './Factures/liste-facture/liste-facture.component';
 import { ListeMedicamentComponent } from './Stock/liste-medicament/liste-medicament.component';
 import { BodyComponent } from './body/body.component';
+import { PageComponent } from './page/page.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { BodyComponent } from './body/body.component';
     CreerPatientComponent,
     ListeFactureComponent,
     ListeMedicamentComponent,
-    BodyComponent
+    BodyComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,

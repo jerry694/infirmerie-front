@@ -18,4 +18,8 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
     // this.screenWidth = window.innerWidth
   }
+  effacerLocalStorage() {
+    localStorage.clear(); // Efface tout le contenu du LocalStorage
+  }
 }
+
