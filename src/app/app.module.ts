@@ -15,6 +15,10 @@ import { ListeFactureComponent } from './Factures/liste-facture/liste-facture.co
 import { ListeMedicamentComponent } from './Stock/liste-medicament/liste-medicament.component';
 import { BodyComponent } from './body/body.component';
 
+import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { JsonPipe } from '@angular/common';
+// import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,13 +29,16 @@ import { BodyComponent } from './body/body.component';
     CreerPatientComponent,
     ListeFactureComponent,
     ListeMedicamentComponent,
-    BodyComponent
+    BodyComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbDatepickerModule, 
+    NgbAlertModule, 
+    JsonPipe
   ],
   providers: [],
   bootstrap: [AppComponent]
