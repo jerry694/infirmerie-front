@@ -14,6 +14,8 @@ import { CreerPatientComponent } from './Patients/creer-patient/creer-patient.co
 import { ListeFactureComponent } from './Factures/liste-facture/liste-facture.component';
 import { ListeMedicamentComponent } from './Stock/liste-medicament/liste-medicament.component';
 import { BodyComponent } from './body/body.component';
+import { PageComponent } from './page/page.component';
+
 
 import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
@@ -30,6 +32,7 @@ import { JsonPipe } from '@angular/common';
     ListeFactureComponent,
     ListeMedicamentComponent,
     BodyComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
