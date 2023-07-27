@@ -42,9 +42,10 @@ $borderradius : 7px 0 0 7px;
     border-radius: $borderradius;
     background-color:#107EC2 ;
     color:white;
+    margin-bottom: 4px;
 }
 .sidenav-nav-link:hover{
-    background-color :white;
+    background-color :rgb(255, 255, 255,.7);
     color: #107EC2;
 }
 

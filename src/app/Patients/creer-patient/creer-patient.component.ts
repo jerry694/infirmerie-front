@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./creer-patient.component.scss']
 })
 export class CreerPatientComponent {
-
+model : any;
 }
