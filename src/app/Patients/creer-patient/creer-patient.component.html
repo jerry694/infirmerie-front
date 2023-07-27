@@ -192,14 +192,28 @@
 
                     </div>
                     <div class="row mb-3">
-                        <div class="form-group col-md-9">
-                            <label>Antecedants medicaux</label>
+                        <div class="form-group col-md-9 " [class.show]="isDropdownOpen">
+                            <!-- <label>Antecedants medicaux</label>
                             <select class="form-control ">
                                 <option disabled selected>Sélectionnez</option>
                                 <option value="">Small select</option>
                                 <option value="">Small select</option>
                                 <option value="">Small select</option>
-                            </select>
+                            </select> -->
+                            <!-- <div class="d-inline-block" [class.show]="isDropdownOpen"> -->
+                                <!-- <button type="button" (click)="toggleDropdown()" class="btn btn-outline-primary me-2" id="dropdownManual">
+                                    Antecedants medicaux
+                                </button> -->
+                                <!-- <select name="" class="form-control" (click)="toggleDropdown()" id="dropdownManual"></select> -->
+                                <!-- <div class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownManual">
+                                    <div *ngFor="let item of dropdownItems">
+                                        <label class="dropdown-item">
+                                            <input type="checkbox" [(ngModel)]="item.selected" name="Antecedants" (change)="toggleItemSelection(item)">
+                                            {{ item.name }}
+                                        </label>
+                                    </div>
+                                </div> -->
+                            <!-- </div> -->
                         </div>
                     </div>
                     <div class="row">

@@ -17,9 +17,8 @@ import { BodyComponent } from './body/body.component';
 import { PageComponent } from './page/page.component';
 
 
-import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule,NgbAlertModule,NgbDropdownModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
-// import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { JsonPipe } from '@angular/common';
     ListeFactureComponent,
     ListeMedicamentComponent,
     BodyComponent,
-    PageComponent
+    PageComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +40,9 @@ import { JsonPipe } from '@angular/common';
     HttpClientModule,
     NgbDatepickerModule, 
     NgbAlertModule, 
-    JsonPipe
+    JsonPipe,
+    NgbModule,
+    NgbDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
