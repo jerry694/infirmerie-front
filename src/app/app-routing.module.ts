@@ -10,7 +10,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 const routes: Routes = [
   {path:'',redirectTo:'/auth',pathMatch:'full'},
   {path:'auth',component:AuthentificationComponent},
-  {path:'page',component:PageComponent},
+  // {path:'page',component:PageComponent},
 
   {path:'dashboard',component:DasboardComponent},
   {path:'patient/creer',component:CreerPatientComponent},
