@@ -6,25 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./creer-patient.component.scss']
 })
 export class CreerPatientComponent {
-  
-  dropdownItems = [
-    { id: 1, name: 'Option 1', selected: false },
-    { id: 2, name: 'Option 2', selected: false },
-    { id: 3, name: 'Option 3', selected: false },
-  ];
+model : any;
 
-  isDropdownOpen = false;
+antecedentItems = [
+  { id: 1, name: 'Option 1', selected: false },
+  { id: 2, name: 'Option 2', selected: false },
+  { id: 3, name: 'Option 3', selected: false },
+];
 
-  toggleItemSelection(item: any): void {
-    item.selected = !item.selected;
-  }
+isDropdownOpen = false;
 
-  isItemSelected(item: any): boolean {
-    return item.selected;
-  }
+toggleItemSelection(item: any): void {
+  item.selected = !item.selected;
+}
 
-  toggleDropdown(): void {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
+isItemSelected(item: any): boolean {
+  return item.selected;
+}
 
+toggleDropdown(): void {
+  this.isDropdownOpen = !this.isDropdownOpen;
+}
 }

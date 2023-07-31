@@ -1,15 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="d-flex align-items-end">
         <h2 class="text-primary">Dashboard</h2>
         <hr class="flex-grow-1 text-primary">
-      </div>
+    </div>
+    <div class="forms-container ">
+        <div class="container ">
+            <div class="card " *ngFor="let information of informations">
+                <img [src]="information.image" alt="">
+                <span>
+                    <h3>{{information.label}}</h3>
+                    <h1>{{information.valeur}}</h1>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="forms-container">
+        <div class="container container1 ">
+            <div class="graph ">
+                <div class="head">
+                    <h4>Performance</h4>
+                </div>
+                <div></div>
+            </div>
+            <div class="rappel ">
+                <div class="facture ">
+                    <div class="head">
+                        <h4>Factures non payes</h4>
+                    </div>
+                    <div class="body">
+                        <table class="table">
+                            <thead>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Classe</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Montant</th>
+                            </thead>
+                            <tbody>
+                                
+                                <tr *ngFor="let nonPaye of nonPayes"> 
+                                    <th scope="row"><span style="color: rgba(0, 0, 0, 1);">{{nonPaye.nom}}</span></th>
+                                    <td>{{nonPaye.classe}}</td>
+                                    <td> <i>{{nonPaye.date}}</i> </td>
+                                    <td>{{nonPaye.montant}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="rVous ">
+                    <div class="head">
+                        <h4>Rendez-vous</h4>
+                    </div>
+                    <div class="body">
+                        <table class="table">
+                            <thead>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Motif</th>
+                                <th scope="col">Date</th>
+                            </thead>
+                            <tbody *ngIf="rVous != null">
+                                <!-- *ngFor="let etudiant for etudiants" -->
+                                <tr *ngFor="let rvous of rVous"> 
+                                    <th scope="row"><span style="color: rgba(0, 0, 0, 1);">{{rvous.nom}}</span></th>
+                                    <td> <i>{{rvous.motif}}</i> </td>
+                                    <td>{{rvous.date}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
