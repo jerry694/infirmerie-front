@@ -14,7 +14,10 @@
   /* Ajoutez d'autres formats de police si nécessaire */
 }
 
-
+*{
+  scroll-behavior: smooth;
+  // transition: .5s;
+}
 $font-family-sans-serif :"poppins";
 $font-family-monospace : "poppins";
 $blue:    #107EC2 !default;

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="37.299" height="19.16" viewBox="0 0 37.299 19.16">
+  <g id="Consult" transform="translate(-441.201 -265.777)">
+    <g id="Right_38_" transform="translate(461.833 270.916)">
+      <path id="Shape_60_" d="M290.2,127.255v9.534a.119.119,0,0,0,.207.083l2.252-2.252a1.842,1.842,0,0,1,1.3-.539h9.88a2.53,2.53,0,0,0,2.529-2.529v-5.624a2.53,2.53,0,0,0-2.529-2.529h-9.783A3.857,3.857,0,0,0,290.2,127.255Z" transform="translate(-290.2 -123.4)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+      <g id="Content_9_" transform="translate(3.897 3.427)">
+        <line id="_x33_rd_10_" x2="8.374" transform="translate(0 3.91)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="_x32_nd_11_" x2="8.374" transform="translate(0 1.948)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="_x31_st_11_" x2="8.374" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+      </g>
+      <path id="Line_20_" d="M301,191.974a1.926,1.926,0,0,1,1.423-.774" transform="translate(-299.508 -181.832)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+    <g id="Left_39_" transform="translate(441.701 266.277)">
+      <path id="Shape_59_" d="M115.667,81.955v9.534a.119.119,0,0,1-.207.083l-2.252-2.252a1.842,1.842,0,0,0-1.3-.539h-9.88A2.53,2.53,0,0,1,99.5,86.252V80.629a2.53,2.53,0,0,1,2.529-2.529h9.783A3.848,3.848,0,0,1,115.667,81.955Z" transform="translate(-99.5 -78.1)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Line_19_" d="M196,90.5a1.938,1.938,0,0,1,1.174,1.105" transform="translate(-182.666 -88.787)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+      <g id="Content_8_" transform="translate(3.275 3.316)">
+        <line id="_x33_rd_9_" x2="8.374" transform="translate(0 3.91)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="_x32_nd_10_" x2="8.374" transform="translate(0 1.948)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+        <line id="_x31_st_10_" x2="3.703" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,23 +1,105 @@
-
-
 <div class="container-fluid ">
     <div class="sidenav">
         <div class="logo-container">
             <img src="../../../assets/img/Bienvenue a l'infirmerie.svg" alt="">
         </div>
         <ul class="sidenav-nav bg-primary">
-            <li class="sidenav-nav-item" *ngFor="let data of navData">
-                <a [routerLink]="data.routeLink" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="sidenav-nav-link">
-                    <img [src]="data.icon" alt="">
-                    <span class="sidenav-link-text">{{data.label}}</span>
+            <li class="sidenav-nav-item" >
+                <a routerLink="dashboard" routerLinkActive="active" class="sidenav-nav-link">
+                    <!-- <img src="../../../assets/img/Dashboard.svg" alt=""> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                        <g id="Dashboard" transform="translate(-104 -42)">
+                          <rect id="Rectangle_258" data-name="Rectangle 258" width="12" height="9" rx="2" transform="translate(104 42)" fill="#fff"/>
+                          <rect id="Rectangle_259" data-name="Rectangle 259" width="12" height="16" rx="2" transform="translate(119 42)" fill="#fff"/>
+                          <rect id="Rectangle_260" data-name="Rectangle 260" width="12" height="16" rx="2" transform="translate(104 53)" fill="#fff"/>
+                          <rect id="Rectangle_261" data-name="Rectangle 261" width="12" height="9" rx="2" transform="translate(119 60)" fill="#fff"/>
+                        </g>
+                    </svg>                      
+                    <span class="sidenav-link-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidenav-nav-item" >
+                <a routerLink="patient" routerLinkActive="active" class="sidenav-nav-link">
+                    <!-- <img src="../../../assets/img/infirmerie.svg" alt=""> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+                        <g id="Group_122" data-name="Group 122" transform="translate(-104 -275)">
+                          <g id="Ellipse_68" data-name="Ellipse 68" transform="translate(104 275)" fill="none" stroke="#fff" stroke-width="2">
+                            <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+                            <circle cx="13.5" cy="13.5" r="12.5" fill="none"/>
+                          </g>
+                          <g id="Union_1" data-name="Union 1" transform="translate(2187 2578)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M-2072-2282v-5h-5v-5h5v-5h5v5h5v5h-5v5Z" stroke="none"/>
+                            <path d="M -2068.000244140625 -2282.99951171875 L -2068.000244140625 -2287 C -2068.000244140625 -2287.55224609375 -2067.552490234375 -2288 -2067.000244140625 -2288 L -2063 -2288 L -2063 -2291.000244140625 L -2067.000244140625 -2291.000244140625 C -2067.552490234375 -2291.000244140625 -2068.000244140625 -2291.447998046875 -2068.000244140625 -2292.000244140625 L -2068.000244140625 -2295.999755859375 L -2070.999755859375 -2295.999755859375 L -2070.999755859375 -2292.000244140625 C -2070.999755859375 -2291.447998046875 -2071.447509765625 -2291.000244140625 -2071.999755859375 -2291.000244140625 L -2076.000244140625 -2291.000244140625 L -2076.000244140625 -2288 L -2071.999755859375 -2288 C -2071.447509765625 -2288 -2070.999755859375 -2287.55224609375 -2070.999755859375 -2287 L -2070.999755859375 -2282.99951171875 L -2068.000244140625 -2282.99951171875 M -2067.000244140625 -2281.99951171875 L -2071.999755859375 -2281.99951171875 L -2071.999755859375 -2287 L -2077.000244140625 -2287 L -2077.000244140625 -2292.000244140625 L -2071.999755859375 -2292.000244140625 L -2071.999755859375 -2296.999755859375 L -2067.000244140625 -2296.999755859375 L -2067.000244140625 -2292.000244140625 L -2062 -2292.000244140625 L -2062 -2287 L -2067.000244140625 -2287 L -2067.000244140625 -2281.99951171875 Z" stroke="none" fill="#fff"/>
+                          </g>
+                        </g>
+                      </svg>
+                    <span class="sidenav-link-text">Infirmerie</span>
+                </a>
+            </li>
+            <li class="sidenav-nav-item" >
+                <a routerLink="medicament/liste" routerLinkActive="active" class="sidenav-nav-link">
+                    <!-- <img src="../../../assets/img/stock.svg" alt=""> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="26" viewBox="0 0 20 26">
+                        <g id="Group_123" data-name="Group 123" transform="translate(-83.76 -267)">
+                          <g id="Group_124" data-name="Group 124" transform="translate(84 267)">
+                            <g id="Union_3" data-name="Union 3" transform="translate(-0.241)" fill="none">
+                              <path d="M0,26V4.161H4.21V2.08H6.38A3.07,3.07,0,0,1,9.474,0a3.071,3.071,0,0,1,3.094,2.08h2.168V4.161H20V24a2,2,0,0,1-2,2Z" stroke="none"/>
+                              <path d="M 18 24.75010108947754 C 18.4134407043457 24.75010108947754 18.74979972839355 24.41374015808105 18.74979972839355 24.00030136108398 L 18.74979972839355 5.41070032119751 L 13.48659992218018 5.41070032119751 L 13.48659992218018 3.329900503158569 L 11.58928966522217 3.329900503158569 L 11.35484981536865 2.379170656204224 C 11.21986961364746 1.831770539283752 10.5149097442627 1.250000596046448 9.474299430847168 1.250000596046448 C 8.433690071105957 1.250000596046448 7.728729724884033 1.831770539283752 7.59375 2.379170656204224 L 7.359309673309326 3.329900503158569 L 5.46019983291626 3.329900503158569 L 5.46019983291626 5.41070032119751 L 1.24999988079071 5.41070032119751 L 1.24999988079071 24.75010108947754 L 18 24.75010108947754 M 18 26.00010108947754 L -1.358032193365943e-07 26.00010108947754 L -1.358032193365943e-07 4.16070032119751 L 4.21019983291626 4.16070032119751 L 4.21019983291626 2.079900503158569 L 6.380099773406982 2.079900503158569 C 6.672599792480469 0.8937005400657654 7.946099758148193 5.447387820822769e-07 9.474299430847168 5.447387820822769e-07 C 11.00160026550293 5.447387820822769e-07 12.27600002288818 0.8937005400657654 12.56849956512451 2.079900503158569 L 14.73659992218018 2.079900503158569 L 14.73659992218018 4.16070032119751 L 19.99979972839355 4.16070032119751 L 19.99979972839355 24.00030136108398 C 19.99979972839355 25.10460090637207 19.10429954528809 26.00010108947754 18 26.00010108947754 Z" stroke="none" fill="#fff"/>
+                            </g>
+                            <path id="Path_373" data-name="Path 373" d="M0,0V2.233H9.27V0" transform="translate(4.608 4.68)" fill="none" stroke="#fff" stroke-width="1.25"/>
+                          </g>
+                          <g id="Group_123-2" data-name="Group 123" transform="translate(87.66 275.222)">
+                            <g id="Path_370" data-name="Path 370" transform="translate(-0.599 5.508)" fill="none">
+                              <path d="M.6-2.514,6.739.388V7.221L.6,4.222Z" stroke="none"/>
+                              <path d="M 1.848879337310791 -0.5409283638000488 L 1.848879337310791 3.441723823547363 L 5.489479541778564 5.219651222229004 L 5.489479541778564 1.179946899414062 L 1.848879337310791 -0.5409283638000488 M 0.598879337310791 -2.514407157897949 L 6.739479541778564 0.3881931304931641 L 6.739479541778564 7.221193313598633 L 0.598879337310791 4.222362995147705 L 0.598879337310791 -2.514407157897949 Z" stroke="none" fill="#fff"/>
+                            </g>
+                            <g id="Path_372" data-name="Path 372" transform="translate(2.549 -0.74)" fill="none">
+                              <path d="M-2.549,3.775,3.608,6.81,9.651,3.775,3.375.74Z" stroke="none"/>
+                              <path d="M 3.602392673492432 5.414044380187988 L 6.823564529418945 3.796070337295532 L 3.390960931777954 2.135824203491211 L 0.2343625128269196 3.753379344940186 L 3.602392673492432 5.414044380187988 M 3.607555866241455 6.810282707214355 L -2.548584222793579 3.774892568588257 L 3.374865770339966 0.7395025491714478 L 9.650615692138672 3.774892568588257 L 3.607555866241455 6.810282707214355 Z" stroke="none" fill="#fff"/>
+                            </g>
+                            <g id="Path_371" data-name="Path 371" transform="translate(5.542 5.508)" fill="none">
+                              <path d="M6.657-2.514.6.388V7.221l6.058-3Z" stroke="none"/>
+                              <path d="M 5.407217025756836 -0.5294556617736816 L 1.848877429962158 1.175374269485474 L 1.848877429962158 5.207700252532959 L 5.407217025756836 3.44635009765625 L 5.407217025756836 -0.5294556617736816 M 6.657217025756836 -2.514407157897949 L 6.657217025756836 4.222362995147705 L 0.5988774299621582 7.221193313598633 L 0.5988774299621582 0.3881931304931641 L 6.657217025756836 -2.514407157897949 Z" stroke="none" fill="#fff"/>
+                            </g>
+                            <line id="Line_111" data-name="Line 111" y1="2.08" x2="4.16" transform="translate(4.057 1.969)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.25"/>
+                          </g>
+                        </g>
+                      </svg>
+                    <span class="sidenav-link-text">Stock</span>
+                </a>
+            </li>
+            <li class="sidenav-nav-item" >
+                <a routerLink="facture/liste" routerLinkActive="active" class="sidenav-nav-link">
+                    <!-- <img src="../../../assets/img/facture.svg" alt=""> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20.46" height="24.831" viewBox="0 0 20.46 24.831">
+                        <g id="Group_140" data-name="Group 140" transform="translate(-7.65 -1.12)">
+                          <path id="Path_386" data-name="Path 386" d="M16.012,33.79a.389.389,0,1,0,.392.392A.392.392,0,0,0,16.012,33.79Z" transform="translate(-3.804 -15.592)" fill="#fff"/>
+                          <path id="Path_387" data-name="Path 387" d="M28,3.07a.4.4,0,0,0-.282-.115H25.486V1.512a.4.4,0,0,0-.392-.392H8.042a.4.4,0,0,0-.392.392V23.724a.4.4,0,0,0,.392.392h3.779v1.443a.393.393,0,0,0,.392.392h15.5A.383.383,0,0,0,28,25.836a.392.392,0,0,0,.115-.277V3.347A.442.442,0,0,0,28,3.07Zm-.674,22.1H12.6V19.631a.392.392,0,1,0-.784,0v3.7H8.434V1.9H24.707V2.955H12.214a.393.393,0,0,0-.392.392v14.2a.392.392,0,0,0,.784,0V3.739H27.326V25.167Z" transform="translate(0)" fill="#fff"/>
+                          <path id="Path_388" data-name="Path 388" d="M30.222,12.554h5.923a.392.392,0,0,0,0-.784H30.222a.392.392,0,0,0,0,.784Z" transform="translate(-10.585 -5.083)" fill="#fff"/>
+                          <path id="Path_389" data-name="Path 389" d="M30.222,17.344h5.923a.392.392,0,0,0,0-.784H30.222a.392.392,0,0,0,0,.784Z" transform="translate(-10.585 -7.369)" fill="#fff"/>
+                          <path id="Path_390" data-name="Path 390" d="M30.222,22.124h5.923a.392.392,0,0,0,0-.784H30.222a.392.392,0,0,0,0,.784Z" transform="translate(-10.585 -9.65)" fill="#fff"/>
+                          <path id="Path_391" data-name="Path 391" d="M20.142,26.914H31.334a.392.392,0,1,0,0-.784H20.142a.392.392,0,0,0,0,.784Z" transform="translate(-5.775 -11.936)" fill="#fff"/>
+                          <path id="Path_392" data-name="Path 392" d="M20.142,31.7H31.334a.392.392,0,1,0,0-.784H20.142a.392.392,0,0,0,0,.784Z" transform="translate(-5.775 -14.222)" fill="#fff"/>
+                          <path id="Path_393" data-name="Path 393" d="M20.142,36.494h7.6a.392.392,0,0,0,0-.784h-7.6a.392.392,0,0,0,0,.784Z" transform="translate(-5.775 -16.508)" fill="#fff"/>
+                          <path id="Path_394" data-name="Path 394" d="M20.142,40.894h7.6a.392.392,0,1,0,0-.784h-7.6a.392.392,0,1,0,0,.784Z" transform="translate(-5.775 -18.608)" fill="#fff"/>
+                          <path id="Path_395" data-name="Path 395" d="M22.313,15.528a.667.667,0,0,1-.669-.669.392.392,0,1,0-.784,0,1.447,1.447,0,0,0,1.061,1.391v.214a.392.392,0,0,0,.784,0V16.25a1.448,1.448,0,0,0-.392-2.844.669.669,0,1,1,.669-.669.392.392,0,1,0,.784,0,1.447,1.447,0,0,0-1.061-1.391v-.214a.392.392,0,0,0-.784,0v.214a1.448,1.448,0,0,0,.392,2.844.669.669,0,1,1,0,1.338Z" transform="translate(-6.304 -4.591)" fill="#fff"/>
+                        </g>
+                      </svg>
+                    <span class="sidenav-link-text">Facture</span>
                 </a>
             </li>
         </ul>
-        <div class="exit-button" (click)="effacerLocalStorage()" >
-            <a [routerLink]="" class="exit">
+        <div class="exit-button">
+            <!-- <a [routerLink]="" class="exit">
                 <img src="../../../assets/img/Deconnexion.svg" alt="">
                 <span>Deconnexion</span>
-            </a>
+            </a> -->
+            <button class="btn  btn-warning exit" (click)="effacerLocalStorage()">
+                <a [routerLink]="">
+                    <img src="../../../assets/img/Deconnexion.svg" alt="">
+                    <span>Deconnexion</span>
+                </a>
+            </button>
         </div>
     </div>
 </div>

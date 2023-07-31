@@ -45,14 +45,17 @@ $borderradius : 7px 0 0 7px;
     margin-bottom: 4px;
 }
 .sidenav-nav-link:hover{
-    background-color :rgb(255, 255, 255,.7);
+    background-color :rgb(255, 255, 255,.9);
     color: #107EC2;
 }
 
-.sidenav-nav-link img{
+.sidenav-nav-link svg{
     height: 1rem;
     width: auto;
     margin-right: 1.15rem;
+}
+.active rect,.active path{
+    fill: #107EC2;
 }
 .exit-button{
     bottom: 6.5rem;
@@ -61,14 +64,15 @@ $borderradius : 7px 0 0 7px;
     // background-color: aliceblue;
     .exit{
         
-    background-color: #FDD300;
-    color: white;
+    // background-color: #FDD300;
+    // color: white;
     width: 75%;
-    padding: 15px 15px;
+    // padding: 15px 15px;
+    color: white;
     margin: auto;
-    @include dFlex(1rem);
+    display: flex;
+    align-items: center;
     justify-content: center;
-    font-size: small;
     border-radius: 5px 5px 5px 5px;
     // box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.269);
     }
@@ -85,4 +89,10 @@ $borderradius : 7px 0 0 7px;
 
 .headerx{
     z-index: 3;
+}
+.btn{
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin-left: calc(1rem/1.5);
+    margin-bottom: calc(1rem/1.7);
 }

@@ -1,0 +1,128 @@
+$margin : 2rem;
+$heiht: 2.5rem;
+
+@mixin positionBouton {}
+
+@mixin input($top) {
+    border-top: $top solid rgb(112, 112, 112, .1);
+    border-bottom: $top solid rgb(112, 112, 112, .1);
+    height: $heiht;
+}
+
+h2,
+h5 {
+    margin-right: calc(1rem/1.5);
+}
+
+h6 {
+    display: inline;
+}
+
+hr {
+    height: calc(1rem/6);
+    opacity: 100%;
+    width: auto;
+
+}
+
+
+img {
+    height: 65%;
+    width: auto;
+}
+
+button img {
+    margin-left: 5px;
+    margin-right: 8px;
+}
+button{
+    color: white;
+}
+button:hover{
+    color: white;
+}
+button:active{
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+span{
+    margin-left: 20px;
+    color: rgba(0, 0, 0, 0.472);
+}
+td{
+    color: rgba(0, 0, 0, 0.472);
+}
+svg>path:hover{
+    fill: #107EC2 ;
+}
+
+.forms {
+    background-color: rgb(247, 251, 253, .8);
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.101);
+
+    .forms-container {
+        display: flex;
+        min-height: 300px;
+        font-size: medium;
+        padding-top: calc($margin - .75rem);
+        padding-left: calc($margin );
+        padding-right: calc($margin );
+        padding-bottom: calc(1.5rem);
+        margin-top: 10px;
+        margin-bottom: 1rem;
+        // background-color: bisque;
+
+        .gauche {
+            // background-color: cadetblue;
+            height: auto;
+            width: 50%;
+            margin-right: $margin;
+
+
+        }
+
+        .droite {
+            // background-color: cornflowerblue;    
+            height: auto;
+            width: 50%;
+            margin-left: $margin;
+        }
+    }
+
+    .bgauche {
+        position: absolute;
+        border-radius: 10px;
+        padding: 5px 15px;
+        // font-size: small;
+        // left: calc($margin );
+
+    }
+
+    .bdroite {
+        @extend .bgauche;
+        padding: 5px 20px;
+        right: calc($margin * 2.5);
+    }
+
+}
+
+.bhead {
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin-left: calc(1rem/1.5);
+    margin-bottom: calc(1rem/1.7);
+    // margin-bottom: 7px;
+}
+
+.gauche div {
+    margin-bottom: .5rem;
+}
+
+.droite div,table {
+    margin-bottom: .5rem;
+}

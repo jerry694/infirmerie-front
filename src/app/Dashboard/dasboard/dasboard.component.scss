@@ -1,8 +1,125 @@
-h2{
+h2 {
     margin-right: calc(1rem/1.5);
 }
-hr{
+
+h1 {
+    margin: 0;
+}
+
+h3 {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.525);
+
+}
+
+hr {
     height: calc(1rem/6);
     opacity: 100%;
     width: auto;
+}
+
+.forms-container {
+    display: flex;
+    min-height: 150px;
+    font-size: medium;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+
+    .container {
+        padding: 0;
+        display: flex;
+
+        .card {
+            width: 24%;
+            height: 90%;
+            margin-right: .7rem;
+            padding-left: 1.7rem;
+            // padding-right: 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.10);
+            border-radius: 10px;
+            border: none;
+
+        }
+    }
+
+}
+
+.card>img {
+    margin-right: 1.5rem;
+}
+
+
+
+.forms-container {
+    .container1 {
+        justify-content: space-between;
+
+        .graph {
+            width: 55%;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
+
+        }
+
+        .rappel {
+            width: 44%;
+
+            .facture {
+                width: 100%;
+                min-height: 8rem;
+                margin-bottom: .5rem;
+                border-radius: 10px 10px 10px 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
+
+            }
+
+            .rVous {
+                width: 100%;
+                min-height: 8rem;
+                border-radius: 10px 10px 10px 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
+
+            }
+        }
+    }
+}
+
+.head {
+    height: 3rem;
+    background-color: rgba(223, 236, 246, 0.42);
+    display: flex;
+    align-items: center;
+    padding-left: 1.7rem;
+    border-radius: 10px 10px 0 0;
+    color: #107EC2;
+}
+
+.body {
+    padding-left: 1.7rem;
+    padding-right: 1.7rem;
+
+    .table {
+        text-align: left;
+        color: rgba(0, 0, 0, 0.35);
+        margin-top: .4rem;
+        // width: 100%;
+
+    }
+}
+
+thead {
+    font-size: .7rem;
+    color: rgba(0, 0, 0, 0.35);
+}
+tbody th,tbody td{
+    padding-left: 0;
+    height: 3rem;
+    vertical-align: middle;
+}
+h4 {
+    margin: 0;
 }
