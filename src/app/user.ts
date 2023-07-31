@@ -1,4 +1,4 @@
 export class User {
-    login!:string;
+    login!:string;                                                                                                                                          
     password! :string ;
 }
