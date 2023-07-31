@@ -1,1 +1,68 @@
-<p>liste-medicament works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d-flex align-items-end ">
+        <h2 class="text-primary">Liste des Medicaments</h2>
+        <hr class="flex-grow-1 text-primary">
+        <button  (click)="creer()" class="btn btn-primary bhead">
+            <img src="../../../assets/img/add.svg" alt="">
+            Ajouter Un Medicament
+        </button>
+    </div>
+    <div class="forms-container ">
+        <table class="table">
+            <thead>
+                <th class="text-left" scope="col">N*</th>
+                <th class="text-left " scope="col">Nom</th>
+                <th scope="col">Date expiration</th>
+                <th scope="col">Stock disponible</th>
+                <th scope="col">prixUnitaire</th>
+                <th scope="col">Actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medicament of medicaments">
+                    <th class="text-left" scope="row">{{medicament.idMedicament}}</th>
+                    <td class="text-left ">{{medicament.nom}}</td>
+                    <td>{{medicament.dateExpiration}}</td>
+                    <td>{{medicament.stockDisponible}}</td>
+                    <td>{{medicament.prixUnitaire}}</td>
+                    <td>
+                        <a (click)="more(medicament.idMedicament)">
+                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
+                                viewBox="0 0 26.613 17.779">
+                                <path id="more"
+                                    d="M26.453,12.713A14.817,14.817,0,0,0,13.307,4.5,14.819,14.819,0,0,0,.161,12.714a1.5,1.5,0,0,0,0,1.351,14.817,14.817,0,0,0,13.146,8.213,14.819,14.819,0,0,0,13.146-8.214A1.5,1.5,0,0,0,26.453,12.713ZM13.307,20.056a6.667,6.667,0,1,1,6.653-6.667A6.66,6.66,0,0,1,13.307,20.056Zm0-11.112a4.4,4.4,0,0,0-1.169.175,2.213,2.213,0,0,1-3.091,3.1,4.423,4.423,0,1,0,4.26-3.273Z"
+                                    transform="translate(0 -4.5)" fill="#707070" />
+                            </svg>
+                        </a>
+                        <a (click)="modify(medicament.idMedicament)">
+                            <svg class="modify" xmlns="http://www.w3.org/2000/svg" width="30.786" height="30.849"
+                                viewBox="0 0 30.786 30.849">
+                                <path id="modify"
+                                    d="M28.546,1.928A4.822,4.822,0,0,1,32.394,9.64L30.47,11.568,23.736,4.82,25.66,2.892a4.782,4.782,0,0,1,2.886-.964ZM4.495,24.1,2.571,32.777l8.658-1.928,17.8-17.834L22.293,6.266ZM24.084,12.881l-13.469,13.5L8.957,24.716l13.469-13.5,1.658,1.662Z"
+                                    transform="translate(-2.571 -1.928)" fill="#7a7171" />
+                            </svg>
+                        </a>
+                        <a (click)="delete(medicament.idMedicament)">
+                            <svg class="delete" xmlns="http://www.w3.org/2000/svg" width="20.957" height="27"
+                                viewBox="0 0 20.957 27">
+                                <path id="delete"
+                                    d="M9,28.5a3.006,3.006,0,0,0,2.994,3H23.966a3.006,3.006,0,0,0,2.994-3v-18H9ZM28.457,6H23.218l-1.5-1.5H14.236L12.739,6H7.5V9H28.457Z"
+                                    transform="translate(-7.5 -4.5)" fill="#707070" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

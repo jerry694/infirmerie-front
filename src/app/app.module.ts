@@ -22,6 +22,10 @@ import { JsonPipe } from '@angular/common';
 import { ModifierPatientComponent } from './Patients/modifier-patient/modifier-patient.component';
 import { ApercuPatientComponent } from './Patients/apercu-patient/apercu-patient.component';
 import { ListePatientComponent } from './Patients/liste-patient/liste-patient.component';
+import { CreerMedicamentComponent } from './Stock/creer-medicament/creer-medicament.component';
+import { ModifierMedicamentComponent } from './Stock/modifier-medicament/modifier-medicament.component';
+import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medicament.component';
+import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
 // import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
 
 @NgModule({
@@ -38,7 +42,11 @@ import { ListePatientComponent } from './Patients/liste-patient/liste-patient.co
     PageComponent,
     ModifierPatientComponent,
     ApercuPatientComponent,
-    ListePatientComponent
+    ListePatientComponent,
+    CreerMedicamentComponent,
+    ModifierMedicamentComponent,
+    ApercuMedicamentComponent,
+    ApercuFactureComponent
   ],
   imports: [
     BrowserModule,

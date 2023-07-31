@@ -1,0 +1,134 @@
+$margin : 2rem;
+$heiht: 2.5rem;
+
+@mixin positionBouton {}
+
+@mixin input($top) {
+    border-top: $top solid rgb(112, 112, 112, .1);
+    border-bottom: $top solid rgb(112, 112, 112, .1);
+    height: $heiht;
+}
+
+h2,
+h5 {
+    margin-right: calc(1rem/1.5);
+}
+
+
+hr {
+    height: calc(1rem/6);
+    opacity: 100%;
+    width: auto;
+
+}
+
+
+img {
+    height: 65%;
+    width: auto;
+}
+
+button img {
+    margin-left: 5px;
+    margin-right: 8px;
+    height: 8%;//add
+    width: 8%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.more > path:hover{
+    fill: #107EC2 ;
+}.modify > path:hover{
+    fill: #74226B ;
+}.delete > path:hover{
+    fill: #CC151A ;
+}
+.bhead {
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin-left: calc(1rem/1.5);
+    margin-bottom: calc(1rem/1.7);
+}
+    .forms-container {
+        display: flex;
+        min-height: 150px;
+        font-size: medium;
+        margin-top: 10px;
+        margin-bottom: 1rem;
+}
+table{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
+    // padding-left:1.8rem ;
+}
+thead{
+    background-color: #F7F8FB;
+    .text-left{
+        text-align: left;
+        // padding-left:1.8rem ;
+    }
+}
+tbody{
+    color: rgba(0, 0, 0, 0.525);
+    // font-size: small;
+    .text-left{
+        text-align: left;
+        // padding-left:1.8rem ;
+    }
+}
+
+
+thead>th{
+    text-align: center;
+    padding: .8rem 0px;
+    border-left: 1px solid #D7DCEB;
+    border-right: 1px solid #D7DCEB;
+    // padding-left: 1.8rem;
+}
+tr{
+    text-align: center;
+    padding: .8rem 0px;
+    vertical-align: middle;
+}
+
+thead>th:first-child,tr>th:first-child{
+    border-radius: 10px 0px 0px 0px;
+    border: none;
+    padding-left:1.8rem ;
+    width: 5rem;
+}
+thead>th:last-child,tr>th:last-child{
+    border-radius: 0px 10px 0px 0px;
+    border: none;
+}
+thead>th:nth-child(2){
+    border-left: none;
+    width: 8rem;
+}
+tr:last-child td{
+    border-bottom-width: 0px;
+}//a revenir
+svg{
+    width: 12%;
+    margin-left: .25rem;
+    margin-right: .25rem;
+}
+.delete{
+    width: 10%;
+}
+
+button{
+    color: white;
+}
+button:hover{
+    color: white;
+}
+button:active{
+    color: white;
+}

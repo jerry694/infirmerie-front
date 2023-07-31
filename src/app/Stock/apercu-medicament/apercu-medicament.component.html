@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d-flex align-items-end ">
+        <h2 class="text-primary">Apercu sur un medicament</h2>
+        <hr class="flex-grow-1 text-primary">
+    </div>
+    <div>
+        <div class="forms">
+            <div class="forms-container">
+                <div class="gauche">
+                    <div class="d-flex align-items-end mb-2">
+                        <h5 class="text-primary">Identification</h5>
+                        <hr class="flex-grow-1 text-primary">
+                    </div>
+                    <div>
+                        <h6>Nom</h6>
+                        <span>{{medicament.nom}}</span>
+                    </div>
+                    <div>
+                        <h6>Nom generique</h6>
+                        <span>{{medicament.nomGenerique}}</span>
+                    </div>
+                    <div>
+                        <h6>Date d'expiration</h6>
+                        <span>{{medicament.dateExpiration}}</span>
+                    </div>
+                    <div>
+                        <h6>Forme pharmaceutique</h6>
+                        <span>{{medicament.formePharmaceutique}}</span>
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="d-flex align-items-end mb-2">
+                        <h5 class="text-primary">Posologie et prix</h5>
+                        <hr class="flex-grow-1 text-primary">
+                    </div>
+                    <div>
+                        <h6>Dosage</h6>
+                        <span>{{medicament.dosage}}</span>
+                    </div>
+                    <div>
+                        <h6>Quantite</h6>
+                        <span>{{medicament.stockDisponible}}</span>
+                    </div>
+                    <div>
+                        <h6>Prix unitaire</h6>
+                        <span>{{medicament.prixUnitaire}}</span>
+                    </div>
+
+                </div>
+            </div>
+            <button routerLink="../.." class="btn btn-purple bgauche">
+                <img src="../../../assets/img/preview.svg" alt="">
+                Page precedente
+            </button>
+            <button routerLink="['patient/modifier']" class="btn btn-primary bdroite">
+                <img src="../../../assets/img/next.svg" alt="">
+                Modifier
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

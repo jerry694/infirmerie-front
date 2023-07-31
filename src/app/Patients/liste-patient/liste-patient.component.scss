@@ -111,6 +111,9 @@ thead>th:nth-child(2){
     border-left: none;
     width: 8rem;
 }
+tr:last-child td{
+    border-bottom-width: 0px;
+}//a revenir
 svg{
     width: 12%;
     margin-left: .25rem;
@@ -129,7 +132,3 @@ button:hover{
 button:active{
     color: white;
 }
-
-
-
-

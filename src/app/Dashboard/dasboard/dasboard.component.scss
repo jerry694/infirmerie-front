@@ -19,32 +19,28 @@ hr {
 }
 
 .forms-container {
-    display: flex;
     min-height: 150px;
     font-size: medium;
     margin-top: 10px;
     margin-bottom: 1rem;
 
-    .container {
-        padding: 0;
+    display: flex;
+
+    .card {
+        width: 24%;
+        height: 8rem;
+        margin-right: .7rem;
+        padding-left: 1.7rem;
         display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.10);
+        border-radius: 10px;
+        border: none;
 
-        .card {
-            width: 24%;
-            height: 90%;
-            margin-right: .7rem;
-            padding-left: 1.7rem;
-            // padding-right: 1rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: left;
-            align-items: center;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.10);
-            border-radius: 10px;
-            border: none;
-
-        }
     }
+
 
 }
 
@@ -54,8 +50,7 @@ hr {
 
 
 
-.forms-container {
-    .container1 {
+.forms-container1 {
         justify-content: space-between;
 
         .graph {
@@ -85,7 +80,7 @@ hr {
 
             }
         }
-    }
+    
 }
 
 .head {
@@ -115,10 +110,15 @@ thead {
     font-size: .7rem;
     color: rgba(0, 0, 0, 0.35);
 }
-tbody th,tbody td{
+
+tbody th,
+tbody td {
     padding-left: 0;
     height: 3rem;
     vertical-align: middle;
+}
+tr:last-child td{
+    border-bottom-width: 0px;
 }
 h4 {
     margin: 0;
