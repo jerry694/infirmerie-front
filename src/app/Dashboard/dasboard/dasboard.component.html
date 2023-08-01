@@ -13,18 +13,15 @@
         <hr class="flex-grow-1 text-primary">
     </div>
     <div class="forms-container ">
-        <div class="container ">
             <div class="card " *ngFor="let information of informations">
                 <img [src]="information.image" alt="">
                 <span>
                     <h3>{{information.label}}</h3>
                     <h1>{{information.valeur}}</h1>
                 </span>
-            </div>
         </div>
     </div>
-    <div class="forms-container">
-        <div class="container container1 ">
+    <div class="forms-container forms-container1">
             <div class="graph ">
                 <div class="head">
                     <h4>Performance</h4>
@@ -37,7 +34,7 @@
                         <h4>Factures non payes</h4>
                     </div>
                     <div class="body">
-                        <table class="table">
+                        <table class="table ">
                             <thead>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Classe</th>
@@ -61,13 +58,13 @@
                         <h4>Rendez-vous</h4>
                     </div>
                     <div class="body">
-                        <table class="table">
+                        <table class="table" *ngIf="rVous != null">
                             <thead>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Motif</th>
                                 <th scope="col">Date</th>
                             </thead>
-                            <tbody *ngIf="rVous != null">
+                            <tbody >
                                 <!-- *ngFor="let etudiant for etudiants" -->
                                 <tr *ngFor="let rvous of rVous"> 
                                     <th scope="row"><span style="color: rgba(0, 0, 0, 1);">{{rvous.nom}}</span></th>
@@ -80,7 +77,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
