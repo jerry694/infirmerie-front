@@ -9,11 +9,11 @@
 
 <body>
     <div class="d-flex align-items-end">
-        <h2 class="text-primary">Ajouter un patient</h2>
+        <h2 class="text-primary">Modifier un patient</h2>
         <hr class="flex-grow-1 text-primary">
     </div>
     <div>
-        <form action="" (ngSubmit)="etudiantform()">
+        <form action="">
             <div class="form-container">
                 <div class="gauche">
                     <div class="d-flex align-items-end mb-2">
@@ -23,19 +23,19 @@
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Nom</label>
-                            <input type="text"[(ngModel)]="etudiant.nom" class="form-control "id="nom" name="nom">
+                            <input type="text" class="form-control" [value]="etudiant.nom" >
                         </div>
                         <div class="form-group col-md-6 ">
                             <label>Prenom</label>
-                            <input type="text"[(ngModel)]="etudiant.prenom" class="form-control" id="prenom" name="prenom">
+                            <input type="text" class="form-control" [value]="etudiant.prenom">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Date de naissance*</label>
                             <div class="input-group">
-                                <input class="form-control" placeholder="yyyy-mm-dd" name="dateNaissance"
-                                    ngbDatepicker #d="ngbDatepicker"[(ngModel)]="etudiant.dateDeNaissance" id="dateDeNaissance" name="dateDeNaissance">
+                                <input class="form-control" placeholder="yyyy-mm-dd" name="dateNaissance" ngbDatepicker [value]="etudiant.dateDeNaissance"
+                                    #d="ngbDatepicker" />
                                 <button class="btn btn-calendar" (click)="d.toggle()" type="button">
                                     <img src="../../../assets/img/calendrier.svg" alt="">
                                 </button>
@@ -45,52 +45,54 @@
                         <div class="form-group col-md-6">
                             <label>Sexe</label>
                             <div class="row m-0">
-                                <div class="form-check col-6">
-                                    <input class="form-check-input" type="radio" [(ngModel)]="etudiant.sexe" value="Feminin"id="sexe" name="sexe">
-                                    <label class="form-check-label">Feminin</label>
-                                </div>
-                                <div class="form-check  col-6">
-                                    <input class="form-check-input" type="radio" [(ngModel)]="etudiant.sexe" value="Masculin"id="sexe" name="sexe">
-                                    <label class="form-check-label">Masculin</label>
-                                </div>
+                              <div class="form-check col-6">
+                                <input class="form-check-input" type="radio" name="sexe" [value]="'Feminin'" [checked]="etudiant.sexe === 'Feminin'">
+                                <label class="form-check-label">Feminin</label>
+                              </div>
+                              <div class="form-check col-6">
+                                <input class="form-check-input" type="radio" name="sexe" [value]="'Masculin'" [checked]="etudiant.sexe === 'Masculin'">
+                                <label class="form-check-label">Masculin</label>
+                              </div>
                             </div>
-                        </div>
+                          </div>
+                          
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Matricule</label>
-                            <input type="text" class="form-control " placeholder="2021x000"[(ngModel)]="etudiant.matricule" id="matricule" name="matricule">
+                            <input type="text" class="form-control " placeholder="2021x000" [ngModel]="etudiant.matricule"  name="matricule">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Addresse
                                 Institutionnelle</label>
-                            <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org" [(ngModel)]="etudiant.email" id="email" name="email">
+                            <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org" [ngModel]="etudiant.addresseInstitutionnelle" name="addresseInstitutionnelle">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Filiere</label>
-                            <select class="form-control "[(ngModel)]="etudiant.filiere" name="filiere">
-                                <option disabled selected>Sélectionnez</option>
-                                <option value="Ingenieur Generaliste">Ingenieur Generaliste</option>
-                                <option value="ISI">ISI</option>
-                                <option value="SRT">SRT</option>
-                                <option value="Management">Management</option>
-                                <option value="Genie Civil">Genie Civil</option>
-                                <option value="Genie Electrique">Genie Electrique</option>
-                                <option value="Genie Environnement">Genie Environnement</option>
+                            <select class="form-control " [ngModel]="etudiant.filiere" name="filiere">
+                                <option [ngValue]="null" disabled selected>Sélectionnez</option>
+                                <option [ngValue]="'Ingenieur Generaliste'">Ingenieur Generaliste</option>
+                                <option [ngValue]="'ISI'">ISI</option>
+                                <option [ngValue]="'SRT'">SRT</option>
+                                <option [ngValue]="'Management'">Management</option>
+                                <option [ngValue]="'Genie Civil'">Genie Civil</option>
+                                <option [ngValue]="'Genie Electrique'">Genie Electrique</option>
+                                <option [ngValue]="'Genie Environnement'">Genie Environnement</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label>Niveau*</label>
-                            <select class="form-control "[(ngModel)]="etudiant.niveau" name="niveau">
-                                <option disabled selected>Sélectionnez une option...</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <select class="form-control text-center" [ngModel]="etudiant.niveau" name="niveau">
+                                <option [ngValue]="null" disabled selected>Sélectionnez une option...</option>
+                                <option [ngValue]="1">1</option>
+                                <option [ngValue]="2">2</option>
+                                <option [ngValue]="3">3</option>
+                                <option [ngValue]="4">4</option>
+                                <option [ngValue]="5">5</option>
+                              </select>
+                              
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -101,7 +103,7 @@
                                     <span class="input-group-text igt"><img src="../../../assets/img/phone.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" [(ngModel)]="etudiant.numeroDeTelephone"id="numeroDeTelephone" name="numeroDeTelephone">
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" name="numeroDeTelephone" [value]="etudiant.numeroDeTelephone">
                             </div>
                         </div>
                         <div class="form-group col-6">
@@ -111,7 +113,7 @@
                                     <span class="input-group-text igt"><img src="../../../assets/img/phone.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" [(ngModel)]="etudiant.numeroWhatsapp" id="numeroWhatsapp" name="numeroWhatsapp">
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" name="numeroWhatsapp" [value]="etudiant.numeroWhatsapp">
                             </div>
                         </div>
                     </div>
@@ -124,16 +126,16 @@
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Nom</label>
-                            <input type="text" class="form-control " [(ngModel)]="etudiant.nomContactUrgence" id="nomContactUrgence" name="nomContactUrgence">
+                            <input type="text" class="form-control " [value]="etudiant.nomContactUrgence">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Relation</label>
-                            <select class="form-control placeH"[(ngModel)]="etudiant.relationContactUrgence" name="relationContactUrgence">
-                                <option disabled selected>Sélectionnez</option>
-                                <option value="Parent">Parent</option>
-                                <option value="Tuteur(-trice)">Tuteur(-trice)</option>
-                                <option value="Proche">Proche</option>
-                            </select>
+                            <select class="form-control placeH" [ngModel]="etudiant.relationContactUrgence" name="relationContactUrgence">
+                                <option [ngValue]="null" disabled selected>Sélectionnez</option>
+                                <option [ngValue]="'Parent'">Parent</option>
+                                <option [ngValue]="'Tuteur(-trice)'">Tuteur(-trice)</option>
+                                <option [ngValue]="'Proche'">Proche</option>
+                              </select>                              
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -144,7 +146,7 @@
                                     <span class="input-group-text igt"><img src="../../../assets/img/phone.svg"
                                             alt="phone"></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxexxxx" [(ngModel)]="etudiant.numeroDeTelephoneUrgence"id="numeroDeTelephoneUrgence" name="numeroDeTelephoneUrgence">
+                                <input type="text" class="form-control fc" placeholder="6xxxxexxxx" name="name" [value]="etudiant.numeroDeTelephoneUrgence">
                             </div>
                         </div>
                     </div>
@@ -160,7 +162,7 @@
                                     <span class="input-group-text igt"><img src="../../../assets/img/taille.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" [(ngModel)]="etudiant.taille" id="taille" name="taille">
+                                <input type="text" class="form-control fc text-center" name="taille" [value]="etudiant.taille">
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -170,30 +172,29 @@
                                     <span class="input-group-text igt"><img src="../../../assets/img/poids.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc"[(ngModel)]="etudiant.poids" id="poids" name="poids">
+                                <input type="text" class="form-control fc text-center" name="Poids" [value]="etudiant.poids">
                             </div>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-4 ">
                             <label class="">Groupe Sanguin</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text igt"><img src="../../../assets/img/sang.svg"
                                             alt=""></span>
                                 </div>
-                                <select class="form-control fc text-center"[(ngModel)]="etudiant.groupeSanguin" name="groupeSanguin">
-                                    <option disabled selected> </option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="AB">AB</option>
-                                    <option value="O">O</option>
-                                </select>
+                                <select class="form-control fc text-center" [ngModel]="etudiant.groupeSanguin" name="groupeSanguin">
+                                    <option [ngValue]="null" disabled selected>Choisir un groupe sanguin</option>
+                                    <option [ngValue]="'A'">A</option>
+                                    <option [ngValue]="'B'">B</option>
+                                    <option [ngValue]="'AB'">AB</option>
+                                    <option [ngValue]="'O'">O</option>
+                                  </select>
                             </div>
                         </div>
 
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-9 " [class.show]="isDropdownOpen">
-                            
                             <button type="button" (click)="toggleDropdown()" class="btn btn-outline-primary me-2"
                                 id="dropdownManual">
                                 Antecedants medicaux
@@ -201,7 +202,7 @@
                             <div class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownManual">
                                 <div *ngFor="let antecedants of antecedentItems">
                                     <label class="dropdown-item">
-                                        <input type="checkbox" [(ngModel)]="etudiant.antecedantMedicaux" name="antecedantMedicaux"
+                                        <input type="checkbox" [(ngModel)]="antecedants.selected" name="Antecedants" 
                                             (change)="toggleItemSelection(antecedants)">
                                         {{ antecedants.name }}
                                     </label>
@@ -217,15 +218,15 @@
                                     <span class="input-group-text igt"><img src="../../../assets/img/autres.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="Identifiant" name="name"id="" name="">
+                                <input type="text" class="form-control fc" placeholder="Identifiant" name="name">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button  routerLink="../" class="btn btn-danger bgauche">
+            <button routerLink="../.." class="btn btn-danger bgauche">
                 <img src="../../../assets/img/annuler.svg" alt="">
-                <a>Annuler</a>
+                Annuler
             </button>
             <button class="btn btn-success bdroite" type="submit">
                 <img src="../../../assets/img/save.svg" alt="">

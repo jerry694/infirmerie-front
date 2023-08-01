@@ -5,7 +5,7 @@ export const navItems=[
         label:'Dashboard'
     },
     {
-        routeLink:'patient/creer',
+        routeLink:'patient',
         icon:'../../../assets/img/infirmerie.svg',
         label:'Infirmerie'
     },

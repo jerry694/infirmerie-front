@@ -29,10 +29,12 @@ export class AuthentificationComponent {
       alert("BIENVENUE ")
       console.log(localStorage.getItem)
     },  error => {
+
       // Gestion des erreurs lors de l'authentification.
       if (error.status === 404) {
         alert("Le login est incorrect. Veuillez vérifier vos informations de connexion.");
       } else {
+        // this.route.navigate(["page"]);
         alert("Une erreur s'est produite lors de l'authentification. Veuillez réessayer plus tard.");
       }
     }
