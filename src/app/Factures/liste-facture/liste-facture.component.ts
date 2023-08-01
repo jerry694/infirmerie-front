@@ -7,16 +7,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./liste-facture.component.scss']
 })
 export class ListeFactureComponent {
-  medicaments = [{
-    "idMedicament":1,
-    "nom":"Wafo Kamgue Jerry",
-    "nomGenerique":"Paracetamol",
-    "dosage":500,
-    "stockDisponible":20,
-    "prixUnitaire":1000,
-    "dateExpiration":"28/05/2028"
+    factures = [{
+      "idFacture":1,
+      "nom":"Wafo Kamgue Jerry",
+      "statut":"Reglee",
+      "montant":1000,
+      "date":"28/05/2028"
 
-  },]
+    }, {
+      "idFacture": 2,
+      "nom": "Doe John",
+      "statut": "Non Reglee",
+      "montant": 500,
+      "date": "15/06/2028"
+    },
+    {
+      "idFacture": 3,
+      "nom": "Smith Jane",
+      "statut": "Non Reglee",
+      "montant": 750,
+      "date": "10/06/2028"
+    },
+    {
+      "idFacture": 4,
+      "nom": "Dupont Pierre",
+      "statut": "Reglee",
+      "montant": 1200,
+      "date": "20/06/2028"
+    }]
   
   constructor(private route:Router){}
 

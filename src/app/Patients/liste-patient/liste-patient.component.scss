@@ -106,10 +106,12 @@ thead>th:first-child,tr>th:first-child{
 thead>th:last-child,tr>th:last-child{
     border-radius: 0px 10px 0px 0px;
     border: none;
+    width: 12rem;
 }
 thead>th:nth-child(2){
     border-left: none;
-    width: 8rem;
+}thead>th:nth-child(3){
+    border-left: none;
 }
 tr:last-child td{
     border-bottom-width: 0px;

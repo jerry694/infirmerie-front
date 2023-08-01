@@ -21,20 +21,32 @@
                 </div>
                 <div class="cont">
                     <div class="gauche">
-
-                        <div class="row mb-3">
+                            <div class="row mb-3">
                             <div class="form-group col">
                                 <label>Nom</label>
-                                <input type="text" class="form-control ">
+                                <select class="form-control placeH">
+                                    <option disabled selected>Sélectionnez</option>
+                                    <!-- <option value="Comprime">Comprime</option>
+                                    <option value="Sirop">Sirop</option>
+                                    <option value="Capsule">Capsule</option>
+                                    <option value="Creme">Creme</option> -->
+                                </select>
                             </div>
                         </div>
 
                         <div class="row mb-3">
+                            <div class="form-group col">
+                                <label>Autre</label>
+                                <input type="text" class="form-control ">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
                             <div class="form-group col-md-6">
                                 <label>Date de peremption</label>
                                 <div class="input-group">
-                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dateNaissance" ngbDatepicker
-                                        #d="ngbDatepicker" />
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dateNaissance"
+                                        ngbDatepicker #d="ngbDatepicker" />
                                     <button class="btn btn-calendar" (click)="d.toggle()" type="button">
                                         <img src="../../../assets/img/calendrier.svg" alt="">
                                     </button>
@@ -94,6 +106,18 @@
                         <div class="row mb-3">
                             <div class="form-group col">
                                 <label>Nom generique</label>
+                                <select class="form-control placeH">
+                                    <option disabled selected>Sélectionnez</option>
+                                    <!-- <option value="Comprime">Comprime</option>
+                                    <option value="Sirop">Sirop</option>
+                                    <option value="Capsule">Capsule</option>
+                                    <option value="Creme">Creme</option> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="form-group col">
+                                <label>Autre</label>
                                 <input type="text" class="form-control ">
                             </div>
                         </div>

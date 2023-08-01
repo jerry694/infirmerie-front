@@ -23,20 +23,21 @@
                 <th scope="col">Actions</th>
             </thead>
             <tbody>
-                <tr *ngFor="let medicament of medicaments">
-                    <th class="text-left" scope="row">{{medicament.idMedicament}}</th>
-                    <td class="text-left pl-0">{{medicament.nom}}</td>
-                    <td>{{medicament.dateExpiration}}</td>
-                    <td>{{medicament.stockDisponible}}</td>
-                    <td>{{medicament.prixUnitaire}}</td>
+                <tr *ngFor="let facture of factures">
+                    <th class="text-left" scope="row">{{facture.idFacture}}</th>
+                    <td class="text-left pl-0">{{facture.nom}}</td>
+                    <td>{{facture.date}}</td>
+                    <td>{{facture.montant}}</td>
+                    <td [ngClass]="facture.statut == 'Reglee' ? 'text-success' : 'text-danger'">{{facture.statut}}</td>
+
                     <td>
                         
-                        <a (click)="cash(medicament.idMedicament)">
+                        <a (click)="cash(facture.idFacture)">
                             <svg class="cash" xmlns="http://www.w3.org/2000/svg" width="22.198" height="22.197" viewBox="0 0 22.198 22.197">
                                 <path id="Icon_awesome-cash-register" data-name="Icon awesome-cash-register" d="M22.155,16.422,21,9.486a1.388,1.388,0,0,0-1.37-1.158H9.015V5.554h4.162a.7.7,0,0,0,.694-.694V.694A.7.7,0,0,0,13.177,0H2.078a.7.7,0,0,0-.694.694V4.856a.7.7,0,0,0,.694.694H6.24V8.324H2.559A1.391,1.391,0,0,0,1.19,9.481L.032,16.418a2.69,2.69,0,0,0-.039.455v3.936A1.386,1.386,0,0,0,1.38,22.2H20.8a1.386,1.386,0,0,0,1.387-1.387V16.877A2.3,2.3,0,0,0,22.155,16.422ZM12.136,10.752a.7.7,0,0,1,.694-.694h.694a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694H12.83a.7.7,0,0,1-.694-.694Zm-1.387,2.775h.694a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694h-.694a.7.7,0,0,1-.694-.694V14.22A.7.7,0,0,1,10.749,13.526ZM9.362,10.058a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694H8.668a.7.7,0,0,1-.694-.694v-.694a.7.7,0,0,1,.694-.694Zm-5.9-6.59V2.081h8.324V3.468ZM5.2,12.139H4.506a.7.7,0,0,1-.694-.694v-.694a.7.7,0,0,1,.694-.694H5.2a.7.7,0,0,1,.694.694v.694A.7.7,0,0,1,5.2,12.139Zm.694,2.775V14.22a.7.7,0,0,1,.694-.694h.694a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694H6.587A.7.7,0,0,1,5.893,14.913Zm9.364,4.856a.348.348,0,0,1-.347.347H7.281a.348.348,0,0,1-.347-.347v-.694a.348.348,0,0,1,.347-.347h7.63a.348.348,0,0,1,.347.347Zm1.04-4.856a.7.7,0,0,1-.694.694h-.694a.7.7,0,0,1-.694-.694V14.22a.7.7,0,0,1,.694-.694H15.6a.7.7,0,0,1,.694.694Zm2.081-3.468a.7.7,0,0,1-.694.694h-.694a.7.7,0,0,1-.694-.694v-.694a.7.7,0,0,1,.694-.694h.694a.7.7,0,0,1,.694.694Z" transform="translate(0.007)" fill="#707070"/>
                               </svg>
                         </a>
-                        <a (click)="more(medicament.idMedicament)">
+                        <a (click)="more(facture.idFacture)">
                             <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                 viewBox="0 0 26.613 17.779">
                                 <path id="more"
@@ -44,7 +45,7 @@
                                     transform="translate(0 -4.5)" fill="#707070" />
                             </svg>
                         </a>
-                        <a (click)="delete(medicament.idMedicament)">
+                        <a (click)="delete(facture.idFacture)">
                             <svg class="delete" xmlns="http://www.w3.org/2000/svg" width="20.957" height="27"
                                 viewBox="0 0 20.957 27">
                                 <path id="delete"
