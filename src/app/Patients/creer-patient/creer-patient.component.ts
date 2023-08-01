@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Etudiant } from 'src/app/etudiant';
+import { EtudiantsService } from 'src/app/services/etudiants.service';
 
 @Component({
   selector: 'app-creer-patient',
@@ -6,25 +8,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./creer-patient.component.scss']
 })
 export class CreerPatientComponent {
-model : any;
+  etudiant: Etudiant = new Etudiant();
+  isDropdownOpen = false;
 
-antecedentItems = [
-  { id: 1, name: 'Option 1', selected: false },
-  { id: 2, name: 'Option 2', selected: false },
-  { id: 3, name: 'Option 3', selected: false },
-];
+  constructor(private etudiantservice: EtudiantsService) { }
 
-isDropdownOpen = false;
+  etudiantform() {
+    // Récupérer id_Infirmiere depuis le localStorage
+    const idInfirmiere = localStorage.getItem('id_infirmiere');
+    
+    // Vérifier si l'id_Infirmiere est valide
+    if (!idInfirmiere) {
+      console.error('id_Infirmiere non trouvé dans le localStorage.');
+      return;
+    }
 
-toggleItemSelection(item: any): void {
-  item.selected = !item.selected;
-}
+    this.etudiantservice.etudiants(this.etudiant, idInfirmiere).subscribe(
+      data => {
+        alert("Enregistrement réussi !");
+        //redirection ici
+      },
+      error => {
+        alert("Erreur lors de l'enregistrement.");
+      }
+    );
+  }
 
-isItemSelected(item: any): boolean {
-  return item.selected;
-}
+  antecedentItems = [
+    { id: 1, name: 'Option 1', selected: true },
+    { id: 2, name: 'Option 2', selected: false },
+    { id: 3, name: 'Option 3', selected: false },
+  ];
 
-toggleDropdown(): void {
-  this.isDropdownOpen = !this.isDropdownOpen;
-}
+  toggleItemSelection(item: any): void {
+    item.selected = !item.selected;
+  }
+
+  isItemSelected(item: any): boolean {
+    return item.selected;
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
 }

@@ -12,15 +12,8 @@ export class AuthentificationComponent {
 
   passwordVisible: boolean = false;
   login: any;
- // responsedata: any;
 
   constructor(private authuserservice: AuthUserService, private route: Router) { }
- /* proceedlogin() {
-    if (this.login.valid) {
-      this.authuserservice.proceedlogin(this.login.value).subscribe(result => console.log(result)
-      )
-    }
-  }*/
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
