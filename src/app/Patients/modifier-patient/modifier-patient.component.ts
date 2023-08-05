@@ -47,8 +47,14 @@ etudiant = {
     { id: 2, name: 'Diabete', selected: false },
     { id: 3, name: 'Antecedents de cancer', selected: false },
   ];
-  
   isDropdownOpen = false;
+  
+
+
+
+
+
+
   
   toggleItemSelection(item: any): void {
     item.selected = !item.selected;

@@ -72,9 +72,10 @@ input:focus {
     border: none;
     height: 45px;
 }
-
-
 .form-control {
     padding-left: 0px;
     font-size: small;
+}
+input:disabled{
+    background-color: #ffe76ebd;
 }

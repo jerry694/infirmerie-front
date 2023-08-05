@@ -15,7 +15,7 @@ export class ApercuPatientComponent implements OnInit {
     console.log(this.route)
   }
   etudiant = {
-    "idEtudiant":3,
+    "idEtudiant":1,
     "matricule": "ABC123",
     "nom": "Dupont",
     "nomContactUrgence": "Martin",

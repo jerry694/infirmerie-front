@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -17,7 +17,7 @@ import { BodyComponent } from './body/body.component';
 import { PageComponent } from './page/page.component';
 
 
-import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbDatepickerModule,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
 import { ModifierPatientComponent } from './Patients/modifier-patient/modifier-patient.component';
 import { ApercuPatientComponent } from './Patients/apercu-patient/apercu-patient.component';
@@ -26,6 +26,7 @@ import { CreerMedicamentComponent } from './Stock/creer-medicament/creer-medicam
 import { ModifierMedicamentComponent } from './Stock/modifier-medicament/modifier-medicament.component';
 import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medicament.component';
 import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
+import { ConsulterPatientComponent } from './Patients/consulter-patient/consulter-patient.component';
 // import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
 
 @NgModule({
@@ -46,16 +47,20 @@ import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture
     CreerMedicamentComponent,
     ModifierMedicamentComponent,
     ApercuMedicamentComponent,
-    ApercuFactureComponent
+    ApercuFactureComponent,
+    ConsulterPatientComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     NgbDatepickerModule, 
     NgbAlertModule, 
-    JsonPipe
+    JsonPipe,
+    NgbTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

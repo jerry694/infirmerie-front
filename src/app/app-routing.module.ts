@@ -13,6 +13,7 @@ import { CreerMedicamentComponent } from './Stock/creer-medicament/creer-medicam
 import { ModifierMedicamentComponent } from './Stock/modifier-medicament/modifier-medicament.component';
 import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medicament.component';
 import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
+import { ConsulterPatientComponent } from './Patients/consulter-patient/consulter-patient.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/auth',pathMatch:'full'},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'patient/creer',component:CreerPatientComponent},
   {path:'patient/modifier/:idEtudiant',component:ModifierPatientComponent},
   {path:'patient/apercu/:idEtudiant',component:ApercuPatientComponent},
+  {path:'patient/consulter/:idEtudiant',component:ConsulterPatientComponent},
   {path:'medicament',component:ListeMedicamentComponent},
   {path:'medicament/creer',component:CreerMedicamentComponent},
   {path:'medicament/modifier/:idMedicament',component:ModifierMedicamentComponent},

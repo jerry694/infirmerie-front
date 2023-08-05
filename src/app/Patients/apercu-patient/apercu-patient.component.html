@@ -12,8 +12,8 @@
         <h2 class="text-primary">Apercu sur un patient</h2>
         <hr class="flex-grow-1 text-primary">
         <button class="btn btn-primary bhead">
-            <img src="../../../assets/img/Consult.svg" alt="">
-            <a [routerLink]="['../../../consulter',etudiant.idEtudiant]" href="">Consulter</a>
+            <img src="./assets/img/Consult.svg" alt="">
+            <a [routerLink]="['../../consulter',etudiant.idEtudiant]" href="">Consulter</a>
         </button>
     </div>
     <div>
@@ -157,11 +157,11 @@
                 </div>
             </div>
             <button  routerLink="../.." class="btn btn-purple bgauche">
-                <img src="../../../assets/img/preview.svg" alt="">
+                <img src="./assets/img/preview.svg" alt="">
                 Page precedente
             </button>
             <button  (click)="modify()"  class="btn btn-primary bdroite">
-                <img src="../../../assets/img/next.svg" alt="">
+                <img src="./assets/img/next.svg" alt="">
                 Modifier
             </button>
         </div>
