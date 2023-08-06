@@ -7,12 +7,12 @@ import { Etudiant } from '../etudiant';
   providedIn: 'root'
 })
 export class EtudiantsService {
-  private baseUrl = "http://localhost:8080/etudiants/";
+  private baseUrl = "http://localhost:8080/Infirmerie-IUSJC/";
   private accessToken = localStorage.getItem('token');
 
   constructor(private httpClient: HttpClient) {}
 
-  etudiants(etudiant: Etudiant, idInfirmiere: string): Observable<object> {
+  creerEtudiants(etudiant: Etudiant, idInfirmiere: string): Observable<object> {
     
     
     // Vérifier si le jeton d'accès est présent dans le localStorage
@@ -30,5 +30,41 @@ export class EtudiantsService {
 
     console.log(etudiant);
     return this.httpClient.post(`${this.baseUrl}ajouter/${idInfirmiere}`, etudiant, httpOptions);
+  }
+  listeEtudiants(): Observable<object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    return this.httpClient.get(`${this.baseUrl}listes`, httpOptions);
+  }
+  infoEtudiant(idEtudiant:number): Observable<object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
+    return this.httpClient.get(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions);
+  }
+  modifierEtudiant(etudiant: Etudiant,idEtudiant:number){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+
+    console.log(etudiant);
+    return this.httpClient.put(`${this.baseUrl}modifier/${idEtudiant}`, etudiant, httpOptions);
+  }
+  supprimerEtudiant(idEtudiant:number){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+
+    return this.httpClient.delete(`${this.baseUrl}supprimer/${idEtudiant}`, httpOptions);
   }
 }

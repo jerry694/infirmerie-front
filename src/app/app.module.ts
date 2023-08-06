@@ -27,6 +27,8 @@ import { ModifierMedicamentComponent } from './Stock/modifier-medicament/modifie
 import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medicament.component';
 import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
 import { ConsulterPatientComponent } from './Patients/consulter-patient/consulter-patient.component';
+import { AgePipe } from 'src/app/pipe/age.pipe';
+
 // import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
 
 @NgModule({
@@ -49,6 +51,7 @@ import { ConsulterPatientComponent } from './Patients/consulter-patient/consulte
     ApercuMedicamentComponent,
     ApercuFactureComponent,
     ConsulterPatientComponent,
+    AgePipe
     
   ],
   imports: [

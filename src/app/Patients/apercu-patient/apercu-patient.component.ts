@@ -1,49 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EtudiantsService } from 'src/app/services/etudiants.service';
 
 @Component({
   selector: 'app-apercu-patient',
   templateUrl: './apercu-patient.component.html',
-  styleUrls: ['./apercu-patient.component.scss']
+  styleUrls: ['./apercu-patient.component.scss'],
 })
 export class ApercuPatientComponent implements OnInit {
-  constructor (private route : ActivatedRoute){}
+  etudiant: any= {}
+  id!: string;
+
+  constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService) {}
+
   ngOnInit() {
     this.route.paramMap.subscribe(data => {
-      console.log(data.get('idEtudiant'))
-    })
-    console.log(this.route)
+      const id = data.get('idEtudiant');
+      if (id !== null) {
+        this.id = id;
+        console.log(this.id)
+      } else {
+        // Gérer le cas où id est null (si nécessaire)
+        console.log('ID étudiant non fourni dans les paramètres de l\'URL.');
+      }
+      console.log(data.get('idEtudiant'));
+      
+      this.etudiantservice.infoEtudiant(parseInt(this.id)).subscribe(
+        etudiantData => {
+          console.log(etudiantData);
+          alert(JSON.stringify(etudiantData));
+          this.etudiant = etudiantData;
+          //redirection ici
+        },
+        error => {
+          alert("Erreur de lecture.");
+        }
+      );
+    });
+    // console.log(this.route)
   }
-  etudiant = {
-    "idEtudiant":1,
-    "matricule": "ABC123",
-    "nom": "Dupont",
-    "nomContactUrgence": "Martin",
-    "relationContactUrgence": "Parent",
-    "prenom": "Jean",
-    "sexe": "Masculin",
-    "dateDeNaissance": "1995-08-15",
-    "numeroDeTelephone": "0123456789",
-    "numeroDeTelephoneUrgence": "9876543210",
-    "numeroWhatsapp": "0123456789",
-    "email": "jean.dupont@example.com",
-    "addresseInstitutionnelle": "Jean.Dupont@institutsaintjean.org",
-    "filiere": "Management",
-    "niveau": 2,
-    "poids": 70,
-    "taille": 175,
-    "groupeSanguin": "B",
-    "antecedents": [
-      { id: 1, name: 'Option 1', selected: true },
-      { id: 2, name: 'Option 2', selected: false }
-    ],
-    "consultations": [
-      {date: "1995-08-15", diagnostic: "paludisme ", idConsultation: 1},
-      {date: "1995-08-15", diagnostic: "paludisme ", idConsultation: 2}
-    ],
-    "factures":[
-      {date: "1995-08-15", montant: 1300 ,idFacture: 1},]
-  }
+
+ 
   exploreConsultation(id:number) {
     console.log("consutation de " + id)
   }

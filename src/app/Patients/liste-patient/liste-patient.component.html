@@ -35,7 +35,7 @@
                     <td>{{etudiant.nom}}</td>
                     <td>{{etudiant.niveau}}</td>
                     <td>{{etudiant.filiere}}</td>
-                    <td>{{etudiant.dateDeNaissance}}</td>
+                    <td>{{etudiant.dateDeNaissance | age }}</td>
                     <td>{{etudiant.sexe}}</td>
                     <td>
                         <a (click)="more(etudiant.idEtudiant)">

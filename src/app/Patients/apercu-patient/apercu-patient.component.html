@@ -34,7 +34,7 @@
                     </div>
                     <div>
                         <h6>Date de Naissance</h6>
-                        <span>{{etudiant.dateDeNaissance}}</span>
+                        <span>{{etudiant.dateDeNaissance | age}} ans | {{etudiant.dateDeNaissance}}</span>
                     </div>
                     <div>
                         <h6>Sexe</h6>
@@ -78,7 +78,7 @@
                     </div>
                     <div>
                         <h6>Antecedants Medicaux</h6>
-                        <span *ngFor="let antecedant of etudiant.antecedents">{{antecedant.name}}</span>
+                        <span *ngFor="let antecedant of etudiant.antecedantMedicauxList">{{antecedant.name}}</span>
                     </div>
                 </div>
                 <div class="droite">
@@ -102,14 +102,14 @@
                         <h5 class="text-primary">Consultations</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-                    <table *ngIf="etudiant.consultations!=null" class="table">
+                    <table *ngIf="etudiant && etudiant.fichesConsultation && etudiant.fichesConsultation.length !== 0" class="table">
                         <thead>
                             <th>Date</th>
                             <th>Diagnostic</th>
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let consultation of etudiant.consultations">
+                            <tr *ngFor="let consultation of etudiant.fichesConsultation">
                                 <td>{{consultation.date}}</td>
                                 <td>{{consultation.diagnostic}}</td>
                                 <td>
@@ -129,7 +129,7 @@
                         <h5 class="text-primary">Factures non reglees</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-                    <table *ngIf="etudiant.factures!=null" class="table">
+                    <table *ngIf="etudiant && etudiant.factures && etudiant.factures.length !== 0" class="table">
                         <thead>
                             <th>Date</th>
                             <th>Montant</th>

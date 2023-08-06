@@ -13,7 +13,7 @@
         <hr class="flex-grow-1 text-primary">
     </div>
     <div>
-        <form action="" (ngSubmit)="etudiantform()">
+        <form action="" (ngSubmit)="etudiantform()" [formGroup]="creerEtudiant">
             <div class="form-container">
                 <div class="gauche">
                     <div class="d-flex align-items-end mb-2">
@@ -23,11 +23,11 @@
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Nom</label>
-                            <input type="text" [(ngModel)]="etudiant.nom" class="form-control "id="nom" name="nom">
+                            <input type="text" formControlName="nom" class="form-control "id="nom" name="nom">
                         </div>
                         <div class="form-group col-md-6 ">
                             <label>Prenom</label>
-                            <input type="text" [(ngModel)]="etudiant.prenom" class="form-control" id="prenom" name="prenom">
+                            <input type="text" formControlName="prenom" class="form-control" id="prenom" name="prenom">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -35,7 +35,7 @@
                             <label>Date de naissance*</label>
                             <div class="input-group">
                                 <input class="form-control" placeholder="yyyy-mm-dd" name="dateNaissance"
-                                    ngbDatepicker #d="ngbDatepicker" [(ngModel)]="etudiant.dateDeNaissance" id="dateDeNaissance" name="dateDeNaissance">
+                                    ngbDatepicker #d="ngbDatepicker" formControlName="dateDeNaissance" id="dateDeNaissance" name="dateDeNaissance">
                                 <button class="btn btn-calendar" (click)="d.toggle()" type="button">
                                     <img src="./assets/img/calendrier.svg" alt="">
                                 </button>
@@ -46,11 +46,11 @@
                             <label>Sexe</label>
                             <div class="row m-0">
                                 <div class="form-check col-6">
-                                    <input class="form-check-input" type="radio" [(ngModel)]="etudiant.sexe" value="Feminin" id="sexe" name="sexe">
+                                    <input class="form-check-input" type="radio" formControlName="sexe" value="Feminin" id="sexe" name="sexe">
                                     <label class="form-check-label">Feminin</label>
                                 </div>
                                 <div class="form-check  col-6">
-                                    <input class="form-check-input" type="radio" [(ngModel)]="etudiant.sexe" value="Masculin" id="sexe" name="sexe">
+                                    <input class="form-check-input" type="radio" formControlName="sexe" value="Masculin" id="sexe" name="sexe">
                                     <label class="form-check-label">Masculin</label>
                                 </div>
                             </div>
@@ -59,18 +59,18 @@
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Matricule</label>
-                            <input type="text" class="form-control " placeholder="2021x000" [(ngModel)]="etudiant.matricule" id="matricule" name="matricule">
+                            <input type="text" class="form-control " placeholder="2021x000" formControlName="matricule" id="matricule" name="matricule">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Addresse
                                 Institutionnelle</label>
-                            <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org" [(ngModel)]="etudiant.email" id="email" name="email">
+                            <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org" formControlName="emailEtudiant" id="email" name="emailEtudiant">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Filiere</label>
-                            <select class="form-control "[(ngModel)]="etudiant.filiere" name="filiere">
+                            <select class="form-control "formControlName="filiere" name="filiere">
                                 <option disabled selected>Sélectionnez</option>
                                 <option value="Ingenieur Generaliste">Ingenieur Generaliste</option>
                                 <option value="ISI">ISI</option>
@@ -83,7 +83,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Niveau*</label>
-                            <select class="form-control text-center"[(ngModel)]="etudiant.niveau" name="niveau">
+                            <select class="form-control text-center"formControlName="niveau" name="niveau">
                                 <option disabled selected>Sélectionnez une option...</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -101,7 +101,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/phone.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="text" class= "form-control fc" placeholder="6xxxxxxxx" [(ngModel)]="etudiant.numeroDeTelephone"id="numeroDeTelephone" name="numeroDeTelephone">
+                                <input type="text" class= "form-control fc" placeholder="6xxxxxxxx"formControlName="numeroDeTelephone"id="numeroDeTelephone" name="numeroDeTelephone">
                             </div>
                         </div>
                         <div class="form-group col-6">
@@ -111,7 +111,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/phone.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" [(ngModel)]="etudiant.numeroWhatsapp" id="numeroWhatsapp" name="numeroWhatsapp">
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx" formControlName="numeroWhatsapp" id="numeroWhatsapp" name="numeroWhatsapp">
                             </div>
                         </div>
                     </div>
@@ -124,11 +124,11 @@
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Nom</label>
-                            <input type="text" class="form-control " [(ngModel)]="etudiant.nomContactUrgence" id="nomContactUrgence" name="nomContactUrgence">
+                            <input type="text" class="form-control "formControlName="nomContactUrgence" id="nomContactUrgence" name="nomContactUrgence">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Relation</label>
-                            <select class="form-control placeH"[(ngModel)]="etudiant.relationContactUrgence" name="relationContactUrgence">
+                            <select class="form-control placeH" formControlName="relationContactUrgence" name="relationContactUrgence">
                                 <option disabled selected>Sélectionnez</option>
                                 <option value="Parent">Parent</option>
                                 <option value="Tuteur(-trice)">Tuteur(-trice)</option>
@@ -144,7 +144,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/phone.svg"
                                             alt="phone"></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxexxxx" [(ngModel)]="etudiant.numeroDeTelephoneUrgence"id="numeroDeTelephoneUrgence" name="numeroDeTelephoneUrgence">
+                                <input type="text" class="form-control fc" placeholder="6xxxxexxxx" formControlName="numeroDeTelephoneUrgence"id="numeroDeTelephoneUrgence" name="numeroDeTelephoneUrgence">
                             </div>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/taille.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="tel" class="form-control text-center fc" [(ngModel)]="etudiant.taille" id="taille" name="taille">
+                                <input type="tel" class="form-control text-center fc" formControlName="taille" id="taille" name="taille">
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -170,7 +170,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/poids.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="number" class="form-control text-center fc"[(ngModel)]="etudiant.poids" id="poids" name="poids">
+                                <input type="number" class="form-control text-center fc" formControlName="poids" id="poids" name="poids">
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -180,7 +180,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/sang.svg"
                                             alt=""></span>
                                 </div>
-                                <select class="form-control fc text-center"[(ngModel)]="etudiant.groupeSanguin" name="groupeSanguin">
+                                <select class="form-control fc text-center" formControlName="groupeSanguin" name="groupeSanguin">
                                     <option disabled selected>Sélectionnez une option...</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
@@ -205,7 +205,7 @@
                             <div class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="dropdownManual">
                                 <div *ngFor="let antecedants of antecedentItems">
                                     <label class="dropdown-item">
-                                        <input type="checkbox" [(ngModel)]="etudiant.antecedantMedicaux" name="antecedantMedicaux"
+                                        <input type="checkbox" formControlName="antecedantMedicaux" name="antecedantMedicaux"
                                             (change)="toggleItemSelection(antecedants)">
                                         {{ antecedants.name }}
 
