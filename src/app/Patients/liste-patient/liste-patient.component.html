@@ -11,33 +11,53 @@
     <div class="d-flex align-items-end ">
         <h2 class="text-primary">Liste des patients</h2>
         <hr class="flex-grow-1 text-primary">
-        <button  (click)="creer()" class="btn btn-primary bhead">
+        <button (click)="creer()" class="btn btn-primary bhead">
             <img src="../../../assets/img/add.svg" alt="">
             Ajouter un patient
         </button>
     </div>
     <div class="forms-container ">
-        <table class="table">
-            <thead>
-                <th class="text-left" scope="col">N*</th>
-                <th class="text-left " scope="col">Matricule</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Niveau</th>
-                <th scope="col">Filiere</th>
-                <th scope="col">Age</th>
-                <th scope="col">Sexe</th>
-                <th scope="col">Actions</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let etudiant of etudiants">
-                    <th class="text-left" scope="row">{{etudiant.idEtudiant}}</th>
-                    <td class="text-left ">{{etudiant.matricule}}</td>
-                    <td>{{etudiant.nom}}</td>
-                    <td>{{etudiant.niveau}}</td>
-                    <td>{{etudiant.filiere}}</td>
-                    <td>{{etudiant.dateDeNaissance | age }}</td>
-                    <td>{{etudiant.sexe}}</td>
-                    <td>
+        
+        <p-table
+        #dt1
+        [globalFilterFields]="['matricule','nom','prenom']"
+        [value]="etudiants.reverse()" 
+        class="table"
+        [paginator]="true"
+        [rows]="7"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[7, 15, 20]">
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <button pButton label="Effacer" class="p-button bg-purple" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                
+                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')" placeholder="Chercher le mot clef" />
+                    <!-- <pre>{{search}}</pre> -->
+            </div>
+        </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <!-- <th class="text-left" scope="col">N*</th> -->
+                    <th class="text-left " scope="col" style="width:10%" >Matricule</th>
+                    <th scope="col" style="width:35%" pSortableColumn="nom" >Nom<p-sortIcon field="nom"></p-sortIcon></th>
+                    <th scope="col" style="width:13%" pSortableColumn="niveau">Niveau<p-sortIcon field="niveau"></p-sortIcon><p-columnFilter type="text" field="niveau" display="menu"></p-columnFilter></th>
+                    <th scope="col" style="width:12%" pSortableColumn="filiere">Filiere<p-sortIcon field="filiere"></p-sortIcon></th>
+                    <th scope="col" style="width:10%">Age</th>
+                    <th scope="col" style="width:10%">Sexe<p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter></th>
+                    <th scope="col" style="width:10%">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-etudiant>
+                <tr>
+                    <th class="text-left" scope="row" style="width:10%">{{ etudiant.matricule }}</th>
+                    <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
+                    <td style="width:35%">{{ etudiant.nom }} {{ etudiant.prenom }}</td>
+                    <td style="width:13%">{{ etudiant.niveau }}</td>
+                    <td style="width:12%">{{ etudiant.filiere }}</td>
+                    <td style="width:10%">{{ etudiant.dateDeNaissance | age }}</td>
+                    <td style="width:10%">{{ etudiant.sexe }}</td>
+                    <td style="width:10%">
                         <a (click)="more(etudiant.idEtudiant)">
                             <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                 viewBox="0 0 26.613 17.779">
@@ -64,8 +84,11 @@
                         </a>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-table>
     </div>
 </body>
 

@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { SharedModule } from 'primeng/api';
+import { CalendarModule } from 'primeng/calendar';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,11 +57,12 @@ import { AgePipe } from 'src/app/pipe/age.pipe';
     ApercuMedicamentComponent,
     ApercuFactureComponent,
     ConsulterPatientComponent,
-    AgePipe
+    AgePipe,
     
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -63,7 +70,12 @@ import { AgePipe } from 'src/app/pipe/age.pipe';
     NgbDatepickerModule, 
     NgbAlertModule, 
     JsonPipe,
-    NgbTimepickerModule
+    NgbTimepickerModule,
+    ButtonModule,
+    TableModule,
+    SharedModule,
+    CalendarModule,
+    SelectButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

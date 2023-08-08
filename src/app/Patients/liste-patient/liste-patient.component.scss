@@ -61,20 +61,20 @@ a {
         margin-top: 10px;
         margin-bottom: 1rem;
 }
-table{
+p-table{
     width: 100%;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
     // padding-left:1.8rem ;
 }
-thead{
+header{
     background-color: #F7F8FB;
     .text-left{
         text-align: left;
         // padding-left:1.8rem ;
     }
 }
-tbody{
+body{
     color: rgba(0, 0, 0, 0.525);
     // font-size: small;
     .text-left{
@@ -84,7 +84,7 @@ tbody{
 }
 
 
-thead>th{
+header th{
     text-align: center;
     padding: .8rem 0px;
     border-left: 1px solid #D7DCEB;
@@ -97,32 +97,36 @@ tr{
     vertical-align: middle;
 }
 
-thead>th:first-child,tr>th:first-child{
-    border-radius: 10px 0px 0px 0px;
+header th:first-child,tr th:first-child{
     border: none;
     padding-left:1.8rem ;
-    width: 5rem;
 }
-thead>th:last-child,tr>th:last-child{
+header th:last-child,tr th:last-child{
     border-radius: 0px 10px 0px 0px;
     border: none;
-    width: 12rem;
 }
-thead>th:nth-child(2){
-    border-left: none;
-}thead>th:nth-child(3){
-    border-left: none;
-}
-tr:last-child td{
+// header th:nth-child(2){
+//     border-left: none;
+// }header th:nth-child(3){
+//     border-left: none;
+// }
+
+// tr:last-child td{
+//     border-bottom-width: 0px;
+// }//a revenir
+// tr td:last-child{
+//     border-bottom-width: 0px;
+// }//a revenir
+tr:first-child th{
     border-bottom-width: 0px;
 }//a revenir
 svg{
-    width: 12%;
+    width: 25%;
     margin-left: .25rem;
     margin-right: .25rem;
 }
 .delete{
-    width: 10%;
+    width: 20%;
 }
 
 button{
@@ -134,3 +138,19 @@ button:hover{
 button:active{
     color: white;
 }
+
+
+
+.flex{
+    display: flex;
+    justify-content: flex-start;
+}
+input{
+    margin-left: 1rem;
+    height: 2.5rem;
+    width: 17em;
+    border-radius: 7px;
+    border-color: rgba(0, 0, 0, 0.163);
+    padding-left: 10px;
+}
+

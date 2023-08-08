@@ -16,6 +16,7 @@
 
 *{
   scroll-behavior: smooth;
+  font-family: "poppins";
   // transition: .5s;
 }
 $font-family-sans-serif :"poppins";
@@ -27,6 +28,11 @@ $pink:    #d63384 !default;
 $red:     #CC151A !default;
 $yellow:  #FDD300 !default;
 $green:   #007759 !default;
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
 @import "app/bootstrap/scss/bootstrap.scss";
 
 // /* You can add global styles to this file, and also import other style files */
@@ -71,3 +77,41 @@ $green:   #007759 !default;
 // .btn{
 //   @include button-variant($background:#FDD300,$border:#FDD300);
 // }
+.p-datatable .p-datatable-header {
+  border-radius: 10px 10px 0px 0px;
+}
+.p-button{
+  height: 2.5rem;
+  border: #74226B;
+}
+.p-calendar{
+  height: 2.5rem;
+}
+// .p-button.p-button-icon-only {
+//   // background-color: #107EC2;
+// }
+// .p-element .p-ripple .p-datepicker-trigger .p-button-icon-only .ng-tns-c185893541-3 .p-button .p-component .ng-star-inserted{
+//   background-color: #c8d8e1;
+// }
+.p-treeselect .p-treeselect-label.p-placeholder{
+  height: 2.5rem;
+  width: 30rem;
+}
+.p-treeselect  .p-highlight{
+  width: 30rem;
+  height: 2.5rem;
+}
+.p-treeselect-label{
+  width: 30rem;
+}
+.p-treeselect.p-treeselect-chip .p-treeselect-token {
+  background-color: #107EC2;
+  color: white;
+}
+// .p-datatable .p-sortable-column.p-highlight {
+//   background: #EFF6FF;
+//   color: #107EC2ed;
+// }
+svg{
+  cursor: pointer;
+}

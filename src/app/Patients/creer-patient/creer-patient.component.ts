@@ -1,26 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Etudiant } from 'src/app/etudiant';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
 
 
+
 @Component({
   selector: 'app-creer-patient',
   templateUrl: './creer-patient.component.html',
-  styleUrls: ['./creer-patient.component.scss']
+  styleUrls: ['./creer-patient.component.scss'],
 })
 export class CreerPatientComponent implements OnInit {
   // etudiant: Etudiant = new Etudiant();
   creerEtudiant!: FormGroup;
   valid=false
   isDropdownOpen = false;
+  selectedNodes: any;
+  antecedentItems: any[] = [
+    { label: 'Élément 1', value: 'element1' },
+    { label: 'Élément 2', value: 'element2' },
+    { label: 'Élément 3', value: 'element3' },
+    // ... Ajoutez plus d'éléments
+  ];
+  items: any[] = [
+    { label: 'Élément 1', value: 'element1' },
+    { label: 'Élément 2', value: 'element2' },
+    { label: 'Élément 3', value: 'element3' },
+    // ... Ajoutez plus d'éléments
+  ];
+
+  // selectedItems: any[] = []; // Stocke les éléments sélectionnés
 
   constructor(private route:Router, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.creerEtudiant = this.formBuilder.group({
-      // antecedantMedicauxList: [[null]], // Champs tableau avec valeur par défaut
+      // antecedantMedicauxList: [[]], // Champs tableau avec valeur par défaut
       // bloque: [false], // Aucun validateur requis ici
       // classe: [null, Validators.required], // Aucun validateur requis ici
       dateDeNaissance: [null, Validators.required],
@@ -74,11 +90,6 @@ export class CreerPatientComponent implements OnInit {
     
   }
 
-  antecedentItems = [//A remplacer par un get
-    { id: 1, name: 'Option 1', selected: true },
-    { id: 2, name: 'Option 2', selected: false },
-    { id: 3, name: 'Option 3', selected: false },
-  ];
 
   toggleItemSelection(item: any): void {
     item.selected = !item.selected;
@@ -88,7 +99,6 @@ export class CreerPatientComponent implements OnInit {
     return item.selected;
   }
 
-  toggleDropdown(): void {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
+
+
 }

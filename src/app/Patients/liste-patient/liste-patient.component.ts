@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Table } from 'primeng/table';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
-import { AgePipe } from 'src/app/pipe/age.pipe';
 
 @Component({
   selector: 'app-liste-patient',
   templateUrl: './liste-patient.component.html',
   styleUrls: ['./liste-patient.component.scss'],
 
+
 })
 export class ListePatientComponent implements OnInit {
   
+ search: string=''
+  
   etudiants: any = []
 
-  constructor(private route: Router, private etudiantservice: EtudiantsService) { }
+  constructor(private route: Router, private etudiantservice: EtudiantsService) { 
+
+  }
 
   ngOnInit() {
     this.etudiantservice.listeEtudiants().subscribe(
@@ -28,6 +33,17 @@ export class ListePatientComponent implements OnInit {
       }
     );
   }
+
+
+  clear(table: Table) {
+    this.search=''
+    table.clear();
+}
+// onInputSearch(event: Event): void {
+//   const searchText = (event.target as HTMLInputElement).value;
+//   // Rest of your logic here
+// }
+
 
 
   creer() {
