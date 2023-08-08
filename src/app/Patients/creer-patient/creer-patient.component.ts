@@ -13,6 +13,7 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
 })
 export class CreerPatientComponent implements OnInit {
   // etudiant: Etudiant = new Etudiant();
+  maxDate!: Date;
   creerEtudiant!: FormGroup;
   valid=false
   isDropdownOpen = false;
@@ -35,13 +36,17 @@ export class CreerPatientComponent implements OnInit {
   constructor(private route:Router, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.maxDate = new Date()
+    console.log(this.maxDate.getFullYear())
+    this.maxDate.setFullYear(this.maxDate.getFullYear()-14)
+
     this.creerEtudiant = this.formBuilder.group({
       // antecedantMedicauxList: [[]], // Champs tableau avec valeur par défaut
       // bloque: [false], // Aucun validateur requis ici
       // classe: [null, Validators.required], // Aucun validateur requis ici
       dateDeNaissance: [null, Validators.required],
       emailEtudiant: [null, [Validators.required, Validators.email]],
-      // emailParent: [null],
+      emailParent: [null],
       // factures: [[]], // Champs tableau avec valeur par défaut
       // fichesConsultation: [[]], // Champs tableau avec valeur par défaut
       filiere: [null, Validators.required], // Aucun validateur requis ici

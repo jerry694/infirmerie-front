@@ -11,7 +11,7 @@
     <div class="d-flex align-items-end ">
         <h2 class="text-primary">Liste des Medicaments</h2>
         <hr class="flex-grow-1 text-primary">
-        <button  (click)="creer()" class="btn btn-primary bhead">
+        <button (click)="creer()" class="btn btn-primary bhead">
             <img src="../../../assets/img/add.svg" alt="">
             Ajouter Un Medicament
         </button>
@@ -62,33 +62,32 @@
                 </tr>
             </tbody>
         </table> -->
-        <p-table
-        #dt1
-        [globalFilterFields]="['nomMedicament','prixUnitaire','nomGeneriqueMedicament']"
-        [value]="medicaments.reverse()" 
-        class="table"
-        [paginator]="true"
-        [rows]="7"
-        [showCurrentPageReport]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [rowsPerPageOptions]="[7, 15, 20]">
-        <ng-template pTemplate="caption">
-            <div class="flex">
-                <button pButton label="Effacer" class="p-button bg-purple" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
-                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')" placeholder="Chercher le mot clef" />
+        <p-table #dt1 [globalFilterFields]="['nomMedicament','prixUnitaire','nomGeneriqueMedicament']"
+            [value]="medicaments.reverse()" class="table" [paginator]="true" [rows]="7" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[7, 15, 20]">
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <button pButton label="Effacer" class="p-button bg-purple" icon="pi pi-filter-slash"
+                        (click)="clear(dt1)"></button>
+                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')"
+                        placeholder="Chercher le mot clef" />
                     <!-- <pre>{{search}}</pre> -->
-            </div>
-        </ng-template>
+                </div>
+            </ng-template>
             <ng-template pTemplate="header">
                 <tr>
                     <!-- <th class="text-left" scope="col">N*</th> -->
                     <!-- <th class="text-left " scope="col" style="width:10%" >idMedicament</th> -->
-                    <th class="text-left " scope="col" style="width:35%">nom</th>
-                    <th scope="col" style="width:18%" pSortableColumn="dateExpiration">dateExpiration<p-sortIcon field="dateExpiration"></p-sortIcon><p-columnFilter type="text" field="niveau" display="menu"></p-columnFilter></th>
-                    <th scope="col" style="width:17%" pSortableColumn="stockDisponible">stockDisponible<p-sortIcon field="stockDisponible"></p-sortIcon></th>
-                    <th scope="col" style="width:10%">prixUnitaire</th>
+                    <th class="text-left " scope="col" style="width:35%">Nom</th>
+                    <th scope="col" style="width:18%" class="text-center" pSortableColumn="dateExpiration">Date
+                        exp<p-sortIcon field="dateExpiration"></p-sortIcon><p-columnFilter type="text" field="niveau"
+                            display="menu"></p-columnFilter></th>
+                    <th scope="col" style="width:12%" class="text-center" pSortableColumn="quantite">
+                        Quantite<p-sortIcon field="quantite"></p-sortIcon></th>
+                    <th scope="col" style="width:10%" class="text-center">Prix</th>
                     <!-- <th scope="col" style="width:10%">Sexe<p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter></th> -->
-                    <th scope="col" style="width:10%">Actions</th>
+                    <th scope="col" style="width:15%" class="text-center">Actions</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-medicament>
@@ -96,10 +95,11 @@
                     <!-- <th class="text-left" scope="row" style="width:10%">{{ medicament.idMedicament }}</th> -->
                     <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
                     <td class="text-left " col="row" style="width:35%">{{ medicament.nomMedicament }}</td>
-                    <td style="width:18%">{{ medicament.dateExpiration }}</td>
-                    <td style="width:17%">{{ medicament.stockDisponible }}</td>
-                    <td style="width:10%">{{ medicament.prixUnitaire}}</td>
-                    <td>
+                    <td style="width:18%" class="text-center">{{ medicament.dateExpiration }}</td>
+                    <td style="width:12%" class="text-center" [ngClass]="medicament.quantite >= 5 ? 'nrup' : 'rup'">{{
+                        medicament.quantite }}</td>
+                    <td style="width:10%" class="text-center">{{ medicament.prixUnitaire}}</td>
+                    <td class="text-center">
                         <a (click)="more(medicament.idMedicament)">
                             <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                 viewBox="0 0 26.613 17.779">
@@ -115,6 +115,25 @@
                                     d="M28.546,1.928A4.822,4.822,0,0,1,32.394,9.64L30.47,11.568,23.736,4.82,25.66,2.892a4.782,4.782,0,0,1,2.886-.964ZM4.495,24.1,2.571,32.777l8.658-1.928,17.8-17.834L22.293,6.266ZM24.084,12.881l-13.469,13.5L8.957,24.716l13.469-13.5,1.658,1.662Z"
                                     transform="translate(-2.571 -1.928)" fill="#7a7171" />
                             </svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="37.24" height="30.121"
+                                viewBox="0 0 37.24 30.121">
+                                <g id="renew" transform="translate(0.62 -2.939)">
+                                    <path id="Path_426" data-name="Path 426" d="M34.5,6v9h-9" fill="none"
+                                        stroke="#707070" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3" />
+                                    <path id="Path_427" data-name="Path 427" d="M1.5,30V21h9" fill="none"
+                                        stroke="#707070" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3" />
+                                    <path id="Path_428" data-name="Path 428"
+                                        d="M5.265,13.5A13.5,13.5,0,0,1,27.54,8.46L34.5,15m-33,6,6.96,6.54A13.5,13.5,0,0,0,30.735,22.5"
+                                        fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3" />
+                                </g>
+                            </svg>
+
+
                         </a>
                         <a (click)="delete(medicament.idMedicament)">
                             <svg class="delete" xmlns="http://www.w3.org/2000/svg" width="20.957" height="27"

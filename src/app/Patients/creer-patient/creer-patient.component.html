@@ -23,11 +23,11 @@
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Nom</label>
-                            <input type="text" formControlName="nom" class="form-control " id="nom" name="nom">
+                            <input type="text" formControlName="nom" class="form-control " id="nom">
                         </div>
                         <div class="form-group col-md-6 ">
                             <label>Prenom</label>
-                            <input type="text" formControlName="prenom" class="form-control" id="prenom" name="prenom">
+                            <input type="text" formControlName="prenom" class="form-control" id="prenom" >
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -46,7 +46,7 @@
                         <div class="form-group col-md-6">
                             <label>Date de naissance*</label>
                             <div class="input-group">
-                                <p-calendar formControlName="dateDeNaissance" [showIcon]="true"></p-calendar>
+                                <p-calendar formControlName="dateDeNaissance" [showIcon]="true" [maxDate]="maxDate"></p-calendar>
                             </div>
                         </div>
 
@@ -55,12 +55,12 @@
                             <div class="row m-0">
                                 <div class="form-check col-6">
                                     <input class="form-check-input" type="radio" formControlName="sexe" value="Feminin"
-                                        id="sexe" name="sexe">
+                                        id="sexe">
                                     <label class="form-check-label">Feminin</label>
                                 </div>
                                 <div class="form-check  col-6">
                                     <input class="form-check-input" type="radio" formControlName="sexe" value="Masculin"
-                                        id="sexe" name="sexe">
+                                        id="sexe" >
                                     <label class="form-check-label">Masculin</label>
                                 </div>
                             </div>
@@ -70,19 +70,19 @@
                         <div class="form-group col-md-6">
                             <label>Matricule</label>
                             <input type="text" class="form-control " placeholder="2021x000" formControlName="matricule"
-                                id="matricule" name="matricule">
+                                id="matricule">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Addresse
                                 Institutionnelle</label>
                             <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org"
-                                formControlName="emailEtudiant" id="email" name="emailEtudiant">
+                                formControlName="emailEtudiant" id="email">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Filiere</label>
-                            <select class="form-control " formControlName="filiere" name="filiere">
+                            <select class="form-control " formControlName="filiere">
                                 <option disabled selected>Sélectionnez</option>
                                 <option value="Ingenieur Generaliste">Ingenieur Generaliste</option>
                                 <option value="ISI">ISI</option>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Niveau*</label>
-                            <select class="form-control text-center" formControlName="niveau" name="niveau">
+                            <select class="form-control text-center" formControlName="niveau">
                                 <option disabled selected>Sélectionnez une option...</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -113,7 +113,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/phone.svg" alt=""></span>
                                 </div>
                                 <input type="text" class="form-control fc" placeholder="6xxxxxxxx"
-                                    formControlName="numeroDeTelephone" id="numeroDeTelephone" name="numeroDeTelephone">
+                                    formControlName="numeroDeTelephone" id="numeroDeTelephone">
                             </div>
                         </div>
                         <div class="form-group col-6">
@@ -123,7 +123,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/phone.svg" alt=""></span>
                                 </div>
                                 <input type="text" class="form-control fc" placeholder="6xxxxxxxx"
-                                    formControlName="numeroWhatsapp" id="numeroWhatsapp" name="numeroWhatsapp">
+                                    formControlName="numeroWhatsapp" id="numeroWhatsapp">
                             </div>
                         </div>
                     </div>
@@ -137,12 +137,12 @@
                         <div class="form-group col-md-6">
                             <label>Nom</label>
                             <input type="text" class="form-control " formControlName="nomContactUrgence"
-                                id="nomContactUrgence" name="nomContactUrgence">
+                                id="nomContactUrgence">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Relation</label>
                             <select class="form-control placeH" formControlName="relationContactUrgence"
-                                name="relationContactUrgence">
+                               >
                                 <option disabled selected>Sélectionnez</option>
                                 <option value="Parent">Parent</option>
                                 <option value="Tuteur(-trice)">Tuteur(-trice)</option>
@@ -160,8 +160,13 @@
                                 </div>
                                 <input type="text" class="form-control fc" placeholder="6xxxxexxxx"
                                     formControlName="numeroDeTelephoneUrgence" id="numeroDeTelephoneUrgence"
-                                    name="numeroDeTelephoneUrgence">
+                                    >
                             </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>eMail</label>
+                            <input type="text" class="form-control " placeholder="xx@gmail.com"
+                                formControlName="emailParent" id="email" >
                         </div>
                     </div>
                     <div class="d-flex align-items-end mb-2">
@@ -176,7 +181,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/taille.svg" alt=""></span>
                                 </div>
                                 <input type="tel" class="form-control text-center fc" formControlName="taille"
-                                    id="taille" name="taille">
+                                    id="taille">
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -186,7 +191,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/poids.svg" alt=""></span>
                                 </div>
                                 <input type="number" class="form-control text-center fc" formControlName="poids"
-                                    id="poids" name="poids">
+                                    id="poids" >
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -196,7 +201,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/sang.svg" alt=""></span>
                                 </div>
                                 <select class="form-control fc text-center" formControlName="groupeSanguin"
-                                    name="groupeSanguin">
+                                    >
                                     <option disabled selected>Sélectionnez une option...</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
@@ -239,8 +244,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text igt"><img src="./assets/img/autres.svg" alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="Identifiant" name="name" id=""
-                                    name="">
+                                <input type="text" class="form-control fc" placeholder="Identifiant" id=""
+                                  >
                             </div>
                         </div>
                     </div>
