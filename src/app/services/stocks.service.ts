@@ -18,7 +18,7 @@ export class StocksService {
         'Authorization': `Bearer ${this.accessToken}`
       })
     };
-    return this.httpClient.get(`${this.baseUrl}ListeMedicaments`, httpOptions);
+    return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, httpOptions);
   }
   creerMedicament(medicament: Medicament, idInfirmiere: string): Observable<object> {
     const httpOptions = {
@@ -28,6 +28,6 @@ export class StocksService {
     };
 
     console.log(medicament);
-    return this.httpClient.post(`${this.baseUrl}${idInfirmiere}/medicaments`, medicament, httpOptions);
+    return this.httpClient.post(`${this.baseUrl}${idInfirmiere}Medicament/ajout`, medicament, httpOptions);
   }
 }

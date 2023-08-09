@@ -29,7 +29,7 @@ export class EtudiantsService {
     };
 
     console.log(etudiant);
-    return this.httpClient.post(`${this.baseUrl}ajouter/${idInfirmiere}`, etudiant, httpOptions);
+    return this.httpClient.post(`${this.baseUrl}Etudiant/Ajouter/${idInfirmiere}`, etudiant, httpOptions);
   }
   listeEtudiants(): Observable<object> {
     const httpOptions = {
@@ -37,7 +37,7 @@ export class EtudiantsService {
         'Authorization': `Bearer ${this.accessToken}`
       })
     };
-    return this.httpClient.get(`${this.baseUrl}listes`, httpOptions);
+    return this.httpClient.get(`${this.baseUrl}Etudiant/Listes`, httpOptions);
   }
   infoEtudiant(idEtudiant:number): Observable<object> {
     const httpOptions = {
@@ -46,7 +46,7 @@ export class EtudiantsService {
       })
     };
     // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
-    return this.httpClient.get(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions);
+    return this.httpClient.get(`${this.baseUrl}Etudiant/Consulter/${idEtudiant}`, httpOptions);
   }
   modifierEtudiant(etudiant: Etudiant,idEtudiant:number){
     const httpOptions = {
@@ -56,7 +56,7 @@ export class EtudiantsService {
     };
 
     console.log(etudiant);
-    return this.httpClient.put(`${this.baseUrl}modifier/${idEtudiant}`, etudiant, httpOptions);
+    return this.httpClient.put(`${this.baseUrl}Etudiant/Modifier/${idEtudiant}`, etudiant, httpOptions);
   }
   supprimerEtudiant(idEtudiant:number){
     const httpOptions = {
@@ -65,6 +65,6 @@ export class EtudiantsService {
       })
     };
 
-    return this.httpClient.delete(`${this.baseUrl}supprimer/${idEtudiant}`, httpOptions);
+    return this.httpClient.delete(`${this.baseUrl}Etudiant/Supprimer/${idEtudiant}`, httpOptions);
   }
 }
