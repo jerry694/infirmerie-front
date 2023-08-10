@@ -8,6 +8,8 @@ import { TableModule } from 'primeng/table';
 import { SharedModule } from 'primeng/api';
 import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { ChartModule } from 'primeng/chart';
+import { CheckboxModule } from 'primeng/checkbox';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,6 +61,7 @@ import { AgePipe } from 'src/app/pipe/age.pipe';
     ConsulterPatientComponent,
     AgePipe,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,8 @@ import { AgePipe } from 'src/app/pipe/age.pipe';
     SharedModule,
     CalendarModule,
     SelectButtonModule,
+    ChartModule,
+    CheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

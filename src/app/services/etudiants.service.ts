@@ -45,6 +45,7 @@ export class EtudiantsService {
         'Authorization': `Bearer ${this.accessToken}`
       })
     };
+    // http://localhost:8080/Infirmerie-IUSJC/Facture/Consulter/{{NumFacture}}
     // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
     return this.httpClient.get(`${this.baseUrl}Etudiant/Consulter/${idEtudiant}`, httpOptions);
   }

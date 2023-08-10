@@ -1,43 +1,42 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Medicament } from 'src/entites/medicament';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StocksService {
+export class FacturesService {
   private baseUrl = "http://localhost:8080/Infirmerie-IUSJC/";
   private accessToken = localStorage.getItem('token');
 
   constructor(private httpClient: HttpClient) {}
 
-  listeMedicament(): Observable<object> {
+  listeFacture(): Observable<object> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.accessToken}`
       })
     };
-    return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, httpOptions);
+    // Facture/RegleFacture/{{NumFacture}}
+    return this.httpClient.get(`${this.baseUrl}Facture/Liste`, httpOptions);
   }
-  creerMedicament(medicament: Medicament, idInfirmiere: string): Observable<object> {
+  reglerFacture(idFacture:number){
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.accessToken}`
       })
     };
 
-    console.log(medicament);
-    return this.httpClient.post(`${this.baseUrl}Medicament/Ajout/${idInfirmiere}`, medicament, httpOptions);
+    return this.httpClient.delete(`${this.baseUrl}Facture/RegleFacture/${idFacture}`, httpOptions);
   }
-  infoMedicament(idMedicament:number): Observable<object> {
+  infoFacture(idFacture:number): Observable<object> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${this.accessToken}`
       })
     };
-    // Medicament/Consulter/{{idMedicament}}
+    // http://localhost:8080/Infirmerie-IUSJC/Facture/Consulter/{{NumFacture}}
     // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
-    return this.httpClient.get(`${this.baseUrl}Medicament/Consulter/${idMedicament}`, httpOptions);
+    return this.httpClient.get(`${this.baseUrl}Facture/Consulter/${idFacture}`, httpOptions);
   }
 }

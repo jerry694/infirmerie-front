@@ -23,10 +23,10 @@
             [rowsPerPageOptions]="[7, 15, 20]">
             <ng-template pTemplate="caption">
                 <div class="flex">
+                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')"
+                        placeholder="Cherchez par Nom, Prix" />
                     <button pButton label="Effacer" class="p-button bg-purple" icon="pi pi-filter-slash"
                         (click)="clear(dt1)"></button>
-                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')"
-                        placeholder="Chercher le mot clef" />
                     <!-- <pre>{{search}}</pre> -->
                 </div>
             </ng-template>
@@ -38,8 +38,8 @@
                     <th scope="col" style="width:18%" class="text-center" pSortableColumn="dateExpiration">Date
                         exp<p-sortIcon field="dateExpiration"></p-sortIcon><p-columnFilter type="text" field="niveau"
                             display="menu"></p-columnFilter></th>
-                    <th scope="col" style="width:12%" class="text-center" pSortableColumn="quantite">
-                        Quantite<p-sortIcon field="quantite"></p-sortIcon></th>
+                    <th scope="col" style="width:12%" class="text-center" pSortableColumn="quantiteDisponible">
+                        Quantite<p-sortIcon field="quantiteDisponible"></p-sortIcon></th>
                     <th scope="col" style="width:10%" class="text-center">Prix</th>
                     <!-- <th scope="col" style="width:10%">Sexe<p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter></th> -->
                     <th scope="col" style="width:15%" class="text-center">Actions</th>
@@ -51,8 +51,8 @@
                     <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
                     <td class="text-left " col="row" style="width:35%">{{ medicament.nomMedicament }}</td>
                     <td style="width:18%" class="text-center">{{ medicament.dateExpiration }}</td>
-                    <td style="width:12%" class="text-center" [ngClass]="medicament.quantite >= 5 ? 'nrup' : 'rup'">{{
-                        medicament.quantite }}</td>
+                    <td style="width:12%" class="text-center" [ngClass]="medicament.quantiteDisponible >= 5 ? 'nrup' : 'rup'">{{
+                        medicament.quantiteDisponible }}</td>
                     <td style="width:10%" class="text-center">{{ medicament.prixUnitaire}}</td>
                     <td class="text-center">
                         <a (click)="more(medicament.idMedicament)">

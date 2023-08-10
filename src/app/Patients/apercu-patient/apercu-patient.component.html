@@ -110,10 +110,10 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let consultation of etudiant.fichesConsultation">
-                                <td>{{consultation.date}}</td>
-                                <td>{{consultation.diagnostic}}</td>
+                                <td>{{consultation.dateCreationFC}}</td>
+                                <td>{{consultation.diagnostiqueList}}</td>
                                 <td>
-                                    <a (click)="exploreConsultation(consultation.idConsultation)">
+                                    <a (click)="exploreConsultation(consultation.idFicheConsultation)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                             viewBox="0 0 26.613 17.779">
                                             <path id="more"
@@ -136,11 +136,11 @@
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let facture of etudiant.factures">
-                                <td>{{facture.date}}</td>
-                                <td>{{facture.montant}}</td>
-                                <td>
-                                    <a (click)="exploreFacture(facture.idFacture)">
+                            <tr *ngFor="let facture of etudiant.factures" >
+                                <td *ngIf="facture.statutFacture == false">{{facture.dateCreationFacture}}</td>
+                                <td *ngIf="facture.statutFacture == false">{{facture.montantFacute}}</td>
+                                <td *ngIf="facture.statutFacture == false">
+                                    <a (click)="exploreFacture(facture.NumFacture)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                             viewBox="0 0 26.613 17.779">
                                             <path id="more"

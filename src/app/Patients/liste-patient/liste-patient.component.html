@@ -30,9 +30,10 @@
         [rowsPerPageOptions]="[7, 15, 20]">
         <ng-template pTemplate="caption">
             <div class="flex">
+                <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')" placeholder="Cherchez par Nom, Matricule" />
+
                 <button pButton label="Effacer" class="p-button bg-purple" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
                 
-                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')" placeholder="Chercher le mot clef" />
                     <!-- <pre>{{search}}</pre> -->
             </div>
         </ng-template>

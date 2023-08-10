@@ -46,7 +46,7 @@ export class CreerPatientComponent implements OnInit {
       // classe: [null, Validators.required], // Aucun validateur requis ici
       dateDeNaissance: [null, Validators.required],
       emailEtudiant: [null, [Validators.required, Validators.email]],
-      emailParent: [null],
+      emailContactUrgence: [null],
       // factures: [[]], // Champs tableau avec valeur par défaut
       // fichesConsultation: [[]], // Champs tableau avec valeur par défaut
       filiere: [null, Validators.required], // Aucun validateur requis ici

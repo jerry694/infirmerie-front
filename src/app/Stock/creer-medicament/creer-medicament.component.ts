@@ -20,7 +20,7 @@ ngOnInit(){
     dateExpiration: [null, Validators.required],
     formePharmaceutique:[null, Validators.required],
     dosage:[null, Validators.required],
-    quantite: [null, Validators.required],
+    quantiteDisponible: [null, Validators.required],
     prixUnitaire: [null, Validators.required],
   })
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Table } from 'primeng/table';
+import { FacturesService } from 'src/app/services/factures.service';
 
 @Component({
   selector: 'app-liste-facture',
@@ -7,45 +9,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./liste-facture.component.scss']
 })
 export class ListeFactureComponent {
-    factures = [{
-      "idFacture":1,
-      "nom":"Wafo Kamgue Jerry",
-      "statut":"Reglee",
-      "montant":1000,
-      "date":"28/05/2028"
-
-    }, {
-      "idFacture": 2,
-      "nom": "Doe John",
-      "statut": "Non Reglee",
-      "montant": 500,
-      "date": "15/06/2028"
-    },
-    {
-      "idFacture": 3,
-      "nom": "Smith Jane",
-      "statut": "Non Reglee",
-      "montant": 750,
-      "date": "10/06/2028"
-    },
-    {
-      "idFacture": 4,
-      "nom": "Dupont Pierre",
-      "statut": "Reglee",
-      "montant": 1200,
-      "date": "20/06/2028"
-    }]
-  
-  constructor(private route:Router){}
-
-  more(idMedicament:number){
-    this.route.navigate(['facture/apercu',idMedicament]);
+  factures: any = []
+  search: string=''
+  // factures: any = []
+  clear(table: Table) {
+    this.search=''
+    table.clear();
+}  
+  constructor(private route:Router,private factureService:FacturesService){}
+  ngOnInit() {
+    this.factureService.listeFacture().subscribe(
+      data => {
+        console.log(data)
+        alert(data)
+        this.factures = data
+        //redirection ici
+      },
+      error => {
+        alert("Erreur de lecture.");
+      }
+    );
   }
-  cash(idMedicament:number){
+  more(idFacture:number){
+    this.route.navigate(['facture/apercu',idFacture]);
+  }
+  cash(idFacture:number){
+    this.factureService.reglerFacture(idFacture).subscribe(
+      newFacture => {
+        console.log(newFacture)
+        alert(newFacture)
+        //redirection ici
+      },
+      error => {
+        console.log(error)
+        alert("Erreur de reglement.");
+      }
+    );
     // this.route.navigate(['medicament/modifier',idMedicament]);
-    console.log(idMedicament)
-  }
-  delete(idMedicament:number){
-    console.log(idMedicament);
+    console.log(idFacture)
   }
 }

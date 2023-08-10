@@ -9,6 +9,7 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
   styleUrls: ['./modifier-patient.component.scss']
 })
 export class ModifierPatientComponent implements OnInit {
+  maxDate!: Date;
   modifierEtudiantForm!: FormGroup;
   valid=false
   isDropdownOpen = false;
@@ -47,6 +48,10 @@ export class ModifierPatientComponent implements OnInit {
   }
 
   initialiseForm(){
+    this.maxDate = new Date()
+    console.log(this.maxDate.getFullYear())
+    this.maxDate.setFullYear(this.maxDate.getFullYear()-14)
+
     console.log(this.etudiant)
     this.modifierEtudiantForm = this.formBuilder.group({
       // antecedantMedicauxList: [[null]], // Champs tableau avec valeur par défaut
