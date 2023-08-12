@@ -40,4 +40,21 @@ export class StocksService {
     // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
     return this.httpClient.get(`${this.baseUrl}Medicament/Consulter/${idMedicament}`, httpOptions);
   }
+  supprimerMedicament(idMedicament:number){
+    // http://localhost:8080/Infirmerie-IUSJC/Medicament/Supprimer/
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    return this.httpClient.delete(`${this.baseUrl}Medicament/Supprimer/${idMedicament}`, httpOptions);
+  }
+  modifierMedicament(medicament:any , idMedicament:number){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    return this.httpClient.put(`${this.baseUrl}Medicament/Modifier/${idMedicament}`,medicament, httpOptions);
+  }
 }

@@ -36,6 +36,7 @@ import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medi
 import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
 import { ConsulterPatientComponent } from './Patients/consulter-patient/consulter-patient.component';
 import { AgePipe } from 'src/app/pipe/age.pipe';
+import { RenouvelerMedicamentComponent } from './Stock/renouveler-medicament/renouveler-medicament.component';
 
 // import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
 
@@ -60,6 +61,7 @@ import { AgePipe } from 'src/app/pipe/age.pipe';
     ApercuFactureComponent,
     ConsulterPatientComponent,
     AgePipe,
+    RenouvelerMedicamentComponent,
     
     
   ],

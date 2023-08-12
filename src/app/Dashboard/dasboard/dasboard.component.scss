@@ -22,7 +22,7 @@ hr {
     min-height: 150px;
     font-size: medium;
     margin-top: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 
     display: flex;
 
@@ -51,36 +51,37 @@ hr {
 
 
 .forms-container1 {
-        justify-content: space-between;
+    justify-content: space-between;
+    margin-top: 0rem;
 
-        .graph {
-            width: 55%;
+    .graph {
+        width: 55%;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
+
+    }
+
+    .rappel {
+        width: 44%;
+
+        .facture {
+            width: 100%;
+            min-height: 8rem;
+            margin-bottom: .5rem;
             border-radius: 10px 10px 10px 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
 
         }
 
-        .rappel {
-            width: 44%;
+        .rVous {
+            width: 100%;
+            min-height: 8rem;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
 
-            .facture {
-                width: 100%;
-                min-height: 8rem;
-                margin-bottom: .5rem;
-                border-radius: 10px 10px 10px 10px;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
-
-            }
-
-            .rVous {
-                width: 100%;
-                min-height: 8rem;
-                border-radius: 10px 10px 10px 10px;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.189);
-
-            }
         }
-    
+    }
+
 }
 
 .head {
@@ -117,9 +118,16 @@ tbody td {
     height: 3rem;
     vertical-align: middle;
 }
-tr:last-child td{
+
+tr:last-child td {
     border-bottom-width: 0px;
 }
+
 h4 {
     margin: 0;
+}
+
+.graph-body {
+    padding-bottom: 1rem;
+    max-height: 60vh;
 }

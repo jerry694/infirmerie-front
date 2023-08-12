@@ -12,9 +12,9 @@ export class ListeMedicamentComponent implements OnInit{
  search: string=''
   medicaments: any = []
 
-  constructor(private route:Router,private medicament : StocksService){}
+  constructor(private route:Router,private medicamentService : StocksService){}
   ngOnInit() {
-    this.medicament.listeMedicament().subscribe(
+    this.medicamentService.listeMedicament().subscribe(
       data => {
         console.log(data)
         alert(data)
@@ -39,7 +39,19 @@ export class ListeMedicamentComponent implements OnInit{
   modify(idMedicament:number){
     this.route.navigate(['medicament/modifier',idMedicament]);
   }
+  renouveler(idMedicament:number){
+    this.route.navigate(['medicament/renouveler',idMedicament]);
+  }
   delete(idMedicament:number){
     console.log(idMedicament);
+    this.medicamentService.supprimerMedicament(idMedicament).subscribe(
+      data => {
+        console.log(data)
+        //redirection ici
+      },
+      error => {
+        alert("Erreur de suppression.");
+      }
+    );
   }
 }

@@ -14,6 +14,7 @@ import { ModifierMedicamentComponent } from './Stock/modifier-medicament/modifie
 import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medicament.component';
 import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
 import { ConsulterPatientComponent } from './Patients/consulter-patient/consulter-patient.component';
+import { RenouvelerMedicamentComponent } from './Stock/renouveler-medicament/renouveler-medicament.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/auth',pathMatch:'full'},
@@ -29,10 +30,10 @@ const routes: Routes = [
   {path:'medicament',component:ListeMedicamentComponent},
   {path:'medicament/creer',component:CreerMedicamentComponent},
   {path:'medicament/modifier/:idMedicament',component:ModifierMedicamentComponent},
+  {path:'medicament/renouveler/:idMedicament',component:RenouvelerMedicamentComponent},
   {path:'medicament/apercu/:idMedicament',component:ApercuMedicamentComponent},
   {path:'facture',component:ListeFactureComponent},
   {path:'facture/apercu/:idFacture',component:ApercuFactureComponent},
-
 
   {path:'**',redirectTo:'dashboard',pathMatch:'full'},//404 NOT FOUND
 

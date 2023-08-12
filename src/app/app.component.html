@@ -5,50 +5,14 @@
     <app-head></app-head>
     <app-body></app-body>
 
-    <!-- <div class="card flex justify-content-center">
-        <p-calendar [(ngModel)]="date" dateFormat="yy.mm.dd" [showIcon]="true"></p-calendar>
-    </div>
-    <pre> {{date }}</pre> -->
-
-    <!-- <p-button label="Check"></p-button> -->
-
-
-    <!-- <form [formGroup]="checkboxForm">
-        <div *ngFor="let category of categories" class="field-checkbox">
-          <p-checkbox
-            [formControlName]="category.key"
-          ></p-checkbox>
-          <label [for]="category.key">{{ category.name }}</label>
-        </div>
-      </form>
-       -->
-      
-<!-- <div class="card flex justify-content-center gap-3">
-    <div class="flex align-items-center gap-1">
-        <p-checkbox name="group1" value="1" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
-        <label for="ny" >New York</label>
-        <p-checkbox name="group1" value="2" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
-        <label for="sf">San Francisco</label>
-        <p-checkbox name="group1" value="3" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
-        <label for="la">Los Angeles</label>
-    </div>
-    <pre>{{selectedCities | json}}</pre>
-</div> -->
-<!-- ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff -->
-<!-- <div class="card flex justify-content-center">
-    <div class="flex flex-column gap-2">
-        <div *ngFor="let category of categories" class="field-checkbox">
-            <p-checkbox name="group" [value]="category.key" [(ngModel)]="selectedCategories" [inputId]="category.key"></p-checkbox>
-            <label [for]="category.key">{{ category.name }}</label>
-        </div>
-    </div>
-    <div>{{selectedCategories | json}}</div>
-</div>
-<form class="flex align-items-center gap-1" [formGroup]="formGroup">
-    <div *ngFor="let category of categories" class="field-checkbox">
-        <p-checkbox name="group" [value]="category.key" [(ngModel)]="selectedCategories" [inputId]="category.key"></p-checkbox>
-        <label [for]="category.key">{{ category.name }}</label>
-    </div>
-    <p-checkbox formControlName="city" value="New York" inputId="ny"></p-checkbox>
-    <label for="ny">New York</label>
-</form> -->
+    <!-- <form class="flex align-items-center gap-1" [formGroup]="formGroups">
+        <p-checkbox formControlName="city" value="1" inputId="ny"></p-checkbox>
+        <label for="ny">New York</label>
+        <p-checkbox formControlName="city" value="2" inputId="nr"></p-checkbox>
+        <label for="nr">New York</label>
+        <p-checkbox formControlName="city" value="3" inputId="nx"></p-checkbox>
+        <label for="nx">New York</label>
+        
+    </form>
+    <h1 (click)="aff()">clique</h1>
+    <pre>{{formGroups.value | json}}</pre> -->

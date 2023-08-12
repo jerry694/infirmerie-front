@@ -12,7 +12,7 @@
         <h2 class="text-primary">Liste des Medicaments</h2>
         <hr class="flex-grow-1 text-primary">
         <button (click)="creer()" class="btn btn-primary bhead">
-            <img src="../../../assets/img/add.svg" alt="">
+            <img src="./assets/img/add.svg" alt="">
             Ajouter Un Medicament
         </button>
     </div>
@@ -71,7 +71,7 @@
                                     transform="translate(-2.571 -1.928)" fill="#7a7171" />
                             </svg>
                         </a>
-                        <a href="">
+                        <a (click)="renouveler(medicament.idMedicament)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="37.24" height="30.121"
                                 viewBox="0 0 37.24 30.121">
                                 <g id="renew" transform="translate(0.62 -2.939)">

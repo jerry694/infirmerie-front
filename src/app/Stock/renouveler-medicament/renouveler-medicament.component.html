@@ -9,7 +9,7 @@
 
 <body>
     <div class="d-flex align-items-end">
-        <h2 class="text-primary">Modifier un medicament</h2>
+        <h2 class="text-primary">Renouveler un medicament</h2>
         <hr class="flex-grow-1 text-primary">
     </div>
     <div>
@@ -33,8 +33,8 @@
                             <div class="form-group col-md-6">
                                 <label>Date de peremption</label>
                                 <div class="input-group">
-                                    <div class="input-group">
-                                        <p-calendar formControlName="dateExpiration" [showIcon]="true"
+                                    <div  class="input-group">
+                                        <p-calendar   formControlName="dateExpiration" [showIcon]="true"
                                             placeholder="yy-mm-dd" [minDate]="minDate"></p-calendar>
                                     </div>
                                 </div>
@@ -108,6 +108,7 @@
                 <img src="./assets/img/save.svg" alt="">
                 Enregistrer
             </button>
+            <pre>{{modifierMedicamentForm.value | json}}</pre>
         </form>
     </div>
 </body>

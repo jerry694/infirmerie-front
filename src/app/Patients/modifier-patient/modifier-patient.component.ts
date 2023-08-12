@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Etudiant } from 'src/app/etudiant';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
 
 @Component({
@@ -11,9 +12,7 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
 export class ModifierPatientComponent implements OnInit {
   maxDate!: Date;
   modifierEtudiantForm!: FormGroup;
-  valid=false
-  isDropdownOpen = false;
-  etudiant: any= {}
+  etudiant!: any
   id!: string
 
   constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder) {}
@@ -24,9 +23,6 @@ export class ModifierPatientComponent implements OnInit {
       if (id !== null) {
         this.id = id;
         console.log(this.id)
-      } else {
-        // Gérer le cas où id est null (si nécessaire)
-        console.log('ID étudiant non fourni dans les paramètres de l\'URL.');
       }
       console.log(data.get('idEtudiant'));
       
@@ -54,28 +50,26 @@ export class ModifierPatientComponent implements OnInit {
 
     console.log(this.etudiant)
     this.modifierEtudiantForm = this.formBuilder.group({
+
       // antecedantMedicauxList: [[null]], // Champs tableau avec valeur par défaut
-      // bloque: [false], // Aucun validateur requis ici
-      // classe: [null, Validators.required], // Aucun validateur requis ici
-      dateDeNaissance: [this.etudiant.dateDeNaissance, Validators.required],
-      emailEtudiant: [this.etudiant.emailEtudiant, [Validators.required, Validators.email]],
-      // emailParent: [null],
-      // factures: [[]], // Champs tableau avec valeur par défaut
-      // fichesConsultation: [[]], // Champs tableau avec valeur par défaut
-      filiere: [this.etudiant.filiere, Validators.required], // Aucun validateur requis ici
-      groupeSanguin: [this.etudiant.groupeSanguin], // Aucun validateur requis ici
-      matricule: [this.etudiant.matricule, Validators.required], // Aucun validateur requis ici
-      niveau: [this.etudiant.niveau, Validators.required], // Aucun validateur requis ici
-      nom: [this.etudiant.nom, Validators.required],
-      nomContactUrgence: [this.etudiant.nomContactUrgence, Validators.required], // Aucun validateur requis ici
-      numeroDeTelephone: [this.etudiant.numeroDeTelephone, [Validators.required]], // Champs numérique avec validation de motif
-      numeroDeTelephoneUrgence: [this.etudiant.numeroDeTelephoneUrgence, Validators.required], // Aucun validateur requis ici
-      numeroWhatsapp: [this.etudiant.numeroWhatsapp], // Aucun validateur requis ici
-      poids: [this.etudiant.poids], // Aucun validateur requis ici
-      prenom: [this.etudiant.prenom],
-      relationContactUrgence: [this.etudiant.relationContactUrgence, Validators.required], // Aucun validateur requis ici
-      sexe: [this.etudiant.sexe, Validators.required], // Aucun validateur requis ici
-      taille: [this.etudiant.taille], // Aucun validateur requis ici
+
+      dateDeNaissance: new FormControl(this.etudiant.dateDeNaissance, [Validators.required]) ,
+      emailEtudiant: new FormControl(this.etudiant.emailEtudiant, [Validators.required, Validators.email]),
+      emailContactUrgence: new FormControl(this.etudiant.emailContactUrgence),
+      filiere: new FormControl(this.etudiant.filiere, Validators.required), // Aucun validateur requis ici
+      groupeSanguin: new FormControl(this.etudiant.groupeSanguin), // Aucun validateur requis ici
+      matricule: new FormControl(this.etudiant.matricule, Validators.required), // Aucun validateur requis ici
+      niveau: new FormControl(this.etudiant.niveau, Validators.required), // Aucun validateur requis ici
+      nom:new FormControl(this.etudiant.nom),
+      nomContactUrgence: new FormControl(this.etudiant.nomContactUrgence, Validators.required), // Aucun validateur requis ici
+      numeroDeTelephone: new FormControl(this.etudiant.numeroDeTelephone, [Validators.required]), // Champs numérique avec validation de motif
+      numeroDeTelephoneUrgence: new FormControl(this.etudiant.numeroDeTelephoneUrgence, Validators.required), // Aucun validateur requis ici
+      numeroWhatsapp: new FormControl(this.etudiant.numeroWhatsapp), // Aucun validateur requis ici
+      poids: new FormControl(this.etudiant.poids), // Aucun validateur requis ici
+      prenom: new FormControl(this.etudiant.prenom),
+      relationContactUrgence: new FormControl(this.etudiant.relationContactUrgence, Validators.required), // Aucun validateur requis ici
+      sexe: new FormControl(this.etudiant.sexe, Validators.required), // Aucun validateur requis ici
+      taille: new FormControl(this.etudiant.taille), // Aucun validateur requis ici
     });
   }
   model : any;
@@ -97,8 +91,8 @@ export class ModifierPatientComponent implements OnInit {
 
     this.etudiantservice.modifierEtudiant(modifiedEtudiant,parseInt(this.id)).subscribe(
       data => {
-        console.log(data)
         alert("Modification réussi !");
+        console.log(data)
         //redirection ici
       },
       error => {
@@ -107,17 +101,4 @@ export class ModifierPatientComponent implements OnInit {
     );
   }
 
-
-  
-  toggleItemSelection(item: any): void {
-    item.selected = !item.selected;
-  }
-  
-  isItemSelected(item: any): boolean {
-    return item.selected;
-  }
-  
-  toggleDropdown(): void {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
 }

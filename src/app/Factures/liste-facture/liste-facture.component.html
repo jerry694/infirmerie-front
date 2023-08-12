@@ -86,15 +86,15 @@
                 <tr>
                     <!-- <th class="text-left" scope="row" style="width:10%">{{ facture.idFacture }}</th> -->
                     <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
-                    <td style="width:35%">{{ facture.etudiant }}</td>
-                    <td style="width:13%">{{ facture.dateCreationFacture }}</td>
-                    <td style="width:10%">{{ facture.montantFacute }}</td>
+                    <td style="width:35%">{{ facture[1] }} {{ facture[2]}}</td>
+                    <td style="width:13%">{{ facture[0].dateCreationFacture }}</td>
+                    <td style="width:10%">{{ facture[0].montantFacute }}</td>
                     <td style="width:12%"
-                        [ngClass]="facture.statutFacture == true ? 'text-success' : 'text-danger'">
+                        [ngClass]="facture[0].statutFacture == true ? 'text-success' : 'text-danger'">
                         {{ facture.statutFacture ? 'Reglee' : 'Non reglee' }}</td>
                     <td style="width:10%">
 
-                        <a (click)="cash(facture.NumFacture)">
+                        <a (click)="cash(facture[0].NumFacture)">
                             <svg class="cash" xmlns="http://www.w3.org/2000/svg" width="22.198" height="22.197"
                                 viewBox="0 0 22.198 22.197">
                                 <path id="Icon_awesome-cash-register" data-name="Icon awesome-cash-register"
@@ -102,7 +102,7 @@
                                     transform="translate(0.007)" fill="#707070" />
                             </svg>
                         </a>
-                        <a (click)="more(facture.NumFacture)">
+                        <a (click)="more(facture[0].NumFacture)">
                             <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                 viewBox="0 0 26.613 17.779">
                                 <path id="more"
