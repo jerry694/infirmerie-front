@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { SharedModule } from 'primeng/api';
+import { CalendarModule } from 'primeng/calendar';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ChartModule } from 'primeng/chart';
+import { CheckboxModule } from 'primeng/checkbox';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +25,7 @@ import { BodyComponent } from './body/body.component';
 import { PageComponent } from './page/page.component';
 
 
-import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbDatepickerModule,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
 import { ModifierPatientComponent } from './Patients/modifier-patient/modifier-patient.component';
 import { ApercuPatientComponent } from './Patients/apercu-patient/apercu-patient.component';
@@ -26,6 +34,12 @@ import { CreerMedicamentComponent } from './Stock/creer-medicament/creer-medicam
 import { ModifierMedicamentComponent } from './Stock/modifier-medicament/modifier-medicament.component';
 import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medicament.component';
 import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
+import { ConsulterPatientComponent } from './Patients/consulter-patient/consulter-patient.component';
+import { AgePipe } from 'src/app/pipe/age.pipe';
+import { RenouvelerMedicamentComponent } from './Stock/renouveler-medicament/renouveler-medicament.component';
+import { ListeConsultationComponent } from './Patients/liste-consultation/liste-consultation.component';
+import { ApercuConsultationComponent } from './Patients/apercu-consultation/apercu-consultation.component';
+
 // import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
 
 @NgModule({
@@ -46,16 +60,33 @@ import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture
     CreerMedicamentComponent,
     ModifierMedicamentComponent,
     ApercuMedicamentComponent,
-    ApercuFactureComponent
+    ApercuFactureComponent,
+    ConsulterPatientComponent,
+    AgePipe,
+    RenouvelerMedicamentComponent,
+    ListeConsultationComponent,
+    ApercuConsultationComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     NgbDatepickerModule, 
     NgbAlertModule, 
-    JsonPipe
+    JsonPipe,
+    NgbTimepickerModule,
+    ButtonModule,
+    TableModule,
+    SharedModule,
+    CalendarModule,
+    SelectButtonModule,
+    ChartModule,
+    CheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

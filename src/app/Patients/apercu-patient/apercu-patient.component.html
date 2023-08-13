@@ -12,8 +12,8 @@
         <h2 class="text-primary">Apercu sur un patient</h2>
         <hr class="flex-grow-1 text-primary">
         <button class="btn btn-primary bhead">
-            <img src="../../../assets/img/Consult.svg" alt="">
-            <a [routerLink]="['../../../consulter',etudiant.idEtudiant]" href="">Consulter</a>
+            <img src="./assets/img/Consult.svg" alt="">
+            <a [routerLink]="['../../consulter',etudiant.idEtudiant]" href="">Consulter</a>
         </button>
     </div>
     <div>
@@ -34,7 +34,7 @@
                     </div>
                     <div>
                         <h6>Date de Naissance</h6>
-                        <span>{{etudiant.dateDeNaissance}}</span>
+                        <span>{{etudiant.dateDeNaissance | age}} ans | {{etudiant.dateDeNaissance}}</span>
                     </div>
                     <div>
                         <h6>Sexe</h6>
@@ -56,7 +56,7 @@
                         <h6>Numero de telephone</h6>
                         <span>{{etudiant.numeroDeTelephone}}</span>
                     </div>
-                    <div>
+                    <div *ngIf="etudiant.numeroWhatsapp != null">
                         <h6>Numero whatsapp</h6>
                         <span>{{etudiant.numeroWhatsapp}}</span>
                     </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div>
                         <h6>Antecedants Medicaux</h6>
-                        <span *ngFor="let antecedant of etudiant.antecedents">{{antecedant.name}}</span>
+                        <span *ngFor="let antecedant of etudiant.antecedantMedicauxList">{{antecedant.nomAntecedantMedicaux}}</span>
                     </div>
                 </div>
                 <div class="droite">
@@ -98,22 +98,26 @@
                         <h6>Numero de telephone</h6>
                         <span>{{etudiant.numeroDeTelephoneUrgence}}</span>
                     </div>
+                    <div>
+                        <h6>Addresse mail</h6>
+                        <span>{{etudiant.emailContactUrgence}}</span>
+                    </div>
                     <div class="d-flex align-items-end mb-2">
                         <h5 class="text-primary">Consultations</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-                    <table *ngIf="etudiant.consultations!=null" class="table">
+                    <table *ngIf="etudiant && etudiant.fichesConsultation && etudiant.fichesConsultation.length !== 0" class="table">
                         <thead>
                             <th>Date</th>
                             <th>Diagnostic</th>
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let consultation of etudiant.consultations">
-                                <td>{{consultation.date}}</td>
-                                <td>{{consultation.diagnostic}}</td>
+                            <tr *ngFor="let consultation of etudiant.fichesConsultation">
+                                <td>{{consultation.dateCreationFC}}</td>
+                                <td ><span *ngFor="let diagnostics of consultation.diagnostiqueList">{{diagnostics.nomDiagnostique}}</span></td>
                                 <td>
-                                    <a (click)="exploreConsultation(consultation.idConsultation)">
+                                    <a (click)="exploreConsultation(consultation.idFicheConsultation)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                             viewBox="0 0 26.613 17.779">
                                             <path id="more"
@@ -129,18 +133,18 @@
                         <h5 class="text-primary">Factures non reglees</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-                    <table *ngIf="etudiant.factures!=null" class="table">
+                    <table *ngIf="etudiant && etudiant.factures && etudiant.factures.length !== 0" class="table">
                         <thead>
                             <th>Date</th>
                             <th>Montant</th>
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let facture of etudiant.factures">
-                                <td>{{facture.date}}</td>
-                                <td>{{facture.montant}}</td>
-                                <td>
-                                    <a (click)="exploreFacture(facture.idFacture)">
+                            <tr *ngFor="let facture of etudiant.factures" >
+                                <td *ngIf="facture.statutFacture == false">{{facture.dateCreationFacture}}</td>
+                                <td *ngIf="facture.statutFacture == false">{{facture.montantFacute}}</td>
+                                <td *ngIf="facture.statutFacture == false">
+                                    <a (click)="exploreFacture(facture.NumFacture)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                             viewBox="0 0 26.613 17.779">
                                             <path id="more"
@@ -157,11 +161,11 @@
                 </div>
             </div>
             <button  routerLink="../.." class="btn btn-purple bgauche">
-                <img src="../../../assets/img/preview.svg" alt="">
+                <img src="./assets/img/preview.svg" alt="">
                 Page precedente
             </button>
             <button  (click)="modify()"  class="btn btn-primary bdroite">
-                <img src="../../../assets/img/next.svg" alt="">
+                <img src="./assets/img/next.svg" alt="">
                 Modifier
             </button>
         </div>

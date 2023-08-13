@@ -13,7 +13,7 @@
         <hr class="flex-grow-1 text-primary">
     </div>
     <div>
-        <form action="">
+        <form [formGroup]="modifierMedicamentForm" (ngSubmit)="modifierMedicament()">
             <div class="form-container">
                 <div class="d-flex align-items-end mb-2 ">
                     <h5 class="text-primary">Identification</h5>
@@ -25,7 +25,7 @@
                         <div class="row mb-3">
                             <div class="form-group col">
                                 <label>Nom</label>
-                                <input type="text" class="form-control" [value]="medicament.nom">
+                                <input type="text" class="form-control" formControlName="nomMedicament" >
                             </div>
                         </div>
 
@@ -33,16 +33,15 @@
                             <div class="form-group col-md-6">
                                 <label>Date de peremption</label>
                                 <div class="input-group">
-                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dateNaissance" ngbDatepicker
-                                        #d="ngbDatepicker" [value]="medicament.dateExpiration"/>
-                                    <button class="btn btn-calendar" (click)="d.toggle()" type="button">
-                                        <img src="../../../assets/img/calendrier.svg" alt="">
-                                    </button>
+                                    <div class="input-group">
+                                        <p-calendar formControlName="dateExpiration" [showIcon]="true"
+                                            placeholder="yy-mm-dd" [minDate]="minDate"></p-calendar>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Forme pharmaceutique</label>
-                                <select class="form-control placeH" [ngModel]="medicament.formePharmaceutique" name="formePharmaceutique">
+                                <select class="form-control placeH" formControlName="formePharmaceutique">
                                     <option disabled selected>Sélectionnez</option>
                                     <option value="Comprime">Comprime</option>
                                     <option value="Sirop">Sirop</option>
@@ -60,30 +59,30 @@
                                 <label class="">Dosage (mg)</label>
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text igt"><img src="../../../assets/img/dosage.svg"
+                                        <span class="input-group-text igt"><img src="./assets/img/dosage.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="tel" class="form-control fc text-center" name="dosage" [value]="medicament.dosage">
+                                    <input type="tel" class="form-control fc text-center" formControlName="dosage" >
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Quantite</label>
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text igt"><img src="../../../assets/img/quantite.svg"
+                                        <span class="input-group-text igt"><img src="./assets/img/quantite.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="number" class="form-control fc text-center" name="quantite" [value]="medicament.stockDisponible">
+                                    <input type="number" class="form-control fc text-center" formControlName="quantiteDisponible" >
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="">Prix unitaire</label>
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text igt"><img src="../../../assets/img/prix.svg"
+                                        <span class="input-group-text igt"><img src="./assets/img/prix.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="tel" class="form-control fc text-center" name="prix" [value]="medicament.prixUnitaire">
+                                    <input type="tel" class="form-control fc text-center" formControlName="prixUnitaire" >
 
                                 </div>
                             </div>
@@ -94,7 +93,7 @@
                         <div class="row mb-3">
                             <div class="form-group col">
                                 <label>Nom generique</label>
-                                <input type="text" class="form-control " [value]="medicament.nomGenerique">
+                                <input type="text" class="form-control " formControlName="nomGeneriqueMedicament" >
                             </div>
                         </div>
                     </div>
@@ -102,11 +101,11 @@
 
             </div>
             <button routerLink="../../" class="btn btn-danger bgauche">
-                <img src="../../../assets/img/annuler.svg" alt="">
+                <img src="./assets/img/annuler.svg" alt="">
                 <a>Annuler</a>
             </button>
             <button class="btn btn-success bdroite" type="submit">
-                <img src="../../../assets/img/save.svg" alt="">
+                <img src="./assets/img/save.svg" alt="">
                 Enregistrer
             </button>
         </form>

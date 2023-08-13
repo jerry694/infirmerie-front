@@ -9,7 +9,8 @@ export class Etudiant {
     numeroDeTelephone!: number;
     numeroDeTelephoneUrgence!: number;
     numeroWhatsapp!: number;
-    email!: string;
+    emailEtudiant!: string;
+    emailContactUrgence!:string;
     classe!: string;
     poids!: number;
     taille!: number;

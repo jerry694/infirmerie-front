@@ -11,29 +11,53 @@
     <div class="d-flex align-items-end ">
         <h2 class="text-primary">Liste des Medicaments</h2>
         <hr class="flex-grow-1 text-primary">
-        <button  (click)="creer()" class="btn btn-primary bhead">
-            <img src="../../../assets/img/add.svg" alt="">
+        <button (click)="creer()" class="btn btn-primary bhead">
+            <img src="./assets/img/add.svg" alt="">
             Ajouter Un Medicament
         </button>
     </div>
     <div class="forms-container ">
-        <table class="table">
-            <thead>
-                <th class="text-left" scope="col">N*</th>
-                <th class="text-left " scope="col">Nom</th>
-                <th scope="col">Date expiration</th>
-                <th scope="col">Stock disponible</th>
-                <th scope="col">prixUnitaire</th>
-                <th scope="col">Actions</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let medicament of medicaments">
-                    <th class="text-left" scope="row">{{medicament.idMedicament}}</th>
-                    <td class="text-left ">{{medicament.nom}}</td>
-                    <td>{{medicament.dateExpiration}}</td>
-                    <td>{{medicament.stockDisponible}}</td>
-                    <td>{{medicament.prixUnitaire}}</td>
-                    <td>
+        <p-table #dt1 [globalFilterFields]="['nomMedicament','prixUnitaire','nomGeneriqueMedicament']"
+            [value]="medicaments.reverse()" class="table" [paginator]="true" [rows]="7" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[7, 15, 20]">
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')"
+                        placeholder="Cherchez par Nom, Prix" />
+                    <button pButton label="Rupture" class="p-button bg-purple b-special "
+                        icon="pi pi-minus-circle" (click)="rupture(dt1)"></button>
+                    <button pButton label="Effacer" class="p-button bg-gray b-special" icon="pi pi-filter-slash"
+                        (click)="clear(dt1)"></button>
+                    <!-- <pre>{{search}}</pre> -->
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <!-- <th class="text-left" scope="col">N*</th> -->
+                    <!-- <th class="text-left " scope="col" style="width:10%" >idMedicament</th> -->
+                    <th class="text-left " scope="col" style="width:35%">Nom</th>
+                    <th scope="col" style="width:18%" class="text-center" pSortableColumn="dateExpiration">Date
+                        exp<p-sortIcon field="dateExpiration"></p-sortIcon><p-columnFilter type="text" field="niveau"
+                            display="menu"></p-columnFilter></th>
+                    <th scope="col" style="width:12%" class="text-center" pSortableColumn="quantiteDisponible">
+                        Quantite<p-sortIcon field="quantiteDisponible"></p-sortIcon></th>
+                    <th scope="col" style="width:10%" class="text-center">Prix</th>
+                    <!-- <th scope="col" style="width:10%">Sexe<p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter></th> -->
+                    <th scope="col" style="width:15%" class="text-center">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-medicament>
+                <tr>
+                    <!-- <th class="text-left" scope="row" style="width:10%">{{ medicament.idMedicament }}</th> -->
+                    <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
+                    <td class="text-left " col="row" style="width:35%">{{ medicament.nomMedicament }}</td>
+                    <td style="width:18%" class="text-center">{{ medicament.dateExpiration }}</td>
+                    <td style="width:12%" class="text-center"
+                        [ngClass]="medicament.quantiteDisponible >= 5 ? 'nrup' : 'rup'">{{
+                        medicament.quantiteDisponible }}</td>
+                    <td style="width:10%" class="text-center">{{ medicament.prixUnitaire}}</td>
+                    <td class="text-center">
                         <a (click)="more(medicament.idMedicament)">
                             <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                 viewBox="0 0 26.613 17.779">
@@ -50,6 +74,25 @@
                                     transform="translate(-2.571 -1.928)" fill="#7a7171" />
                             </svg>
                         </a>
+                        <a (click)="renouveler(medicament.idMedicament)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="37.24" height="30.121"
+                                viewBox="0 0 37.24 30.121">
+                                <g id="renew" transform="translate(0.62 -2.939)">
+                                    <path id="Path_426" data-name="Path 426" d="M34.5,6v9h-9" fill="none"
+                                        stroke="#707070" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3" />
+                                    <path id="Path_427" data-name="Path 427" d="M1.5,30V21h9" fill="none"
+                                        stroke="#707070" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3" />
+                                    <path id="Path_428" data-name="Path 428"
+                                        d="M5.265,13.5A13.5,13.5,0,0,1,27.54,8.46L34.5,15m-33,6,6.96,6.54A13.5,13.5,0,0,0,30.735,22.5"
+                                        fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="3" />
+                                </g>
+                            </svg>
+
+
+                        </a>
                         <a (click)="delete(medicament.idMedicament)">
                             <svg class="delete" xmlns="http://www.w3.org/2000/svg" width="20.957" height="27"
                                 viewBox="0 0 20.957 27">
@@ -60,8 +103,11 @@
                         </a>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-table>
     </div>
 </body>
 

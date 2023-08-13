@@ -13,7 +13,7 @@
         <hr class="flex-grow-1 text-primary">
     </div>
     <div>
-        <form action="">
+        <form action="" (ngSubmit)="creerMedicamentForm()" [formGroup]="creerMedicament">
             <div class="form-container">
                 <div class="d-flex align-items-end mb-2 ">
                     <h5 class="text-primary">Identification</h5>
@@ -21,40 +21,25 @@
                 </div>
                 <div class="cont">
                     <div class="gauche">
-                            <div class="row mb-3">
-                            <div class="form-group col">
-                                <label>Nom</label>
-                                <select class="form-control placeH">
-                                    <option disabled selected>Sélectionnez</option>
-                                    <!-- <option value="Comprime">Comprime</option>
-                                    <option value="Sirop">Sirop</option>
-                                    <option value="Capsule">Capsule</option>
-                                    <option value="Creme">Creme</option> -->
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="row mb-3">
                             <div class="form-group col">
-                                <label>Autre</label>
-                                <input type="text" class="form-control ">
+                                <label>Nom</label>
+                                <input type="text" class="form-control" formControlName="nomMedicament">
                             </div>
                         </div>
-                        
                         <div class="row mb-3">
                             <div class="form-group col-md-6">
                                 <label>Date de peremption</label>
                                 <div class="input-group">
-                                    <input class="form-control" placeholder="yyyy-mm-dd" name="dateNaissance"
-                                        ngbDatepicker #d="ngbDatepicker" />
-                                    <button class="btn btn-calendar" (click)="d.toggle()" type="button">
-                                        <img src="../../../assets/img/calendrier.svg" alt="">
-                                    </button>
+                                    <div class="input-group">
+                                        <p-calendar formControlName="dateExpiration" [showIcon]="true"
+                                            placeholder="yy-mm-dd" [minDate]="minDate"></p-calendar>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Forme pharmaceutique</label>
-                                <select class="form-control placeH">
+                                <select class="form-control placeH" formControlName="formePharmaceutique">
                                     <option disabled selected>Sélectionnez</option>
                                     <option value="Comprime">Comprime</option>
                                     <option value="Sirop">Sirop</option>
@@ -75,7 +60,7 @@
                                         <span class="input-group-text igt"><img src="../../../assets/img/dosage.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="tel" class="form-control fc text-center" name="dosage">
+                                    <input type="tel" class="form-control fc text-center" formControlName="dosage">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -85,7 +70,7 @@
                                         <span class="input-group-text igt"><img src="../../../assets/img/quantite.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="number" class="form-control fc text-center" name="quantite">
+                                    <input type="number" class="form-control fc text-center" formControlName="quantiteDisponible">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -95,7 +80,8 @@
                                         <span class="input-group-text igt"><img src="../../../assets/img/prix.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="tel" class="form-control fc text-center" name="prix">
+                                    <input type="tel" class="form-control fc text-center"
+                                        formControlName="prixUnitaire">
 
                                 </div>
                             </div>
@@ -106,21 +92,10 @@
                         <div class="row mb-3">
                             <div class="form-group col">
                                 <label>Nom generique</label>
-                                <select class="form-control placeH">
-                                    <option disabled selected>Sélectionnez</option>
-                                    <!-- <option value="Comprime">Comprime</option>
-                                    <option value="Sirop">Sirop</option>
-                                    <option value="Capsule">Capsule</option>
-                                    <option value="Creme">Creme</option> -->
-                                </select>
+                                <input type="text" class="form-control " formControlName="nomGeneriqueMedicament">
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="form-group col">
-                                <label>Autre</label>
-                                <input type="text" class="form-control ">
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 

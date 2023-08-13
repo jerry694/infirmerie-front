@@ -35,7 +35,7 @@ $borderradius : 7px 0 0 7px;
     }
 }
 .sidenav-nav-link{
-    transition: all .3s ease;
+    transition: ease-in .3s ease;
     @include dFlex(2.7rem);
     padding-left: 1.8rem;
     font-size: small;
@@ -45,11 +45,12 @@ $borderradius : 7px 0 0 7px;
     margin-bottom: 4px;
 }
 .sidenav-nav-link:hover{
-    background-color :rgb(255, 255, 255,.9);
-    color: #107EC2;
+    border-bottom: 2px solid rgba(255, 255, 255, .8);
+    border-top: 2px solid rgb(255, 255, 255,.8);
+    border-left: 2px solid rgb(255, 255, 255,.8);
 }
 
-.sidenav-nav-link svg{
+.sidenav-nav-link>svg,.sidenav-nav-link>i{
     height: 1rem;
     width: auto;
     margin-right: 1.15rem;
