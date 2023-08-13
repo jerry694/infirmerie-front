@@ -15,7 +15,9 @@ h5 {
 }
 
 h6 {
+    margin-right: 20px;
     display: inline;
+    color: rgba(0, 0, 0, 0.472);
 }
 
 hr {
@@ -50,10 +52,12 @@ a {
     color: white;
 }
 span{
-    margin-left: 20px;
-    color: rgba(0, 0, 0, 0.472);
+    font-size: large;
 }
 td{
+    color: rgb(0, 0, 0);
+}
+th{
     color: rgba(0, 0, 0, 0.472);
 }
 svg>path:hover{
@@ -126,4 +130,22 @@ svg>path:hover{
 
 .droite div,table {
     margin-bottom: .5rem;
+}
+tr td{
+    // padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+th:first-child,tr td:first-child{
+    width: 25%;
+}
+th:nth-child(2),tr td:nth-child(2){
+    width: 65%;
+}
+th:last-child,tr td:last-child{
+    width: 10%;
+}
+td span:nth-child(n+2){
+margin-left: .5rem;
 }

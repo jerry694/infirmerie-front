@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StocksService } from 'src/app/services/stocks.service';
 
 @Component({
@@ -9,11 +9,11 @@ import { StocksService } from 'src/app/services/stocks.service';
   styleUrls: ['./modifier-medicament.component.scss']
 })
 export class ModifierMedicamentComponent implements OnInit {
-  modifierMedicamentForm!:FormGroup
-  medicament:any;
+  modifierMedicamentForm!: FormGroup
+  medicament: any;
   minDate!: Date;
-  id!:string;
-constructor(private medicamentService:StocksService,private route: ActivatedRoute,private formBuilder: FormBuilder){}
+  id!: string;
+  constructor(private medicamentService: StocksService, private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
   ngOnInit() {
     this.route.paramMap.subscribe(data => {
       const id = data.get('idMedicament');
@@ -22,12 +22,12 @@ constructor(private medicamentService:StocksService,private route: ActivatedRout
         console.log(this.id)
       }
       console.log(data.get('idMedicament'));
-      
+
       this.medicamentService.infoMedicament(parseInt(this.id)).subscribe(
-        medicamentData => {
-          console.log(medicamentData);
-          alert(JSON.stringify(medicamentData));
-          this.medicament = medicamentData;
+        data => {
+          console.log(data);
+          alert(JSON.stringify(data));
+          this.medicament = data;
           alert(JSON.stringify(this.medicament));
           this.initialiseForm()
           //redirection ici
@@ -38,9 +38,9 @@ constructor(private medicamentService:StocksService,private route: ActivatedRout
       );
     });
   }
-  initialiseForm(){
-  this.minDate = new Date();
-    this.modifierMedicamentForm=this.formBuilder.group({
+  initialiseForm() {
+    this.minDate = new Date();
+    this.modifierMedicamentForm = this.formBuilder.group({
       nomMedicament: new FormControl(this.medicament.nomMedicament),
       nomGeneriqueMedicament: new FormControl(this.medicament.nomGeneriqueMedicament),
       dateExpiration: new FormControl(this.medicament.dateExpiration),
@@ -61,14 +61,15 @@ constructor(private medicamentService:StocksService,private route: ActivatedRout
   //   "dateExpiration":"28/05/2028",
   //   "formePharmaceutique":"Comprime"
   // }
-  modifierMedicament(){
+  modifierMedicament() {
     const modifierMedicament = this.modifierMedicamentForm.value;
     console.log(modifierMedicament)
-    this.medicamentService.modifierMedicament(modifierMedicament,parseInt(this.id)).subscribe(
+    this.medicamentService.modifierMedicament(modifierMedicament, parseInt(this.id)).subscribe(
       data => {
         alert("Modification réussi !");
         console.log(data)
         //redirection ici
+        this.router.navigate(["medicament"]);
       },
       error => {
         alert("Erreur lors de l'enregistrement.");

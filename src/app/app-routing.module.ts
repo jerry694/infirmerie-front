@@ -15,6 +15,8 @@ import { ApercuMedicamentComponent } from './Stock/apercu-medicament/apercu-medi
 import { ApercuFactureComponent } from './Factures/apercu-facture/apercu-facture.component';
 import { ConsulterPatientComponent } from './Patients/consulter-patient/consulter-patient.component';
 import { RenouvelerMedicamentComponent } from './Stock/renouveler-medicament/renouveler-medicament.component';
+import { ListeConsultationComponent } from './Patients/liste-consultation/liste-consultation.component';
+import { ApercuConsultationComponent } from './Patients/apercu-consultation/apercu-consultation.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/auth',pathMatch:'full'},
@@ -22,16 +24,22 @@ const routes: Routes = [
   // {path:'page',component:PageComponent},
 
   {path:'dashboard',component:DasboardComponent},
+
   {path:'patient',component:ListePatientComponent},
   {path:'patient/creer',component:CreerPatientComponent},
   {path:'patient/modifier/:idEtudiant',component:ModifierPatientComponent},
   {path:'patient/apercu/:idEtudiant',component:ApercuPatientComponent},
   {path:'patient/consulter/:idEtudiant',component:ConsulterPatientComponent},
+
+  {path:'consultation',component:ListeConsultationComponent},
+  {path:'consultation/apercu/:idFicheConsultation',component:ApercuConsultationComponent},
+
   {path:'medicament',component:ListeMedicamentComponent},
   {path:'medicament/creer',component:CreerMedicamentComponent},
   {path:'medicament/modifier/:idMedicament',component:ModifierMedicamentComponent},
   {path:'medicament/renouveler/:idMedicament',component:RenouvelerMedicamentComponent},
   {path:'medicament/apercu/:idMedicament',component:ApercuMedicamentComponent},
+
   {path:'facture',component:ListeFactureComponent},
   {path:'facture/apercu/:idFacture',component:ApercuFactureComponent},
 

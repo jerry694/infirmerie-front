@@ -39,4 +39,14 @@ export class FacturesService {
     // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
     return this.httpClient.get(`${this.baseUrl}Facture/Consulter/${idFacture}`, httpOptions);
   }
+  listeFacturenonReglee(): Observable<object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    // Facture/RegleFacture/{{NumFacture}}
+    return this.httpClient.get(`${this.baseUrl}Facture/non-reglees`, httpOptions);
+  }
+  // Facture/non-reglees
 }

@@ -56,7 +56,7 @@
                         <h6>Numero de telephone</h6>
                         <span>{{etudiant.numeroDeTelephone}}</span>
                     </div>
-                    <div>
+                    <div *ngIf="etudiant.numeroWhatsapp != null">
                         <h6>Numero whatsapp</h6>
                         <span>{{etudiant.numeroWhatsapp}}</span>
                     </div>
@@ -98,6 +98,10 @@
                         <h6>Numero de telephone</h6>
                         <span>{{etudiant.numeroDeTelephoneUrgence}}</span>
                     </div>
+                    <div>
+                        <h6>Addresse mail</h6>
+                        <span>{{etudiant.emailContactUrgence}}</span>
+                    </div>
                     <div class="d-flex align-items-end mb-2">
                         <h5 class="text-primary">Consultations</h5>
                         <hr class="flex-grow-1 text-primary">
@@ -111,7 +115,7 @@
                         <tbody>
                             <tr *ngFor="let consultation of etudiant.fichesConsultation">
                                 <td>{{consultation.dateCreationFC}}</td>
-                                <td>{{consultation.diagnostiqueList}}</td>
+                                <td ><span *ngFor="let diagnostics of consultation.diagnostiqueList">{{diagnostics.nomDiagnostique}}</span></td>
                                 <td>
                                     <a (click)="exploreConsultation(consultation.idFicheConsultation)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"

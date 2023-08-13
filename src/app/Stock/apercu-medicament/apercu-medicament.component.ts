@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StocksService } from 'src/app/services/stocks.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class ApercuMedicamentComponent implements OnInit {
 
   constructor(private stockSevice:StocksService,private route: ActivatedRoute){  }
   ngOnInit(){
+    
     this.route.paramMap.subscribe(data => {
       const id = data.get('idMedicament');
       if (id !== null) {

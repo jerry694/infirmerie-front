@@ -57,4 +57,12 @@ export class StocksService {
     };
     return this.httpClient.put(`${this.baseUrl}Medicament/Modifier/${idMedicament}`,medicament, httpOptions);
   }
+  listeMedicamentRupture(): Observable<object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, httpOptions);
+  }
 }

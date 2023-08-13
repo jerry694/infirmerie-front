@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
+import { FacturesService } from 'src/app/services/factures.service';
 
 @Component({
   selector: 'app-dasboard',
@@ -11,9 +13,17 @@ export class DasboardComponent implements OnInit {
   options: any;
   previousHere: any = ['2022', [25, 23, 2, 21, 12, 12, 32, 34, 7, 35, 35, 40, 40]]
   thisHere: any = ['2023', [2, 13, 23, 22, 10, 12, 35, 25, 7, 4, 16, 17, 23]]
-
+  facturesNonReglee:any
+constructor(private factureService:FacturesService){}
   ngOnInit() {
+    // Chart.defaults.font<''>
+    this.previousHere=[null]
+    this.initGraph()  
+    this.initFacture()
+  }
 
+
+  initGraph() {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = "#707070";
     const textColorSecondary = "#707070";
@@ -23,14 +33,14 @@ export class DasboardComponent implements OnInit {
       labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [
         {
-          label: 'Rapport '+ this.previousHere[0],
+          label: 'Rapport ' + this.previousHere[0],
           data: this.previousHere[1],
           fill: false,
           borderColor: '#007759',
           tension: 0.5,
         },
         {
-          label: 'Rapport '+ this.thisHere[0],
+          label: 'Rapport ' + this.thisHere[0],
           data: this.thisHere[1],
           fill: false,
           borderColor: '#107EC2',
@@ -45,8 +55,12 @@ export class DasboardComponent implements OnInit {
       plugins: {
         legend: {
           labels: {
+            font:{
+              family:'poppins',
+              // style:'italic'
+            },
             color: textColor,
-            usePointStyle: true, 
+            usePointStyle: true,
             padding: 20,
           },
           position: 'bottom',
@@ -68,7 +82,8 @@ export class DasboardComponent implements OnInit {
             text: 'Nombre de cas',  // Titre pour l'axe X (les labels)
             color: textColorSecondary,
             font: {
-              size: 10,
+              family:'poppins',
+              size: 13,
             }
           },
           ticks: {
@@ -81,9 +96,19 @@ export class DasboardComponent implements OnInit {
         }
       }
     };
-
   }
-
+  initFacture(){
+    this.factureService.listeFacturenonReglee().subscribe(
+      data => {
+        console.log(data)
+        this.facturesNonReglee=data
+        //redirection ici
+      },
+      error => {
+        alert("Erreur de lecture.");
+      }
+    );
+  }
   private valeur = [12, 13, 14];
   informations = [
     {

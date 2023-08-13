@@ -7,16 +7,13 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent  implements OnInit{
-  formGroups!: FormGroup ;
 
-  ngOnInit() {
-      this.formGroups = new FormGroup({
-          city: new FormControl([null])
-      });
+  constructor(private formBuilder: FormBuilder) {
+
   }
 
-  aff(){
-    console.log(this.formGroups)
+  ngOnInit() {
+
   }
 }
 

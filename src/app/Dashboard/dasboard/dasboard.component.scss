@@ -100,7 +100,7 @@ hr {
 
     .table {
         text-align: left;
-        color: rgba(0, 0, 0, 0.35);
+        color: rgba(0, 0, 0, 0.75);
         margin-top: .4rem;
         // width: 100%;
 
@@ -129,5 +129,14 @@ h4 {
 
 .graph-body {
     padding-bottom: 1rem;
-    max-height: 60vh;
+    max-height: 55vh;
+}
+tr td:nth-child(2n){
+    width: 10%;
+}
+tr td:nth-child(3){
+    width: 25%;
+}
+tr:last-child th{
+    border: none;
 }

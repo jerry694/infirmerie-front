@@ -25,7 +25,9 @@
                 <div class="flex">
                     <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')"
                         placeholder="Cherchez par Nom, Prix" />
-                    <button pButton label="Effacer" class="p-button bg-purple" icon="pi pi-filter-slash"
+                    <button pButton label="Rupture" class="p-button bg-purple b-special "
+                        icon="pi pi-minus-circle" (click)="rupture(dt1)"></button>
+                    <button pButton label="Effacer" class="p-button bg-gray b-special" icon="pi pi-filter-slash"
                         (click)="clear(dt1)"></button>
                     <!-- <pre>{{search}}</pre> -->
                 </div>
@@ -51,7 +53,8 @@
                     <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
                     <td class="text-left " col="row" style="width:35%">{{ medicament.nomMedicament }}</td>
                     <td style="width:18%" class="text-center">{{ medicament.dateExpiration }}</td>
-                    <td style="width:12%" class="text-center" [ngClass]="medicament.quantiteDisponible >= 5 ? 'nrup' : 'rup'">{{
+                    <td style="width:12%" class="text-center"
+                        [ngClass]="medicament.quantiteDisponible >= 5 ? 'nrup' : 'rup'">{{
                         medicament.quantiteDisponible }}</td>
                     <td style="width:10%" class="text-center">{{ medicament.prixUnitaire}}</td>
                     <td class="text-center">

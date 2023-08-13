@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StocksService } from 'src/app/services/stocks.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class RenouvelerMedicamentComponent implements OnInit {
   renouveler:any;
   minDate!: Date;
   id!:string;
-constructor(private medicamentService:StocksService,private route: ActivatedRoute,private formBuilder: FormBuilder){}
+constructor(private medicamentService:StocksService,private route: ActivatedRoute,private formBuilder: FormBuilder,private router:Router){}
 
 ngOnInit() {
   this.route.paramMap.subscribe(data => {
@@ -64,6 +64,7 @@ initialiseForm(){
         alert("Modification réussi !");
         console.log(data)
         //redirection ici
+        this.router.navigate(["medicament"]);
       },
       error => {
         alert("Erreur lors de l'enregistrement.");

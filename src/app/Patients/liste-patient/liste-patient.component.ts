@@ -59,7 +59,6 @@ export class ListePatientComponent implements OnInit {
     this.etudiantservice.supprimerEtudiant(idEtudiant).subscribe(
       data => {
         console.log(data)
-        alert(data)
         window.location.reload();
         //redirection ici
       },
