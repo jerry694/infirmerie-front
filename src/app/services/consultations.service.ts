@@ -19,4 +19,13 @@ export class ConsultationsService {
     };
     return this.httpClient.get(`${this.baseUrl}Fiche_consultation/Liste`, httpOptions);
   }
+
+  apercuConsultation(idFicheConsultation:number):Observable<object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    return this.httpClient.get(`${this.baseUrl}Fiche_consultation/Consulter/${idFicheConsultation}`, httpOptions);
+  }
 }

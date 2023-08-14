@@ -9,7 +9,7 @@
 
 <body>
     <div class="d-flex align-items-end ">
-        <h2 class="text-primary">Liste des patients</h2>
+        <h2 class="text-primary">Apercu de factures</h2>
         <hr class="flex-grow-1 text-primary">
         <button  (click)="imprimer()" class="btn btn-gray bhead">
             <img src="./assets/img/print.svg" alt="">
@@ -22,11 +22,11 @@
     </div>
 
     <div class="forms">
-        <span><h5>Numero de la facture : </h5> {{facture.NumFacture}}</span>
-        <span><h5>Nom du patient : </h5> {{facture.etudiant}}</span>
+        <span><h5>Numero de la facture : </h5> {{facture[0][0].NumFacture}}</span>
+        <span><h5>Nom du patient : </h5> {{facture[0][1]}} {{facture[0][2]}}</span>
         <span ><h5>Statut : </h5> <span  [ngClass]="facture.statutFacture == true ? 'text-success' : 'text-danger'">
-            {{ facture.statutFacture ? 'Reglee' : 'Non reglee' }}</span></span>
-        <span><h5 >Date : </h5> {{facture.dateCreationFacture}}</span>
+            {{ facture[0][0].statutFacture ? 'Reglee' : 'Non reglee' }}</span></span>
+        <span><h5 >Date : </h5> {{facture[0][0].dateCreationFacture}}</span>
         <div class="forms-container">
             <table class="table">
                 <thead>
@@ -36,15 +36,15 @@
                     <th scope="col">Quantite</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let medicamentPres of facture.medicamentPrescritsList">
+                    <tr *ngFor="let medicamentPres of facture[0][0].ficheConsultation.medicamentListConsultation">
                         <th class="text-left" scope="row">1</th>
-                        <td class="text-left ">{{medicamentPres.nomMedicament}}</td>
-                        <td>{{medicamentPres.prixUnitaire}}</td>
-                        <td>{{medicamentPres.quantite}}</td>
+                        <td class="text-left ">{{medicamentPres.medicament.nomMedicament}} {{medicamentPres.medicament.dosage}}mg</td>
+                        <td>{{medicamentPres.medicament.prixUnitaire}}</td>
+                        <td>{{medicamentPres.quantitePrescrite}}</td>
                     </tr>
                 </tbody>
             </table>
-            <h3 class="text-right">Prix Total : {{facture.montantFacute}}</h3>
+            <h3 class="text-right">Prix Total : {{facture[0][0].montantFacute}}</h3>
         </div>
         <button routerLink="../.." class="btn btn-purple bgauche">
             <img src="./assets/img/preview.svg" alt="">

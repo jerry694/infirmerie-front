@@ -18,12 +18,7 @@ export class CreerPatientComponent implements OnInit {
   valid=false
   isDropdownOpen = false;
   selectedNodes: any;
-  antecedentItems: any[] = [
-    { label: 'Élément 1', value: 'element1' },
-    { label: 'Élément 2', value: 'element2' },
-    { label: 'Élément 3', value: 'element3' },
-    // ... Ajoutez plus d'éléments
-  ];
+  antecedentItems!: any
   items: any[] = [
     { label: 'Élément 1', value: 'element1' },
     { label: 'Élément 2', value: 'element2' },
@@ -36,12 +31,14 @@ export class CreerPatientComponent implements OnInit {
   constructor(private route:Router, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.loadAntecedant()
     this.maxDate = new Date()
     console.log(this.maxDate.getFullYear())
     this.maxDate.setFullYear(this.maxDate.getFullYear()-14)
 
     this.creerEtudiant = this.formBuilder.group({
       // antecedantMedicauxList: [[]], // Champs tableau avec valeur par défaut
+      antecedantMedicauxList: this.formBuilder.array([], [Validators.required]),
       // bloque: [false], // Aucun validateur requis ici
       // classe: [null, Validators.required], // Aucun validateur requis ici
       dateDeNaissance: [null, Validators.required],
@@ -91,10 +88,36 @@ export class CreerPatientComponent implements OnInit {
       }
     );
     }
-
-    
   }
 
+  onCheckboxChange(e: any,check:string) {
+    const checkArray: FormArray = this.creerEtudiant.get(check) as FormArray
+    if (e.target.checked) {
+      checkArray.push(new FormControl(e.target.value))
+    } else {
+      let i: number = 0
+      checkArray.controls.forEach((item: any) => {
+        if (item.value == e.target.value){
+          checkArray.removeAt(i)
+        return
+        }
+        i++
+      })
+    }
+  }
+
+loadAntecedant(){
+  this.etudiantservice.listeAntecedantMedicaux().subscribe(
+    data => {
+      console.log(data)
+      this.antecedentItems = data
+      //redirection ici
+    },
+    error => {
+      alert("Erreur de lecture.");
+    }
+  );
+}
 
   toggleItemSelection(item: any): void {
     item.selected = !item.selected;

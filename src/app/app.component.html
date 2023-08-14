@@ -1,4 +1,22 @@
-    <router-outlet></router-outlet>
-    <!-- <app-connected></app-connected> -->
+<!-- <router-outlet></router-outlet> -->
+<app-connected></app-connected>
 
+
+
+<!-- 
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div *ngFor="let data of Data; let i = index">
+        <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event,list[0])" />
+        {{data.name}}
+    </div>
+    <p
+    class="text-danger" *ngIf="this.form.controls['checkArray'].errors?.['required']">checkbox is requierd</p>
+    <hr>
+    <div *ngFor="let data of Data; let i = index">
+        <input type="checkbox" [value]="data.value" (change)="onCheckboxChangeAnt($event,list[1])" />
+        {{data.name}}
+    </div>
+    <input type="submit" value="submit">
+</form>
+<pre>{{form.value | json}}</pre> -->
 

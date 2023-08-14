@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ApercuPatientComponent implements OnInit {
   etudiant: any= {}
   id!: string;
 
-  constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService) {}
+  constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService,private router : Router) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(data => {
@@ -41,8 +41,10 @@ export class ApercuPatientComponent implements OnInit {
   }
 
  
-  exploreConsultation(id:number) {
-    console.log("consutation de " + id)
+  exploreConsultation(idFicheconsultation:number) {
+    console.log("consutation de " + idFicheconsultation)
+    this.router.navigate(['consultation/apercu',idFicheconsultation]);
+    console.log("consutation de " + idFicheconsultation)
   }
   exploreFacture(id:number) {
     console.log("facture de " + id)

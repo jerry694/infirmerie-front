@@ -36,7 +36,7 @@
                         <h4>Factures non payes</h4>
                     </div>
                     <div class="body">
-                        <table class="table ">
+                        <table class="table " *ngIf="facturesNonReglee != null">
                             <thead>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Classe</th>

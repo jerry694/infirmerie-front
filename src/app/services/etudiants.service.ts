@@ -68,4 +68,12 @@ export class EtudiantsService {
 
     return this.httpClient.delete(`${this.baseUrl}Etudiant/Supprimer/${idEtudiant}`, httpOptions);
   }
+  listeAntecedantMedicaux(): Observable<object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.accessToken}`
+      })
+    };
+    return this.httpClient.get(`${this.baseUrl}ListeAntecedantMedicaux`, httpOptions);
+  }
 }
