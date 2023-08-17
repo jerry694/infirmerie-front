@@ -14,8 +14,10 @@
     </div>
     <div class="forms-container ">
 
-        <p-table #dt1 [globalFilterFields]="['ficheConsultations.diagnostiqueList.nomDiagnostique','dateCreationFacture']" [value]="ficheConsultations.reverse()" class="table"
-            [paginator]="true" [rows]="7" [showCurrentPageReport]="true"
+        <p-table #dt1
+            [globalFilterFields]="['ficheConsultations.diagnostiqueList.nomDiagnostique','dateCreationFacture','ficheConsultation[1]','ficheConsultation[2]']"
+            [value]="ficheConsultations.reverse()" class="table" [paginator]="true" [rows]="7"
+            [showCurrentPageReport]="true"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [rowsPerPageOptions]="[7, 15, 20]">
             <ng-template pTemplate="caption">
@@ -33,12 +35,12 @@
                 <tr>
                     <!-- <th class="text-left" scope="col">N*</th> -->
                     <!-- <th class="text-left " scope="col" style="width:10%" >facture.idFacture</th> -->
-                    <th scope="col" style="width:35%" pSortableColumn="nom">Etudiant</th>
+                    <th scope="col" style="width:35%" pSortableColumn="ficheConsultation[1]">Etudiant</th>
                     <th scope="col" style="width:13%" pSortableColumn="dateCreationFC">Date<p-sortIcon
                             field="dateCreationFC"></p-sortIcon><p-columnFilter type="text" field="niveau"
                             display="menu"></p-columnFilter></th>
-                    <th scope="col" style="width:10%" pSortableColumn="heureArriveeConsultation">Heure d'arivee<p-sortIcon
-                            field="heureArriveeConsultation"></p-sortIcon></th>
+                    <th scope="col" style="width:10%" pSortableColumn="heureArriveeConsultation">Heure
+                        d'arivee<p-sortIcon field="heureArriveeConsultation"></p-sortIcon></th>
                     <th scope="col" style="width:12%">Diagnostic</th>
 
                     <!-- <th scope="col" style="width:10%">Age</th>
@@ -50,12 +52,14 @@
                 <tr>
                     <!-- <th class="text-left" scope="row" style="width:10%">{{ facture.idFacture }}</th> -->
                     <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
-                    <td style="width:35%">{{ficheConsultation}}</td>
-                    <td style="width:13%">{{ ficheConsultation.dateCreationFC }}</td>
-                    <td style="width:10%">{{ ficheConsultation.heureArriveeConsultation }}</td>
-                    <td style="width:12%"><span *ngFor="let diagnostics of ficheConsultation.diagnostiqueList.reverse()">{{diagnostics.nomDiagnostique}}</span></td>
+                    <td style="width:35%">{{ficheConsultation[1]}} {{ficheConsultation[2]}}</td>
+                    <td style="width:13%">{{ ficheConsultation[0].dateCreationFC }}</td>
+                    <td style="width:10%">{{ ficheConsultation[0].heureArriveeConsultation }}</td>
+                    <td style="width:12%"><span
+                            *ngFor="let diagnostics of ficheConsultation[0].diagnostiqueList.reverse()">{{diagnostics.nomDiagnostique}}</span>
+                    </td>
                     <td style="width:10%">
-                        <a (click)="more(ficheConsultation.idFicheConsultation)">
+                        <a (click)="more(ficheConsultation[0].idFicheConsultation)">
                             <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                 viewBox="0 0 26.613 17.779">
                                 <path id="more"

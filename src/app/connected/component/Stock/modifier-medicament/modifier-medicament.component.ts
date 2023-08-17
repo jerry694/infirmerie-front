@@ -22,17 +22,19 @@ export class ModifierMedicamentComponent implements OnInit {
         console.log(this.id)
       }
       console.log(data.get('idMedicament'));
-
+  
       this.medicamentService.infoMedicament(parseInt(this.id)).subscribe(
         data => {
           console.log(data);
-          alert(JSON.stringify(data));
           this.medicament = data;
-          alert(JSON.stringify(this.medicament));
-          this.initialiseForm()
+          
+          // Déplacez l'appel à initialiseForm() ici
+          this.initialiseForm();
+          
           //redirection ici
         },
         error => {
+          console.log(error);
           alert("Erreur de lecture.");
         }
       );
@@ -43,7 +45,7 @@ export class ModifierMedicamentComponent implements OnInit {
     this.modifierMedicamentForm = this.formBuilder.group({
       nomMedicament: new FormControl(this.medicament.nomMedicament),
       nomGeneriqueMedicament: new FormControl(this.medicament.nomGeneriqueMedicament),
-      dateExpiration: new FormControl(this.medicament.dateExpiration),
+      dateExpiration: new FormControl(new Date (this.medicament.dateExpiration)),
       prixUnitaire: new FormControl(this.medicament.prixUnitaire),
       dosage: new FormControl(this.medicament.dosage),
       supprimer: new FormControl(this.medicament.supprimer),
@@ -51,16 +53,7 @@ export class ModifierMedicamentComponent implements OnInit {
       quantiteDisponible: new FormControl(this.medicament.quantiteDisponible)
     })
   }
-  // medicament = {
-  //   "idMedicament":1,
-  //   "nom":"Efferalgant",
-  //   "nomGenerique":"Paracetamol",
-  //   "dosage":500,
-  //   "stockDisponible":20,
-  //   "prixUnitaire":1000,
-  //   "dateExpiration":"28/05/2028",
-  //   "formePharmaceutique":"Comprime"
-  // }
+
   modifierMedicament() {
     const modifierMedicament = this.modifierMedicamentForm.value;
     console.log(modifierMedicament)

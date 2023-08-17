@@ -1,76 +1,43 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+interface City {
+  name: string,
+  code: string
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  form!: FormGroup
-  list=['checkArray','antArray']
-  Data: Array<any> = [
-    { name: 'aa', value: '1' },
-    { name: 'bb', value: '2' },
-    { name: 'cc', value: '3' },
-    { name: 'dd', value: '4' },
-    { name: 'ee', value: '5' },
-  ]
-  ant: Array<any> = [
-    { name: 'gg', value: '1' },
-    { name: 'kk', value: '2' },
-    { name: 'rr', value: '3' },
-    { name: 'xx', value: '4' },
-    { name: 'cc', value: '5' },
-  ]
-  constructor(private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({
-      login:['',Validators.required],
-      checkArray: this.formBuilder.array([], [Validators.required]),
-      antArray: this.formBuilder.array([], [Validators.required])
-    })
-  }
-  onCheckboxChange(e: any,check:string) {
-    const checkArray: FormArray = this.form.get(check) as FormArray
-    if (e.target.checked) {
-      checkArray.push(new FormControl(e.target.value))
-    } else {
-      let i: number = 0
-      checkArray.controls.forEach((item: any) => {
-        if (item.value == e.target.value){
-          checkArray.removeAt(i)
-        return
-        }
-        i++
-      })
-    }
-  }
-  onCheckboxChangeAnt(e: any,check:string) {
-    const checkArray: FormArray = this.form.get(check) as FormArray
-    if (e.target.checked) {
-      checkArray.push(new FormControl(e.target.value))
-    } else {
-      let i: number = 0
-      checkArray.controls.forEach((item: any) => {
-        if (item.value == e.target.value){
-          checkArray.removeAt(i)
-        return
-        }
-        i++
-      })
-    }
-  }
+  cities!: any[];
 
+  formGroup!: FormGroup;
+  constructor(private formBuilder: FormBuilder) { }
 
-  submitForm(){
-    console.log(this.form.value)
-    console.log(this.Data)
-  }
   ngOnInit() {
+    this.cities = [
+      {
+          "idAntecedantMedicaux": 1,
+          "nomAntecedantMedicaux": "Cancer"
+      },
+      {
+          "va": 2,
+          "nomAntecedantMedicaux": "Diabete"
+      },]
 
+    this.formGroup = new FormGroup({
+      selectedCities: new FormControl<any | null>(null)
+    });
+
+    // Écoute les changements dans la liste des villes sélectionnées
+    this.formGroup.get('selectedCities')?.valueChanges.subscribe((selectedCities: any | null) => {
+      if (selectedCities) {
+        const selectedCityCodes = selectedCities.map((city: any) => city.idAntecedantMedicaux);
+        console.log('Codes des villes sélectionnées :', selectedCityCodes);
+      }
+    });
   }
 }
-
-
-
-

@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../user';
+import { configurationBase } from './configurationBase';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthUserService {
-  private baseUrl="http://localhost:8080/login"
-
+  private baseUrl=`${configurationBase.baseUrl}login`
   constructor(private httpClient:HttpClient) {}
   proceedlogin(usercred:any){
     return this.httpClient.post(this.baseUrl,usercred)

@@ -24,7 +24,7 @@
     <div class="forms">
         <span><h5>Numero de la facture : </h5> {{facture[0][0].NumFacture}}</span>
         <span><h5>Nom du patient : </h5> {{facture[0][1]}} {{facture[0][2]}}</span>
-        <span ><h5>Statut : </h5> <span  [ngClass]="facture.statutFacture == true ? 'text-success' : 'text-danger'">
+        <span ><h5>Statut : </h5> <span  [ngClass]="facture[0][0].statutFacture == true ? 'text-success' : 'text-danger'">
             {{ facture[0][0].statutFacture ? 'Reglee' : 'Non reglee' }}</span></span>
         <span><h5 >Date : </h5> {{facture[0][0].dateCreationFacture}}</span>
         <div class="forms-container">

@@ -33,7 +33,7 @@
                                 <div class="input-group">
                                     <div class="input-group">
                                         <p-calendar formControlName="dateExpiration" [showIcon]="true"
-                                            placeholder="yy-mm-dd" [minDate]="minDate"></p-calendar>
+                                            placeholder="yy-mm-dd" [minDate]="minDate" dateFormat="dd/mm/yy"></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                 <label class="">Dosage (mg)</label>
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text igt"><img src="../../../assets/img/dosage.svg"
+                                        <span class="input-group-text igt"><img src="./assets/img/dosage.svg"
                                                 alt=""></span>
                                     </div>
                                     <input type="tel" class="form-control fc text-center" formControlName="dosage">
@@ -67,7 +67,7 @@
                                 <label>Quantite</label>
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text igt"><img src="../../../assets/img/quantite.svg"
+                                        <span class="input-group-text igt"><img src="./assets/img/quantite.svg"
                                                 alt=""></span>
                                     </div>
                                     <input type="number" class="form-control fc text-center" formControlName="quantiteDisponible">
@@ -77,7 +77,7 @@
                                 <label class="">Prix unitaire</label>
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text igt"><img src="../../../assets/img/prix.svg"
+                                        <span class="input-group-text igt"><img src="./assets/img/prix.svg"
                                                 alt=""></span>
                                     </div>
                                     <input type="tel" class="form-control fc text-center"
@@ -101,11 +101,11 @@
 
             </div>
             <button routerLink="../" class="btn btn-danger bgauche">
-                <img src="../../../assets/img/annuler.svg" alt="">
+                <img src="./assets/img/annuler.svg" alt="">
                 <a>Annuler</a>
             </button>
             <button class="btn btn-success bdroite" type="submit">
-                <img src="../../../assets/img/save.svg" alt="">
+                <img src="./assets/img/save.svg" alt="">
                 Enregistrer
             </button>
         </form>

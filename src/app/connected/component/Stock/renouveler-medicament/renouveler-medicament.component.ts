@@ -28,10 +28,8 @@ ngOnInit() {
     this.medicamentService.infoMedicament(parseInt(this.id)).subscribe(
       medicamentData => {
         console.log(medicamentData);
-        alert(JSON.stringify(medicamentData));
         this.medicament = medicamentData;
         this.renouveler=medicamentData
-        alert(JSON.stringify(this.medicament));
         this.initialiseForm()
         //redirection ici
       },
@@ -46,7 +44,7 @@ initialiseForm(){
     this.modifierMedicamentForm=this.formBuilder.group({
       nomMedicament: new FormControl( {value: this.medicament.nomMedicament, disabled: true}),
       nomGeneriqueMedicament: new FormControl({value:this.medicament.nomGeneriqueMedicament, disabled: true}),
-      dateExpiration: new FormControl(this.medicament.dateExpiration),
+      dateExpiration: new FormControl(new Date (this.medicament.dateExpiration)),
       prixUnitaire: new FormControl({value:this.medicament.nomGeneriqueMedicament, disabled: true}),
       dosage: new FormControl(this.medicament.dosage),
       formePharmaceutique: new FormControl({value:this.medicament.formePharmaceutique, disabled: true}),

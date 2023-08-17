@@ -17,11 +17,15 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from '../app-routing.module';
+import { SuiviConsultationComponent } from './component/Patients/suivi-consultation/suivi-consultation.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 
 @NgModule({
   declarations: [
+  
+    SuiviConsultationComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +47,7 @@ import { AppRoutingModule } from '../app-routing.module';
     SelectButtonModule,
     ChartModule,
     CheckboxModule,
+    MultiSelectModule
   ]
 })
 export class ConnectedModule { }

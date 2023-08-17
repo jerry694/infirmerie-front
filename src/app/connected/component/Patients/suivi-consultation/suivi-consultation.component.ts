@@ -1,28 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Etudiant } from 'src/app/etudiant';
 import { ConsultationsService } from 'src/app/services/consultations.service';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
-import { Symptomes } from 'src/entites/symptomes';
 
 @Component({
-  selector: 'app-consulter-patient',
-  templateUrl: './consulter-patient.component.html',
-  styleUrls: ['./consulter-patient.component.scss']
+  selector: 'app-suivi-consultation',
+  templateUrl: './suivi-consultation.component.html',
+  styleUrls: ['./suivi-consultation.component.scss']
 })
-export class ConsulterPatientComponent implements OnInit {
-
+export class SuiviConsultationComponent implements OnInit {
   etudiant: any = new Etudiant();
-  isDropdownOpen = false;
-  // dateArrivee: Date = new Date()
-  // dateSortie!: Date
   civilite: any
   symptomes: any = []
   diagnostiques: any = []
   examens: any = []
-  id!: string
+  id!: string;
+  idEtudiant!:string;
   ficheConsultation!: FormGroup;
   fConsultation: any = {}
 
@@ -30,16 +25,11 @@ export class ConsulterPatientComponent implements OnInit {
   spinners = true;
 
 
-
-
-  // formBuilder: any;
-
-
-
   constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.getId()
-    this.initCivilite(parseInt(this.id))
+    this.getIdEtudiant()
+    this.initCivilite(parseInt(this.idEtudiant))
     this.initSymptomes()
     this.initDiagnostique()
     this.initExamens()
@@ -63,9 +53,23 @@ export class ConsulterPatientComponent implements OnInit {
   }
   getId() {
     this.route.paramMap.subscribe(data => {
-      const id = data.get('idEtudiant');
+      const id = data.get('idFicheConsultation');
       if (id !== null) {
         this.id = id;
+        console.log('fc '+this.id)
+      } else {
+        // Gérer le cas où id est null (si nécessaire)
+        console.log('ID idFicheConsultation non fourni dans les paramètres de l\'URL.');
+      }
+      console.log(data.get('idFicheConsultation'));
+
+    });
+  }
+  getIdEtudiant(){
+    this.route.paramMap.subscribe(data => {
+      const id = data.get('idEtudiant');
+      if (id !== null) {
+        this.idEtudiant = id;
         console.log(this.id)
       } else {
         // Gérer le cas où id est null (si nécessaire)
@@ -73,7 +77,7 @@ export class ConsulterPatientComponent implements OnInit {
       }
       console.log(data.get('idEtudiant'));
 
-    });
+    }); 
   }
   initCivilite(idEtudiant: number) {
     this.etudiantservice.infoEtudiant(idEtudiant).subscribe(
@@ -134,8 +138,8 @@ export class ConsulterPatientComponent implements OnInit {
       nouveauxSymptomes: ['', Validators.required], // Aucun validateur requis ici
       nouveauxDiagnostique: ['', Validators.required], // Aucun validateur requis ici
       nouveauxExamens: ['', Validators.required], // Aucun validateur requis ici
-      heureArriveeConsultation: [new Date(), Validators.required],
-      heureSortieConsultation: [null, Validators.required],
+      heureArriveeSuivie: [new Date(), Validators.required],
+      heureSortieSuivie: [null, Validators.required],
       dateProchainRendezVous:[null],
       heureProchainRendezVous:[null],
       temperature: [null],
@@ -144,7 +148,7 @@ export class ConsulterPatientComponent implements OnInit {
       soinsDispense:[null]
     });
   }
-  consulter() {
+  suivre() {
     const idSymptome = this.ficheConsultation.value.symptomeList
     this.ficheConsultation.value.symptomeList = []
     const idExamen = this.ficheConsultation.value.examenList
@@ -161,16 +165,11 @@ export class ConsulterPatientComponent implements OnInit {
 
     this.ficheConsultation.value.heureProchainRendezVous=this.ficheConsultation.value.dateProchainRendezVous
 
-
-    // this.ficheConsultation.value.heureArriveeConsultation=this.formatH(this.ficheConsultation.value.heureArriveeConsultation)
-    // this.ficheConsultation.value.heureSortieConsultation=this.formatH(this.ficheConsultation.value.heureSortieConsultation)
-// heureArriveeConsultation,heureSortieConsultation
-    this.consultationService.consulter(this.ficheConsultation.value, parseInt(this.id), idSymptome,nouveauxSymptomes, idExamen,nouveauxDiagnostique, idDiagnostique,nouveauxExamens).subscribe(
+    this.consultationService.suivre(this.ficheConsultation.value, parseInt(this.id), idSymptome,nouveauxSymptomes, idExamen,nouveauxDiagnostique, idDiagnostique,nouveauxExamens).subscribe(
       data => {
         alert("Enregistrement réussi !");
-        console.log(data)
         // this.router.navigate(["patient"]);
-
+        console.log(data)
         //redirection ici
       },
       error => {

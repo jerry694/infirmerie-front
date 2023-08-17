@@ -2,78 +2,49 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Etudiant } from '../etudiant';
+import { configurationBase } from './configurationBase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EtudiantsService {
-  private baseUrl = "http://localhost:8080/Infirmerie-IUSJC/";
+  private baseUrl = `${configurationBase.baseUrl}Infirmerie-IUSJC/`;
   private accessToken = localStorage.getItem('token');
+  private httpOptions : any ={
+    headers: new HttpHeaders({
+      'Authorization': `Bearer ${this.accessToken}`
+    })
+  };
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private httpClient: HttpClient) {}
-
-  creerEtudiants(etudiant: Etudiant, idInfirmiere: string): Observable<object> {
-    
-    
-    // Vérifier si le jeton d'accès est présent dans le localStorage
-    // if (!accessToken) {
-    //   console.error('Le jeton d\'accès n\'a pas été trouvé dans le localStorage.');
-    //   return;
-    // }
-
+  creerEtudiants(etudiant: Etudiant, antecedantMedicauxList: any, autrenouveauxAntecedantsMedicaux: any, idInfirmiere: string): Observable<object> {
+    // Si vous avez besoin de vérifier et obtenir l'accessToken, faites-le ici
+    // const accessToken = ...
+    const nouveauxAntecedantsMedicaux: string[] = autrenouveauxAntecedantsMedicaux
     // Définir les en-têtes de la requête avec le bearer token
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-
     console.log(etudiant);
-    return this.httpClient.post(`${this.baseUrl}Etudiant/Ajouter/${idInfirmiere}`, etudiant, httpOptions);
+
+    // Utilisation des HttpParams pour passer idInfirmiere comme paramètre
+    // antecedantMedicauxList=antecedantMedicauxList.join(',');
+    const params = { antecedantMedicauxList, nouveauxAntecedantsMedicaux };
+    console.log(params)
+    return this.httpClient.post(`${this.baseUrl}Etudiant/Ajouter/${idInfirmiere}`, etudiant, { params, ...this.httpOptions });
   }
+
   listeEtudiants(): Observable<object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    return this.httpClient.get(`${this.baseUrl}Etudiant/Listes`, httpOptions);
+    return this.httpClient.get(`${this.baseUrl}Etudiant/Listes`, this.httpOptions);
   }
-  infoEtudiant(idEtudiant:number): Observable<object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    // http://localhost:8080/Infirmerie-IUSJC/Facture/Consulter/{{NumFacture}}
-    // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
-    return this.httpClient.get(`${this.baseUrl}Etudiant/Consulter/${idEtudiant}`, httpOptions);
+  infoEtudiant(idEtudiant: number): Observable<object> {
+    return this.httpClient.get(`${this.baseUrl}Etudiant/Consulter/${idEtudiant}`, this.httpOptions);
   }
-  modifierEtudiant(etudiant: Etudiant,idEtudiant:number){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-
+  modifierEtudiant(etudiant: Etudiant, idEtudiant: number) {
     console.log(etudiant);
-    return this.httpClient.put(`${this.baseUrl}Etudiant/Modifier/${idEtudiant}`, etudiant, httpOptions);
+    return this.httpClient.put(`${this.baseUrl}Etudiant/Modifier/${idEtudiant}`, etudiant, this.httpOptions);
   }
-  supprimerEtudiant(idEtudiant:number){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-
-    return this.httpClient.delete(`${this.baseUrl}Etudiant/Supprimer/${idEtudiant}`, httpOptions);
+  supprimerEtudiant(idEtudiant: number) {
+    return this.httpClient.delete(`${this.baseUrl}Etudiant/Supprimer/${idEtudiant}`, this.httpOptions);
   }
   listeAntecedantMedicaux(): Observable<object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    return this.httpClient.get(`${this.baseUrl}ListeAntecedantMedicaux`, httpOptions);
+    return this.httpClient.get(`${this.baseUrl}ListeAntecedantMedicaux`, this.httpOptions);
   }
 }

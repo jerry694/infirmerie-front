@@ -215,32 +215,32 @@
 
                     </div>
                     <div class="row mb-3">
-                        <div>
-                            <div *ngFor="let data of antecedentItems; let i = index">
+                        <div class="col">
+                            <!-- <div *ngFor="let data of antecedentItems; let i = index">
                                 <input type="checkbox" [value]="data.idAntecedantMedicaux"
                                     (change)="onCheckboxChange($event,'antecedantMedicauxList')" />
                                 {{data.nomAntecedantMedicaux}}
+                            </div> -->
+                            <label>Antecedants Medicaux</label>
+                            <div class="input-group rect">
+                                <p-multiSelect [options]="antecedentItems" formControlName="antecedantMedicauxList"
+                                    optionLabel="nomAntecedantMedicaux"
+                                    optionValue="idAntecedantMedicaux"
+                                    placeholder="Cherchez un antecedant"></p-multiSelect>
+
                             </div>
+
                         </div>
-                        <!--     <p
-    class="text-danger" *ngIf="this.form.controls['checkArray'].errors?.['required']">checkbox is requierd</p>
-    <hr>
-    <div *ngFor="let data of Data; let i = index">
-        <input type="checkbox" [value]="data.value" (change)="onCheckboxChangeAnt($event,list[1])" />
-        {{data.name}}
-    </div>
-    <input type="submit" value="submit">
-</form>
-<pre>{{form.value | json}}</pre> -->
                     </div>
                     <div class="row">
                         <div class="form-group col">
-                            <label class=" ">Autres</label>
+                            <label class=" ">Autres antecedants</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text igt"><img src="./assets/img/autres.svg" alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="Identifiant" id="">
+                                <input type="text" class="form-control fc" formControlName="nouveauxAntecedantsMedicaux"
+                                    placeholder="Ajoutez un antecedant qui n'existe pas" id="">
                             </div>
                         </div>
                     </div>

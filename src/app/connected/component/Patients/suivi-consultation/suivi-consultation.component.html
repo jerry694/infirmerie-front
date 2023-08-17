@@ -9,11 +9,11 @@
 
 <body>
     <div class="d-flex align-items-end">
-        <h2 class="text-primary">Consulter un patient</h2>
+        <h2 class="text-primary">Suivre un patient</h2>
         <hr class="flex-grow-1 text-primary">
     </div>
     <div>
-        <form action="" [formGroup]="ficheConsultation" (ngSubmit)="consulter()">
+        <form action="" [formGroup]="ficheConsultation" (ngSubmit)="suivre()">
             <div class="form-container">
                 <div class="gauche">
                     <div class="d-flex align-items-end mb-2">
@@ -36,7 +36,7 @@
                             <div class="input-group rect">
 
                                 <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
-                                icon="pi pi-hourglass"  formControlName="heureArriveeConsultation"></p-calendar>
+                                icon="pi pi-hourglass"  formControlName="heureArriveeSuivie"></p-calendar>
 
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             <div class="input-group rect">
 
                                 <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
-                                    icon="pi pi-hourglass" formControlName="heureSortieConsultation"></p-calendar>
+                                    icon="pi pi-hourglass" formControlName="heureSortieSuivie"></p-calendar>
 
                             </div>
                         </div>
@@ -117,9 +117,11 @@
 
                             <label>Diagnostiques</label>
                             <div class="input-group rect">
-                                <p-multiSelect [options]="diagnostiques" optionLabel="nomDiagnostique"
-                                    optionValue="idDiagnostique" placeholder="Cherchez des diagnostiques"
-                                    formControlName="diagnostiqueList"></p-multiSelect>
+                        
+                                <p-multiSelect [options]="diagnostiques"
+                                    optionLabel="nomDiagnostique"
+                                    optionValue="idDiagnostique"
+                                    placeholder="Cherchez des diagnostiques" formControlName="diagnostiqueList"  ></p-multiSelect>
 
                             </div>
                         </div>
@@ -137,11 +139,13 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="form-group col-md-6 ">
+                        <div class="form-group col-md-6 " >
 
                             <label>Medicaments</label>
                             <div class="input-group rect">
-                                <p-multiSelect [options]="examens" optionLabel="nomExamen" optionValue="idExamen"
+                                <p-multiSelect [options]="examens" 
+                                    optionLabel="nomExamen"
+                                    optionValue="idExamen"
                                     placeholder="Cherchez des medicaments"></p-multiSelect>
 
                             </div>
@@ -166,7 +170,6 @@
 
 
                         </div>
-
                     </div>
                     <div class="row mb-3">
                         <label>Description des soins</label>

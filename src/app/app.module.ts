@@ -18,6 +18,9 @@ import { ChartModule } from 'primeng/chart';
 import { CheckboxModule } from 'primeng/checkbox';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ToastModule } from 'primeng/toast';
+
 import { DasboardComponent } from './connected/component/Dashboard/dasboard/dasboard.component';
 import { ApercuFactureComponent } from './connected/component/Factures/apercu-facture/apercu-facture.component';
 import { ListeFactureComponent } from './connected/component/Factures/liste-facture/liste-facture.component';
@@ -87,6 +90,8 @@ import { AuthentificationComponent } from './authentification/authentification.c
     ChartModule,
     CheckboxModule,
     ReactiveFormsModule,
+    MultiSelectModule,
+    ToastModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

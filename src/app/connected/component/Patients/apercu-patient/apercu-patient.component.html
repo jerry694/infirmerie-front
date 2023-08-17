@@ -50,7 +50,7 @@
                     </div>
                     <div>
                         <h6>Addresse institutionnelle</h6>
-                        <span>{{etudiant.addresseInstitutionnelle}}</span>
+                        <span>{{etudiant.emailEtudiant}}</span>
                     </div>
                     <div>
                         <h6>Numero de telephone</h6>
@@ -78,7 +78,7 @@
                     </div>
                     <div>
                         <h6>Antecedants Medicaux</h6>
-                        <span *ngFor="let antecedant of etudiant.antecedantMedicauxList">{{antecedant.nomAntecedantMedicaux}}</span>
+                        <span *ngFor="let antecedant of etudiant.antecedantMedicauxList">{{antecedant.nomAntecedantMedicaux}}, </span>
                     </div>
                 </div>
                 <div class="droite">

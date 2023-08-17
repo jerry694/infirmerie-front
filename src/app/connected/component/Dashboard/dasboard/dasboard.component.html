@@ -13,11 +13,11 @@
         <hr class="flex-grow-1 text-primary">
     </div>
     <div class="forms-container ">
-            <div class="card " *ngFor="let information of informations">
+            <div class="card " *ngFor="let information of informations ; let i = index">
                 <img [src]="information.image" alt="">
                 <span>
                     <h3>{{information.label}}</h3>
-                    <h1>{{information.valeur}}</h1>
+                    <h1> {{ valeur[i] ? valeur[i] : '0' }}</h1>
                 </span>
         </div>
     </div>

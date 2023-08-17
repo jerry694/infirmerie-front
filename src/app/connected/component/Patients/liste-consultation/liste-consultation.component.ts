@@ -9,17 +9,24 @@ import { FacturesService } from 'src/app/services/factures.service';
   templateUrl: './liste-consultation.component.html',
   styleUrls: ['./liste-consultation.component.scss']
 })
-export class ListeConsultationComponent {
+export class ListeConsultationComponent   {
   ficheConsultations: any = []
   search: string = ''
   // factures: any = []
+  constructor(private route: Router, private consultationService: ConsultationsService) { }
+  ngOnInit() {
+    this.initFichedeConsultation()
+  }
   clear(table: Table) {
     this.search = ''
     table.clear();
     console.log(table._value)
   }
-  constructor(private route: Router, private consultationService: ConsultationsService) { }
-  ngOnInit() {
+  more(idFicheConsultation: number) {
+    console.log(idFicheConsultation)
+    this.route.navigate(['consultation/apercu/', idFicheConsultation]);
+  }
+  initFichedeConsultation(){
     this.consultationService.listeConsultation().subscribe(
       data => {
         console.log(data)
@@ -31,10 +38,6 @@ export class ListeConsultationComponent {
         alert("Erreur de lecture.");
       }
     );
-  }
-  more(idFicheConsultation: number) {
-    console.log(idFicheConsultation)
-    this.route.navigate(['consultation/apercu/', idFicheConsultation]);
   }
 
 }

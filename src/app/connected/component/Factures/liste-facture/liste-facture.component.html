@@ -55,7 +55,7 @@
                     <td style="width:10%">{{ facture[0].montantFacute }}</td>
                     <td style="width:12%"
                         [ngClass]="facture[0].statutFacture == true ? 'text-success' : 'text-danger'">
-                        {{ facture.statutFacture ? 'Reglee' : 'Non reglee' }}</td>
+                        {{ facture[0].statutFacture ? 'Reglee' : 'Non reglee' }}</td>
                     <td style="width:10%">
 
                         <a (click)="cash(facture[0].NumFacture)">

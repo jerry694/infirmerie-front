@@ -9,11 +9,13 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
   styleUrls: ['./apercu-consultation.component.scss']
 })
 export class ApercuConsultationComponent implements OnInit {
-  etudiant: any= {}
+  etudiant: any = {}
+  infoEtudiant:any =[]
   id!: string;
+  idEtudiant!:number
 
 
-  constructor(private route: ActivatedRoute, private consultationService: ConsultationsService,private router:Router) {}
+  constructor(private route: ActivatedRoute, private consultationService: ConsultationsService, private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(data => {
@@ -26,12 +28,19 @@ export class ApercuConsultationComponent implements OnInit {
         console.log('ID étudiant non fourni dans les paramètres de l\'URL.');
       }
       console.log(data.get('idFicheConsultation'));
-      
+
       this.consultationService.apercuConsultation(parseInt(this.id)).subscribe(
         data => {
           console.log(data);
           alert(JSON.stringify(data));
-          this.etudiant = data;
+          const temp:any = data
+          // this.etudiant = temp;
+          this.etudiant = temp[0][0]
+          this.infoEtudiant[0]=temp[0][1]
+          this.infoEtudiant[1]=temp[0][2]
+          this.infoEtudiant[2]=temp[0][3]
+          this.infoEtudiant[3]=temp[0][4]
+          this.idEtudiant=temp[0][0].etudiant
           //redirection ici
         },
         error => {
@@ -42,19 +51,22 @@ export class ApercuConsultationComponent implements OnInit {
     // console.log(this.route)
   }
 
- 
-  exploreConsultation(idFicheconsultation:number) {
-    console.log("consutation de " + idFicheconsultation)
+
+  exploreSuivi(idFicheconsultation: number) {
+    console.log("suivi " + idFicheconsultation)
   }
-  exploreFacture(id:number) {
-    console.log("facture de " + id)
+  exploreFacture(id: number) {
+    console.log("facture " + id)
   }
   // modify(idEtudiant:number){
   //   this.route.navigate(['patient/modifier',idEtudiant]);
   // }
-  suivre(){
-    console.log("suivi de " + this.id)}
-  consulterFacture(NumFacture:number){
-    this.router.navigate(['facture/apercu',NumFacture]);
+  suivre() {
+    console.log("suivi de " + this.id)
+    this.router.navigate(['consultation/suivre',this.idEtudiant,this.id]);
   }
+  consulterFacture(NumFacture: number) {
+    this.router.navigate(['facture/apercu', NumFacture]);
+  }
+
 }

@@ -25,7 +25,7 @@
                         <div class="row mb-3">
                             <div class="form-group col">
                                 <label>Nom</label>
-                                <input type="text" class="form-control" formControlName="nomMedicament" >
+                                <input type="text" class="form-control" formControlName="nomMedicament" [value]="medicament?.nomMedicament">
                             </div>
                         </div>
 
@@ -35,7 +35,7 @@
                                 <div class="input-group">
                                     <div  class="input-group">
                                         <p-calendar   formControlName="dateExpiration" [showIcon]="true"
-                                            placeholder="yy-mm-dd" [minDate]="minDate"></p-calendar>
+                                            placeholder="yy-mm-dd" [minDate]="minDate" dateFormat="dd/mm/yy"></p-calendar>
                                     </div>
                                 </div>
                             </div>

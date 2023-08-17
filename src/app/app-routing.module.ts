@@ -19,6 +19,7 @@ import { CreerMedicamentComponent } from './connected/component/Stock/creer-medi
 import { ListeMedicamentComponent } from './connected/component/Stock/liste-medicament/liste-medicament.component';
 import { ModifierMedicamentComponent } from './connected/component/Stock/modifier-medicament/modifier-medicament.component';
 import { RenouvelerMedicamentComponent } from './connected/component/Stock/renouveler-medicament/renouveler-medicament.component';
+import { SuiviConsultationComponent } from './connected/component/Patients/suivi-consultation/suivi-consultation.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthentificationComponent ,loadChildren: () => import('./authentification/authentification.module').then(m => m.AuthentificationModule)},
@@ -33,6 +34,7 @@ const routes: Routes = [
 
   { path: 'consultation', component: ListeConsultationComponent },
   { path: 'consultation/apercu/:idFicheConsultation', component: ApercuConsultationComponent },
+  { path: 'consultation/suivre/:idEtudiant/:idFicheConsultation', component: SuiviConsultationComponent },
 
   { path: 'medicament', component: ListeMedicamentComponent },
   { path: 'medicament/creer', component: CreerMedicamentComponent },

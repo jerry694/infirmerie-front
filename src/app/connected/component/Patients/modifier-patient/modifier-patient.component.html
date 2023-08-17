@@ -23,45 +23,49 @@
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Nom</label>
-                            <input type="text" class="form-control" formControlName="nom" >
+                            <input type="text" class="form-control" formControlName="nom" [value]="etudiant?.nom">
                         </div>
                         <div class="form-group col-md-6 ">
                             <label>Prenom</label>
-                            <input type="text" class="form-control" formControlName="prenom">
+                            <input type="text" class="form-control" formControlName="prenom" [value]="etudiant?.prenom">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Date de naissance*</label>
                             <div class="input-group">
-                                <p-calendar formControlName="dateDeNaissance" [showIcon]="true" [maxDate]="maxDate"></p-calendar>
+                                <p-calendar formControlName="dateDeNaissance" [showIcon]="true"
+                                    [maxDate]="maxDate"></p-calendar>
                             </div>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label>Sexe</label>
                             <div class="row m-0">
-                              <div class="form-check col-6">
-                                <input class="form-check-input" type="radio" [value]="'Feminin'" formControlName="sexe">
-                                <label class="form-check-label">Feminin</label>
-                              </div>
-                              <div class="form-check col-6">
-                                <input class="form-check-input" type="radio" [value]="'Masculin'" formControlName="sexe">
-                                <label class="form-check-label">Masculin</label>
-                              </div>
+                                <div class="form-check col-6">
+                                    <input class="form-check-input" type="radio" [value]="'Feminin'"
+                                        formControlName="sexe">
+                                    <label class="form-check-label">Feminin</label>
+                                </div>
+                                <div class="form-check col-6">
+                                    <input class="form-check-input" type="radio" [value]="'Masculin'"
+                                        formControlName="sexe">
+                                    <label class="form-check-label">Masculin</label>
+                                </div>
                             </div>
-                          </div>
-                          
+                        </div>
+
                     </div>
                     <div class="row mb-3">
                         <div class="form-group col-md-6">
                             <label>Matricule</label>
-                            <input type="text" class="form-control " placeholder="2021x000" formControlName="matricule"  >
+                            <input type="text" class="form-control " placeholder="2021x000" formControlName="matricule">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Addresse
                                 Institutionnelle</label>
-                            <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org" formControlName="emailEtudiant">
+                            <input type="text" class="form-control " placeholder="prenom.nom@institutsaintjean.org"
+                                formControlName="emailEtudiant">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -79,14 +83,14 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label>Niveau*</label>
-                            <select class="form-control text-center" formControlName="niveau" >
+                            <select class="form-control text-center" formControlName="niveau">
                                 <option [ngValue]="1">1</option>
                                 <option [ngValue]="2">2</option>
                                 <option [ngValue]="3">3</option>
                                 <option [ngValue]="4">4</option>
                                 <option [ngValue]="5">5</option>
-                              </select>
-                              
+                            </select>
+
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -94,20 +98,20 @@
                             <label>Numero de telephone</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/phone.svg"
-                                            alt=""></span>
+                                    <span class="input-group-text igt"><img src="./assets/img/phone.svg" alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx"  formControlName="numeroDeTelephone">
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx"
+                                    formControlName="numeroDeTelephone">
                             </div>
                         </div>
                         <div class="form-group col-6">
                             <label>Numero whatsapp</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/phone.svg"
-                                            alt=""></span>
+                                    <span class="input-group-text igt"><img src="./assets/img/phone.svg" alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx"  formControlName="numeroWhatsapp">
+                                <input type="text" class="form-control fc" placeholder="6xxxxxxxx"
+                                    formControlName="numeroWhatsapp">
                             </div>
                         </div>
                     </div>
@@ -124,11 +128,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Relation</label>
-                            <select class="form-control placeH"formControlName="relationContactUrgence" >
+                            <select class="form-control placeH" formControlName="relationContactUrgence">
                                 <option [ngValue]="'Parent'">Parent</option>
                                 <option [ngValue]="'Tuteur(-trice)'">Tuteur(-trice)</option>
                                 <option [ngValue]="'Proche'">Proche</option>
-                              </select>                              
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -139,13 +143,14 @@
                                     <span class="input-group-text igt"><img src="./assets/img/phone.svg"
                                             alt="phone"></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="6xxxxexxxx" formControlName="numeroDeTelephoneUrgence">
+                                <input type="text" class="form-control fc" placeholder="6xxxxexxxx"
+                                    formControlName="numeroDeTelephoneUrgence">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label>eMail</label>
                             <input type="text" class="form-control " placeholder="xx@gmail.com"
-                                formControlName="emailContactUrgence" id="email" >
+                                formControlName="emailContactUrgence" id="email">
                         </div>
                     </div>
                     <div class="d-flex align-items-end mb-2">
@@ -157,18 +162,16 @@
                             <label class="">Taille (m)</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/taille.svg"
-                                            alt=""></span>
+                                    <span class="input-group-text igt"><img src="./assets/img/taille.svg" alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc text-center"  formControlName="taille">
+                                <input type="text" class="form-control fc text-center" formControlName="taille">
                             </div>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Poids (kg)</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/poids.svg"
-                                            alt=""></span>
+                                    <span class="input-group-text igt"><img src="./assets/img/poids.svg" alt=""></span>
                                 </div>
                                 <input type="text" class="form-control fc text-center" formControlName="poids">
                             </div>
@@ -177,8 +180,7 @@
                             <label class="">Groupe Sanguin</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/sang.svg"
-                                            alt=""></span>
+                                    <span class="input-group-text igt"><img src="./assets/img/sang.svg" alt=""></span>
                                 </div>
                                 <select class="form-control fc text-center" formControlName="groupeSanguin">
                                     <option [ngValue]="'A+'">A+</option>
@@ -189,23 +191,36 @@
                                     <option [ngValue]="'AB-'">AB-</option>
                                     <option [ngValue]="'O+'">O+</option>
                                     <option [ngValue]="'O-'">O-</option>
-                                  </select>
+                                </select>
                             </div>
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Antecedants Medicaux</label>
+                            <div class="input-group rect">
+                                <p-multiSelect [options]="antecedentItems" formControlName="antecedantMedicauxList"
+                                    optionLabel="nomAntecedantMedicaux"
+                                    optionValue="idAntecedantMedicaux"
+                                    placeholder="Cherchez un antecedant"></p-multiSelect>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- <div class="row">
                         <div class="form-group col">
                             <label class=" ">Autres</label>
                             <div class="input-group rect">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/autres.svg"
-                                            alt=""></span>
+                                    <span class="input-group-text igt"><img src="./assets/img/autres.svg" alt=""></span>
                                 </div>
-                                <input type="text" class="form-control fc" placeholder="Identifiant" >
+                                <input type="text" class="form-control fc" formControlName="nouveauxAntecedantsMedicaux"
+                                    placeholder="Identifiant" id="">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <button routerLink="../.." class="btn btn-danger bgauche">
@@ -217,9 +232,9 @@
                 Enregistrer
             </button>
         </form>
-        
+
     </div>
-            <!-- <pre>{{modifierEtudiantForm.value | json }}</pre> -->
+    <pre>{{modifierEtudiantForm.value | json }}</pre>
 </body>
 
 </html>

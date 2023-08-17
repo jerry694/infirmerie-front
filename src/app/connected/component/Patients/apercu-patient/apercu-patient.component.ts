@@ -8,7 +8,7 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
   styleUrls: ['./apercu-patient.component.scss'],
 })
 export class ApercuPatientComponent implements OnInit {
-  etudiant: any= {}
+  etudiant: any = {}
   id!: string;
 
   constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService,private router : Router) {}

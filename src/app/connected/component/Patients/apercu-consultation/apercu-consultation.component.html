@@ -22,11 +22,12 @@
                     </div>
                     <div>
                         <h6>Nom et Prenom</h6>
-                        <span>{{etudiant.etudiant}}</span>
+                        <span>{{infoEtudiant[1]}} {{infoEtudiant[0]}}</span>
+                        <!-- //a modifier dans le back this.etudiant= this.etudiant[0] -->
                     </div>
                     <div>
                         <h6>Classe</h6>
-                        <span>{{etudiant.etudiant}}</span>
+                        <span>{{infoEtudiant[3]}} {{infoEtudiant[2]}}</span>
                     </div>
                     <div>
                         <h6>Date</h6>
@@ -42,7 +43,7 @@
                     </div>
                     <div>
                         <h6>Prochain rendez-vous</h6>
-                        <span>{{etudiant.niveau}} {{etudiant.filiere}}</span>
+                        <span>{{etudiant.dateProchainRendezVous}} {{etudiant.heureProchainRendezVous}}</span>
                     </div>
                     <div class="d-flex align-items-end mb-2">
                         <h5 class="text-primary">Parametres</h5>
@@ -62,7 +63,7 @@
                     </div>
                     <div>
                         <h6>Symptomes</h6>
-                        <span *ngFor="let symptome of etudiant.symptomeList">{{symptome.nomSymptome}}</span>
+                        <span *ngFor="let symptome of etudiant.symptomeList">{{symptome.nomSymptome}}, </span>
                     </div>
                 </div>
                 <div class="droite">
@@ -72,33 +73,41 @@
                     </div>
                     <div>
                         <h6>Diagnostic</h6>
-                        <span *ngFor="let diagnostique of etudiant.diagnostiqueList">{{diagnostique.nomDiagnostique }}</span>
-                    </div>
-                    <div>
-                        <h6>Medicaments</h6>
-                        <!-- <span *ngFor="let examen of etudiant.examenList ; let i=index">{{examen[i]}}</span> -->
-                        <span *ngFor="let medicament of etudiant.medicamentListConsultation">{{medicament }}</span>
+                        <span *ngFor="let diagnostique of etudiant.diagnostiqueList">{{diagnostique.nomDiagnostique}}, </span>
                     </div>
                     <div>
                         <h6>Examen</h6>
                         <span *ngFor="let examen of etudiant.examenList">{{examen.nomExamen }}</span>
                     </div>
+                    <div>
+                        <h6>Soins</h6>
+                        <span>{{etudiant.soinsDispense}}</span>
+                    </div>
+                     <div *ngIf="etudiant.facture != null">
+                        <h6>Medicaments</h6>
+                       <span
+                            *ngFor="let medicamentS of etudiant.facture.ficheConsultation.medicamentListConsultation">{{medicamentS.medicament.nomMedicament}} {{medicamentS.medicament.dosage }}mg, </span>
+                    </div> 
+                    
+                    <!-- soinsDispense -->
                     <div class="d-flex align-items-end mb-2">
                         <h5 class="text-primary">Suivi</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-                    <table *ngIf="etudiant && etudiant.fichesConsultation && etudiant.fichesConsultation.length !== 0" class="table">
+                    <table *ngIf="etudiant && etudiant.fiche_suivieList && etudiant.fiche_suivieList.length !== 0"
+                        class="table">
                         <thead>
                             <th>Date</th>
                             <th>Diagnostic</th>
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let consultation of etudiant.fichesConsultation">
-                                <td>{{consultation.dateCreationFC}}</td>
-                                <td ><span *ngFor="let diagnostics of consultation.diagnostiqueList">{{diagnostics.nomDiagnostique}}</span></td>
+                            <tr *ngFor="let ficheSuivi of etudiant.fiche_suivieList">
+                                <td>{{ficheSuivi.dateRendezVous}}</td>
+                                <td><span
+                                        *ngFor="let diagnostics of ficheSuivi.diagnostiqueList">{{diagnostics.nomDiagnostique}}, </span></td>
                                 <td>
-                                    <a (click)="exploreConsultation(consultation.idFicheConsultation)">
+                                    <a (click)="exploreSuivi(ficheSuivi.idFicheSuivie)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
                                             viewBox="0 0 26.613 17.779">
                                             <path id="more"
@@ -114,16 +123,17 @@
                         <h5 class="text-primary">Factures</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-                    <h6 style="color: black;text-decoration: underline;cursor: pointer;" (click)="consulterFacture(etudiant.facture.NumFacture)">Consulter la facture</h6>
+                    <h6 *ngIf="etudiant.facture" style="color: black;text-decoration: underline;cursor: pointer;"
+                        (click)="consulterFacture(etudiant.facture.NumFacture)"> <em style="font-size: small;"> Consulter la facture</em></h6>
 
 
                 </div>
             </div>
-            <button  routerLink="../.." class="btn btn-purple bgauche">
+            <button routerLink="../.." class="btn btn-purple bgauche">
                 <img src="./assets/img/preview.svg" alt="">
                 Page precedente
             </button>
-            <button (click)="suivre()"  class="btn btn-primary bdroite">
+            <button (click)="suivre()" class="btn btn-primary bdroite">
                 <img src="./assets/img/next.svg" alt="">
                 Suivre
             </button>
