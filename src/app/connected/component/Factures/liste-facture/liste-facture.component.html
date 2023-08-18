@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d-flex align-items-end ">
+        <h2 class="text-primary">Liste des Factures</h2>
+        <hr class="flex-grow-1 text-primary">
+    </div>
+    <div class="forms-container ">
+
+        <p-table #dt1 [globalFilterFields]="['etudiant','dateCreationFacture']" [value]="factures.reverse()" class="table"
+            [paginator]="true" [rows]="7" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[7, 15, 20]">
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <input pInputText type="text" [(ngModel)]="search" (input)="dt1.filterGlobal(search, 'contains')"
+                        placeholder="Cherchez par Nom, Matricule" />
+
+                    <button pButton label="Effacer" class="p-button bg-gray" icon="pi pi-filter-slash"
+                        (click)="clear(dt1)"></button>
+
+                    <!-- <pre>{{search}}</pre> -->
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <!-- <th class="text-left" scope="col">N*</th> -->
+                    <!-- <th class="text-left " scope="col" style="width:10%" >facture.idFacture</th> -->
+                    <th scope="col" style="width:35%" pSortableColumn="nom">Etudiant</th>
+                    <th scope="col" style="width:13%" pSortableColumn="dateCreationFacture">Date<p-sortIcon
+                            field="dateCreationFacture"></p-sortIcon><p-columnFilter type="text" field="niveau"
+                            display="menu"></p-columnFilter></th>
+                    <th scope="col" style="width:10%" pSortableColumn="filiere">Montant<p-sortIcon
+                            field="filiere"></p-sortIcon></th>
+                    <th scope="col" style="width:12%">Statut</th>
+
+                    <!-- <th scope="col" style="width:10%">Age</th>
+                    <th scope="col" style="width:10%">Sexe<p-columnFilter type="text" field="sexe" display="menu"></p-columnFilter></th> -->
+                    <th scope="col" style="width:10%">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-facture>
+                <tr>
+                    <!-- <th class="text-left" scope="row" style="width:10%">{{ facture.idFacture }}</th> -->
+                    <!-- <td class="text-left">{{ etudiant.matricule }}</td> -->
+                    <td style="width:35%">{{ facture[1] }} {{ facture[2]}}</td>
+                    <td style="width:13%">{{ facture[0].dateCreationFacture }}</td>
+                    <td style="width:10%">{{ facture[0].montantFacute }}</td>
+                    <td style="width:12%"
+                        [ngClass]="facture[0].statutFacture == true ? 'text-success' : 'text-danger'">
+                        {{ facture[0].statutFacture ? 'Reglee' : 'Non reglee' }}</td>
+                    <td style="width:10%">
+
+                        <a (click)="cash(facture[0].NumFacture)">
+                            <svg class="cash" xmlns="http://www.w3.org/2000/svg" width="22.198" height="22.197"
+                                viewBox="0 0 22.198 22.197">
+                                <path id="Icon_awesome-cash-register" data-name="Icon awesome-cash-register"
+                                    d="M22.155,16.422,21,9.486a1.388,1.388,0,0,0-1.37-1.158H9.015V5.554h4.162a.7.7,0,0,0,.694-.694V.694A.7.7,0,0,0,13.177,0H2.078a.7.7,0,0,0-.694.694V4.856a.7.7,0,0,0,.694.694H6.24V8.324H2.559A1.391,1.391,0,0,0,1.19,9.481L.032,16.418a2.69,2.69,0,0,0-.039.455v3.936A1.386,1.386,0,0,0,1.38,22.2H20.8a1.386,1.386,0,0,0,1.387-1.387V16.877A2.3,2.3,0,0,0,22.155,16.422ZM12.136,10.752a.7.7,0,0,1,.694-.694h.694a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694H12.83a.7.7,0,0,1-.694-.694Zm-1.387,2.775h.694a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694h-.694a.7.7,0,0,1-.694-.694V14.22A.7.7,0,0,1,10.749,13.526ZM9.362,10.058a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694H8.668a.7.7,0,0,1-.694-.694v-.694a.7.7,0,0,1,.694-.694Zm-5.9-6.59V2.081h8.324V3.468ZM5.2,12.139H4.506a.7.7,0,0,1-.694-.694v-.694a.7.7,0,0,1,.694-.694H5.2a.7.7,0,0,1,.694.694v.694A.7.7,0,0,1,5.2,12.139Zm.694,2.775V14.22a.7.7,0,0,1,.694-.694h.694a.7.7,0,0,1,.694.694v.694a.7.7,0,0,1-.694.694H6.587A.7.7,0,0,1,5.893,14.913Zm9.364,4.856a.348.348,0,0,1-.347.347H7.281a.348.348,0,0,1-.347-.347v-.694a.348.348,0,0,1,.347-.347h7.63a.348.348,0,0,1,.347.347Zm1.04-4.856a.7.7,0,0,1-.694.694h-.694a.7.7,0,0,1-.694-.694V14.22a.7.7,0,0,1,.694-.694H15.6a.7.7,0,0,1,.694.694Zm2.081-3.468a.7.7,0,0,1-.694.694h-.694a.7.7,0,0,1-.694-.694v-.694a.7.7,0,0,1,.694-.694h.694a.7.7,0,0,1,.694.694Z"
+                                    transform="translate(0.007)" fill="#707070" />
+                            </svg>
+                        </a>
+                        <a (click)="more(facture[0].NumFacture)">
+                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
+                                viewBox="0 0 26.613 17.779">
+                                <path id="more"
+                                    d="M26.453,12.713A14.817,14.817,0,0,0,13.307,4.5,14.819,14.819,0,0,0,.161,12.714a1.5,1.5,0,0,0,0,1.351,14.817,14.817,0,0,0,13.146,8.213,14.819,14.819,0,0,0,13.146-8.214A1.5,1.5,0,0,0,26.453,12.713ZM13.307,20.056a6.667,6.667,0,1,1,6.653-6.667A6.66,6.66,0,0,1,13.307,20.056Zm0-11.112a4.4,4.4,0,0,0-1.169.175,2.213,2.213,0,0,1-3.091,3.1,4.423,4.423,0,1,0,4.26-3.273Z"
+                                    transform="translate(0 -4.5)" fill="#707070" />
+                            </svg>
+                        </a>
+
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-table>
+    </div>
+</body>
+
+</html>

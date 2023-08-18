@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
-import { AuthUserService } from '../services/auth-user.service';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthUserService } from "../services/auth-user.service";
+import { User } from "../user";
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
-  styleUrls: ['./authentification.component.scss']
+  styleUrls: ['./authentification.component.scss'],
+  
 })
 export class AuthentificationComponent implements OnInit {
   user: User = new User();
@@ -45,9 +46,10 @@ export class AuthentificationComponent implements OnInit {
       localStorage.setItem('id_infirmiere', this.login.idInfirmiere);
       localStorage.setItem('login', this.login.login);
       localStorage.setItem('token', this.login.token);
-      this.route.navigate(["/page"]);
+      this.route.navigate(["connect/"]);
       alert("BIENVENUE ")
       console.log(localStorage.getItem)
+      console.log(this.route)
     }, error => {
       // Gestion des erreurs lors de l'authentification.
       if (error.status === 404) {

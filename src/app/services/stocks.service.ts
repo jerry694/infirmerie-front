@@ -2,67 +2,28 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Medicament } from 'src/entites/medicament';
+import { configurationBase } from './configurationBase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StocksService {
-  private baseUrl = "http://localhost:8080/Infirmerie-IUSJC/";
+  private baseUrl = `${configurationBase.baseUrl}Infirmerie-IUSJC/`;
   private accessToken = localStorage.getItem('token');
+  private httpOptions: any = {
+    headers: new HttpHeaders({
+      'Authorization': `Bearer ${this.accessToken}`
+    })
+  };
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private httpClient: HttpClient) {}
-
-  listeMedicament(): Observable<object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, httpOptions);
-  }
+  listeMedicament(): Observable<object> { return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, this.httpOptions); }
   creerMedicament(medicament: Medicament, idInfirmiere: string): Observable<object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-
     console.log(medicament);
-    return this.httpClient.post(`${this.baseUrl}Medicament/Ajout/${idInfirmiere}`, medicament, httpOptions);
+    return this.httpClient.post(`${this.baseUrl}Medicament/Ajout/${idInfirmiere}`, medicament, this.httpOptions);
   }
-  infoMedicament(idMedicament:number): Observable<object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    // Medicament/Consulter/{{idMedicament}}
-    // console.log(`${this.baseUrl}Etudiant/${idEtudiant}`, httpOptions)
-    return this.httpClient.get(`${this.baseUrl}Medicament/Consulter/${idMedicament}`, httpOptions);
-  }
-  supprimerMedicament(idMedicament:number){
-    // http://localhost:8080/Infirmerie-IUSJC/Medicament/Supprimer/
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    return this.httpClient.delete(`${this.baseUrl}Medicament/Supprimer/${idMedicament}`, httpOptions);
-  }
-  modifierMedicament(medicament:any , idMedicament:number){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    return this.httpClient.put(`${this.baseUrl}Medicament/Modifier/${idMedicament}`,medicament, httpOptions);
-  }
-  listeMedicamentRupture(): Observable<object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.accessToken}`
-      })
-    };
-    return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, httpOptions);
-  }
+  infoMedicament(idMedicament: number): Observable<object> { return this.httpClient.get(`${this.baseUrl}Medicament/Consulter/${idMedicament}`, this.httpOptions); }
+  supprimerMedicament(idMedicament: number) { return this.httpClient.delete(`${this.baseUrl}Medicament/Supprimer/${idMedicament}`, this.httpOptions); }
+  modifierMedicament(medicament: any, idMedicament: number) { return this.httpClient.put(`${this.baseUrl}Medicament/Modifier/${idMedicament}`, medicament, this.httpOptions); }
+  listeMedicamentRupture(): Observable<object> { return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, this.httpOptions); }
 }

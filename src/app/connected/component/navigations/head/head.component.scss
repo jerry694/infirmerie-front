@@ -1,0 +1,113 @@
+@mixin bord($top, $right, $bottom, $left, $color) {
+    border-top: solid $top $color;
+    border-right: solid $right $color;
+    border-bottom: solid $bottom $color;
+    border-left: solid $left $color;
+}
+
+.container-fluid {
+    width: calc(100% - 17rem);
+    position: absolute;
+    right: 0;
+}
+
+* {
+    font-size: large;
+}
+
+span {
+    margin-right: 10px;
+}
+.row{
+    height: 3.8rem;
+    // background-color: #e7f2f961;
+    background-color: rgba(231, 242, 249, 0.35);
+    // background-color: rgb(231, 242, 249);
+
+}
+.col {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// .input-group-text img {
+//     height: 100%;
+//     width: auto;
+// }
+.aCenter{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0px ;
+}
+.aCenterl{
+    @extend .aCenter;
+    padding-left: 5rem;
+    justify-content: flex-start;
+   .logo{
+        height: 70%;
+        width: auto;
+    }
+
+
+} 
+.aCenterr{
+    @extend .aCenter;
+    padding-right: 5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+.cont{
+        width: 10%;
+        height: 100%;
+        // display: flex;
+        position: relative;
+    .circle{
+        border-radius: 50%;
+        display: block;
+        height: auto;
+        width: 100%;
+        // width: auto;
+    }
+    .overlay{
+        background-color:rgba(16, 126, 194, 0);
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        // opacity: 0;
+        transition: .3s ease-in-out;
+.pi-cog{
+    // height: 0px;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0);
+}
+}
+.overlay:hover{
+    background-color:rgba(16, 126, 194, 0.7);
+    ;.pi-cog{    color: rgba(255, 255, 255, 1);
+
+    }
+}
+}}
+.aCenter span{
+    color: #107EC2;
+}
+
+
+
+
+.body{
+    width: calc(100% - 17rem);
+    height: calc(100vh - 3.8rem);
+    margin:0rem 17rem;
+    // background-color: bisque;
+    position: absolute;
+    bottom: 0;
+    padding: 1.5rem 5rem;
+}

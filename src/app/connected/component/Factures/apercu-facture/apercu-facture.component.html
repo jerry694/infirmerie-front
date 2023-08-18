@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d-flex align-items-end ">
+        <h2 class="text-primary">Apercu de factures</h2>
+        <hr class="flex-grow-1 text-primary">
+        <button  (click)="imprimer()" class="btn btn-gray bhead">
+            <img src="./assets/img/print.svg" alt="">
+            Imprimer
+        </button>
+        <button  (click)="regler()" class="btn btn-warning bhead">
+            <img src="./assets/img/cashe.svg" alt="">
+            Regler
+        </button>
+    </div>
+
+    <div class="forms">
+        <span><h5>Numero de la facture : </h5> {{facture[0][0].NumFacture}}</span>
+        <span><h5>Nom du patient : </h5> {{facture[0][1]}} {{facture[0][2]}}</span>
+        <span ><h5>Statut : </h5> <span  [ngClass]="facture[0][0].statutFacture == true ? 'text-success' : 'text-danger'">
+            {{ facture[0][0].statutFacture ? 'Reglee' : 'Non reglee' }}</span></span>
+        <span><h5 >Date : </h5> {{facture[0][0].dateCreationFacture}}</span>
+        <div class="forms-container">
+            <table class="table">
+                <thead>
+                    <th class="text-left" scope="col">N*</th>
+                    <th class="text-left " scope="col">Nom</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Quantite</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let medicamentPres of facture[0][0].ficheConsultation.medicamentListConsultation">
+                        <th class="text-left" scope="row">1</th>
+                        <td class="text-left ">{{medicamentPres.medicament.nomMedicament}} {{medicamentPres.medicament.dosage}}mg</td>
+                        <td>{{medicamentPres.medicament.prixUnitaire}}</td>
+                        <td>{{medicamentPres.quantitePrescrite}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="text-right">Prix Total : {{facture[0][0].montantFacute}}</h3>
+        </div>
+        <button routerLink="../.." class="btn btn-purple bgauche">
+            <img src="./assets/img/preview.svg" alt="">
+            Page precedente
+        </button>
+        <button disabled routerLink="['patient/modifier']" class="btn btn-primary bdroite">
+            <img src="./assets/img/next.svg" alt="">
+            Modifier
+        </button>
+    </div>
+</body>
+
+</html>
