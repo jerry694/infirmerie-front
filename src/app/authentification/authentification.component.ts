@@ -46,7 +46,7 @@ export class AuthentificationComponent implements OnInit {
       localStorage.setItem('id_infirmiere', this.login.idInfirmiere);
       localStorage.setItem('login', this.login.login);
       localStorage.setItem('token', this.login.token);
-      this.route.navigate(["/connected/dashboard"]);
+      this.route.navigate(["connect/"]);
       alert("BIENVENUE ")
       console.log(localStorage.getItem)
       console.log(this.route)

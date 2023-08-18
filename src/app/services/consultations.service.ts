@@ -36,13 +36,13 @@ export class ConsultationsService {
   listeExamen(): Observable<object> {
     return this.httpClient.get(`${this.baseUrl}Examens/Liste`, this.httpOptions);
   }
-  consulter(ficheConsultation: any, idEtudiant: number, idSymptome: any, AnouveauxSymptomes: any, idExamen: any, AnouveauxExamens: any, idDiagnostique: any, AnouveauxDiagnostique: any): Observable<object> {
+  consulter(ficheConsultation: any, idEtudiant: number, idSymptome: any, AnouveauxSymptomes: any, idExamen: any, AnouveauxExamens: any, idDiagnostique: any, AnouveauxDiagnostique: any,idMedicament:any,quantiteMedicamentPrescrite:any): Observable<object> {
     const nouveauxSymptomes: string[] = AnouveauxSymptomes
     const nouveauxExamens: string[] = AnouveauxExamens
     const nouveauxDiagnostique: string[] = AnouveauxDiagnostique
     console.log(this.httpOptions)
     console.log(ficheConsultation);
-    const params = { idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique };
+    const params = { idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique,idMedicament,quantiteMedicamentPrescrite };
     console.log(params)
     return this.httpClient.post(`${this.baseUrl}Infirmiere/Ajouter/FicheConsultation/${idEtudiant}/${localStorage.getItem('id_infirmiere')}`,ficheConsultation, { params, ...this.httpOptions } );
   }

@@ -36,7 +36,7 @@
                             <div class="input-group rect">
 
                                 <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
-                                icon="pi pi-hourglass"  formControlName="heureArriveeConsultation"></p-calendar>
+                                    icon="pi pi-hourglass" formControlName="heureArriveeConsultation"></p-calendar>
 
                             </div>
                         </div>
@@ -136,15 +136,44 @@
                         <hr class="flex-grow-1 text-primary">
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6 ">
-
-                            <label>Medicaments</label>
-                            <div class="input-group rect">
-                                <p-multiSelect [options]="examens" optionLabel="nomExamen" optionValue="idExamen"
-                                    placeholder="Cherchez des medicaments"></p-multiSelect>
-
+                    
+                    <div formArrayName="medicamentListConsultation">
+                        <div class="row mb-3" *ngFor="let medicaments of medicamentListConsultation.controls;let i = index">
+                            <ng-container *ngIf="i % 2 === 0">
+                            <div class="form-group col-md-6 bg-success ">
+                                <!-- <div class="input-group rect">
+                                    <p-multiSelect [options]="examens" optionLabel="nomExamen" optionValue="idExamen"
+                                        placeholder="Cherchez des medicaments"></p-multiSelect>
+    
+                                </div> -->
+                                <div class="input-group rect">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text igt"><img src="./assets/img/sang.svg" alt=""></span>
+                                    </div>
+                                    <select class="form-control fc text-center" [formControlName]="i" [attr.for]="i">
+                                        <option disabled selected>{{'Medicament ' + i}}</option>
+                                        <option value=1>A+</option>
+                                        <option value=2>A-</option>
+                                        <option value=3>B+</option>
+                                        <option value=4>B-</option>
+                                        <option value=5>AB+</option>
+                                        <option value=6>AB-</option>
+                                        <option value=7>O+</option>
+                                        <option value=8>O-</option>
+                                    </select>
+                                </div>
                             </div>
+                            <div class="form-group col-md-3 bg-warning p-auto" >
+                                <input type="number" class="text-center" [formControlName]="i+1" style="width: 6rem;">
+                            </div>
+                            
+                            <div class="form-group col-md-1 bg-success">
+                                <p-button icon="pi pi-check" (onClick)="addmedicamentListConsultation()"></p-button>
+                            </div>
+                            <div class="form-group col-md-1 bg-warning">
+                                <p-button icon="pi pi-check" (onClick)="deletemedicamentListConsultation(i,i+1)"></p-button>
+                            </div>
+                        </ng-container>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -170,10 +199,9 @@
                     </div>
                     <div class="row mb-3">
                         <label>Description des soins</label>
-                            <div class="input-group rect">
-                                <input type="text" class="form-control" formControlName="soinsDispense"
-                                    placeholder="...">
-                            </div>
+                        <div class="input-group rect">
+                            <input type="text" class="form-control" formControlName="soinsDispense" placeholder="...">
+                        </div>
                         <!-- soinsDispense -->
                     </div>
                     <div class="d-flex align-items-end mb-2">
@@ -186,7 +214,7 @@
                             <div class="input-group rect">
 
                                 <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true"
-                                   formControlName="dateProchainRendezVous"></p-calendar>
+                                    formControlName="dateProchainRendezVous"></p-calendar>
 
                             </div>
                         </div>

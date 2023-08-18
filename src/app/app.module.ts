@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { NgbAlertModule, NgbDatepickerModule,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbAlertModule, NgbDatepickerModule,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -78,10 +78,10 @@ import { AuthentificationComponent } from './authentification/authentification.c
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbDatepickerModule, 
-    NgbAlertModule, 
+    // NgbDatepickerModule, 
+    // NgbAlertModule, 
+    // NgbTimepickerModule,
     JsonPipe,
-    NgbTimepickerModule,
     ButtonModule,
     TableModule,
     SharedModule,

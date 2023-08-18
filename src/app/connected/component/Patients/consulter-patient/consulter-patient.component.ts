@@ -45,7 +45,7 @@ export class ConsulterPatientComponent implements OnInit {
     this.initExamens()
     this.initForm()
 
- 
+
     console.log(this.ficheConsultation.value)
 
     console.log(this.civilite)
@@ -131,18 +131,43 @@ export class ConsulterPatientComponent implements OnInit {
       symptomeList: new FormControl<any | null>([]),
       examenList: new FormControl<any | null>([]),
       diagnostiqueList: new FormControl<any | null>([]),
+      medicamentListConsultation: this.formBuilder.array([new FormControl([]), new FormControl([])]),
+      // medicamentQuantiteListConsultation:this.formBuilder.array([new FormControl()]),
       nouveauxSymptomes: ['', Validators.required], // Aucun validateur requis ici
       nouveauxDiagnostique: ['', Validators.required], // Aucun validateur requis ici
       nouveauxExamens: ['', Validators.required], // Aucun validateur requis ici
       heureArriveeConsultation: [new Date(), Validators.required],
       heureSortieConsultation: [null, Validators.required],
-      dateProchainRendezVous:[null],
-      heureProchainRendezVous:[null],
+      dateProchainRendezVous: [null],
+      heureProchainRendezVous: [null],
       temperature: [null],
       poids: [null, Validators.required], // Aucun validateur requis ici
       tension: [null], // Aucun validateur requis ici
-      soinsDispense:[null]
+      soinsDispense: [null]
     });
+  }
+  public get medicamentListConsultation(): FormArray {
+    return this.ficheConsultation.get('medicamentListConsultation') as FormArray
+  }
+  public get medicamentQuantiteListConsultation(): FormArray {
+    return this.ficheConsultation.get('medicamentQuantiteListConsultation') as FormArray
+  }
+  public addmedicamentListConsultation(): void {
+    this.medicamentListConsultation.push(new FormControl());
+    this.medicamentListConsultation.push(new FormControl());
+    // this.medicamentQuantiteListConsultation.push(new FormControl());
+  }
+  public deletemedicamentListConsultation(index:number,ind:number):void{
+    this.medicamentListConsultation.removeAt(index)
+    this.medicamentListConsultation.removeAt(ind)
+    this.medicamentListConsultation.markAsDirty()
+  }
+
+
+
+
+  public addmedicamentQuantiteListConsultation(): void {
+    this.medicamentQuantiteListConsultation.push(new FormControl())
   }
   consulter() {
     const idSymptome = this.ficheConsultation.value.symptomeList
@@ -151,21 +176,34 @@ export class ConsulterPatientComponent implements OnInit {
     this.ficheConsultation.value.examenList = []
     const idDiagnostique = this.ficheConsultation.value.diagnostiqueList
     this.ficheConsultation.value.diagnostiqueList = []
-    
+
     const nouveauxSymptomes = this.ficheConsultation.value.nouveauxSymptomes
-    this.ficheConsultation.value.nouveauxSymptomes=''
+    this.ficheConsultation.value.nouveauxSymptomes = ''
     const nouveauxDiagnostique = this.ficheConsultation.value.nouveauxDiagnostique
-    this.ficheConsultation.value.nouveauxDiagnostique=''
+    this.ficheConsultation.value.nouveauxDiagnostique = ''
     const nouveauxExamens = this.ficheConsultation.value.nouveauxExamens
-    this.ficheConsultation.value.nouveauxExamens=''
+    this.ficheConsultation.value.nouveauxExamens = ''
 
-    this.ficheConsultation.value.heureProchainRendezVous=this.ficheConsultation.value.dateProchainRendezVous
+    this.ficheConsultation.value.heureProchainRendezVous = this.ficheConsultation.value.dateProchainRendezVous
 
+    const medicamentListConsultation = this.medicamentListConsultation.value.filter((_: any, index: number) => index % 2 === 0)
+    if (this.medicamentListConsultation.value != null) {
+      const medicamentListConsultation = this.medicamentListConsultation.value.filter((_: any, index: number) => index % 2 === 0).map((item: string) => parseFloat(item));
+    }
+    // Filtrer les médicaments en prenant les indices pairs
 
+    // Filtrer les quantités en prenant les indices impairs
+    const medicamentQuantiteListConsultation = this.medicamentListConsultation.value.filter((_: any, index: number) => index % 2 === 1);
+
+    this.ficheConsultation.value.medicamentListConsultation = []
+    console.log(this.ficheConsultation.value)
+    // this.medicamentListConsultation.value  .map(value => value === '' ? null : value);
+    console.log(medicamentListConsultation)
+    console.log(medicamentQuantiteListConsultation)
     // this.ficheConsultation.value.heureArriveeConsultation=this.formatH(this.ficheConsultation.value.heureArriveeConsultation)
     // this.ficheConsultation.value.heureSortieConsultation=this.formatH(this.ficheConsultation.value.heureSortieConsultation)
-// heureArriveeConsultation,heureSortieConsultation
-    this.consultationService.consulter(this.ficheConsultation.value, parseInt(this.id), idSymptome,nouveauxSymptomes, idExamen,nouveauxDiagnostique, idDiagnostique,nouveauxExamens).subscribe(
+    // heureArriveeConsultation,heureSortieConsultation
+    this.consultationService.consulter(this.ficheConsultation.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxDiagnostique, idDiagnostique, nouveauxExamens, medicamentListConsultation, medicamentQuantiteListConsultation).subscribe(
       data => {
         alert("Enregistrement réussi !");
         console.log(data)

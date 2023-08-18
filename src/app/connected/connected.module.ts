@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbDatepickerModule, NgbAlertModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbDatepickerModule, NgbAlertModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
@@ -36,10 +36,10 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgbDatepickerModule, 
-    NgbAlertModule, 
+    // NgbDatepickerModule, 
+    // NgbAlertModule, 
+    // NgbTimepickerModule,
     JsonPipe,
-    NgbTimepickerModule,
     ButtonModule,
     TableModule,
     SharedModule,

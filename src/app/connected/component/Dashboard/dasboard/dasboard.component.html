@@ -45,7 +45,7 @@
                             </thead>
                             <tbody>
                                 
-                                <tr *ngFor="let nonPaye of facturesNonReglee"> 
+                                <tr *ngFor="let nonPaye of facturesNonReglee.reverse()"> 
                                     <th scope="row"><span style="color: rgba(0, 0, 0, 1);">{{nonPaye[1]}} {{nonPaye[2]}}</span></th>
                                     <td>{{nonPaye[0].etudiant}} {{nonPaye[0].etudiant}}</td>
                                     <td> <i>{{nonPaye[0].dateCreationFacture}}</i> </td>
