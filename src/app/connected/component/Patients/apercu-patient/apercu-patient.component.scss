@@ -149,3 +149,21 @@ th:last-child,tr td:last-child{
 td span:nth-child(n+2){
 margin-left: .5rem;
 }
+
+
+.divScroll{
+    max-height: 17vh; 
+    overflow: auto;
+    padding-right: 10px;
+}
+.divScroll::-webkit-scrollbar{
+    width: 5px;
+}.divScroll::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 10px;
+}.divScroll::-webkit-scrollbar-thumb{
+    background: #107EC2;
+    border-radius: 10px;
+}.divScroll::-webkit-scrollbar-thumb:hover{
+    background: #107ec28b;
+}

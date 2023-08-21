@@ -21,7 +21,6 @@ export class ListeFactureComponent {
     this.factureService.listeFacture().subscribe(
       data => {
         console.log(data)
-        alert(data)
         this.factures = data
         //redirection ici
       },
@@ -37,7 +36,7 @@ export class ListeFactureComponent {
     this.factureService.reglerFacture(idFacture).subscribe(
       newFacture => {
         console.log(newFacture)
-        alert(newFacture)
+        window.location.reload();
         //redirection ici
       },
       error => {

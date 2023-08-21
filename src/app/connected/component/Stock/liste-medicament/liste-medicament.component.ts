@@ -22,7 +22,6 @@ export class ListeMedicamentComponent implements OnInit {
     this.medicamentService.listeMedicament().subscribe(
       data => {
         console.log(data)
-        alert(data)
         this.save=data
         this.medicaments = data
         //redirection ici

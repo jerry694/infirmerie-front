@@ -32,7 +32,6 @@ export class ListeConsultationComponent   {
     this.consultationService.listeConsultation().subscribe(
       data => {
         console.log(data)
-        alert(data)
         this.ficheConsultations = data
         //redirection ici
       },

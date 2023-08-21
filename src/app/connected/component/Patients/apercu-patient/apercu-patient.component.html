@@ -106,7 +106,8 @@
                         <h5 class="text-primary">Consultations</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-                    <table *ngIf="etudiant && etudiant.fichesConsultation && etudiant.fichesConsultation.length !== 0" class="table">
+                    <div class="divScroll" >
+                    <table *ngIf="etudiant && etudiant.fichesConsultation && etudiant.fichesConsultation.length !== 0" class="table" >
                         <thead>
                             <th>Date</th>
                             <th>Diagnostic</th>
@@ -128,11 +129,12 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table></div>
                     <div class="d-flex align-items-end mb-2">
                         <h5 class="text-primary">Factures non reglees</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
+                    <div class="divScroll">
                     <table *ngIf="etudiant && etudiant.factures && etudiant.factures.length !== 0" class="table">
                         <thead>
                             <th>Date</th>
@@ -156,6 +158,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
 
 
                 </div>

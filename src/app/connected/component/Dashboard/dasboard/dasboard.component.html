@@ -79,7 +79,7 @@
                                 <ng-container *ngIf="i <= 2 ">
                                 <th scope="row"><span style="color: rgba(0, 0, 0, 1);">{{rvous[0]}} {{rvous[1]}}</span></th>
                                 <td> {{rvous[3]}} {{rvous[2]}}</td>
-                                <td>{{rvous[5]}} {{rvous[4]}}</td>
+                                <td><span *ngIf="rvous[5].slice(8,10) != aujourdhui">{{rvous[5]}}</span> {{rvous[4]}}</td>
                                 <td> <i>{{rvous.motif}}</i> </td>
                                 </ng-container>
                             </tr>

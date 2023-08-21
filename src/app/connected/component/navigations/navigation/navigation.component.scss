@@ -35,7 +35,6 @@ $borderradius : 7px 0 0 7px;
     }
 }
 .sidenav-nav-link{
-    transition: ease-in .3s ease;
     @include dFlex(2.7rem);
     padding-left: 1.8rem;
     font-size: small;
@@ -45,9 +44,10 @@ $borderradius : 7px 0 0 7px;
     margin-bottom: 4px;
 }
 .sidenav-nav-link:hover{
-    border-bottom: 2px solid rgba(255, 255, 255, .8);
-    border-top: 2px solid rgb(255, 255, 255,.8);
-    border-left: 2px solid rgb(255, 255, 255,.8);
+    // border-bottom: .3px solid rgba(255, 255, 255, .8);
+    // border-top: .3px solid rgb(255, 255, 255,.8);
+    transition: all .3s ease;
+    border-left: 5px solid rgb(255, 255, 255,1);
 }
 
 .sidenav-nav-link>svg,.sidenav-nav-link>i{

@@ -28,11 +28,11 @@ export class ApercuPatientComponent implements OnInit {
       this.etudiantservice.infoEtudiant(parseInt(this.id)).subscribe(
         etudiantData => {
           console.log(etudiantData);
-          alert(JSON.stringify(etudiantData));
           this.etudiant = etudiantData;
           //redirection ici
         },
         error => {
+          console.log(error)
           alert("Erreur de lecture.");
         }
       );

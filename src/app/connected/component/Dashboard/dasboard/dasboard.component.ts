@@ -12,6 +12,7 @@ import { FacturesService } from 'src/app/services/factures.service';
 export class DasboardComponent implements OnInit {
   data: any;
   options: any;
+  aujourdhui:number= new Date().getDate()
   date : number = new Date().getFullYear()
   previousHere: any = [this.date-1, ]
   private thisHere: any = [this.date,]
@@ -24,6 +25,7 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
   ngOnInit() {
     // Chart.defaults.font<''>
     // this.previousHere=[null]
+    alert(this.aujourdhui)
     this.initGraph()  
     this.initFacture()
     this.initEtiquette()

@@ -54,6 +54,7 @@ export class ApercuFactureComponent implements OnInit {
       newFacture => {
         console.log(newFacture)
         alert(newFacture)
+        window.location.reload();
         //redirection ici
       },
       error => {

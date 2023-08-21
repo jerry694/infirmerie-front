@@ -24,7 +24,6 @@ export class ListePatientComponent implements OnInit {
     this.etudiantservice.listeEtudiants().subscribe(
       data => {
         console.log(data)
-        alert(data)
         this.etudiants = data
         //redirection ici
       },
