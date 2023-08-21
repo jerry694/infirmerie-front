@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Table } from 'primeng/table';
 import { ConsultationsService } from 'src/app/services/consultations.service';
@@ -16,7 +16,9 @@ export class ListeConsultationComponent   {
   constructor(private route: Router, private consultationService: ConsultationsService) { }
   ngOnInit() {
     this.initFichedeConsultation()
+    // setTimeout(()=>{})
   }
+
   clear(table: Table) {
     this.search = ''
     table.clear();

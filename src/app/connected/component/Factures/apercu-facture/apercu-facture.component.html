@@ -22,11 +22,11 @@
     </div>
 
     <div class="forms">
-        <span><h5>Numero de la facture : </h5> {{facture[0][0].NumFacture}}</span>
-        <span><h5>Nom du patient : </h5> {{facture[0][1]}} {{facture[0][2]}}</span>
-        <span ><h5>Statut : </h5> <span  [ngClass]="facture[0][0].statutFacture == true ? 'text-success' : 'text-danger'">
+        <span><h6>Numero de la facture : </h6> {{facture[0][0].NumFacture}}</span>
+        <span><h6>Nom du patient : </h6> {{facture[0][1]}} {{facture[0][2]}}</span>
+        <span ><h6>Statut : </h6> <span  [ngClass]="facture[0][0].statutFacture == true ? 'text-success' : 'text-danger'">
             {{ facture[0][0].statutFacture ? 'Reglee' : 'Non reglee' }}</span></span>
-        <span><h5 >Date : </h5> {{facture[0][0].dateCreationFacture}}</span>
+        <span><h6 >Date : </h6> {{facture[0][0].dateCreationFacture}}</span>
         <div class="forms-container">
             <table class="table">
                 <thead>
@@ -36,8 +36,8 @@
                     <th scope="col">Quantite</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let medicamentPres of facture[0][0].ficheConsultation.medicamentListConsultation">
-                        <th class="text-left" scope="row">1</th>
+                    <tr *ngFor="let medicamentPres of facture[0][0].ficheConsultation.medicamentListConsultation ; let i=index">
+                        <th class="text-left" scope="row">{{i+1}}</th>
                         <td class="text-left ">{{medicamentPres.medicament.nomMedicament}} {{medicamentPres.medicament.dosage}}mg</td>
                         <td>{{medicamentPres.medicament.prixUnitaire}}</td>
                         <td>{{medicamentPres.quantitePrescrite}}</td>

@@ -48,6 +48,7 @@ export class ApercuPatientComponent implements OnInit {
   }
   exploreFacture(id:number) {
     console.log("facture de " + id)
+    this.router.navigate(['facture/apercu/',id])
   }
   // modify(idEtudiant:number){
   //   this.route.navigate(['patient/modifier',idEtudiant]);
