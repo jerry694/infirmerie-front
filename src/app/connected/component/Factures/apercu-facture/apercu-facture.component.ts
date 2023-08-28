@@ -39,6 +39,14 @@ export class ApercuFactureComponent implements OnInit {
   }
   imprimer(){
     // this.route.navigate(["patient/creer"]);
+    this.factureService.imprimerFacture(parseInt(this.id)).subscribe(
+      data=>{
+        console.log(data)
+      },
+      error=>{
+        console.log(error)
+      }
+    )
     console.log("eo")
   }
   regler(){
@@ -46,6 +54,7 @@ export class ApercuFactureComponent implements OnInit {
       newFacture => {
         console.log(newFacture)
         alert(newFacture)
+        window.location.reload();
         //redirection ici
       },
       error => {

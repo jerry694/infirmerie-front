@@ -1,49 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="login">
-          <img src="./assets/img/Saint Jean ingenieur.png" alt="">
-          <h3>SE CONNECTER</h3>
-          <form [formGroup]="loginForm" (ngSubmit)='userAuth()'>
-            <div class="form-group">
-              <div class="input-group rect">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><img src="./assets/img/Icon awesome-user-alt.svg" alt=""></span>
-                </div>
-                <input type="text" class="form-control" placeholder="Identifiant" name="name" formControlName="login" [ngClass]="{'is-invalid': submitted && loginForm.controls['login'].errors}">
-              </div>
-            </div> 
-            <div class="form-group">
-              <div class="input-group rect">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><img src="./assets/img/Icon awesome-lock.svg" alt=""></span>
-                </div>
-                <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control" placeholder="Mot de passe" name="password" formControlName="password" [ngClass]="{'is-invalid': submitted && loginForm.controls['password'].errors}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <img (click)="togglePasswordVisibility()" [src]="passwordVisible ? './assets/img/Icon awesome-eye-slash.svg' : './assets/img/Icon awesome-eye.svg'" alt="">
-                  </span>
-                </div>
-              </div>
+  <div class="container-fluid">
+    <div class="login">
+      <img src="./assets/img/Saint Jean ingenieur.png" alt="">
+      <h3>SE CONNECTER</h3>
+      <form [formGroup]="loginForm" (ngSubmit)='userAuth()'>
+        <div class="form-group">
+          <div class="input-group rect"
+            [ngClass]="{'dirty': loginForm.controls['login'].touched && loginForm.controls['login'].errors?.['required']}">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><img src="./assets/img/Icon awesome-user-alt.svg" alt=""></span>
             </div>
-            <div class="form-check rect-left">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-              <label class="form-check-label " for="flexCheckIndeterminate">
-                <u>Se souvenir de moi</u>
-              </label>
-            </div>
-            <div class="form-group">
-              <input [disabled]="!loginForm.valid" type="submit" value="Connexion" class="btn-warning rect rect-connect">
-            </div>
-          </form>
+            <input type="text" class="form-control" placeholder="Identifiant" name="name" formControlName="login"
+              pInputText />
+          </div>
         </div>
-      </div>
+        <div class="merreur">
+          <span *ngIf="loginForm.controls['login'].touched && loginForm.controls['login'].errors?.['required']"> Entrez
+            le login</span>
+            <span *ngIf=" gError!= null"> Identifiant invalid</span>
+        </div>
+        <div class="form-group">
+          <div class="input-group rect"
+            [ngClass]="{'dirty': loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']}">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><img src="./assets/img/Icon awesome-lock.svg" alt=""></span>
+            </div>
+            <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control" placeholder="Mot de passe"
+              name="password" formControlName="password" pInputText />
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <img (click)="togglePasswordVisibility()"
+                  [src]="passwordVisible ? './assets/img/Icon awesome-eye-slash.svg' : './assets/img/Icon awesome-eye.svg'"
+                  alt="">
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="merreur">
+          <span *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']"> Entrez
+            le mot de passe</span>
+            <span *ngIf=" gError!= null"> Identifiant invalid</span>
+        </div>
+        <div class="form-check rect-left">
+          <input class="form-check-input" disabled="true" type="checkbox" value="" id="flexCheckIndeterminate">
+          <label class="form-check-label " for="flexCheckIndeterminate">
+            <u>Se souvenir de moi</u>
+          </label>
+        </div>
+        <div class="form-group">
+          <input [disabled]="!loginForm.valid" type="submit" value="Connexion" class="btn-warning rect rect-connect">
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- <pre>{{loginForm | json}}</pre> -->
 </body>
+
 </html>
+
+<!-- <input id="username" type="username" aria-describedby="username-help" class="ng-invalid ng-dirty" pInputText />
+        <small id="username-help" class="p-error">Username is not available.</small> -->

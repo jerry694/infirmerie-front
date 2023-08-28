@@ -44,24 +44,24 @@ export class CreerPatientComponent implements OnInit {
     // });
     this.creerEtudiant = this.formBuilder.group({
       antecedantMedicauxList: new FormControl<any | null>([]),
-      nouveauxAntecedantsMedicaux: ['', Validators.required], // Aucun validateur requis ici
+      nouveauxAntecedantsMedicaux: [''], // Aucun validateur requis ici
       dateDeNaissance: [null, Validators.required],
       emailEtudiant: [null, [Validators.required, Validators.email]],
-      emailContactUrgence: [null],
+      emailContactUrgence: [null, [Validators.required, Validators.email]],
       filiere: [null, Validators.required], // Aucun validateur requis ici
-      groupeSanguin: [null], // Aucun validateur requis ici
+      groupeSanguin: [null, Validators.required], // Aucun validateur requis ici
       matricule: [null, Validators.required], // Aucun validateur requis ici
       niveau: [null, Validators.required], // Aucun validateur requis ici
-      nom: [null, Validators.required],
+      nom: [null, [Validators.required]],
       nomContactUrgence: [null, Validators.required], // Aucun validateur requis ici
-      numeroDeTelephone: [null, [Validators.required]], // Champs numérique avec validation de motif
-      numeroDeTelephoneUrgence: [null, Validators.required], // Aucun validateur requis ici
-      numeroWhatsapp: [null], // Aucun validateur requis ici
-      poids: [null], // Aucun validateur requis ici
+      numeroDeTelephone: [null, [Validators.required,Validators.minLength(9),Validators.maxLength(9)]], // Champs numérique avec validation de motif
+      numeroDeTelephoneUrgence: [null, [Validators.required,Validators.minLength(9),Validators.maxLength(9)]], // Aucun validateur requis ici
+      numeroWhatsapp: [null,[,Validators.minLength(9),Validators.maxLength(9)]], // Aucun validateur requis ici
+      poids: [null, Validators.required], // Aucun validateur requis ici
       prenom: [null],
       relationContactUrgence: [null, Validators.required], // Aucun validateur requis ici
-      sexe: [null, Validators.required], // Aucun validateur requis ici
-      taille: [null], // Aucun validateur requis ici
+      sexe: ['Masculin', Validators.required], // Aucun validateur requis ici
+      taille: [null, Validators.required], // Aucun validateur requis ici
     });
   }
 

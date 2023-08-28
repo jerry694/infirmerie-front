@@ -149,3 +149,32 @@ th:last-child,tr td:last-child{
 td span:nth-child(n+2){
 margin-left: .5rem;
 }
+
+
+.divScroll{
+    max-height: 17vh; 
+    overflow: auto;
+    padding-right: 10px;
+}
+.divScroll::-webkit-scrollbar{
+    width: 5px;
+}.divScroll::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 10px;
+}.divScroll::-webkit-scrollbar-thumb{
+    background: #107EC2;
+    border-radius: 10px;
+}.divScroll::-webkit-scrollbar-thumb:hover{
+    background: #107ec28b;
+}
+
+
+.bodys{
+    width: calc(100% - 17rem);
+    height: calc(100vh - 3.8rem);
+    margin:0rem 17rem;
+    // background-color: bisque;
+    position: absolute;
+    bottom: 0;
+    padding: 1.5rem 5rem;
+}

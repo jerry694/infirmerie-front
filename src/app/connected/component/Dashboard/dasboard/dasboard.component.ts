@@ -12,11 +12,13 @@ import { FacturesService } from 'src/app/services/factures.service';
 export class DasboardComponent implements OnInit {
   data: any;
   options: any;
+  aujourdhui:number= new Date().getDate()
   date : number = new Date().getFullYear()
   previousHere: any = [this.date-1, ]
   private thisHere: any = [this.date,]
   informations:any = []
-  facturesNonReglee:any
+  facturesNonReglee:any = []
+  rendezVous:any = []
   public valeur:any = [];
   public val: any
 constructor(private factureService:FacturesService,private dashboardService:DashboardService){}
@@ -26,6 +28,7 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
     this.initGraph()  
     this.initFacture()
     this.initEtiquette()
+    this.initRendezVous()
     console.log(this.date)
   }
 
@@ -158,6 +161,7 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
         //redirection ici
       },
       error => {
+        console.log(error)
         alert("Erreur de lecture.");
       }
     );
@@ -168,6 +172,14 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
         this.val=data
         this.valeur[0]=this.val[0][1]
         console.log(this.valeur)
+      },
+    );
+    // listeMedicamentRupture
+    this.dashboardService.listeMedicamentRupture().subscribe(
+      data => {
+        this.val=data
+        this.valeur[2]=this.val.filter((data:any) => data.quantiteDisponible < 5).length
+        console.log(data)
       },
     );
     this.informations = [
@@ -185,9 +197,16 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
       },
     ]
   }
-  initRendezVous(){}
+  initRendezVous(){
+    // listeProchainRendezVous()
+    this.dashboardService.listeProchainRendezVous().subscribe(
+      data => {
+        console.log(data)
+        this.rendezVous=data
+      },
+    );
+  }
 
-  rVous = null
 
   // this.valeur[0] = 3
 

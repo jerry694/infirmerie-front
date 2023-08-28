@@ -32,7 +32,6 @@ export class ApercuConsultationComponent implements OnInit {
       this.consultationService.apercuConsultation(parseInt(this.id)).subscribe(
         data => {
           console.log(data);
-          alert(JSON.stringify(data));
           const temp:any = data
           // this.etudiant = temp;
           this.etudiant = temp[0][0]

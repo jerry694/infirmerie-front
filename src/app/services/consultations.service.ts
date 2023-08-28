@@ -46,7 +46,7 @@ export class ConsultationsService {
     console.log(params)
     return this.httpClient.post(`${this.baseUrl}Infirmiere/Ajouter/FicheConsultation/${idEtudiant}/${localStorage.getItem('id_infirmiere')}`,ficheConsultation, { params, ...this.httpOptions } );
   }
-  suivre(fiche_suivie: any, idFicheConsultation: number, idSymptome: any, AnouveauxSymptomes: any, idExamen: any, AnouveauxExamens: any, idDiagnostique: any, AnouveauxDiagnostique: any): Observable<object> {
+  suivre(fiche_suivie: any, idFicheConsultation: number, idSymptome: any, AnouveauxSymptomes: any, idExamen: any, AnouveauxExamens: any, idDiagnostique: any, AnouveauxDiagnostique: any,idMedicament:any,quantiteMedicamentPrescrite:any): Observable<object> {
     const nouveauxSymptomes: string[] = AnouveauxSymptomes
     const nouveauxExamens: string[] = AnouveauxExamens
     const nouveauxDiagnostique: string[] = AnouveauxDiagnostique

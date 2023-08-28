@@ -29,8 +29,9 @@ $red:     #CC151A !default;
 $yellow:  #FDD300 !default;
 $green:   #007759 !default;
 
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+// @import "primeng/resources/themes/lara-light-blue/theme.css";
+// // @import "assets/css/theme.css";
+// @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
 @import "app/bootstrap/scss/bootstrap.scss";
@@ -77,6 +78,15 @@ $green:   #007759 !default;
 // .btn{
 //   @include button-variant($background:#FDD300,$border:#FDD300);
 // }
+.bodys{
+  width: calc(100% - 17rem);
+  height: calc(100vh - 3.8rem);
+  margin:0rem 17rem;
+  // background-color: bisque;
+  position: absolute;
+  bottom: 0;
+  padding: 1.5rem 5rem;
+}
 .p-datatable .p-datatable-header {
   border-radius: 10px 10px 0px 0px;
 }
@@ -114,4 +124,19 @@ $green:   #007759 !default;
 // }
 svg{
   cursor: pointer;
+}
+input{
+  height: 2.5rem;
+}
+.p-multiselect .p-multiselect-label.p-placeholder {
+  font-size: medium;
+  height: 2.5rem;
+  padding: .5rem 1rem;
+  width: 14rem;
+  
+}
+.p-multiselect .p-multiselect-label {
+ font-size: medium;
+ height: 2.5rem;
+ padding: .5rem 1rem;
 }

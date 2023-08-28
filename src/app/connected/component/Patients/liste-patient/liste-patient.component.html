@@ -8,11 +8,13 @@
 </head>
 
 <body>
+    <div class="bodys">
+        
     <div class="d-flex align-items-end ">
         <h2 class="text-primary">Liste des patients</h2>
         <hr class="flex-grow-1 text-primary">
         <button (click)="creer()" class="btn btn-primary bhead">
-            <img src="../../../assets/img/add.svg" alt="">
+            <img src="./assets/img/add.svg" alt="">
             Ajouter un patient
         </button>
     </div>
@@ -24,7 +26,7 @@
         [value]="etudiants.reverse()" 
         class="table"
         [paginator]="true"
-        [rows]="7"
+        [rows]="5"
         [showCurrentPageReport]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[7, 15, 20]">
@@ -90,6 +92,7 @@
                 <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
             </ng-template>
         </p-table>
+    </div>
     </div>
 </body>
 

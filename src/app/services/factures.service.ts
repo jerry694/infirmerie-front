@@ -32,5 +32,10 @@ export class FacturesService {
     // Facture/RegleFacture/{{NumFacture}}
     return this.httpClient.get(`${this.baseUrl}Facture/non-reglees`, this.httpOptions);
   }
+  imprimerFacture(idFacture:number){
+    // Infirmiere/Imprimer/Facture/{{numFacture}}
+    return this.httpClient.get(`${this.baseUrl}Infirmiere/Imprimer/Facture/${idFacture}`, this.httpOptions);
+
+  }
   // Facture/non-reglees
 }

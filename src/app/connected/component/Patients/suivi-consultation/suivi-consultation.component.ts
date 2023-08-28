@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Etudiant } from 'src/app/etudiant';
 import { ConsultationsService } from 'src/app/services/consultations.service';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
+import { StocksService } from 'src/app/services/stocks.service';
 
 @Component({
   selector: 'app-suivi-consultation',
@@ -16,27 +17,29 @@ export class SuiviConsultationComponent implements OnInit {
   symptomes: any = []
   diagnostiques: any = []
   examens: any = []
+  medicamentss: any = []
   id!: string;
   idEtudiant!:string;
-  ficheConsultation!: FormGroup;
-  fConsultation: any = {}
+  ficheSuivi!: FormGroup;
+  // fConsultation: any = {}
 
   time = { hour: 13, minute: 30 };
   spinners = true;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService) { }
   ngOnInit() {
     this.getId()
     this.getIdEtudiant()
     this.initCivilite(parseInt(this.idEtudiant))
     this.initSymptomes()
+    this.initMedicaments()
     this.initDiagnostique()
     this.initExamens()
     this.initForm()
 
  
-    console.log(this.ficheConsultation.value)
+    console.log(this.ficheSuivi.value)
 
     console.log(this.civilite)
   }
@@ -56,10 +59,10 @@ export class SuiviConsultationComponent implements OnInit {
       const id = data.get('idFicheConsultation');
       if (id !== null) {
         this.id = id;
-        console.log('fc '+this.id)
+        console.log(this.id)
       } else {
         // Gérer le cas où id est null (si nécessaire)
-        console.log('ID idFicheConsultation non fourni dans les paramètres de l\'URL.');
+        console.log('ID idficheSuivi non fourni dans les paramètres de l\'URL.');
       }
       console.log(data.get('idFicheConsultation'));
 
@@ -118,6 +121,18 @@ export class SuiviConsultationComponent implements OnInit {
       }
     );
   }
+    initMedicaments() {
+    this.stockService.listeMedicament().subscribe(
+      data => {
+        console.log(data);
+        this.medicamentss = data
+        //redirection ici
+      },
+      error => {
+        alert("Erreur de lecture medicaments.");
+      }
+    );
+  }
   initExamens() {
     this.consultationService.listeExamen().subscribe(
       data => {
@@ -131,9 +146,10 @@ export class SuiviConsultationComponent implements OnInit {
     );
   }
   initForm() {
-    this.ficheConsultation = this.formBuilder.group({
+    this.ficheSuivi = this.formBuilder.group({
       symptomeList: new FormControl<any | null>([]),
       examenList: new FormControl<any | null>([]),
+      medicamentListSuivie: this.formBuilder.array([new FormControl([]), new FormControl([])]),
       diagnostiqueList: new FormControl<any | null>([]),
       nouveauxSymptomes: ['', Validators.required], // Aucun validateur requis ici
       nouveauxDiagnostique: ['', Validators.required], // Aucun validateur requis ici
@@ -148,24 +164,52 @@ export class SuiviConsultationComponent implements OnInit {
       soinsDispense:[null]
     });
   }
+  public get medicamentListSuivie(): FormArray {
+    return this.ficheSuivi.get('medicamentListSuivie') as FormArray
+  }
+  public get medicamentQuantiteListSuivi(): FormArray {
+    return this.ficheSuivi.get('medicamentQuantiteListSuivi') as FormArray
+  }
+  public addmedicamentListSuivie(): void {
+    this.medicamentListSuivie.push(new FormControl());
+    this.medicamentListSuivie.push(new FormControl());
+    // this.medicamentQuantiteListSuivi.push(new FormControl());
+  }
+  public deletemedicamentListSuivie(index: number): void {
+    this.medicamentListSuivie.removeAt(index + 1)
+    this.medicamentListSuivie.removeAt(index)
+    this.medicamentListSuivie.markAsDirty()
+  }
   suivre() {
-    const idSymptome = this.ficheConsultation.value.symptomeList
-    this.ficheConsultation.value.symptomeList = []
-    const idExamen = this.ficheConsultation.value.examenList
-    this.ficheConsultation.value.examenList = []
-    const idDiagnostique = this.ficheConsultation.value.diagnostiqueList
-    this.ficheConsultation.value.diagnostiqueList = []
+    const idSymptome = this.ficheSuivi.value.symptomeList
+    this.ficheSuivi.value.symptomeList = []
+    const idExamen = this.ficheSuivi.value.examenList
+    this.ficheSuivi.value.examenList = []
+    const idDiagnostique = this.ficheSuivi.value.diagnostiqueList
+    this.ficheSuivi.value.diagnostiqueList = []
     
-    const nouveauxSymptomes = this.ficheConsultation.value.nouveauxSymptomes
-    this.ficheConsultation.value.nouveauxSymptomes=''
-    const nouveauxDiagnostique = this.ficheConsultation.value.nouveauxDiagnostique
-    this.ficheConsultation.value.nouveauxDiagnostique=''
-    const nouveauxExamens = this.ficheConsultation.value.nouveauxExamens
-    this.ficheConsultation.value.nouveauxExamens=''
+    const nouveauxSymptomes = this.ficheSuivi.value.nouveauxSymptomes
+    this.ficheSuivi.value.nouveauxSymptomes=''
+    const nouveauxDiagnostique = this.ficheSuivi.value.nouveauxDiagnostique
+    this.ficheSuivi.value.nouveauxDiagnostique=''
+    const nouveauxExamens = this.ficheSuivi.value.nouveauxExamens
+    this.ficheSuivi.value.nouveauxExamens=''
 
-    this.ficheConsultation.value.heureProchainRendezVous=this.ficheConsultation.value.dateProchainRendezVous
+    this.ficheSuivi.value.heureProchainRendezVous=this.ficheSuivi.value.dateProchainRendezVous
 
-    this.consultationService.suivre(this.ficheConsultation.value, parseInt(this.id), idSymptome,nouveauxSymptomes, idExamen,nouveauxDiagnostique, idDiagnostique,nouveauxExamens).subscribe(
+    const medicamentListSuivie = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 2 === 0)
+    if (this.medicamentListSuivie.value != null) {
+      const medicamentListSuivie = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 2 === 0).map((item: string) => parseFloat(item));
+    }
+
+    const medicamentQuantiteListSuivi = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 2 === 1);
+
+    this.ficheSuivi.value.medicamentListSuivie = []
+    console.log(this.ficheSuivi.value)
+    console.log(medicamentListSuivie)
+    console.log(medicamentQuantiteListSuivi)
+
+    this.consultationService.suivre(this.ficheSuivi.value, parseInt(this.id), idSymptome,nouveauxSymptomes, idExamen,nouveauxDiagnostique, idDiagnostique,nouveauxExamens,medicamentListSuivie,medicamentQuantiteListSuivi).subscribe(
       data => {
         alert("Enregistrement réussi !");
         // this.router.navigate(["patient"]);

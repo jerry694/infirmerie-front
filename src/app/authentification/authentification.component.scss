@@ -30,7 +30,7 @@ body {
 
 .rect-left {
     text-align: left;
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 2.5rem;
     margin-left: .8rem;
 }
@@ -77,5 +77,23 @@ input:focus {
     font-size: small;
 }
 input:disabled{
-    background-color: #ffe76ebd;
+    background-color: #343a40a3;
+    color: white;
+}
+.dirty{
+    // background-color: hwb(358 8% 20% / 0.150);
+    border-right: 6px solid hwb(358 8% 20%) ;
+    border-radius:  0 7px 7px 0;
+    border-radius: 7px;
+    margin-bottom: 0.150rem;
+    transition: all .2s;
+    // border: 2px solid ;
+}
+.merreur{
+    font-size: small;
+    text-align: left;
+    // margin-top: 0rem;
+    color: #CC151A;
+    margin-bottom: .3rem;
+    margin-left: .1rem;
 }

@@ -20,6 +20,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 import { DasboardComponent } from './connected/component/Dashboard/dasboard/dasboard.component';
 import { ApercuFactureComponent } from './connected/component/Factures/apercu-facture/apercu-facture.component';
@@ -91,7 +92,8 @@ import { AuthentificationComponent } from './authentification/authentification.c
     CheckboxModule,
     ReactiveFormsModule,
     MultiSelectModule,
-    ToastModule
+    ToastModule,
+    MessagesModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]

@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <div class="bodys">
+        
     <div class="d-flex align-items-end ">
         <h2 class="text-primary">Apercu sur une consultation</h2>
         <hr class="flex-grow-1 text-primary">
@@ -94,6 +96,7 @@
                         <h5 class="text-primary">Suivi</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
+                    <div class="divScroll">
                     <table *ngIf="etudiant && etudiant.fiche_suivieList && etudiant.fiche_suivieList.length !== 0"
                         class="table">
                         <thead>
@@ -119,6 +122,8 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    </div>
                     <div class="d-flex align-items-end mb-2">
                         <h5 class="text-primary">Factures</h5>
                         <hr class="flex-grow-1 text-primary">
@@ -138,6 +143,8 @@
                 Suivre
             </button>
         </div>
+    </div>
+
     </div>
 </body>
 

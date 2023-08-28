@@ -8,12 +8,14 @@
 </head>
 
 <body>
+    <div class="bodys">
+        
     <div class="d-flex align-items-end">
         <h2 class="text-primary">Suivre un patient</h2>
         <hr class="flex-grow-1 text-primary">
     </div>
     <div>
-        <form action="" [formGroup]="ficheConsultation" (ngSubmit)="suivre()">
+        <form action="" [formGroup]="ficheSuivi" (ngSubmit)="suivre()">
             <div class="form-container">
                 <div class="gauche">
                     <div class="d-flex align-items-end mb-2">
@@ -137,20 +139,36 @@
                         <h5 class="text-primary">Prise en charge</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
-
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6 " >
-
-                            <label>Medicaments</label>
-                            <div class="input-group rect">
-                                <p-multiSelect [options]="examens" 
-                                    optionLabel="nomExamen"
-                                    optionValue="idExamen"
-                                    placeholder="Cherchez des medicaments"></p-multiSelect>
-
+                    <div formArrayName="medicamentListSuivie">
+                        <div class="row mb-3" *ngFor="let medicaments of medicamentListSuivie.controls;let i = index">
+                            <ng-container *ngIf="i % 2 === 0" >
+                            <div class="form-group col-md-6">
+                                
+                                <div class="input-group rect">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text igt"><img src="./assets/img/sang.svg" alt=""></span>
+                                    </div>
+                                    <select class="form-control fc text-left" [formControlName]="i" [attr.for]="i" >
+                                        <option disabled [selected]="true" value="">{{'Medicament ' + (i/2)}}</option>
+                                        <option *ngFor="let medicament of medicamentss" [value]=medicament.idMedicament>{{medicament.nomMedicament}}</option>
+                                       
+                                    </select>
+                                </div>
                             </div>
+                            <div class="form-group col-md-3  p-auto" >
+                                <input type="number" class="text-center" [formControlName]="i+1" style="width: 7.5rem;">
+                            </div>
+                            
+                            <div class="form-group col-md-1 ">
+                                <p-button icon="pi pi-plus" (onClick)="addmedicamentListSuivie()"></p-button>
+                            </div>
+                            <div class="form-group col-md-1 ">
+                                <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="deletemedicamentListSuivie(i)"></p-button>
+                            </div>
+                        </ng-container>
                         </div>
                     </div>
+                    
                     <div class="row mb-3">
                         <div class="form-group col-md-6 ">
 
@@ -207,7 +225,9 @@
             </button>
         </form>
     </div>
-    {{ficheConsultation.value | json}}
+    {{ficheSuivi.value | json}}
+
+    </div>
 </body>
 
 </html>
