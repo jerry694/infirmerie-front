@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Etudiant } from 'src/app/etudiant';
 import { ConsultationsService } from 'src/app/services/consultations.service';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
+import { StocksService } from 'src/app/services/stocks.service';
 import { Symptomes } from 'src/entites/symptomes';
 
 @Component({
@@ -21,13 +22,15 @@ export class ConsulterPatientComponent implements OnInit {
   civilite: any
   symptomes: any = []
   diagnostiques: any = []
+  medicamentss: any = []
   examens: any = []
   id!: string
   ficheConsultation!: FormGroup;
   fConsultation: any = {}
-
+  minDate: Date = new Date()
   time = { hour: 13, minute: 30 };
   spinners = true;
+  lDisabled: boolean[] = [false,false,false]
 
 
 
@@ -36,11 +39,12 @@ export class ConsulterPatientComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService) { }
   ngOnInit() {
     this.getId()
     this.initCivilite(parseInt(this.id))
     this.initSymptomes()
+    this.initMedicaments()
     this.initDiagnostique()
     this.initExamens()
     this.initForm()
@@ -126,6 +130,18 @@ export class ConsulterPatientComponent implements OnInit {
       }
     );
   }
+  initMedicaments() {
+    this.stockService.listeMedicament().subscribe(
+      data => {
+        console.log(data);
+        this.medicamentss = data
+        //redirection ici
+      },
+      error => {
+        alert("Erreur de lecture medicaments.");
+      }
+    );
+  }
   initForm() {
     this.ficheConsultation = this.formBuilder.group({
       symptomeList: new FormControl<any | null>([]),
@@ -145,6 +161,8 @@ export class ConsulterPatientComponent implements OnInit {
       tension: [null], // Aucun validateur requis ici
       soinsDispense: [null]
     });
+    this.lDisabled = [this.ficheConsultation.controls['symptomeList'].touched, this.ficheConsultation.controls['examenList'].touched, this.ficheConsultation.controls['diagnostiqueList'].touched]
+    console.log(this.lDisabled)
   }
   public get medicamentListConsultation(): FormArray {
     return this.ficheConsultation.get('medicamentListConsultation') as FormArray
@@ -157,18 +175,13 @@ export class ConsulterPatientComponent implements OnInit {
     this.medicamentListConsultation.push(new FormControl());
     // this.medicamentQuantiteListConsultation.push(new FormControl());
   }
-  public deletemedicamentListConsultation(index:number,ind:number):void{
+  public deletemedicamentListConsultation(index: number): void {
+    this.medicamentListConsultation.removeAt(index + 1)
     this.medicamentListConsultation.removeAt(index)
-    this.medicamentListConsultation.removeAt(ind)
     this.medicamentListConsultation.markAsDirty()
   }
 
 
-
-
-  public addmedicamentQuantiteListConsultation(): void {
-    this.medicamentQuantiteListConsultation.push(new FormControl())
-  }
   consulter() {
     const idSymptome = this.ficheConsultation.value.symptomeList
     this.ficheConsultation.value.symptomeList = []

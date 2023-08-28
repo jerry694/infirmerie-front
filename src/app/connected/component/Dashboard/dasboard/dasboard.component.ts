@@ -25,7 +25,6 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
   ngOnInit() {
     // Chart.defaults.font<''>
     // this.previousHere=[null]
-    alert(this.aujourdhui)
     this.initGraph()  
     this.initFacture()
     this.initEtiquette()

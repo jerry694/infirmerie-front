@@ -44,6 +44,8 @@ const routes: Routes = [
 
   { path: 'facture', component: ListeFactureComponent },
   { path: 'facture/apercu/:idFacture', component: ApercuFactureComponent },
+
+  
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' } // 404 NOT FOUND
 

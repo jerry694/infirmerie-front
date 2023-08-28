@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    <div class="bodys">
+        
     <div class="d-flex align-items-end">
         <h2 class="text-primary">Consulter un patient</h2>
         <hr class="flex-grow-1 text-primary">
@@ -139,8 +141,8 @@
                     
                     <div formArrayName="medicamentListConsultation">
                         <div class="row mb-3" *ngFor="let medicaments of medicamentListConsultation.controls;let i = index">
-                            <ng-container *ngIf="i % 2 === 0">
-                            <div class="form-group col-md-6 bg-success ">
+                            <ng-container *ngIf="i % 2 === 0" >
+                            <div class="form-group col-md-6">
                                 <!-- <div class="input-group rect">
                                     <p-multiSelect [options]="examens" optionLabel="nomExamen" optionValue="idExamen"
                                         placeholder="Cherchez des medicaments"></p-multiSelect>
@@ -150,28 +152,22 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text igt"><img src="./assets/img/sang.svg" alt=""></span>
                                     </div>
-                                    <select class="form-control fc text-center" [formControlName]="i" [attr.for]="i">
-                                        <option disabled selected>{{'Medicament ' + i}}</option>
-                                        <option value=1>A+</option>
-                                        <option value=2>A-</option>
-                                        <option value=3>B+</option>
-                                        <option value=4>B-</option>
-                                        <option value=5>AB+</option>
-                                        <option value=6>AB-</option>
-                                        <option value=7>O+</option>
-                                        <option value=8>O-</option>
+                                    <select class="form-control fc text-left" [formControlName]="i" [attr.for]="i" >
+                                        <option disabled [selected]="true" value="">{{'Medicament ' + (i/2)}}</option>
+                                        <option *ngFor="let medicament of medicamentss" [value]=medicament.idMedicament>{{medicament.nomMedicament}}</option>
+                                       
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-md-3 bg-warning p-auto" >
-                                <input type="number" class="text-center" [formControlName]="i+1" style="width: 6rem;">
+                            <div class="form-group col-md-3  p-auto" >
+                                <input type="number" class="text-center" [formControlName]="i+1" style="width: 7.5rem;">
                             </div>
                             
-                            <div class="form-group col-md-1 bg-success">
-                                <p-button icon="pi pi-check" (onClick)="addmedicamentListConsultation()"></p-button>
+                            <div class="form-group col-md-1 ">
+                                <p-button icon="pi pi-plus" (onClick)="addmedicamentListConsultation()"></p-button>
                             </div>
-                            <div class="form-group col-md-1 bg-warning">
-                                <p-button icon="pi pi-check" (onClick)="deletemedicamentListConsultation(i,i+1)"></p-button>
+                            <div class="form-group col-md-1 ">
+                                <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="deletemedicamentListConsultation(i)"></p-button>
                             </div>
                         </ng-container>
                         </div>
@@ -214,7 +210,7 @@
                             <div class="input-group rect">
 
                                 <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true"
-                                    formControlName="dateProchainRendezVous"></p-calendar>
+                                    formControlName="dateProchainRendezVous" [minDate]="minDate"></p-calendar>
 
                             </div>
                         </div>
@@ -233,6 +229,8 @@
         </form>
     </div>
     {{ficheConsultation.value | json}}
+
+    </div>
 </body>
 
 </html>
