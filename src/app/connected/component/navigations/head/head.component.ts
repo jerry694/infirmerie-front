@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-head',
@@ -8,13 +9,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class HeadComponent {
   login!: any;
 
-  constructor() { }
+  constructor(private router : Router) { }
   ngOnInit() {
     // Récupérez la valeur du LocalStorage pour la clé 'login'
     this.login = localStorage.getItem('login');
   }
-
-  @Input()
-  message!: string;
+account(){
+  this.router.navigate(['account']);
+}
 
 }

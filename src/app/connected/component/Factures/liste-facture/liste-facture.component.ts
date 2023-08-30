@@ -11,9 +11,11 @@ import { FacturesService } from 'src/app/services/factures.service';
 export class ListeFactureComponent {
   factures: any = []
   search: string=''
+  save: any = []
   // factures: any = []
   clear(table: Table) {
     this.search=''
+    this.factures=this.save
     table.clear();
 }  
   constructor(private route:Router,private factureService:FacturesService){}
@@ -23,6 +25,7 @@ export class ListeFactureComponent {
     this.factureService.listeFacture().subscribe(
       data => {
         console.log(data)
+        this.save=data
         this.factures = data
         //redirection ici
       },
@@ -48,5 +51,11 @@ export class ListeFactureComponent {
     );
     // this.route.navigate(['medicament/modifier',idMedicament]);
     console.log(idFacture)
+  }
+  nonReglee(table: Table) {
+    this.search = '(non Reglee ) Factures non reglees'
+    // table.clear();
+    console.log(table)
+    this.factures = table._value.filter((data) => data[0].statutFacture = false)
   }
 }

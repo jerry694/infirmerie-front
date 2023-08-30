@@ -19,13 +19,15 @@ import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from '../app-routing.module';
 import { SuiviConsultationComponent } from './component/Patients/suivi-consultation/suivi-consultation.component';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { AccountComponent } from './component/account/account.component';
 
 
 
 @NgModule({
   declarations: [
   
-    SuiviConsultationComponent
+    SuiviConsultationComponent,
+       AccountComponent
   ],
   imports: [
     CommonModule,

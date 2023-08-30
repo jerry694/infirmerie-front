@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div class="bodys">
+    <div class="container-fluid">
+      <div class="login ">
+        <div class="avatar bg-warning">
+          <div class="overlay"><i class="pi pi-pencil"></i></div>
+          <img src="../../../../assets/img/worker.jpg" alt="">
+        </div>
+        <!-- <img src="./assets/img/Saint Jean ingenieur.png" alt="">
+        <h3>SE CONNECTER</h3> -->
+        <form [formGroup]="loginForm" (ngSubmit)='modifierPassword()'>
+
+          <div class="form-group">
+            <div class="input-group rect" [ngClass]="{'dirty': similaire==false}">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><img src="./assets/img/Icon awesome-lock.svg" alt=""></span>
+              </div>
+              <input type="password" class="form-control" placeholder="Nouveau mot de passe" name="password"
+                formControlName="password" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group rect" [ngClass]="{'dirty': similaire==false}">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><img src="./assets/img/Icon awesome-lock.svg" alt=""></span>
+              </div>
+              <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control"
+                placeholder="Confirmer le mot de passe" name="password" formControlName="confirmPassword" />
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <img (click)="togglePasswordVisibility()"
+                    [src]="passwordVisible ? './assets/img/Icon awesome-eye-slash.svg' : './assets/img/Icon awesome-eye.svg'"
+                    alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="merreur">
+            <span *ngIf="similaire==false">
+              Les deux mots de passes sont differents ! </span>
+          </div>
+
+          <div class="form-group">
+            <!-- <input type="submit" value="Modifier" class="btn-purple rect rect-connect"> -->
+            <button type="submit" class="btn-purple rect rect-connect">Modifier</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

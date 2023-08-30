@@ -16,6 +16,7 @@ import { ListeMedicamentComponent } from './component/Stock/liste-medicament/lis
 import { ModifierMedicamentComponent } from './component/Stock/modifier-medicament/modifier-medicament.component';
 import { RenouvelerMedicamentComponent } from './component/Stock/renouveler-medicament/renouveler-medicament.component';
 import { ConnectedComponent } from './connected.component';
+import { AccountComponent } from './component/account/account.component';
 
 
 
@@ -42,6 +43,8 @@ const routes: Routes = [
 
   { path: 'facture', component: ListeFactureComponent },
   { path: 'facture/apercu/:idFacture', component: ApercuFactureComponent },
+
+  { path: 'account', component: AccountComponent }
 
 ];
 

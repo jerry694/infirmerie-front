@@ -143,3 +143,26 @@ input{
  height: 2.5rem;
  padding: .5rem 1rem;
 }
+
+
+.divScroll{
+  max-height: 17vh; 
+  overflow: auto;
+  padding-right: 10px; 
+  // box-shadow: inset 0em -.01em 1em .1em hsla(0, 0%, 0%, 0.1);
+}
+.divScrollD{
+  @extend .divScroll;
+  max-height:28vh;
+}
+.divScroll::-webkit-scrollbar{
+  width: 5px;
+}.divScroll::-webkit-scrollbar-track{
+  background: #f1f1f1;
+  border-radius: 10px;
+}.divScroll::-webkit-scrollbar-thumb{
+  background: #107EC2;
+  border-radius: 10px;
+}.divScroll::-webkit-scrollbar-thumb:hover{
+  background: #107ec28b;
+}
