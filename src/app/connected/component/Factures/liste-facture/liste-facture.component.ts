@@ -18,6 +18,8 @@ export class ListeFactureComponent {
 }  
   constructor(private route:Router,private factureService:FacturesService){}
   ngOnInit() {
+    
+    // document.body.style.transform = 'scale(0.8)';
     this.factureService.listeFacture().subscribe(
       data => {
         console.log(data)
