@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/services/auth-user.service';
+import { InfirmiereService } from 'src/app/services/infirmiere.service';
 import { User } from 'src/app/user';
 
 @Component({
@@ -14,13 +15,16 @@ export class AccountComponent {
 
   passwordVisible: boolean = false;
   login: any;
+  idInfirmiere:any
   loginForm!: FormGroup;
   similaire!:boolean
 
-  constructor(private authuserservice: AuthUserService, private route: Router, private formBuilder: FormBuilder) { }
+  constructor(private infirmiereService: InfirmiereService, private route: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+     this.idInfirmiere = localStorage.getItem('id_infirmiere');
     this.loginForm = this.formBuilder.group({
+      login: [''],
       password: [''],
       confirmPassword: [''],
 
@@ -37,8 +41,8 @@ export class AccountComponent {
       this.similaire = true
       this.user = this.loginForm.value
       console.log(this.user)
-      this.authuserservice.authuser(this.user).subscribe(data => {
-
+      this.infirmiereService.modifier(parseInt(this.idInfirmiere),this.loginForm.value.login,this.loginForm.value.password).subscribe(data => {
+        console.log(data)
       }, error => {
         console.log(error)
       }

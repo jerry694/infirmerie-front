@@ -21,6 +21,16 @@
         <form [formGroup]="loginForm" (ngSubmit)='modifierPassword()'>
 
           <div class="form-group">
+            <div class="input-group rect"
+              [ngClass]="{'dirty': loginForm.controls['login'].touched && loginForm.controls['login'].errors?.['required']}">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><img src="./assets/img/Icon awesome-user-alt.svg" alt=""></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Nouvel identifiant" name="name" formControlName="login"
+                pInputText />
+            </div>
+          </div>
+          <div class="form-group">
             <div class="input-group rect" [ngClass]="{'dirty': similaire==false}">
               <div class="input-group-prepend">
                 <span class="input-group-text"><img src="./assets/img/Icon awesome-lock.svg" alt=""></span>

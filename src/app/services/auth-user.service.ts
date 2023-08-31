@@ -16,4 +16,5 @@ export class AuthUserService {
     console.log(user)
     return this.httpClient.post(`${this.baseUrl}`,user);
   }
+
 }
