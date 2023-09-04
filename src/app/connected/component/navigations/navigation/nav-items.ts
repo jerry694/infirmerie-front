@@ -7,7 +7,7 @@ export const navItems=[
     {
         routeLink:'patient',
         icon:'pi pi-user-edit',
-        label:'Infirmerie'
+        label:'Patients'
     },
     {
         routeLink:'consultation',
