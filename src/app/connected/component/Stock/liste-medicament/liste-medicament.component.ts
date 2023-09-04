@@ -18,7 +18,10 @@ export class ListeMedicamentComponent implements OnInit {
     this.actualPage =this.router.routerState.snapshot.url
    }
   ngOnInit() {
-
+this.refreshData()
+    
+  }
+  refreshData(){
     this.medicamentService.listeMedicament().subscribe(
       data => {
         console.log(data)
@@ -60,7 +63,7 @@ export class ListeMedicamentComponent implements OnInit {
     this.medicamentService.supprimerMedicament(idMedicament).subscribe(
       data => {
         console.log(data)
-        this.cdr.detectChanges()
+        this.refreshData()
         //redirection ici
       },
       error => {

@@ -21,43 +21,55 @@ import { ModifierMedicamentComponent } from './connected/component/Stock/modifie
 import { RenouvelerMedicamentComponent } from './connected/component/Stock/renouveler-medicament/renouveler-medicament.component';
 import { SuiviConsultationComponent } from './connected/component/Patients/suivi-consultation/suivi-consultation.component';
 import { AccountComponent } from './connected/component/account/account.component';
+import { ConnectedRoutingModule } from './connected/connected-routing.module';
+import { ConnectedModule } from './connected/connected.module';
+import { Building1000Component } from './connected/component/errorPages/building1000/building1000.component';
+import { NotFound404Component } from './connected/component/errorPages/not-found404/not-found404.component';
 
 const routes: Routes = [
-  { path: 'auth', component: AuthentificationComponent ,loadChildren: () => import('./authentification/authentification.module').then(m => m.AuthentificationModule)},
+  { path: 'auth', component: AuthentificationComponent},
   { path: 'connect', component: ConnectedComponent, loadChildren: () => import('./connected/connected.module').then(m => m.ConnectedModule) },
   
-  // { path: 'dashboard', component: DasboardComponent },
+  { path: 'dashboard', component: DasboardComponent },
 
-  // { path: 'patient', component: ListePatientComponent },
-  // { path: 'patient/creer', component: CreerPatientComponent },
-  // { path: 'patient/modifier/:idEtudiant', component: ModifierPatientComponent },
-  // { path: 'patient/apercu/:idEtudiant', component: ApercuPatientComponent },
-  // { path: 'patient/consulter/:idEtudiant', component: ConsulterPatientComponent },
+  { path: 'patient', component: ListePatientComponent },
+  { path: 'patient/creer', component: CreerPatientComponent },
+  { path: 'patient/modifier/:idEtudiant', component: ModifierPatientComponent },
+  { path: 'patient/apercu/:idEtudiant', component: ApercuPatientComponent },
+  { path: 'patient/consulter/:idEtudiant', component: ConsulterPatientComponent },
 
-  // { path: 'consultation', component: ListeConsultationComponent },
-  // { path: 'consultation/apercu/:idFicheConsultation', component: ApercuConsultationComponent },
-  // { path: 'consultation/suivre/:idEtudiant/:idFicheConsultation', component: SuiviConsultationComponent },
+  { path: 'consultation', component: ListeConsultationComponent },
+  { path: 'consultation/apercu/:idFicheConsultation', component: ApercuConsultationComponent },
+  { path: 'consultation/suivre/:idEtudiant/:idFicheConsultation', component: SuiviConsultationComponent },
 
-  // { path: 'medicament', component: ListeMedicamentComponent },
-  // { path: 'medicament/creer', component: CreerMedicamentComponent },
-  // { path: 'medicament/modifier/:idMedicament', component: ModifierMedicamentComponent },
-  // { path: 'medicament/renouveler/:idMedicament', component: RenouvelerMedicamentComponent },
-  // { path: 'medicament/apercu/:idMedicament', component: ApercuMedicamentComponent },
+  { path: 'medicament', component: ListeMedicamentComponent },
+  { path: 'medicament/creer', component: CreerMedicamentComponent },
+  { path: 'medicament/modifier/:idMedicament', component: ModifierMedicamentComponent },
+  { path: 'medicament/renouveler/:idMedicament', component: RenouvelerMedicamentComponent },
+  { path: 'medicament/apercu/:idMedicament', component: ApercuMedicamentComponent },
 
-  // { path: 'facture', component: ListeFactureComponent },
-  // { path: 'facture/apercu/:idFacture', component: ApercuFactureComponent },
+  { path: 'facture', component: ListeFactureComponent },
+  { path: 'facture/apercu/:idFacture', component: ApercuFactureComponent },
 
-  // { path: 'account', component: AccountComponent },
+  { path: 'account', component: AccountComponent },
+
+  {path:'building',component:Building1000Component},
+  {path:'notFound',component:NotFound404Component},
   
 
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: '', pathMatch: 'full' } // 404 NOT FOUND
+  // { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  // { path: '**', redirectTo: '', pathMatch: 'full' } // 404 NOT FOUND
 
+
+  // { path: 'auth', component: AuthentificationComponent },
+  // { path: 'connect', component: ConnectedComponent }, // Ne pas utiliser loadChildren ici
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '**', redirectTo: 'notFound', pathMatch: 'full' } // 404 NOT FOUND
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

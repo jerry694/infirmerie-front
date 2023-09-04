@@ -21,6 +21,10 @@ export class ListePatientComponent implements OnInit {
   }
 
   ngOnInit() {
+this.refreshData()
+  }
+
+  refreshData(){
     this.etudiantservice.listeEtudiants().subscribe(
       data => {
         console.log(data)
@@ -32,7 +36,6 @@ export class ListePatientComponent implements OnInit {
       }
     );
   }
-
 
   clear(table: Table) {
     this.search=''
@@ -58,7 +61,17 @@ export class ListePatientComponent implements OnInit {
     this.etudiantservice.supprimerEtudiant(idEtudiant).subscribe(
       data => {
         console.log(data)
-        window.location.reload();
+        // ;
+        this.etudiantservice.listeEtudiants().subscribe(
+          data => {
+            console.log(data)
+            this.etudiants = data
+            //redirection ici
+          },
+          error => {
+            alert("Erreur de lecture.");
+          }
+        );
         //redirection ici
       },
       error => {

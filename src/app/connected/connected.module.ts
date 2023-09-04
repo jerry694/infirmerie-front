@@ -20,6 +20,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SuiviConsultationComponent } from './component/Patients/suivi-consultation/suivi-consultation.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { AccountComponent } from './component/account/account.component';
+import { NotFound404Component } from './component/errorPages/not-found404/not-found404.component';
+import { Building1000Component } from './component/errorPages/building1000/building1000.component';
 
 
 
@@ -27,7 +29,9 @@ import { AccountComponent } from './component/account/account.component';
   declarations: [
   
     SuiviConsultationComponent,
-       AccountComponent
+       AccountComponent,
+       NotFound404Component,
+       Building1000Component
   ],
   imports: [
     CommonModule,

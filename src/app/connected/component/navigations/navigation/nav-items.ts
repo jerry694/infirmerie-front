@@ -25,7 +25,7 @@ export const navItems=[
         label:'Stock'
     },
     {
-        routeLink:'PageEnDeveloppement',
+        routeLink:'building',
         icon:'pi pi-chart-line',
         label:'Statistique'
     },

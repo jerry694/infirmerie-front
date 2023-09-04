@@ -43,6 +43,9 @@ export class AccountComponent {
       console.log(this.user)
       this.infirmiereService.modifier(parseInt(this.idInfirmiere),this.loginForm.value.login,this.loginForm.value.password).subscribe(data => {
         console.log(data)
+        localStorage.clear(); // Efface tout le contenu du LocalStorage
+        this.route.navigate(['auth'])
+
       }, error => {
         console.log(error)
       }

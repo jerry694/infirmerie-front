@@ -44,6 +44,8 @@ import { NavigationComponent } from './connected/component/navigations/navigatio
 import { AgePipe } from './connected/component/pipe/age.pipe';
 import { ConnectedComponent } from './connected/connected.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { ConnectedRoutingModule } from './connected/connected-routing.module';
+import { ConnectedModule } from './connected/connected.module';
 
 
 // import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
@@ -96,6 +98,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
     ToastModule,
     MessagesModule,
     DynamicDialogModule,
+    ConnectedModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

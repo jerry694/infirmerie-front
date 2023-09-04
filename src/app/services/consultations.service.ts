@@ -54,6 +54,12 @@ export class ConsultationsService {
     console.log(ficheConsultation);
     const params = { idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique };
     console.log(params)
-    return this.httpClient.post(`${this.baseUrl}Fiche_consultation/Ajouter/FicheSuivie/${idFicheConsultation}/${localStorage.getItem('id_infirmiere')}`, fiche_suivie,{ params, ...this.httpOptions });
+    return this.httpClient.post(`${this.baseUrl}Fiche_consultation/Ajouter/FicheSuivie/${idFicheConsultation}/${localStorage.getItem('id_infirmiere')}`, fiche_suivie,{ params, ...this.httpOptions })
   }
 }
+// .pipe(
+//   catchError((error) => {
+//       // Gérer l'erreur ici
+//       console.error('Erreur lors de la requête HTTP :', error);
+//       return throwError(error);
+//   })

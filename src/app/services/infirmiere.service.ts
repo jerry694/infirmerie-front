@@ -19,7 +19,7 @@ export class InfirmiereService {
     modifier(idInfirmiere:number,newLogin:string,newPassword:string){
       const params = {newLogin,newPassword};
       console.log(params)
-      return this.httpClient.delete(`${this.baseUrl}Modifier/Indentifiant/${idInfirmiere}`, { params, ...this.httpOptions });
+      return this.httpClient.delete(`${this.baseUrl}Infirmerie-IUSJC/Modifier/Indentifiant/${idInfirmiere}`, { params, ...this.httpOptions });
       // return this.httpClient.put(`${this.baseUrl}`);
     }
 }

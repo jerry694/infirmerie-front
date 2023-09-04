@@ -22,25 +22,28 @@ export class ApercuFactureComponent implements OnInit {
         console.log('ID étudiant non fourni dans les paramètres de l\'URL.');
       }
       console.log(data.get('idFacture'));
+      this.refreshData()
       
-      this.factureService.infoFacture(parseInt(this.id)).subscribe(
-        factureData => {
-          console.log(factureData);
-          alert(JSON.stringify(factureData));
-          this.facture = factureData;
-          //redirection ici
-        },
-        error => {
-          alert("Erreur de lecture.");
-        }
-      );
     });
     // console.log(this.route)
+  }
+  refreshData(){
+    this.factureService.infoFacture(parseInt(this.id)).subscribe(
+      factureData => {
+        console.log(factureData);
+        this.facture = factureData;
+        //redirection ici
+      },
+      error => {
+        alert("Erreur de lecture.");
+      }
+    );
   }
   imprimer(){
     // this.route.navigate(["patient/creer"]);
     this.factureService.imprimerFacture(parseInt(this.id)).subscribe(
       data=>{
+        alert("La facture a ete telecharge avec succes")
         console.log(data)
       },
       error=>{
@@ -53,8 +56,8 @@ export class ApercuFactureComponent implements OnInit {
     this.factureService.reglerFacture(parseInt(this.id)).subscribe(
       newFacture => {
         console.log(newFacture)
-        alert(newFacture)
-        window.location.reload();
+        // window.location.reload();
+        this.refreshData()
         //redirection ici
       },
       error => {
