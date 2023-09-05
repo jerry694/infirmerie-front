@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { StocksService } from 'src/app/services/stocks.service';
 
@@ -14,7 +15,7 @@ export class ListeMedicamentComponent implements OnInit {
   medicaments: any = []
   actualPage!:string
 
-  constructor(private route: Router, private medicamentService: StocksService,private router:Router,private cdr: ChangeDetectorRef) {
+  constructor(private route: Router, private medicamentService: StocksService,private router:Router,private cdr: ChangeDetectorRef,private messageService:MessageService) {
     this.actualPage =this.router.routerState.snapshot.url
    }
   ngOnInit() {
@@ -58,17 +59,24 @@ this.refreshData()
   renouveler(idMedicament: number) {
     this.route.navigate(['medicament/renouveler', idMedicament]);
   }
-  delete(idMedicament: number) {
+  delete(idMedicament: number,nom?:string,dosage?:string) {
     console.log(idMedicament);
     this.medicamentService.supprimerMedicament(idMedicament).subscribe(
       data => {
         console.log(data)
+          this.show("Le medicament "+ nom +" "+ dosage +" mg a ete supprime avec succes","Suppression","success")
         this.refreshData()
         //redirection ici
       },
       error => {
-        alert("Erreur de suppression.");
+        // alert("Erreur de suppression.");
+        console.log(error)
+            this.show("Erreur lors de la suppression, veuillez reesayez!","Suppression","error")
       }
     );
   }
+    show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
+
 }

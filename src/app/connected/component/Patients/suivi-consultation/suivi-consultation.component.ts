@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Etudiant } from 'src/app/etudiant';
 import { ConsultationsService } from 'src/app/services/consultations.service';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
@@ -27,7 +28,7 @@ export class SuiviConsultationComponent implements OnInit {
   spinners = true;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService,private messageService:MessageService) { }
   ngOnInit() {
     this.getId()
     this.getIdEtudiant()
@@ -214,12 +215,18 @@ export class SuiviConsultationComponent implements OnInit {
         alert("Enregistrement réussi !");
         // this.router.navigate(["patient"]);
         console.log(data)
+          this.show("Le suivit de l'etudiant "+ this.etudiant.nom.toUpperCase() +" "+this.etudiant.prenom +" a ete enregistre avec succes","Enregistrement","success")
         //redirection ici
       },
       error => {
         console.log(error)
         alert("Erreur lors de l'enregistrement.");
+            this.show("Erreur lors de l'enregistrement du suivi veuillez reesayez!","Enregistrement","error")
       }
     );
   }
+    show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
+
 }

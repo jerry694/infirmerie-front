@@ -9,7 +9,7 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
 })
 export class ApercuPatientComponent implements OnInit {
   etudiant: any = {}
-  id!: string;
+  idEtudiant!: string;
 
   constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService,private router : Router) {}
 
@@ -17,15 +17,15 @@ export class ApercuPatientComponent implements OnInit {
     this.route.paramMap.subscribe(data => {
       const id = data.get('idEtudiant');
       if (id !== null) {
-        this.id = id;
-        console.log(this.id)
+        this.idEtudiant = id;
+        console.log(this.idEtudiant)
       } else {
         // Gérer le cas où id est null (si nécessaire)
         console.log('ID étudiant non fourni dans les paramètres de l\'URL.');
       }
       console.log(data.get('idEtudiant'));
       
-      this.etudiantservice.infoEtudiant(parseInt(this.id)).subscribe(
+      this.etudiantservice.infoEtudiant(parseInt(this.idEtudiant)).subscribe(
         etudiantData => {
           console.log(etudiantData);
           this.etudiant = etudiantData;
@@ -46,13 +46,20 @@ export class ApercuPatientComponent implements OnInit {
     this.router.navigate(['consultation/apercu',idFicheconsultation]);
     console.log("consutation de " + idFicheconsultation)
   }
-  exploreFacture(id:number) {
-    console.log("facture de " + id)
-    this.router.navigate(['facture/apercu/',id])
+  exploreFacture(idFacture:number) {
+    console.log("facture de " + idFacture)
+    this.router.navigate(['facture/apercu/',idFacture])
+  }
+  consulter(){
+    this.router.navigate(['patient/consulter/',this.idEtudiant]);
+
   }
   // modify(idEtudiant:number){
   //   this.route.navigate(['patient/modifier',idEtudiant]);
   // }
-  modify(){}
+  modify(){
+    this.router.navigate(['patient/modifier/',this.idEtudiant]);
+
+  }
 
 }

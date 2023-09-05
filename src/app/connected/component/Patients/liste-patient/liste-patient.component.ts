@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
 
@@ -16,7 +17,7 @@ export class ListePatientComponent implements OnInit {
   
   etudiants: any = []
 
-  constructor(private route: Router, private etudiantservice: EtudiantsService) { 
+  constructor(private route: Router, private etudiantservice: EtudiantsService,private messageService:MessageService) { 
 
   }
 
@@ -27,6 +28,7 @@ this.refreshData()
   refreshData(){
     this.etudiantservice.listeEtudiants().subscribe(
       data => {
+        this.show("init","Initialisation","success")
         console.log(data)
         this.etudiants = data
         //redirection ici
@@ -66,10 +68,13 @@ this.refreshData()
           data => {
             console.log(data)
             this.etudiants = data
+            this.show("Etudiant supprime avec succes","Suppression","success")
             //redirection ici
           },
           error => {
-            alert("Erreur de lecture.");
+            // alert("Erreur de lecture.");
+            this.show("Erreur lors de la suppression","Suppression","error")
+
           }
         );
         //redirection ici
@@ -81,5 +86,8 @@ this.refreshData()
     console.log(idEtudiant);
   }
 
+  show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { MessageService } from 'primeng/api';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { FacturesService } from 'src/app/services/factures.service';
 
@@ -21,7 +22,7 @@ export class DasboardComponent implements OnInit {
   rendezVous:any = []
   public valeur:any = [];
   public val: any
-constructor(private factureService:FacturesService,private dashboardService:DashboardService){}
+constructor(private factureService:FacturesService,private dashboardService:DashboardService,private messageService:MessageService){}
   ngOnInit() {
     // Chart.defaults.font<''>
     // this.previousHere=[null]
@@ -31,8 +32,14 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
     this.initRendezVous()
     console.log(this.date)
   }
+  // constructor(){}
+//   show() {
+//     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+// }
 
-
+//   showTopLeft() {
+//     this.messageService.add({ key: 'tl', severity: 'info', summary: 'Info', detail: 'Message Content' });
+// }
   initGraph() {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = "#707070";
@@ -177,6 +184,7 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
     // listeMedicamentRupture
     this.dashboardService.listeMedicamentRupture().subscribe(
       data => {
+        this.showToast1()
         this.val=data
         this.valeur[2]=this.val.filter((data:any) => data.quantiteDisponible < 5).length
         console.log(data)
@@ -203,10 +211,14 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
       data => {
         console.log(data)
         this.rendezVous=data
+        // this.show()
       },
     );
   }
-
+  showToast1() {
+    this.messageService.clear();
+    this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Success', detail: 'key: toast1',sticky:true });
+}
 
   // this.valeur[0] = 3
 

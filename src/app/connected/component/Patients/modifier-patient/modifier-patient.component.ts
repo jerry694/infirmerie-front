@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Etudiant } from 'src/app/etudiant';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-modifier-patient',
@@ -16,7 +19,7 @@ export class ModifierPatientComponent implements OnInit {
   id!: string
   antecedentItems!: any
 
-  constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder,private messageService:MessageService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -87,10 +90,12 @@ export class ModifierPatientComponent implements OnInit {
       data => {
         alert("Modification réussi !");
         console.log(data)
+        this.show("Etudiant "+ this.modifierEtudiantForm.value.nom.toUpperCase() +" "+this.modifierEtudiantForm.value.prenom +" modifie avec succes","Enregistrement","success")
         //redirection ici
       },
       error => {
         alert("Erreur lors de l'enregistrement.");
+            this.show("Erreur lors de l'enregistrement veuillez reesayez!","Enregistrement","error")
       }
     );
   }
@@ -108,5 +113,12 @@ export class ModifierPatientComponent implements OnInit {
       }
     );
   }
+  preview(){
+    // this.locations.back()
+  // this.router.navigate(['../../']);
+  }
+  show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
 
 }

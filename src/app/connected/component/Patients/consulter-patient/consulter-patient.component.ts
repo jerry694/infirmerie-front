@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 // import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Etudiant } from 'src/app/etudiant';
 import { ConsultationsService } from 'src/app/services/consultations.service';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
 import { StocksService } from 'src/app/services/stocks.service';
 import { Symptomes } from 'src/entites/symptomes';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-consulter-patient',
@@ -30,7 +32,7 @@ export class ConsulterPatientComponent implements OnInit {
   minDate: Date = new Date()
   time = { hour: 13, minute: 30 };
   spinners = true;
-  lDisabled: boolean[] = [false,false,false]
+  lDisabled: boolean[] = [false, false, false]
 
 
 
@@ -39,7 +41,7 @@ export class ConsulterPatientComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService, private messageService: MessageService,private locations:Location) { }
   ngOnInit() {
     this.getId()
     this.initCivilite(parseInt(this.id))
@@ -218,7 +220,8 @@ export class ConsulterPatientComponent implements OnInit {
     // heureArriveeConsultation,heureSortieConsultation
     this.consultationService.consulter(this.ficheConsultation.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxDiagnostique, idDiagnostique, nouveauxExamens, medicamentListConsultation, medicamentQuantiteListConsultation).subscribe(
       data => {
-        alert("Enregistrement réussi !");
+        // alert("Enregistrement réussi !");
+        this.show("La consultation de l'etudiant " + this.etudiant.nom.toUpperCase() + " " + this.etudiant.prenom + " a ete enregistre avec succes", "Consultation", "success")
         console.log(data)
         // this.router.navigate(["patient"]);
 
@@ -226,8 +229,15 @@ export class ConsulterPatientComponent implements OnInit {
       },
       error => {
         console.log(error)
-        alert("Erreur lors de l'enregistrement.");
+        this.show("Erreur lors de l'envoie de la coonsultation veuillez reesayez!", "Consultation", "error")
       }
     );
   }
+  show(message: string, tete: string, type: string) {
+    this.messageService.add({ severity: type, summary: tete, detail: message });
+  }
+  // preview(){
+  //   this.locations.back()
+  // }
+
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { AuthUserService } from 'src/app/services/auth-user.service';
 import { InfirmiereService } from 'src/app/services/infirmiere.service';
 import { User } from 'src/app/user';
@@ -19,7 +20,7 @@ export class AccountComponent {
   loginForm!: FormGroup;
   similaire!:boolean
 
-  constructor(private infirmiereService: InfirmiereService, private route: Router, private formBuilder: FormBuilder) { }
+  constructor(private infirmiereService: InfirmiereService, private route: Router, private formBuilder: FormBuilder, private messageService:MessageService) { }
 
   ngOnInit() {
      this.idInfirmiere = localStorage.getItem('id_infirmiere');
@@ -43,8 +44,13 @@ export class AccountComponent {
       console.log(this.user)
       this.infirmiereService.modifier(parseInt(this.idInfirmiere),this.loginForm.value.login,this.loginForm.value.password).subscribe(data => {
         console.log(data)
-        localStorage.clear(); // Efface tout le contenu du LocalStorage
+        this.show("Votre mot de passe a ete modifie avec succes","Modification du compte","success")
+        this.show("Vous serez redirige a l'authentification","Modification du compte","info")
+
         this.route.navigate(['auth'])
+        setTimeout(() => {
+        window.location.reload();
+        }, 3000);
 
       }, error => {
         console.log(error)
@@ -53,10 +59,15 @@ export class AccountComponent {
     }
     else{
       this.similaire=false
-      alert("mot de passe different")
-      alert(this.loginForm.value.password)
-      alert(this.loginForm.value.confirmPassword)
+            this.show("Les mots de passe ne sont pas identique!","Modification du compte","error")
+      // alert("mot de passe different")
+      // alert(this.loginForm.value.password)
+      // alert(this.loginForm.value.confirmPassword)
     }
 
   }
+      show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
+
 }

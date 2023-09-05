@@ -30,11 +30,11 @@ export class ApercuMedicamentComponent implements OnInit {
       this.stockSevice.infoMedicament(parseInt(this.id)).subscribe(
         medicamentData => {
           console.log(medicamentData);
-          alert(JSON.stringify(medicamentData));
           this.medicament = medicamentData;
           //redirection ici
         },
         error => {
+          console.log(error)
           alert("Erreur de lecture.");
         }
       );

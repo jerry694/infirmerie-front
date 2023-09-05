@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { merge } from 'chart.js/dist/helpers/helpers.core';
+import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { FacturesService } from 'src/app/services/factures.service';
 
@@ -19,7 +20,7 @@ export class ListeFactureComponent {
     this.factures=this.save
     table.clear();
 }  
-  constructor(private route:ActivatedRoute,private router:Router,private factureService:FacturesService){}
+  constructor(private route:ActivatedRoute,private router:Router,private factureService:FacturesService,private messageService:MessageService){}
   ngOnInit() {
     
     this.refreshData(); // Appeler la méthode pour la première fois
@@ -46,10 +47,11 @@ export class ListeFactureComponent {
   more(idFacture:number){
     this.router.navigate(['facture/apercu',idFacture]);
   }
-  cash(idFacture:number){
+  cash(idFacture:number,nom?:string,prenom?:string){
     this.factureService.reglerFacture(idFacture).subscribe(
       newFacture => {
         console.log(newFacture)
+          this.show("La facture "+ idFacture +" de "+ nom?.toUpperCase() +" "+ prenom +" a ete reglee avec succes","Facture","success")
         // this.refresh()
         this.refreshData();
         console.log("this.refresh")
@@ -59,6 +61,7 @@ export class ListeFactureComponent {
       error => {
         console.log(error)
         alert("Erreur de reglement.");
+            this.show("Erreur lors du reglement de la facture veuillez reesayez!","Facture","error")
       }
     );
     // this.route.navigate(['medicament/modifier',idMedicament]);
@@ -77,4 +80,8 @@ export class ListeFactureComponent {
       queryParamsHandling:"merge"
     })
   }
+    show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { FacturesService } from 'src/app/services/factures.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { FacturesService } from 'src/app/services/factures.service';
 })
 export class ApercuFactureComponent implements OnInit {
   id!: string;
-  constructor(private route:Router,private router: ActivatedRoute,private factureService:FacturesService){}
+  constructor(private route:Router,private router: ActivatedRoute,private factureService:FacturesService,private messageService:MessageService){}
   facture:any = {}
   ngOnInit() {
     this.router.paramMap.subscribe(data => {
@@ -56,6 +57,7 @@ export class ApercuFactureComponent implements OnInit {
     this.factureService.reglerFacture(parseInt(this.id)).subscribe(
       newFacture => {
         console.log(newFacture)
+          this.show("La facture de l'etudiant "+ this.facture[0][1].toUpperCase() +" "+this.facture[0][2] +" a ete regle avec succes","Enregistrement","success")
         // window.location.reload();
         this.refreshData()
         //redirection ici
@@ -63,6 +65,7 @@ export class ApercuFactureComponent implements OnInit {
       error => {
         console.log(error)
         alert("Erreur de reglement.");
+            this.show("Erreur lors du reglement de la facture, veuillez reesayez!","Enregistrement","error")
       }
     );
     // this.route.navigate(['medicament/modifier',idMedicament]);
@@ -77,5 +80,8 @@ export class ApercuFactureComponent implements OnInit {
   // delete(idEtudiant:number){
   //   console.log(idEtudiant);
   // }
-  
+    show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
+
 }

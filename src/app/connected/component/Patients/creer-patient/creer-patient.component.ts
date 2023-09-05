@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Etudiant } from 'src/app/etudiant';
 import { EtudiantsService } from 'src/app/services/etudiants.service';
 
@@ -24,7 +25,7 @@ export class CreerPatientComponent implements OnInit {
 
   // selectedItems: any[] = []; // Stocke les éléments sélectionnés
 
-  constructor(private route: Router, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder) { }
+  constructor(private route: Router, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder,private messageService:MessageService) { }
 
   ngOnInit() {
     this.loadAntecedant()
@@ -89,13 +90,17 @@ export class CreerPatientComponent implements OnInit {
       const formData = this.creerEtudiant.value;
       this.etudiantservice.creerEtudiants(formData, idAntecedants, autresAntecedants, idInfirmiere).subscribe(
         data => {
-          alert("Enregistrement réussi !");
+          // alert("Enregistrement réussi !");
+          console.log(data)
+          this.show("Etudiant "+ this.creerEtudiant.value.nom.toUpperCase() +" "+this.creerEtudiant.value.prenom +" enregistre avec succes","Enregistrement","success")
           this.route.navigate(["patient"]);
 
           //redirection ici
         },
         error => {
-          alert("Erreur lors de l'enregistrement.");
+          // alert("Erreur lors de l'enregistrement.");
+          console.log(error)
+            this.show("Erreur lors de l'enregistrement veuillez reesayez!","Enregistrement","error")
         }
       );
     }
@@ -117,6 +122,8 @@ export class CreerPatientComponent implements OnInit {
   }
 
 
-
+  show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
 
 }

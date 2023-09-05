@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { StocksService } from 'src/app/services/stocks.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ModifierMedicamentComponent implements OnInit {
   medicament: any;
   minDate!: Date;
   id!: string;
-  constructor(private medicamentService: StocksService, private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private medicamentService: StocksService, private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private messageService:MessageService) { }
   ngOnInit() {
     this.route.paramMap.subscribe(data => {
       const id = data.get('idMedicament');
@@ -50,7 +51,7 @@ export class ModifierMedicamentComponent implements OnInit {
       dosage: new FormControl(this.medicament.dosage),
       supprimer: new FormControl(this.medicament.supprimer),
       formePharmaceutique: new FormControl(this.medicament.formePharmaceutique),
-      quantiteDisponible: new FormControl(this.medicament.quantiteDisponible)
+      quantiteDisponible: new FormControl({value:this.medicament.quantiteDisponible,disabled:true})
     })
   }
 
@@ -61,12 +62,18 @@ export class ModifierMedicamentComponent implements OnInit {
       data => {
         alert("Modification réussi !");
         console.log(data)
+          this.show("Le medicament "+ this.medicament.nomMedicament +" "+this.medicament.dosage +" a ete modifie avec succes","Modification","success")
         //redirection ici
         this.router.navigate(["medicament"]);
       },
       error => {
-        alert("Erreur lors de l'enregistrement.");
+        // alert("Erreur lors de l.");
+            this.show("Erreur lors de l'enregistrement de la modification, veuillez reesayez!","Enregistrement","error")
       }
     );
   }
+    show(message:string,tete:string,type:string) {
+        this.messageService.add({ severity: type, summary: tete, detail: message });
+    }
+
 }

@@ -21,7 +21,10 @@ export class NavigationComponent implements OnInit {
   }
   effacerLocalStorage() {
     localStorage.clear(); // Efface tout le contenu du LocalStorage
-    this.route.navigate(['auth'])
+      this.route.navigate(['auth'])
+    setTimeout(() => {
+    window.location.reload();
+    }, 50);
   }
 }
 
