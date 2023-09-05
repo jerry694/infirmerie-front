@@ -24,6 +24,6 @@ export class StocksService {
   }
   infoMedicament(idMedicament: number): Observable<object> { return this.httpClient.get(`${this.baseUrl}Medicament/Consulter/${idMedicament}`, this.httpOptions); }
   supprimerMedicament(idMedicament: number) { return this.httpClient.delete(`${this.baseUrl}Medicament/Supprimer/${idMedicament}`, this.httpOptions); }
-  modifierMedicament(medicament: any, idMedicament: number) { return this.httpClient.put(`${this.baseUrl}Medicament/Modifier/${idMedicament}`, medicament, this.httpOptions); }
+  modifierMedicament(medicament: any, idMedicament: number) { return this.httpClient.patch(`${this.baseUrl}Medicament/Modifier/${idMedicament}`, medicament, this.httpOptions); }
   listeMedicamentRupture(): Observable<object> { return this.httpClient.get(`${this.baseUrl}Medicament/Liste`, this.httpOptions); }
 }
