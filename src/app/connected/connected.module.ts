@@ -22,6 +22,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AccountComponent } from './component/account/account.component';
 import { NotFound404Component } from './component/errorPages/not-found404/not-found404.component';
 import { Building1000Component } from './component/errorPages/building1000/building1000.component';
+import { ApercuSuiviComponent } from './component/Patients/apercu-suivi/apercu-suivi.component';
 
 
 
@@ -31,7 +32,8 @@ import { Building1000Component } from './component/errorPages/building1000/build
     SuiviConsultationComponent,
        AccountComponent,
        NotFound404Component,
-       Building1000Component
+       Building1000Component,
+       ApercuSuiviComponent
   ],
   imports: [
     CommonModule,

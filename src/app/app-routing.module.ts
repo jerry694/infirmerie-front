@@ -25,6 +25,7 @@ import { ConnectedRoutingModule } from './connected/connected-routing.module';
 import { ConnectedModule } from './connected/connected.module';
 import { Building1000Component } from './connected/component/errorPages/building1000/building1000.component';
 import { NotFound404Component } from './connected/component/errorPages/not-found404/not-found404.component';
+import { ApercuSuiviComponent } from './connected/component/Patients/apercu-suivi/apercu-suivi.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthentificationComponent},
@@ -41,6 +42,8 @@ const routes: Routes = [
   { path: 'consultation', component: ListeConsultationComponent },
   { path: 'consultation/apercu/:idFicheConsultation', component: ApercuConsultationComponent },
   { path: 'consultation/suivre/:idEtudiant/:idFicheConsultation', component: SuiviConsultationComponent },
+
+  { path: 'consultation/suivre/apercu/:idFicheSuivi', component: ApercuSuiviComponent },
 
   { path: 'medicament', component: ListeMedicamentComponent },
   { path: 'medicament/creer', component: CreerMedicamentComponent },

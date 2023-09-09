@@ -13,6 +13,7 @@ import { FacturesService } from 'src/app/services/factures.service';
 export class DasboardComponent implements OnInit {
   data: any;
   options: any;
+  medicamentRuptures:any
   aujourdhui:number= new Date().getDate()
   date : number = new Date().getFullYear()
   previousHere: any = [this.date-1, ]
@@ -187,6 +188,12 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
         this.showToast1()
         this.val=data
         this.valeur[2]=this.val.filter((data:any) => data.quantiteDisponible < 5).length
+        this.medicamentRuptures = this.val.filter((data: any) => data.quantiteDisponible < 5);
+console.log(this.medicamentRuptures);
+
+this.medicamentRuptures.forEach((medicament: any) => {
+  this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Medicament rupture', detail: 'Le medicament ' + medicament.nomMedicament+' ' + medicament.dosage +'mg reste '+ medicament.quantiteDisponible, sticky: true });
+});
         console.log(data)
       },
     );
@@ -217,7 +224,7 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
   }
   showToast1() {
     this.messageService.clear();
-    this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Success', detail: 'key: toast1',sticky:true });
+    // this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Success', detail: 'key: toast1',sticky:true });
 }
 
   // this.valeur[0] = 3
