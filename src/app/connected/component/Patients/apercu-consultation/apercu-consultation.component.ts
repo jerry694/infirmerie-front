@@ -11,7 +11,7 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
 export class ApercuConsultationComponent implements OnInit {
   etudiant: any = {}
   infoEtudiant:any =[]
-  id!: string;
+  idFicheConsultation!: string;
   idEtudiant!:number
 
 
@@ -21,15 +21,15 @@ export class ApercuConsultationComponent implements OnInit {
     this.route.paramMap.subscribe(data => {
       const id = data.get('idFicheConsultation');
       if (id !== null) {
-        this.id = id;
-        console.log(this.id)
+        this.idFicheConsultation = id;
+        console.log(this.idFicheConsultation)
       } else {
         // Gérer le cas où id est null (si nécessaire)
         console.log('ID étudiant non fourni dans les paramètres de l\'URL.');
       }
       console.log(data.get('idFicheConsultation'));
 
-      this.consultationService.apercuConsultation(parseInt(this.id)).subscribe(
+      this.consultationService.apercuConsultation(parseInt(this.idFicheConsultation)).subscribe(
         data => {
           console.log(data);
           const temp:any = data
@@ -51,18 +51,19 @@ export class ApercuConsultationComponent implements OnInit {
   }
 
 
-  exploreSuivi(idFicheconsultation: number) {
-    console.log("suivi " + idFicheconsultation)
+  exploreSuivi(idFicheSuivie: number) {
+    console.log("suivi " + idFicheSuivie)
+    this.router.navigate(["consultation/suivre/apercu",idFicheSuivie])
   }
-  exploreFacture(id: number) {
-    console.log("facture " + id)
+  exploreFacture(idFacture: number) {
+    console.log("facture " + idFacture)
   }
   // modify(idEtudiant:number){
   //   this.route.navigate(['patient/modifier',idEtudiant]);
   // }
   suivre() {
-    console.log("suivi de " + this.id)
-    this.router.navigate(['consultation/suivre',this.idEtudiant,this.id]);
+    // console.log("suivi de " + this.id)
+    this.router.navigate(['consultation/suivre',this.idEtudiant,this.idFicheConsultation]);
   }
   consulterFacture(NumFacture: number) {
     this.router.navigate(['facture/apercu', NumFacture]);
