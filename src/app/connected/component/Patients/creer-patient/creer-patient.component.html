@@ -165,7 +165,7 @@
                                         <span class="input-group-text igt"><img src="./assets/img/phone.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="text" class="form-control fc" placeholder="6xxxxxxxx"
+                                    <input pKeyFilter="int" type="text" class="form-control fc" placeholder="6xxxxxxxx"
                                         formControlName="numeroDeTelephone" id="numeroDeTelephone"
                                         [ngClass]="{'dirty': creerEtudiant.controls['numeroDeTelephone'].touched && creerEtudiant.controls['numeroDeTelephone'].errors?.['required']}">
                                 </div>
@@ -189,7 +189,7 @@
                                         <span class="input-group-text igt"><img src="./assets/img/phone.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="text" class="form-control fc" placeholder="6xxxxxxxx"
+                                    <input pKeyFilter="int"  type="text" class="form-control fc" placeholder="6xxxxxxxx"
                                         formControlName="numeroWhatsapp" id="numeroWhatsapp">
                                 </div>
 
@@ -239,7 +239,7 @@
                                         <span class="input-group-text igt"><img src="./assets/img/phone.svg"
                                                 alt="phone"></span>
                                     </div>
-                                    <input type="text" class="form-control fc" placeholder="6xxxxexxxx"
+                                    <input pKeyFilter="int"  type="text" class="form-control fc" placeholder="6xxxxexxxx"
                                         formControlName="numeroDeTelephoneUrgence" id="numeroDeTelephoneUrgence"
                                         [ngClass]="{'dirty': creerEtudiant.controls['numeroDeTelephoneUrgence'].touched && creerEtudiant.controls['numeroDeTelephoneUrgence'].errors?.['required']}">
                                 </div>
@@ -288,7 +288,7 @@
                                         <span class="input-group-text igt"><img src="./assets/img/taille.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="tel" class="form-control text-center fc" formControlName="taille"
+                                    <input pKeyFilter="int"  type="tel" class="form-control text-center fc" formControlName="taille"
                                         id="taille"
                                         [ngClass]="{'dirty': creerEtudiant.controls['taille'].touched && creerEtudiant.controls['taille'].errors?.['required']}">
                                 </div>
@@ -306,7 +306,7 @@
                                         <span class="input-group-text igt"><img src="./assets/img/poids.svg"
                                                 alt=""></span>
                                     </div>
-                                    <input type="number" class="form-control text-center fc" formControlName="poids"
+                                    <input pKeyFilter="int"  type="number" class="form-control text-center fc" formControlName="poids"
                                         id="poids"
                                         [ngClass]="{'dirty': creerEtudiant.controls['poids'].touched && creerEtudiant.controls['poids'].errors?.['required'] }">
                                 </div>

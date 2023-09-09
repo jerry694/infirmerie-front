@@ -54,7 +54,7 @@
                         <!-- <pre>{{dateArrivee}}  |  {{dateSortie}}</pre> -->
                     </div>
                     <div class="d-flex align-items-end mb-2">
-                        <h5 class="text-primary">Civilite</h5>
+                        <h5 class="text-primary">Parametres</h5>
                         <hr class="flex-grow-1 text-primary">
                     </div>
                     <div class="row mb-3">
@@ -65,7 +65,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/temperature.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="number" class="form-control fc" formControlName="temperature">
+                                <input pKeyFilter="int"  type="number" class="form-control fc" formControlName="temperature">
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -74,7 +74,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text igt"><img src="./assets/img/poids.svg" alt=""></span>
                                 </div>
-                                <input type="number" class="form-control fc" formControlName="poids" id="poids">
+                                <input pKeyFilter="int"  type="number" class="form-control fc" formControlName="poids" id="poids">
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -84,7 +84,7 @@
                                     <span class="input-group-text igt"><img src="./assets/img/tension.svg"
                                             alt=""></span>
                                 </div>
-                                <input type="number" formControlName="tension" class="form-control fc">
+                                <input pKeyFilter="int"  type="number" formControlName="tension" class="form-control fc">
                             </div>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-3  p-auto" >
-                                <input type="number" class="text-center" [formControlName]="i+1" style="width: 7.5rem;">
+                                <input pKeyFilter="int"  type="number" class="text-center" [formControlName]="i+1" style="width: 7.5rem;">
                             </div>
                             
                             <div class="form-group col-md-1 ">
