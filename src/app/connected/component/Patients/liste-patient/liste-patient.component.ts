@@ -28,7 +28,7 @@ this.refreshData()
   refreshData(){
     this.etudiantservice.listeEtudiants().subscribe(
       data => {
-        this.show("init","Initialisation","success")
+        // this.show("init","Initialisation","success")
         console.log(data)
         this.etudiants = data
         //redirection ici

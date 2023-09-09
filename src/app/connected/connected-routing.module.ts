@@ -17,6 +17,7 @@ import { ModifierMedicamentComponent } from './component/Stock/modifier-medicame
 import { RenouvelerMedicamentComponent } from './component/Stock/renouveler-medicament/renouveler-medicament.component';
 import { ConnectedComponent } from './connected.component';
 import { AccountComponent } from './component/account/account.component';
+import { ApercuSuiviComponent } from './component/Patients/apercu-suivi/apercu-suivi.component';
 
 
 
@@ -41,6 +42,8 @@ const routes: Routes = [
   { path: 'medicament/renouveler/:idMedicament', component: RenouvelerMedicamentComponent },
   { path: 'medicament/apercu/:idMedicament', component: ApercuMedicamentComponent },
 
+  { path: 'consultation/suivre/apercu/:idFicheSuivi', component: ApercuSuiviComponent },
+  
   { path: 'facture', component: ListeFactureComponent },
   { path: 'facture/apercu/:idFacture', component: ApercuFactureComponent },
 
