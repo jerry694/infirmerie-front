@@ -25,7 +25,7 @@ export class AccountComponent {
   ngOnInit() {
      this.idInfirmiere = localStorage.getItem('id_infirmiere');
     this.loginForm = this.formBuilder.group({
-      login: [''],
+      login: [localStorage.getItem('login')],
       password: [''],
       confirmPassword: [''],
 
