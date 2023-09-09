@@ -16,7 +16,7 @@
     </div>
     <div class="forms-container ">
         <div class="card " *ngFor="let information of informations ; let i = index">
-            <img [src]="information.image" alt="">
+            <img [src]="information.image">
             <span>
                 <h3>{{information.label}}</h3>
                 <h1> {{ valeur[i] ? valeur[i] : '0' }}</h1>
