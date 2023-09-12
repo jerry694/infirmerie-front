@@ -192,7 +192,7 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
 console.log(this.medicamentRuptures);
 
 this.medicamentRuptures.forEach((medicament: any) => {
-  this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Medicament rupture', detail: 'Le medicament ' + medicament.nomMedicament+' ' + medicament.dosage +'mg reste '+ medicament.quantiteDisponible, sticky: true });
+  this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Medicament rupture', detail: 'Le medicament ' + medicament.nomMedicament+' ' + medicament.dosage +'mg reste '+ medicament.quantiteDisponible, icon:"pi pi-shopping-cart", sticky: true });
 });
         console.log(data)
       },
@@ -200,7 +200,7 @@ this.medicamentRuptures.forEach((medicament: any) => {
     this.informations = [
       {
         "image": "./assets/img/eTraites.svg",
-        "label": "Etudiants traites"
+        "label": "Cas traites"
       },
       {
         "image": "./assets/img/rendezvous.svg",
