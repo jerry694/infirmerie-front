@@ -117,18 +117,20 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let consultation of etudiant.fichesConsultation">
-                                <td>{{consultation.dateCreationFC}}</td>
-                                <td ><span *ngFor="let diagnostics of consultation.diagnostiqueList">{{diagnostics.nomDiagnostique}}</span></td>
-                                <td>
-                                    <a (click)="exploreConsultation(consultation.idFicheConsultation)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779"
-                                            viewBox="0 0 26.613 17.779">
-                                            <path id="more"
-                                                d="M26.453,12.713A14.817,14.817,0,0,0,13.307,4.5,14.819,14.819,0,0,0,.161,12.714a1.5,1.5,0,0,0,0,1.351,14.817,14.817,0,0,0,13.146,8.213,14.819,14.819,0,0,0,13.146-8.214A1.5,1.5,0,0,0,26.453,12.713ZM13.307,20.056a6.667,6.667,0,1,1,6.653-6.667A6.66,6.66,0,0,1,13.307,20.056Zm0-11.112a4.4,4.4,0,0,0-1.169.175,2.213,2.213,0,0,1-3.091,3.1,4.423,4.423,0,1,0,4.26-3.273Z"
-                                                transform="translate(0 -4.5)" fill="#707070" />
-                                        </svg>
-                                    </a>
-                                </td>
+                                <ng-container *ngIf="consultation.visible == true" >
+                                    <td>{{consultation.dateCreationFC}}</td>
+                                    <td><span *ngFor="let diagnostics of consultation.diagnostiqueList">{{diagnostics.nomDiagnostique}}</span></td>
+                                    <td>
+                                        <a (click)="exploreConsultation(consultation.idFicheConsultation)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26.613" height="17.779" viewBox="0 0 26.613 17.779">
+                                                <path id="more"
+                                                    d="M26.453,12.713A14.817,14.817,0,0,0,13.307,4.5,14.819,14.819,0,0,0,.161,12.714a1.5,1.5,0,0,0,0,1.351,14.817,14.817,0,0,0,13.146,8.213,14.819,14.819,0,0,0,13.146-8.214A1.5,1.5,0,0,0,26.453,12.713ZM13.307,20.056a6.667,6.667,0,1,1,6.653-6.667A6.66,6.66,0,0,1,13.307,20.056Zm0-11.112a4.4,4.4,0,0,0-1.169.175,2.213,2.213,0,0,1-3.091,3.1,4.423,4.423,0,1,0,4.26-3.273Z"
+                                                    transform="translate(0 -4.5)" fill="#707070" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </ng-container>
+                                
                             </tr>
                         </tbody>
                     </table></div>
