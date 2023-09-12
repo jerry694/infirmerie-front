@@ -71,7 +71,7 @@ export class RenouvelerMedicamentComponent implements OnInit {
       nomMedicament: new FormControl({ value: this.medicament.nomMedicament, disabled: true }),
       nomGeneriqueMedicament: new FormControl({ value: this.medicament.nomGeneriqueMedicament, disabled: true }),
       dateExpiration: new FormControl(new Date(this.medicament.dateExpiration)),
-      prixUnitaire: new FormControl({ value: this.medicament.nomGeneriqueMedicament, disabled: true }),
+      prixUnitaire: new FormControl({ value: this.medicament.prixUnitaire, disabled: true }),
       dosage: new FormControl({ value: this.medicament.dosage, disabled: true }),
       formePharmaceutique: new FormControl({ value: this.medicament.formePharmaceutique, disabled: true }),
       quantiteDisponible: new FormControl(this.medicament.quantiteDisponible)

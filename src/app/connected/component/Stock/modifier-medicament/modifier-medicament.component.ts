@@ -49,7 +49,7 @@ export class ModifierMedicamentComponent implements OnInit {
       dateExpiration: new FormControl(new Date (this.medicament.dateExpiration)),
       prixUnitaire: new FormControl(this.medicament.prixUnitaire),
       dosage: new FormControl(this.medicament.dosage),
-      supprimer: new FormControl(this.medicament.supprimer),
+      // supprimer: new FormControl(this.medicament.supprimer),
       formePharmaceutique: new FormControl(this.medicament.formePharmaceutique),
       quantiteDisponible: new FormControl({value:this.medicament.quantiteDisponible,disabled:true})
     })
