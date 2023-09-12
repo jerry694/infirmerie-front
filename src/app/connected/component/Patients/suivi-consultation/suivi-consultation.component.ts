@@ -20,7 +20,7 @@ export class SuiviConsultationComponent implements OnInit {
   examens: any = []
   medicamentss: any = []
   id!: string;
-  idEtudiant!:string;
+  idEtudiant!: string;
   ficheSuivi!: FormGroup;
   // fConsultation: any = {}
 
@@ -28,7 +28,7 @@ export class SuiviConsultationComponent implements OnInit {
   spinners = true;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService,private messageService:MessageService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private etudiantservice: EtudiantsService, private consultationService: ConsultationsService, private formBuilder: FormBuilder, private stockService: StocksService, private messageService: MessageService) { }
   ngOnInit() {
     this.getId()
     this.getIdEtudiant()
@@ -39,7 +39,7 @@ export class SuiviConsultationComponent implements OnInit {
     this.initExamens()
     this.initForm()
 
- 
+
     console.log(this.ficheSuivi.value)
 
     console.log(this.civilite)
@@ -69,7 +69,7 @@ export class SuiviConsultationComponent implements OnInit {
 
     });
   }
-  getIdEtudiant(){
+  getIdEtudiant() {
     this.route.paramMap.subscribe(data => {
       const id = data.get('idEtudiant');
       if (id !== null) {
@@ -81,7 +81,7 @@ export class SuiviConsultationComponent implements OnInit {
       }
       console.log(data.get('idEtudiant'));
 
-    }); 
+    });
   }
   initCivilite(idEtudiant: number) {
     this.etudiantservice.infoEtudiant(idEtudiant).subscribe(
@@ -122,7 +122,7 @@ export class SuiviConsultationComponent implements OnInit {
       }
     );
   }
-    initMedicaments() {
+  initMedicaments() {
     this.stockService.listeMedicament().subscribe(
       data => {
         console.log(data);
@@ -157,12 +157,12 @@ export class SuiviConsultationComponent implements OnInit {
       nouveauxExamens: ['', Validators.required], // Aucun validateur requis ici
       heureArriveeSuivie: [new Date(), Validators.required],
       heureSortieSuivie: [null, Validators.required],
-      dateProchainRendezVous:[null],
-      heureProchainRendezVous:[null],
+      dateProchainRendezVous: [null],
+      heureProchainRendezVous: [null],
       temperature: [null],
       poids: [null, Validators.required], // Aucun validateur requis ici
       tension: [null], // Aucun validateur requis ici
-      soinsDispense:[null]
+      soinsDispense: [null]
     });
   }
   public get medicamentListSuivie(): FormArray {
@@ -188,15 +188,15 @@ export class SuiviConsultationComponent implements OnInit {
     this.ficheSuivi.value.examenList = []
     const idDiagnostique = this.ficheSuivi.value.diagnostiqueList
     this.ficheSuivi.value.diagnostiqueList = []
-    
-    const nouveauxSymptomes = this.ficheSuivi.value.nouveauxSymptomes
-    this.ficheSuivi.value.nouveauxSymptomes=''
-    const nouveauxDiagnostique = this.ficheSuivi.value.nouveauxDiagnostique
-    this.ficheSuivi.value.nouveauxDiagnostique=''
-    const nouveauxExamens = this.ficheSuivi.value.nouveauxExamens
-    this.ficheSuivi.value.nouveauxExamens=''
 
-    this.ficheSuivi.value.heureProchainRendezVous=this.ficheSuivi.value.dateProchainRendezVous
+    const nouveauxSymptomes = this.ficheSuivi.value.nouveauxSymptomes
+    this.ficheSuivi.value.nouveauxSymptomes = ''
+    const nouveauxDiagnostique = this.ficheSuivi.value.nouveauxDiagnostique
+    this.ficheSuivi.value.nouveauxDiagnostique = ''
+    const nouveauxExamens = this.ficheSuivi.value.nouveauxExamens
+    this.ficheSuivi.value.nouveauxExamens = ''
+
+    this.ficheSuivi.value.heureProchainRendezVous = this.ficheSuivi.value.dateProchainRendezVous
 
     const medicamentListSuivie = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 2 === 0)
     if (this.medicamentListSuivie.value != null) {
@@ -210,12 +210,12 @@ export class SuiviConsultationComponent implements OnInit {
     console.log(medicamentListSuivie)
     console.log(medicamentQuantiteListSuivi)
 
-    this.consultationService.suivre(this.ficheSuivi.value, parseInt(this.id), idSymptome,nouveauxSymptomes, idExamen,nouveauxDiagnostique, idDiagnostique,nouveauxExamens,medicamentListSuivie,medicamentQuantiteListSuivi).subscribe(
+    this.consultationService.suivre(this.ficheSuivi.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique, medicamentListSuivie, medicamentQuantiteListSuivi).subscribe(
       data => {
         // alert("Enregistrement réussi !");
         // this.router.navigate(["patient"]);
         console.log(data)
-          this.show("Le suivit de l'etudiant "+ this.etudiant.nom.toUpperCase() +" "+this.etudiant.prenom +" a ete enregistre avec succes","Enregistrement","success")
+        this.show("Le suivit de l'etudiant " + this.etudiant.nom.toUpperCase() + " " + this.etudiant.prenom + " a ete enregistre avec succes", "Enregistrement", "success")
         //redirection ici
         this.router.navigate(["patient"]);
 
@@ -223,12 +223,12 @@ export class SuiviConsultationComponent implements OnInit {
       error => {
         console.log(error)
         alert("Erreur lors de l'enregistrement.");
-            this.show("Erreur lors de l'enregistrement du suivi veuillez reesayez!","Enregistrement","error")
+        this.show("Erreur lors de l'enregistrement du suivi veuillez reesayez!", "Enregistrement", "error")
       }
     );
   }
-    show(message:string,tete:string,type:string) {
-        this.messageService.add({ severity: type, summary: tete, detail: message });
-    }
+  show(message: string, tete: string, type: string) {
+    this.messageService.add({ severity: type, summary: tete, detail: message });
+  }
 
 }

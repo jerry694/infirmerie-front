@@ -52,7 +52,7 @@ export class ConsultationsService {
     const nouveauxDiagnostique: string[] = AnouveauxDiagnostique
     console.log(this.httpOptions)
     console.log(ficheConsultation);
-    const params = { idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique };
+    const params = { idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique,idMedicament,quantiteMedicamentPrescrite };
     console.log(params)
     return this.httpClient.post(`${this.baseUrl}Fiche_consultation/Ajouter/FicheSuivie/${idFicheConsultation}/${localStorage.getItem('id_infirmiere')}`, fiche_suivie,{ params, ...this.httpOptions })
   }
