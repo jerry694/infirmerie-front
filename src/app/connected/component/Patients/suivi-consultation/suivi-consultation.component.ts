@@ -217,6 +217,8 @@ export class SuiviConsultationComponent implements OnInit {
         console.log(data)
           this.show("Le suivit de l'etudiant "+ this.etudiant.nom.toUpperCase() +" "+this.etudiant.prenom +" a ete enregistre avec succes","Enregistrement","success")
         //redirection ici
+        this.router.navigate(["patient"]);
+
       },
       error => {
         console.log(error)
