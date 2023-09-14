@@ -27,39 +27,39 @@
                         <hr class="flex-grow-1 text-primary">
                     </div>
                     <div>
-                        <h6>Nom</h6>
+                        <h6>Nom :</h6>
                         <span>{{etudiant.nom}}</span>
                     </div>
                     <div>
-                        <h6>Prenom</h6>
+                        <h6>Prenom :</h6>
                         <span>{{etudiant.prenom}}</span>
                     </div>
                     <div>
-                        <h6>Date de Naissance</h6>
+                        <h6>Date de Naissance :</h6>
                         <span>{{etudiant.dateDeNaissance | age}} ans | {{etudiant.dateDeNaissance}}</span>
                     </div>
                     <div>
-                        <h6>Sexe</h6>
+                        <h6>Sexe :</h6>
                         <span>{{etudiant.sexe}}</span>
                     </div>
                     <div>
-                        <h6>Matricule</h6>
+                        <h6>Matricule :</h6>
                         <span>{{etudiant.matricule}}</span>
                     </div>
                     <div>
-                        <h6>Classe</h6>
+                        <h6>Classe :</h6>
                         <span>{{etudiant.niveau}} {{etudiant.filiere}}</span>
                     </div>
                     <div>
-                        <h6>Addresse institutionnelle</h6>
+                        <h6>Addresse institutionnelle :</h6>
                         <span>{{etudiant.emailEtudiant}}</span>
                     </div>
                     <div>
-                        <h6>Numero de telephone</h6>
+                        <h6>Numero de telephone :</h6>
                         <span>{{etudiant.numeroDeTelephone}}</span>
                     </div>
                     <div *ngIf="etudiant.numeroWhatsapp != null">
-                        <h6>Numero whatsapp</h6>
+                        <h6>Numero whatsapp :</h6>
                         <span>{{etudiant.numeroWhatsapp}}</span>
                     </div>
                     <div class="d-flex align-items-end mb-2">
@@ -67,19 +67,19 @@
                         <hr class="flex-grow-1 text-primary">
                     </div>
                     <div>
-                        <h6>Taille</h6>
+                        <h6>Taille :</h6>
                         <span>{{etudiant.taille}}</span>
                     </div>
                     <div>
-                        <h6>Poids</h6>
+                        <h6>Poids :</h6>
                         <span>{{etudiant.poids}}</span>
                     </div>
                     <div>
-                        <h6>Groupe Sanguin</h6>
+                        <h6>Groupe Sanguin :</h6>
                         <span>{{etudiant.groupeSanguin}}</span>
                     </div>
                     <div>
-                        <h6>Antecedants Medicaux</h6>
+                        <h6>Antecedants Medicaux :</h6>
                         <span *ngFor="let antecedant of etudiant.antecedantMedicauxList">{{antecedant.nomAntecedantMedicaux}}, </span>
                     </div>
                 </div>
@@ -89,19 +89,19 @@
                         <hr class="flex-grow-1 text-primary">
                     </div>
                     <div>
-                        <h6>Nom</h6>
+                        <h6>Nom :</h6>
                         <span>{{etudiant.nomContactUrgence}}</span>
                     </div>
                     <div>
-                        <h6>Relation</h6>
+                        <h6>Relation :</h6>
                         <span>{{etudiant.relationContactUrgence}}</span>
                     </div>
                     <div>
-                        <h6>Numero de telephone</h6>
+                        <h6>Numero de telephone :</h6>
                         <span>{{etudiant.numeroDeTelephoneUrgence}}</span>
                     </div>
                     <div>
-                        <h6>Addresse mail</h6>
+                        <h6>Addresse mail :</h6>
                         <span>{{etudiant.emailContactUrgence}}</span>
                     </div>
                     <div class="d-flex align-items-end mb-2">
