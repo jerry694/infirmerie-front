@@ -12,7 +12,7 @@ export class HeadComponent {
   constructor(private router : Router) { }
   ngOnInit() {
     // Récupérez la valeur du LocalStorage pour la clé 'login'
-    this.login = localStorage.getItem('login');
+    this.login = sessionStorage.getItem('login');
   }
 account(){
   this.router.navigate(['connect/account']);

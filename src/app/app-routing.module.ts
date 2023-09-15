@@ -29,6 +29,8 @@ import { ApercuSuiviComponent } from './connected/component/Patients/apercu-suiv
 import { AuthGuard } from './services/auth-guard';
 
 const routes: Routes = [
+
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'auth', component: AuthentificationComponent },
   // { path: 'connect', component: ConnectedComponent, loadChildren: () => import('./connected/connected.module').then(m => m.ConnectedModule) },
   {
@@ -70,8 +72,7 @@ const routes: Routes = [
 
 
 
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: 'notFound', pathMatch: 'full' } // 404 NOT FOUND
+  { path: '**', redirectTo: 'auth', pathMatch: 'full' } // 404 NOT FOUND
 ];
 
 

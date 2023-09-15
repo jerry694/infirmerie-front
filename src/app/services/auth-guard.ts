@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivateChild {
     // Votre logique d'authentification ici (par exemple, vérifier si l'utilisateur est connecté)
     // localStorage.setItem('token', this.login.token);
 
-    if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
       return true; // Autoriser l'accès aux routes enfants
     } else {
       // Rediriger vers une page d'authentification ou une autre page

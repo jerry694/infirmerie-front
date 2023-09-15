@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class DashboardService {
 // http://localhost:8080/Infirmerie-IUSJC/Fiche_consultation/NbrConsultationParAnnee
 private baseUrl = `${configurationBase.baseUrl}Infirmerie-IUSJC/`;
-private accessToken = localStorage.getItem('token');
+private accessToken = sessionStorage.getItem('token');
 private httpOptions : any ={
   headers: new HttpHeaders({
     'Authorization': `Bearer ${this.accessToken}`

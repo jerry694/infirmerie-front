@@ -9,7 +9,7 @@ import { configurationBase } from './configurationBase';
 })
 export class ConsultationsService {
   private baseUrl = `${configurationBase.baseUrl}Infirmerie-IUSJC/`;
-  private accessToken = localStorage.getItem('token');
+  private accessToken = sessionStorage.getItem('token');
   private httpOptions: any = {
     headers: new HttpHeaders({
       'Authorization': `Bearer ${this.accessToken}`,

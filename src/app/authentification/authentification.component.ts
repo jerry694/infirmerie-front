@@ -42,12 +42,12 @@ export class AuthentificationComponent implements OnInit {
     this.authuserservice.authuser(this.user).subscribe(data => {
       console.log(data)
       this.login = data
-      localStorage.setItem('id_infirmiere', this.login.idInfirmiere);
-      localStorage.setItem('login', this.login.login);
-      localStorage.setItem('token', this.login.token);
+      sessionStorage.setItem('id_infirmiere', this.login.idInfirmiere);
+      sessionStorage.setItem('login', this.login.login);
+      sessionStorage.setItem('token', this.login.token);
       // alert("BIENVENUE ")
       this.show("Vous avez ete connecte avec succes", "Connexion", "success")
-      console.log(localStorage.getItem)
+      console.log(sessionStorage.getItem)
       setTimeout(() => {
         this.route.navigate(["connect/dashboard"]);
       }, 1000);
