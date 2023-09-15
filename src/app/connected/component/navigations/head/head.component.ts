@@ -15,7 +15,7 @@ export class HeadComponent {
     this.login = localStorage.getItem('login');
   }
 account(){
-  this.router.navigate(['account']);
+  this.router.navigate(['connect/account']);
 }
 
 }

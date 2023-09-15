@@ -223,7 +223,7 @@ export class ConsulterPatientComponent implements OnInit {
         // alert("Enregistrement réussi !");
         this.show("La consultation de l'etudiant " + this.etudiant.nom.toUpperCase() + " " + this.etudiant.prenom + " a ete enregistre avec succes", "Consultation", "success")
         console.log(data)
-        this.router.navigate(["patient"]);
+        this.router.navigate(["connect/patient"]);
 
         //redirection ici
       },
@@ -239,5 +239,7 @@ export class ConsulterPatientComponent implements OnInit {
   // preview(){
   //   this.locations.back()
   // }
-
+aff(){
+  console.log("34")
+}
 }

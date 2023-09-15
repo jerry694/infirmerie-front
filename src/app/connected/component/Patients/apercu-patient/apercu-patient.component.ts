@@ -43,22 +43,22 @@ export class ApercuPatientComponent implements OnInit {
  
   exploreConsultation(idFicheconsultation:number) {
     console.log("consutation de " + idFicheconsultation)
-    this.router.navigate(['consultation/apercu',idFicheconsultation]);
+    this.router.navigate(['connect/consultation/apercu',idFicheconsultation]);
     console.log("consutation de " + idFicheconsultation)
   }
   exploreFacture(idFacture:number) {
     console.log("facture de " + idFacture)
-    this.router.navigate(['facture/apercu/',idFacture])
+    this.router.navigate(['connect/facture/apercu/',idFacture])
   }
   consulter(){
-    this.router.navigate(['patient/consulter/',this.idEtudiant]);
+    this.router.navigate(['connect/patient/consulter/',this.idEtudiant]);
 
   }
   // modify(idEtudiant:number){
   //   this.route.navigate(['patient/modifier',idEtudiant]);
   // }
   modify(){
-    this.router.navigate(['patient/modifier/',this.idEtudiant]);
+    this.router.navigate(['connect/patient/modifier/',this.idEtudiant]);
 
   }
 

@@ -48,16 +48,16 @@ this.refreshData()
 
   }
   creer() {
-    this.route.navigate(["medicament/creer"]);
+    this.route.navigate(["connect/medicament/creer"]);
   }
   more(idMedicament: number) {
-    this.route.navigate(['medicament/apercu', idMedicament]);
+    this.route.navigate(['connect/medicament/apercu', idMedicament]);
   }
   modify(idMedicament: number) {
-    this.route.navigate(['medicament/modifier', idMedicament]);
+    this.route.navigate(['connect/medicament/modifier', idMedicament]);
   }
   renouveler(idMedicament: number) {
-    this.route.navigate(['medicament/renouveler', idMedicament]);
+    this.route.navigate(['connect/medicament/renouveler', idMedicament]);
   }
   delete(idMedicament: number,nom?:string,dosage?:string) {
     console.log(idMedicament);

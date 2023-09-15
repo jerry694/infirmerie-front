@@ -53,7 +53,7 @@ export class ApercuConsultationComponent implements OnInit {
 
   exploreSuivi(idFicheSuivie: number) {
     console.log("suivi " + idFicheSuivie)
-    this.router.navigate(["consultation/suivre/apercu",idFicheSuivie])
+    this.router.navigate(["connect/consultation/suivre/apercu",idFicheSuivie])
   }
   exploreFacture(idFacture: number) {
     console.log("facture " + idFacture)
@@ -63,10 +63,10 @@ export class ApercuConsultationComponent implements OnInit {
   // }
   suivre() {
     // console.log("suivi de " + this.id)
-    this.router.navigate(['consultation/suivre',this.idEtudiant,this.idFicheConsultation]);
+    this.router.navigate(['connect/consultation/suivre',this.idEtudiant,this.idFicheConsultation]);
   }
   consulterFacture(NumFacture: number) {
-    this.router.navigate(['facture/apercu', NumFacture]);
+    this.router.navigate(['connect/facture/apercu', NumFacture]);
   }
 
 }

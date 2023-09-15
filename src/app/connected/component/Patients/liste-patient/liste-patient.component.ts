@@ -51,13 +51,13 @@ this.refreshData()
 
 
   creer() {
-    this.route.navigate(["patient/creer"]);
+    this.route.navigate(["connect/patient/creer"]);
   }
   more(idEtudiant: number) {
-    this.route.navigate(['patient/apercu', idEtudiant]);
+    this.route.navigate(['connect/patient/apercu', idEtudiant]);
   }
   modify(idEtudiant: number) {
-    this.route.navigate(['patient/modifier', idEtudiant]);
+    this.route.navigate(['connect/patient/modifier', idEtudiant]);
   }
   delete(idEtudiant: number) {
     this.etudiantservice.supprimerEtudiant(idEtudiant).subscribe(

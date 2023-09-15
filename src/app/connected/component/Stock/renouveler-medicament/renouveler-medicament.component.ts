@@ -89,7 +89,7 @@ export class RenouvelerMedicamentComponent implements OnInit {
         console.log(data)
           this.show("Etudiant "+ this.medicament.nomMedicament +" "+this.medicament.dosage +" enregistre avec succes","Renouvellement","success")
         //redirection ici
-        this.router.navigate(["medicament"]);
+        this.router.navigate(["connect/medicament"]);
       },
       error => {
         console.log(error)

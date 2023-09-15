@@ -45,7 +45,7 @@ export class ListeFactureComponent {
         );
   }
   more(idFacture:number){
-    this.router.navigate(['facture/apercu',idFacture]);
+    this.router.navigate(['connect/facture/apercu',idFacture]);
   }
   cash(idFacture:number,nom?:string,prenom?:string){
     this.factureService.reglerFacture(idFacture).subscribe(

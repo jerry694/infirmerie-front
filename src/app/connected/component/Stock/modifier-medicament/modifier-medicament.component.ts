@@ -64,7 +64,7 @@ export class ModifierMedicamentComponent implements OnInit {
         console.log(data)
           this.show("Le medicament "+ this.medicament.nomMedicament +" "+this.medicament.dosage +" a ete modifie avec succes","Modification","success")
         //redirection ici
-        this.router.navigate(["medicament"]);
+        this.router.navigate(["connect/medicament"]);
       },
       error => {
         // alert("Erreur lors de l.");

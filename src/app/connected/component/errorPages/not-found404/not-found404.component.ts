@@ -10,7 +10,7 @@ export class NotFound404Component implements OnInit{
   constructor(private router:Router){}
     ngOnInit(): void {
       setTimeout(() => {
-      this.router.navigate(["dashboard"]);
-    }, 2000);
+      this.router.navigate(["connect/dashboard"]);
+    }, 1000);
     }
 }

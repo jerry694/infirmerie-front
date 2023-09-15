@@ -45,7 +45,7 @@ export class CreerMedicamentComponent {
       this.medicamentService.creerMedicament(formData, idInfirmiere).subscribe(
         data => {
           alert("Enregistrement réussi !");
-          this.route.navigate(["medicament"]);
+          this.route.navigate(["connect/medicament"]);
 
           //redirection ici
         },

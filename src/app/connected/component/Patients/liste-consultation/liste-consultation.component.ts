@@ -26,7 +26,7 @@ export class ListeConsultationComponent   {
   }
   more(idFicheConsultation: number) {
     console.log(idFicheConsultation)
-    this.route.navigate(['consultation/apercu/', idFicheConsultation]);
+    this.route.navigate(['connect/consultation/apercu/', idFicheConsultation]);
   }
   initFichedeConsultation(){
     this.consultationService.listeConsultation().subscribe(
