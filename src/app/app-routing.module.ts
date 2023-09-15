@@ -26,12 +26,17 @@ import { ConnectedModule } from './connected/connected.module';
 import { Building1000Component } from './connected/component/errorPages/building1000/building1000.component';
 import { NotFound404Component } from './connected/component/errorPages/not-found404/not-found404.component';
 import { ApercuSuiviComponent } from './connected/component/Patients/apercu-suivi/apercu-suivi.component';
+import { AuthGuard } from './services/auth-guard';
 
 const routes: Routes = [
   { path: 'auth', component: AuthentificationComponent },
   // { path: 'connect', component: ConnectedComponent, loadChildren: () => import('./connected/connected.module').then(m => m.ConnectedModule) },
   {
-    path: 'connect', component: ConnectedComponent, children: [
+    path: 'connect', component: ConnectedComponent, 
+    canActivateChild: [AuthGuard],
+    children: [
+
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DasboardComponent },
 
       { path: 'patient', component: ListePatientComponent },

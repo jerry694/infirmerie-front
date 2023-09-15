@@ -3,11 +3,12 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthUserService } from "../services/auth-user.service";
 import { User } from "../user";
+import { MessageService } from "primeng/api";
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
   styleUrls: ['./authentification.component.scss'],
-  
+
 })
 export class AuthentificationComponent implements OnInit {
   user: User = new User();
@@ -18,12 +19,12 @@ export class AuthentificationComponent implements OnInit {
   submitted = false
   gError: any;
 
-  constructor(private authuserservice: AuthUserService, private route: Router, private formBuilder: FormBuilder) { }
+  constructor(private authuserservice: AuthUserService, private route: Router, private formBuilder: FormBuilder, private messageService: MessageService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      login:['',[Validators.required]],
-      password:['',[Validators.required]]
+      login: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     })
     console.log(this.loginForm)
   }
@@ -44,23 +45,24 @@ export class AuthentificationComponent implements OnInit {
       localStorage.setItem('id_infirmiere', this.login.idInfirmiere);
       localStorage.setItem('login', this.login.login);
       localStorage.setItem('token', this.login.token);
-      this.route.navigate(["connect/dashboard"]);
-      alert("BIENVENUE ")
+      // alert("BIENVENUE ")
+      this.show("Vous avez ete connecte avec succes", "Connexion", "success")
       console.log(localStorage.getItem)
-      console.log(this.route)
+      setTimeout(() => {
+        this.route.navigate(["connect/dashboard"]);
+      }, 1000);
     }, error => {
       console.log(error)
-        this.gError = error.status
-      // Gestion des erreurs lors de l'authentification.
-      // if (error.status === 404) {
-      //   alert("Le login est incorrect. Veuillez vérifier vos informations de connexion.");
-      // } else {
-      //   // this.route.navigate(["page"]);
-      //   alert("Une erreur s'est produite lors de l'authentification. Veuillez réessayer plus tard.");
-      // }
+      this.show("Erreur lors de la connexion", "Connexion", "error")
+      this.gError = error.status
+     
     }
     );
   }
+  show(message: string, tete: string, type: string) {
+    this.messageService.add({ severity: type, summary: tete, detail: message, icon: "pi pi-user-edit" });
+  }
+
 }
 
 
