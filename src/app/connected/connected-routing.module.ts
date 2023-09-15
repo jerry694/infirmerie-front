@@ -23,31 +23,31 @@ import { ApercuSuiviComponent } from './component/Patients/apercu-suivi/apercu-s
 
 const routes: Routes = [
 
-  { path: '', component: ConnectedComponent, pathMatch: 'full' },
+  // { path: '', component: ConnectedComponent, pathMatch: 'full' },
 
-  { path: 'dashboard', component: DasboardComponent },
+  // { path: 'dashboard', component: DasboardComponent },
 
-  { path: 'patient', component: ListePatientComponent },
-  { path: 'patient/creer', component: CreerPatientComponent },
-  { path: 'patient/modifier/:idEtudiant', component: ModifierPatientComponent },
-  { path: 'patient/apercu/:idEtudiant', component: ApercuPatientComponent },
-  { path: 'patient/consulter/:idEtudiant', component: ConsulterPatientComponent },
+  // { path: 'patient', component: ListePatientComponent },
+  // { path: 'patient/creer', component: CreerPatientComponent },
+  // { path: 'patient/modifier/:idEtudiant', component: ModifierPatientComponent },
+  // { path: 'patient/apercu/:idEtudiant', component: ApercuPatientComponent },
+  // { path: 'patient/consulter/:idEtudiant', component: ConsulterPatientComponent },
 
-  { path: 'consultation', component: ListeConsultationComponent },
-  { path: 'consultation/apercu/:idFicheConsultation', component: ApercuConsultationComponent },
+  // { path: 'consultation', component: ListeConsultationComponent },
+  // { path: 'consultation/apercu/:idFicheConsultation', component: ApercuConsultationComponent },
 
-  { path: 'medicament', component: ListeMedicamentComponent },
-  { path: 'medicament/creer', component: CreerMedicamentComponent },
-  { path: 'medicament/modifier/:idMedicament', component: ModifierMedicamentComponent },
-  { path: 'medicament/renouveler/:idMedicament', component: RenouvelerMedicamentComponent },
-  { path: 'medicament/apercu/:idMedicament', component: ApercuMedicamentComponent },
+  // { path: 'medicament', component: ListeMedicamentComponent },
+  // { path: 'medicament/creer', component: CreerMedicamentComponent },
+  // { path: 'medicament/modifier/:idMedicament', component: ModifierMedicamentComponent },
+  // { path: 'medicament/renouveler/:idMedicament', component: RenouvelerMedicamentComponent },
+  // { path: 'medicament/apercu/:idMedicament', component: ApercuMedicamentComponent },
 
-  { path: 'consultation/suivre/apercu/:idFicheSuivi', component: ApercuSuiviComponent },
+  // { path: 'consultation/suivre/apercu/:idFicheSuivi', component: ApercuSuiviComponent },
   
-  { path: 'facture', component: ListeFactureComponent },
-  { path: 'facture/apercu/:idFacture', component: ApercuFactureComponent },
+  // { path: 'facture', component: ListeFactureComponent },
+  // { path: 'facture/apercu/:idFacture', component: ApercuFactureComponent },
 
-  { path: 'account', component: AccountComponent }
+  // { path: 'account', component: AccountComponent }
 
 ];
 

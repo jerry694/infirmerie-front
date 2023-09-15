@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 // import { NgbAlertModule, NgbDatepickerModule,NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from 'primeng/api';
@@ -39,7 +39,7 @@ import { CreerMedicamentComponent } from './connected/component/Stock/creer-medi
 import { ListeMedicamentComponent } from './connected/component/Stock/liste-medicament/liste-medicament.component';
 import { ModifierMedicamentComponent } from './connected/component/Stock/modifier-medicament/modifier-medicament.component';
 import { RenouvelerMedicamentComponent } from './connected/component/Stock/renouveler-medicament/renouveler-medicament.component';
-import { BodyComponent } from './connected/component/body/body.component';
+// import { BodyComponent } from './connected/component/body/body.component';
 import { HeadComponent } from './connected/component/navigations/head/head.component';
 import { NavigationComponent } from './connected/component/navigations/navigation/navigation.component';
 import { AgePipe } from './connected/component/pipe/age.pipe';
@@ -47,6 +47,11 @@ import { ConnectedComponent } from './connected/connected.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { ConnectedRoutingModule } from './connected/connected-routing.module';
 import { ConnectedModule } from './connected/connected.module';
+import { ApercuSuiviComponent } from './connected/component/Patients/apercu-suivi/apercu-suivi.component';
+import { SuiviConsultationComponent } from './connected/component/Patients/suivi-consultation/suivi-consultation.component';
+import { AccountComponent } from './connected/component/account/account.component';
+import { Building1000Component } from './connected/component/errorPages/building1000/building1000.component';
+import { NotFound404Component } from './connected/component/errorPages/not-found404/not-found404.component';
 
 
 // import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
@@ -62,7 +67,6 @@ import { ConnectedModule } from './connected/connected.module';
     CreerPatientComponent,
     ListeFactureComponent,
     ListeMedicamentComponent,
-    BodyComponent,
     ModifierPatientComponent,
     ApercuPatientComponent,
     ListePatientComponent,
@@ -75,6 +79,11 @@ import { ConnectedModule } from './connected/connected.module';
     RenouvelerMedicamentComponent,
     ListeConsultationComponent,
     ApercuConsultationComponent,
+    SuiviConsultationComponent,
+    AccountComponent,
+    NotFound404Component,
+    Building1000Component,
+    ApercuSuiviComponent
   ],
   imports: [
     CommonModule,
@@ -83,9 +92,6 @@ import { ConnectedModule } from './connected/connected.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    // NgbDatepickerModule, 
-    // NgbAlertModule, 
-    // NgbTimepickerModule,
     JsonPipe,
     ButtonModule,
     TableModule,
@@ -102,7 +108,7 @@ import { ConnectedModule } from './connected/connected.module';
     KeyFilterModule,
     ConnectedModule
   ],
-  providers: [ ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,226 +9,253 @@
 
 <body>
     <div class="bodys">
-        
-    <div class="d-flex align-items-end">
-        <h2 class="text-primary">Consulter un patient</h2>
-        <hr class="flex-grow-1 text-primary">
-    </div>
-    <div>
-        <form action="" [formGroup]="ficheConsultation" (ngSubmit)="consulter()">
-            <div class="form-container">
-                <div class="gauche">
-                    <div class="d-flex align-items-end mb-2">
-                        <h5 class="text-primary">Civilite</h5>
-                        <hr class="flex-grow-1 text-primary">
-                    </div>
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6">
-                            <label>Nom</label>
-                            <input [disabled]="true" type="text" [value]="etudiant.nom" class="form-control ">
-                        </div>
-                        <div class="form-group col-md-6 ">
-                            <label>Prenom</label>
-                            <input [disabled]="true" type="text" [value]="etudiant.prenom" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6">
-                            <label class="">Heure d'arrivee</label>
-                            <div class="input-group rect">
 
-                                <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
-                                    icon="pi pi-hourglass" formControlName="heureArriveeConsultation"></p-calendar>
-
-                            </div>
+        <div class="d-flex align-items-end">
+            <h2 class="text-primary">Consulter un patient</h2>
+            <hr class="flex-grow-1 text-primary">
+        </div>
+        <div>
+            <form action="" [formGroup]="ficheConsultation" (ngSubmit)="consulter()">
+                <div class="form-container">
+                    <div class="gauche">
+                        <div class="d-flex align-items-end mb-2">
+                            <h5 class="text-primary">Civilite</h5>
+                            <hr class="flex-grow-1 text-primary">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>Heure de sortie</label>
-                            <div class="input-group rect">
-
-                                <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
-                                    icon="pi pi-hourglass" formControlName="heureSortieConsultation"></p-calendar>
-
-                            </div>
-                        </div>
-                        <!-- <pre>{{dateArrivee}}  |  {{dateSortie}}</pre> -->
-                    </div>
-                    <div class="d-flex align-items-end mb-2">
-                        <h5 class="text-primary">Parametres</h5>
-                        <hr class="flex-grow-1 text-primary">
-                    </div>
-                    <div class="row mb-3">
-                        <div class="form-group col-md-4">
-                            <label class="">Temperature (C)</label>
-                            <div class="input-group rect">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/temperature.svg"
-                                            alt=""></span>
-                                </div>
-                                <input pKeyFilter="int"  type="number" class="form-control fc" formControlName="temperature">
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>Poids (kg)</label>
-                            <div class="input-group rect">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/poids.svg" alt=""></span>
-                                </div>
-                                <input pKeyFilter="int"  type="number" class="form-control fc" formControlName="poids" id="poids">
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label class="">Tension</label>
-                            <div class="input-group rect">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text igt"><img src="./assets/img/tension.svg"
-                                            alt=""></span>
-                                </div>
-                                <input pKeyFilter="int"  type="number" formControlName="tension" class="form-control fc">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <span><label>Antecedants Medicaux : </label> <span
-                                *ngFor="let antecedant of etudiant.antecedantMedicaux">{{antecedant.nomAntecedantMedicaux}},
-                            </span> </span>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6 ">
-                            <label>Symptomes</label>
-                            <div class="input-group rect">
-                                <p-multiSelect [options]="symptomes" optionLabel="nomSymptome" optionValue="idSymptome"
-                                    placeholder="Cherchez des symptomes" formControlName="symptomeList"></p-multiSelect>
-
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6 ">
-                            <label></label>
-                            <div class="input-group rect">
-                                <input type="text" class="form-control" formControlName="nouveauxSymptomes"
-                                    placeholder="Autres">
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="droite">
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6 ">
-
-                            <label>Diagnostiques</label>
-                            <div class="input-group rect">
-                                <p-multiSelect [options]="diagnostiques" optionLabel="nomDiagnostique"
-                                    optionValue="idDiagnostique" placeholder="Cherchez des diagnostiques"
-                                    formControlName="diagnostiqueList"></p-multiSelect>
-
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6 ">
-                            <label></label>
-                            <div class="input-group rect">
-                                <input type="text" class="form-control" formControlName="nouveauxDiagnostique"
-                                    placeholder="Autres">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-end mb-2">
-                        <h5 class="text-primary">Prise en charge</h5>
-                        <hr class="flex-grow-1 text-primary">
-                    </div>
-
-                    
-                    <div formArrayName="medicamentListConsultation">
-                        <div class="row mb-3" *ngFor="let medicaments of medicamentListConsultation.controls;let i = index">
-                            <ng-container *ngIf="i % 2 === 0" >
+                        <div class="row mb-3">
                             <div class="form-group col-md-6">
-                                <!-- <div class="input-group rect">
-                                    <p-multiSelect [options]="examens" optionLabel="nomExamen" optionValue="idExamen"
-                                        placeholder="Cherchez des medicaments"></p-multiSelect>
-    
-                                </div> -->
+                                <label>Nom</label>
+                                <input [disabled]="true" type="text" [value]="etudiant.nom" class="form-control ">
+                            </div>
+                            <div class="form-group col-md-6 ">
+                                <label>Prenom</label>
+                                <input [disabled]="true" type="text" [value]="etudiant.prenom" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="form-group col-md-6">
+                                <label class="">Heure d'arrivee</label>
+                                <div class="input-group rect">
+
+                                    <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
+                                        icon="pi pi-hourglass" formControlName="heureArriveeConsultation"></p-calendar>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Heure de sortie</label>
+                                <div class="input-group rect">
+
+                                    <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
+                                        icon="pi pi-hourglass" formControlName="heureSortieConsultation"></p-calendar>
+
+                                </div>
+                            </div>
+                            <!-- <pre>{{dateArrivee}}  |  {{dateSortie}}</pre> -->
+                        </div>
+                        <div class="d-flex align-items-end mb-2">
+                            <h5 class="text-primary">Parametres</h5>
+                            <hr class="flex-grow-1 text-primary">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="form-group col-md-4">
+                                <label class="">Temperature (C)</label>
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text igt"><img src="./assets/img/sang.svg" alt=""></span>
+                                        <span class="input-group-text igt"><img src="./assets/img/temperature.svg"
+                                                alt=""></span>
                                     </div>
-                                    <select class="form-control fc text-left" [formControlName]="i" [attr.for]="i" >
-                                        <option disabled [selected]="true" value="">{{'Medicament ' + (i/2)}}</option>
-                                        <option *ngFor="let medicament of medicamentss" [value]=medicament.idMedicament>{{medicament.nomMedicament}}</option>
-                                       
-                                    </select>
+                                    <input pKeyFilter="int" type="number" class="form-control fc"
+                                        formControlName="temperature">
                                 </div>
                             </div>
-                            <div class="form-group col-md-3  p-auto" >
-                                <input pKeyFilter="int"  type="number" class="text-center" [formControlName]="i+1" style="width: 7.5rem;">
+                            <div class="form-group col-md-4">
+                                <label>Poids (kg)</label>
+                                <div class="input-group rect">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text igt"><img src="./assets/img/poids.svg"
+                                                alt=""></span>
+                                    </div>
+                                    <input pKeyFilter="int" type="number" class="form-control fc"
+                                        formControlName="poids" id="poids">
+                                </div>
                             </div>
-                            
-                            <div class="form-group col-md-1 ">
-                                <p-button icon="pi pi-plus" (onClick)="addmedicamentListConsultation()"></p-button>
+                            <div class="form-group col-md-4">
+                                <label class="">Tension</label>
+                                <div class="input-group rect">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text igt"><img src="./assets/img/tension.svg"
+                                                alt=""></span>
+                                    </div>
+                                    <input pKeyFilter="int" type="number" formControlName="tension"
+                                        class="form-control fc">
+                                </div>
                             </div>
-                            <div class="form-group col-md-1 ">
-                                <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="deletemedicamentListConsultation(i)"></p-button>
-                            </div>
-                        </ng-container>
                         </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6 ">
+                        <div class="row mb-3">
+                            <span><label>Antecedants Medicaux : </label> <span
+                                    *ngFor="let antecedant of etudiant.antecedantMedicaux">{{antecedant.nomAntecedantMedicaux}},
+                                </span> </span>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="form-group col-md-6 ">
+                                <label>Symptomes</label>
+                                <div class="input-group rect">
+                                    <p-multiSelect [options]="symptomes" optionLabel="nomSymptome"
+                                        optionValue="idSymptome" placeholder="Cherchez des symptomes"
+                                        formControlName="symptomeList"></p-multiSelect>
 
-                            <label>Examen</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 ">
+                                <label></label>
+                                <div class="input-group rect">
+                                    <input type="text" class="form-control" formControlName="nouveauxSymptomes"
+                                        placeholder="Autres">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="droite">
+                        <div class="row mb-3">
+                            <div class="form-group col-md-6 ">
+
+                                <label>Diagnostiques</label>
+                                <div class="input-group rect">
+                                    <p-multiSelect [options]="diagnostiques" optionLabel="nomDiagnostique"
+                                        optionValue="idDiagnostique" placeholder="Cherchez des diagnostiques"
+                                        formControlName="diagnostiqueList"></p-multiSelect>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 ">
+                                <label></label>
+                                <div class="input-group rect">
+                                    <input type="text" class="form-control" formControlName="nouveauxDiagnostique"
+                                        placeholder="Autres">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-end mb-2">
+                            <h5 class="text-primary">Prise en charge</h5>
+                            <hr class="flex-grow-1 text-primary">
+                        </div>
+
+
+                        <div formArrayName="medicamentListConsultation">
+                            <div class="row mb-3 bg-danger" 
+                                *ngFor="let medicaments of medicamentListConsultation.controls;let i = index">
+                                <!-- <div class="medicaments">dssf</div> -->
+                                <ng-container *ngIf="i % 2 === 0">
+                                    <div class="form-group col-md-6">
+                                        <div class="input-group rect">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text igt"><img src="./assets/img/sang.svg"
+                                                        alt=""></span>
+                                            </div>
+                                            <select class="form-control fc text-left" [formControlName]="i"
+                                                [attr.for]="i">
+                                                <option disabled [selected]="true" value="">{{'Medicament ' + (i/2)}}
+                                                </option>
+                                                <option *ngFor="let medicament of medicamentss"
+                                                    [value]=medicament.idMedicament>{{medicament.nomMedicament}}
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-2  p-auto">
+                                        <input pKeyFilter="int" type="number" class="text-center"
+                                            [formControlName]="i+1" style="width: 7.5rem;">
+                                    </div>
+                                    <div class="form-group col-md-2  p-auto">
+                                        <input pKeyFilter="int" type="number" class="text-center"
+                                            [formControlName]="i+1" style="width: 7.5rem;">
+                                    </div>
+
+                                    <div class="form-group col-md-1 ">
+                                        <p-button icon="pi pi-plus"
+                                            (onClick)="addmedicamentListConsultation()"></p-button>
+                                    </div>
+                                    <div class="form-group col-md-1 ">
+                                        <p-button icon="pi pi-times" styleClass="p-button-danger"
+                                            (onClick)="deletemedicamentListConsultation(i)"></p-button>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="form-group col-md-6 ">
+
+                                <label>Examen</label>
+                                <div class="input-group rect">
+                                    <p-multiSelect [options]="examens" optionLabel="nomExamen" optionValue="idExamen"
+                                        placeholder="Cherchez des examen" formControlName="examenList"></p-multiSelect>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 ">
+                                <label></label>
+                                <div class="input-group rect">
+                                    <input type="text" class="form-control" formControlName="nouveauxExamens"
+                                        placeholder="Autres">
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <label>Description des soins</label>
                             <div class="input-group rect">
-                                <p-multiSelect [options]="examens" optionLabel="nomExamen" optionValue="idExamen"
-                                    placeholder="Cherchez des examen" formControlName="examenList"></p-multiSelect>
-
+                                <input type="text" class="form-control" formControlName="soinsDispense"
+                                    placeholder="...">
                             </div>
+                            <!-- soinsDispense -->
                         </div>
-                        <div class="form-group col-md-6 ">
-                            <label></label>
-                            <div class="input-group rect">
-                                <input type="text" class="form-control" formControlName="nouveauxExamens"
-                                    placeholder="Autres">
+                        <div class="d-flex align-items-end mb-2">
+                            <h5 class="text-primary">Prochain rendez-vous</h5>
+                            <hr class="flex-grow-1 text-primary">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="form-group col-md-6">
+                                <!-- <label>Heure de sortie</label> -->
+                                <div class="input-group rect">
+
+                                    <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true"
+                                        formControlName="dateProchainRendezVous" [minDate]="minDate"></p-calendar>
+
+                                </div>
                             </div>
-
-
+                            <!-- <pre>{{dateArrivee}}  |  {{dateSortie}}</pre> -->
                         </div>
+                        <!-- <div class="col-md-6" ><input type="text" id="myInput" oninput="handleInput(event)" placeholder="Entrer du texte">
+    
+                            <script>
+                                function handleInput(event: Event) {
+                                    const inputElement = event.target as HTMLInputElement;
+                                    const inputValue = inputElement.value;
+                        
+                                    console.log('La valeur entrée est : ' + inputValue);
+                                }
+                            </script>
+                        </div> -->
 
-                    </div>
-                    <div class="row mb-3">
-                        <label>Description des soins</label>
-                        <div class="input-group rect">
-                            <input type="text" class="form-control" formControlName="soinsDispense" placeholder="...">
-                        </div>
-                        <!-- soinsDispense -->
-                    </div>
-                    <div class="d-flex align-items-end mb-2">
-                        <h5 class="text-primary">Prochain rendez-vous</h5>
-                        <hr class="flex-grow-1 text-primary">
-                    </div>
-                    <div class="row mb-3">
-                        <div class="form-group col-md-6">
-                            <!-- <label>Heure de sortie</label> -->
-                            <div class="input-group rect">
-
-                                <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true"
-                                    formControlName="dateProchainRendezVous" [minDate]="minDate"></p-calendar>
-
-                            </div>
-                        </div>
-                        <!-- <pre>{{dateArrivee}}  |  {{dateSortie}}</pre> -->
                     </div>
                 </div>
-            </div>
-            <button routerLink="../.." class="btn btn-danger bgauche">
-                <img src="./assets/img/annuler.svg" alt="">
-                <a>Annuler</a>
-            </button>
-            <button class="btn btn-success bdroite" type="submit">
-                <img src="./assets/img/save.svg" alt="">
-                Enregistrer
-            </button>
-        </form>
-    </div>
-    <!-- {{ficheConsultation.value | json}} -->
+                <button routerLink="../.." class="btn btn-danger bgauche">
+                    <img src="./assets/img/annuler.svg" alt="">
+                    <a>Annuler</a>
+                </button>
+                <button class="btn btn-success bdroite" type="submit">
+                    <img src="./assets/img/save.svg" alt="">
+                    Enregistrer
+                </button>
+            </form>
+        </div>
+        <!-- {{ficheConsultation.value | json}} -->
 
     </div>
 </body>
