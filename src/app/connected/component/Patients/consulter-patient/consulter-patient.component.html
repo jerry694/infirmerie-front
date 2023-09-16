@@ -98,7 +98,7 @@
                                 </span> </span>
                         </div>
                         <div class="row mb-3">
-                            <div class="form-group col-md-6 ">
+                            <div class="form-group col-md-6">
                                 <label>Symptomes</label>
                                 <div class="input-group rect">
                                     <p-multiSelect [options]="symptomes" optionLabel="nomSymptome"
@@ -145,11 +145,11 @@
 
 
                         <div formArrayName="medicamentListConsultation">
-                            <div class="row mb-3 bg-danger" 
+                            <div class="row mb-3" 
                                 *ngFor="let medicaments of medicamentListConsultation.controls;let i = index">
                                 <!-- <div class="medicaments">dssf</div> -->
-                                <ng-container *ngIf="i % 2 === 0">
-                                    <div class="form-group col-md-6">
+                                <ng-container *ngIf="i % 3 === 0" >
+                                    <div class="form-group col-md-6" style="padding-right: 0px" >
                                         <div class="input-group rect">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text igt"><img src="./assets/img/sang.svg"
@@ -157,7 +157,7 @@
                                             </div>
                                             <select class="form-control fc text-left" [formControlName]="i"
                                                 [attr.for]="i">
-                                                <option disabled [selected]="true" value="">{{'Medicament ' + (i/2)}}
+                                                <option disabled [selected]="true" value="">{{'Medicament ' + (i/3+1)}}
                                                 </option>
                                                 <option *ngFor="let medicament of medicamentss"
                                                     [value]=medicament.idMedicament>{{medicament.nomMedicament}}
@@ -166,20 +166,20 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-2  p-auto">
-                                        <input pKeyFilter="int" type="number" class="text-center"
-                                            [formControlName]="i+1" style="width: 7.5rem;">
+                                    <div class="form-group col-md-1  p-auto" style="margin-left: 0px;padding-left: 10px;">
+                                        <input pKeyFilter="int" type="number" class="text-center"  [placeholder]="' q ' + (i/3+1)"
+                                            [formControlName]="i+1" style="width: 3rem;">
                                     </div>
-                                    <div class="form-group col-md-2  p-auto">
-                                        <input pKeyFilter="int" type="number" class="text-center"
-                                            [formControlName]="i+1" style="width: 7.5rem;">
+                                    <div class="form-group col-md-2  p-auto" style="margin-left: 10px;margin-right: 10px;">
+                                        <input  type="tel" class="text-center" [placeholder]="' posologie ' + (i/3+1)"
+                                            [formControlName]="i+2" style="width: 6rem;">
                                     </div>
 
                                     <div class="form-group col-md-1 ">
                                         <p-button icon="pi pi-plus"
                                             (onClick)="addmedicamentListConsultation()"></p-button>
                                     </div>
-                                    <div class="form-group col-md-1 ">
+                                    <div class="form-group col-md-1 "  style="margin-left: 5px">
                                         <p-button icon="pi pi-times" styleClass="p-button-danger"
                                             (onClick)="deletemedicamentListConsultation(i)"></p-button>
                                     </div>
@@ -255,7 +255,7 @@
                 </button>
             </form>
         </div>
-        <!-- {{ficheConsultation.value | json}} -->
+        {{ficheConsultation.value | json}}
 
     </div>
 </body>

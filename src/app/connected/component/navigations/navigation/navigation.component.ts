@@ -20,7 +20,7 @@ export class NavigationComponent implements OnInit {
     // this.screenWidth = window.innerWidth
   }
   effacerLocalStorage() {
-    localStorage.clear(); // Efface tout le contenu du LocalStorage
+    sessionStorage.clear(); // Efface tout le contenu du LocalStorage
       this.route.navigate(['auth'])
     setTimeout(() => {
     window.location.reload();

@@ -141,28 +141,33 @@
                     </div>
                     <div formArrayName="medicamentListSuivie">
                         <div class="row mb-3" *ngFor="let medicaments of medicamentListSuivie.controls;let i = index">
-                            <ng-container *ngIf="i % 2 === 0" >
-                            <div class="form-group col-md-6">
+                            <ng-container *ngIf="i % 3 === 0" >
+                            <div class="form-group col-md-6" style="padding-right: 0px" >
                                 
                                 <div class="input-group rect">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text igt"><img src="./assets/img/sang.svg" alt=""></span>
                                     </div>
-                                    <select class="form-control fc text-left" [formControlName]="i" [attr.for]="i" >
-                                        <option disabled [selected]="true" value="">{{'Medicament ' + (i/2)}}</option>
+                                    
+                                    <!-- style="margin-left: 0px"  style="margin-left: 10px;margin-right: 10px;"-->
+                                    <select class="form-control fc text-left" [formControlName]="i" [attr.for]="i"  >
+                                        <option disabled [selected]="true" value="">{{'Medicament ' + (i/3+1)}}</option>
                                         <option *ngFor="let medicament of medicamentss" [value]=medicament.idMedicament>{{medicament.nomMedicament}}</option>
                                        
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-md-3  p-auto" >
-                                <input type="number" class="text-center" [formControlName]="i+1" style="width: 7.5rem;">
+                            <div class="form-group col-md-1  p-auto" style="margin-left: 0px;padding-left: 10px;">
+                                <input pKeyFilter="int" type="number" class="text-center"
+                                    [formControlName]="i+1" style="width: 3rem;">
                             </div>
-                            
-                            <div class="form-group col-md-1 ">
+                            <div class="form-group col-md-2  p-auto" style="margin-left: 10px;margin-right: 10px;" >
+                                <input type="text" class="text-center" [formControlName]="i+2" style="width: 6rem;">
+                            </div>
+                            <div class="form-group col-md-1 " >
                                 <p-button icon="pi pi-plus" (onClick)="addmedicamentListSuivie()"></p-button>
                             </div>
-                            <div class="form-group col-md-1 ">
+                            <div class="form-group col-md-1 "  style="margin-left: 5px">
                                 <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="deletemedicamentListSuivie(i)"></p-button>
                             </div>
                         </ng-container>
@@ -225,7 +230,7 @@
             </button>
         </form>
     </div>
-    {{ficheSuivi.value | json}}
+    <!-- {{ficheSuivi.value | json}} -->
 
     </div>
 </body>
