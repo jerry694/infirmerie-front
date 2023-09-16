@@ -13,8 +13,7 @@ import { EtudiantsService } from 'src/app/services/etudiants.service';
   styleUrls: ['./creer-patient.component.scss'],
 })
 export class CreerPatientComponent implements OnInit {
-  // etudiant: Etudiant = new Etudiant();
-  // nouveauxAntecedantsMedicaux!:string
+
   maxDate!: Date;
   creerEtudiant!: FormGroup;
   valid = false
@@ -23,7 +22,6 @@ export class CreerPatientComponent implements OnInit {
   antecedentItems!: any
 
 
-  // selectedItems: any[] = []; // Stocke les éléments sélectionnés
 
   constructor(private route: Router, private etudiantservice: EtudiantsService, private formBuilder: FormBuilder,private messageService:MessageService) { }
 
@@ -32,17 +30,6 @@ export class CreerPatientComponent implements OnInit {
     this.maxDate = new Date()
     console.log(this.maxDate.getFullYear())
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 14)
-    // this.formBuilder.group({
-    //   idSymptome: new FormControl<any | null>([]),
-    //   idExamen: new FormControl<any | null>([]),
-    //   idDiagnostique: new FormControl<any | null>([]),
-    //   // nouveauxAntecedantsMedicaux: ['', Validators.required], // Aucun validateur requis ici
-    //   heureArriveeConsultation: new FormControl([null, Validators.required]),
-    //   heureSortieConsultation: new FormControl([null, Validators.required]),
-    //   temperature: new FormControl([null]),
-    //   poids: new FormControl([null, Validators.required]), // Aucun validateur requis ici
-    //   tension: new FormControl([null]), // Aucun validateur requis ici
-    // });
     this.creerEtudiant = this.formBuilder.group({
       antecedantMedicauxList: new FormControl<any | null>([]),
       nouveauxAntecedantsMedicaux: [''], // Aucun validateur requis ici
@@ -67,9 +54,9 @@ export class CreerPatientComponent implements OnInit {
   }
 
   etudiantform() {
-    // this.valid=true
+
     // Récupérer id_Infirmiere depuis le localStorage
-    const idInfirmiere = localStorage.getItem('id_infirmiere');
+    const idInfirmiere = sessionStorage.getItem('id_infirmiere');
 
     // Vérifier si l'id_Infirmiere est valide
     if (!idInfirmiere) {

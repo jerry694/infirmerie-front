@@ -30,6 +30,7 @@ export class ConsulterPatientComponent implements OnInit {
   ficheConsultation!: FormGroup;
   fConsultation: any = {}
   minDate: Date = new Date()
+  maxDate: Date = new Date()
   time = { hour: 13, minute: 30 };
   spinners = true;
   lDisabled: boolean[] = [false, false, false]
@@ -50,6 +51,9 @@ export class ConsulterPatientComponent implements OnInit {
     this.initDiagnostique()
     this.initExamens()
     this.initForm()
+    this.minDate.setHours(this.minDate.getHours()-3)
+    this.maxDate.setHours(23)
+    // console.log(this.route.snapshot)
 
 
     console.log(this.ficheConsultation.value)

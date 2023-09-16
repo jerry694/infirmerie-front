@@ -37,7 +37,7 @@
                             <label class="">Heure d'arrivee</label>
                             <div class="input-group rect">
 
-                                <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
+                                <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true" [minDate]="minDate" [maxDate]="maxDate"
                                 icon="pi pi-hourglass"  formControlName="heureArriveeSuivie"></p-calendar>
 
                             </div>
@@ -46,7 +46,7 @@
                             <label>Heure de sortie</label>
                             <div class="input-group rect">
 
-                                <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true"
+                                <p-calendar [showTime]="true" [showSeconds]="true" [showIcon]="true" [minDate]="minDate" [maxDate]="maxDate"
                                     icon="pi pi-hourglass" formControlName="heureSortieSuivie"></p-calendar>
 
                             </div>
@@ -206,7 +206,7 @@
                             <!-- <label>Heure de sortie</label> -->
                             <div class="input-group rect">
 
-                                <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true"
+                                <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true" [minDate]="minDate"
                                    formControlName="dateProchainRendezVous"></p-calendar>
 
                             </div>

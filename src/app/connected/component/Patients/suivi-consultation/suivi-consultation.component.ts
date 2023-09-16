@@ -22,6 +22,8 @@ export class SuiviConsultationComponent implements OnInit {
   id!: string;
   idEtudiant!: string;
   ficheSuivi!: FormGroup;
+  minDate: Date = new Date()
+  maxDate: Date = new Date()
   // fConsultation: any = {}
 
   time = { hour: 13, minute: 30 };
@@ -38,6 +40,8 @@ export class SuiviConsultationComponent implements OnInit {
     this.initDiagnostique()
     this.initExamens()
     this.initForm()
+    this.minDate.setHours(this.minDate.getHours()-3)
+    this.maxDate.setHours(23)
 
 
     console.log(this.ficheSuivi.value)
