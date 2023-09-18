@@ -9,7 +9,23 @@
 
 <body>
     <div class="bodys">
-        <p-toast key="mRupture"></p-toast>
+        <p-toast key="Rupture"></p-toast>
+        <p-toast key="mRupture">
+            <ng-template let-message pTemplate="message">
+                <div class="flex flex-column" style="flex: 1">
+                    <div class="text-center mb-3">
+                        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                        <h4 class="mb-3">{{message.summary}}</h4>
+                        <p>{{message.detail}}</p>
+                    </div>
+                    <div class="grid p-fluid">
+                        <div class="col-12">
+                            <button type="button" pButton  label="Telecharger" class="p-button-gray " ></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-toast>
     <div class="d-flex align-items-end">
         <h2 class="text-primary">Dashboard</h2>
         <hr class="flex-grow-1 text-primary">

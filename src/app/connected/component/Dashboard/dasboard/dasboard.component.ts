@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
 import { MessageService } from 'primeng/api';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { FacturesService } from 'src/app/services/factures.service';
@@ -190,10 +189,12 @@ constructor(private factureService:FacturesService,private dashboardService:Dash
         this.valeur[2]=this.val.filter((data:any) => data.quantiteDisponible < 5).length
         this.medicamentRuptures = this.val.filter((data: any) => data.quantiteDisponible < 5);
 console.log(this.medicamentRuptures);
+if(this.medicamentRuptures.length>1){
+  this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Medicament rupture', detail: 'Vous avez plusieurs medicaments en rupture voulez-vous telecharger la liste?', icon:"pi pi-shopping-cart", sticky: true });
+}else{
+  this.messageService.add({ key: 'Rupture', severity: 'info', summary: 'Medicament rupture', detail: 'Le medicament ' + this.medicamentRuptures[0].nomMedicament+' ' + this.medicamentRuptures[0].dosage +'mg reste '+ this.medicamentRuptures[0].quantiteDisponible, icon:"pi pi-shopping-cart", sticky: true });
+}
 
-this.medicamentRuptures.forEach((medicament: any) => {
-  this.messageService.add({ key: 'mRupture', severity: 'info', summary: 'Medicament rupture', detail: 'Le medicament ' + medicament.nomMedicament+' ' + medicament.dosage +'mg reste '+ medicament.quantiteDisponible, icon:"pi pi-shopping-cart", sticky: true });
-});
         console.log(data)
       },
     );
