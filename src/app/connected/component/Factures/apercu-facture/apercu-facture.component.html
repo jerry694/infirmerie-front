@@ -43,8 +43,9 @@
                     <thead>
                         <th class="text-left" scope="col">N*</th>
                         <th class="text-left " scope="col">Nom</th>
-                        <th scope="col">Prix</th>
+                        <th scope="col">Prix Unitaire</th>
                         <th scope="col">Quantite</th>
+                        <th scope="col">Prix Total</th>
                     </thead>
                     <tbody>
                         <tr
@@ -54,6 +55,7 @@
                                 {{medicamentPres.medicament.dosage}}mg</td>
                             <td>{{medicamentPres.medicament.prixUnitaire}}</td>
                             <td>{{medicamentPres.quantitePrescrite}}</td>
+                            <td>{{medicamentPres.quantitePrescrite * medicamentPres.medicament.prixUnitaire}}</td>
                         </tr>
                     </tbody>
                 </table>
