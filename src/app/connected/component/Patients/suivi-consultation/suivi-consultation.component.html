@@ -159,7 +159,13 @@
                             </div>
                             <div class="form-group col-md-1  p-auto" style="margin-left: 0px;padding-left: 10px;">
                                 <input pKeyFilter="int" type="number" class="text-center"
-                                    [formControlName]="i+1" style="width: 3rem;">
+                                    [formControlName]="i+1" style="width: 3rem;" (input)="verifierQuantite((i/3+1))"
+                                    [ngClass]="{'dirty': !isDispo }" >
+                                    <div class="merreur">
+                                        <span
+                                            *ngIf="!isDispo">
+                                            Quantite indisponible</span>
+                                    </div>
                             </div>
                             <div class="form-group col-md-2  p-auto" style="margin-left: 10px;margin-right: 10px;" >
                                 <input type="text" class="text-center" [formControlName]="i+2" style="width: 6rem;">

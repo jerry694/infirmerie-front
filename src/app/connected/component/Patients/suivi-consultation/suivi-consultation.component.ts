@@ -24,6 +24,7 @@ export class SuiviConsultationComponent implements OnInit {
   ficheSuivi!: FormGroup;
   minDate: Date = new Date()
   maxDate: Date = new Date()
+  isDispo:boolean=true
   // fConsultation: any = {}
 
   time = { hour: 13, minute: 30 };
@@ -47,6 +48,11 @@ export class SuiviConsultationComponent implements OnInit {
     console.log(this.ficheSuivi.value)
 
     console.log(this.civilite)
+  }
+  verifierQuantite(i:number){
+    this.show("Erreur lors de l'enregistrement du suivi veuillez reesayez!", "Enregistrement", "error")
+    console.log(i)
+    this.isDispo=!this.isDispo
   }
   formatH(date: Date): any {
     const currentDate = date; // Obtenez la date et l'heure actuelles
@@ -154,7 +160,7 @@ export class SuiviConsultationComponent implements OnInit {
     this.ficheSuivi = this.formBuilder.group({
       symptomeList: new FormControl<any | null>([]),
       examenList: new FormControl<any | null>([]),
-      medicamentListSuivie: this.formBuilder.array([new FormControl([]), new FormControl([])]),
+      medicamentListSuivie: this.formBuilder.array([new FormControl([]), new FormControl([]), new FormControl([])]),
       diagnostiqueList: new FormControl<any | null>([]),
       nouveauxSymptomes: ['', Validators.required], // Aucun validateur requis ici
       nouveauxDiagnostique: ['', Validators.required], // Aucun validateur requis ici
@@ -176,11 +182,13 @@ export class SuiviConsultationComponent implements OnInit {
     return this.ficheSuivi.get('medicamentQuantiteListSuivi') as FormArray
   }
   public addmedicamentListSuivie(): void {
-    this.medicamentListSuivie.push(new FormControl());
-    this.medicamentListSuivie.push(new FormControl());
+    this.medicamentListSuivie.push(new FormControl([]));
+    this.medicamentListSuivie.push(new FormControl([]));
+    this.medicamentListSuivie.push(new FormControl([]));
     // this.medicamentQuantiteListSuivi.push(new FormControl());
   }
   public deletemedicamentListSuivie(index: number): void {
+    this.medicamentListSuivie.removeAt(index + 2)
     this.medicamentListSuivie.removeAt(index + 1)
     this.medicamentListSuivie.removeAt(index)
     this.medicamentListSuivie.markAsDirty()
@@ -202,17 +210,19 @@ export class SuiviConsultationComponent implements OnInit {
 
     this.ficheSuivi.value.heureProchainRendezVous = this.ficheSuivi.value.dateProchainRendezVous
 
-    const medicamentListSuivie = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 2 === 0)
+    const medicamentListSuivie = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 3 === 0)
     if (this.medicamentListSuivie.value != null) {
-      const medicamentListSuivie = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 2 === 0).map((item: string) => parseFloat(item));
+      const medicamentListSuivie = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 3 === 0).map((item: string) => parseFloat(item));
     }
 
-    const medicamentQuantiteListSuivi = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 2 === 1);
+    const medicamentQuantiteListSuivi = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 3 === 1);
+    const medicamentPosologieListSuivi = this.medicamentListSuivie.value.filter((_: any, index: number) => index % 3 === 2);
 
     this.ficheSuivi.value.medicamentListSuivie = []
     console.log(this.ficheSuivi.value)
     console.log(medicamentListSuivie)
     console.log(medicamentQuantiteListSuivi)
+    console.log(medicamentPosologieListSuivi)
 
     this.consultationService.suivre(this.ficheSuivi.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique, medicamentListSuivie, medicamentQuantiteListSuivi).subscribe(
       data => {
