@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
 }
+$hinput:2.2em;
+// $miBloc:3rem;
 body {
     background:no-repeat left / 100% url("../../assets/img/portrait-happy.jpg") ;
     background-position: 120% 30%;
@@ -17,9 +19,9 @@ body {
 .login {
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    height: 500px;
-    width: 440px;
-    padding: 2.5rem 4rem;
+    min-height: 400px;
+    width: 380px;
+    padding: 2.5rem 3.5rem;
     text-align: center;
     border-radius: 5px;
 }
@@ -48,8 +50,9 @@ img {
     height: auto;
 }
 
-h3   {
-    margin: 2.5rem 0rem;
+h4  {
+    margin: 2rem 0rem;
+    // font-size: 100%;
     font-family: "poppins bold";
     color: #107EC2;
 }
@@ -61,6 +64,7 @@ input:focus {
 
 .input-group {
     margin-bottom: 10px;
+    height:2.5rem ;//$hinput
     background-color: white;
     border-radius: 7px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -70,7 +74,10 @@ input:focus {
 .form-control {
     background: none;
     border: none;
-    height: 45px;
+    height: 2.5rem;//$hinput
+}
+.input-group-text img{
+    height: 60%;
 }
 .form-control {
     padding-left: 0px;
