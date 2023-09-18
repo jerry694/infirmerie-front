@@ -53,7 +53,6 @@ export class ConsulterPatientComponent implements OnInit {
     this.initForm()
     this.minDate.setHours(this.minDate.getHours()-3)
     this.maxDate.setHours(23)
-    // console.log(this.route.snapshot)
 
 
     console.log(this.ficheConsultation.value)
@@ -188,7 +187,22 @@ export class ConsulterPatientComponent implements OnInit {
     this.medicamentListConsultation.markAsDirty()
   }
 
+verifierRendezVous(){
+  this.consultationService.verifierRendezVous(this.ficheConsultation.value.dateProchainRendezVous,this.ficheConsultation.value.dateProchainRendezVous.getTime()).subscribe(
+    data => {
+      // alert("Enregistrement réussi !");
+      this.show(data.toString(), "Rendez-Vous", "success")
+      console.log(data)
+      // this.router.navigate(["connect/patient"]);
 
+      //redirection ici
+    },
+    error => {
+      console.log(error)
+      this.show("Erreur lors de la verification du rendez vous", "Rendez-Vous", "error")
+    }
+  );
+}
   consulter() {
     const idSymptome = this.ficheConsultation.value.symptomeList
     this.ficheConsultation.value.symptomeList = []

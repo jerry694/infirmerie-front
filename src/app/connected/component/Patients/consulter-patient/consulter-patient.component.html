@@ -199,7 +199,7 @@
                             <div class="form-group col-md-6 ">
                                 <label></label>
                                 <div class="input-group rect">
-                                    <input type="text" class="form-control" formControlName="nouveauxExamens"
+                                    <input type="text" class="form-control" formControlName="nouveauxExamens" (input)="verifierRendezVous()"
                                         placeholder="Autres">
                                 </div>
 
@@ -211,7 +211,7 @@
                             <label>Description des soins</label>
                             <div class="input-group rect">
                                 <input type="text" class="form-control" formControlName="soinsDispense"
-                                    placeholder="...">
+                                    placeholder="..." >
                             </div>
                             <!-- soinsDispense -->
                         </div>
@@ -224,7 +224,7 @@
                                 <!-- <label>Heure de sortie</label> -->
                                 <div class="input-group rect">
 
-                                    <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true"
+                                    <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true" 
                                         formControlName="dateProchainRendezVous" [minDate]="minDate"></p-calendar>
 
                                 </div>

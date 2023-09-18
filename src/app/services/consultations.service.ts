@@ -56,6 +56,12 @@ export class ConsultationsService {
     console.log(params)
     return this.httpClient.post(`${this.baseUrl}Fiche_consultation/Ajouter/FicheSuivie/${idFicheConsultation}/${localStorage.getItem('id_infirmiere')}`, fiche_suivie,{ params, ...this.httpOptions })
   }
+  verifierRendezVous(dateRendezVous:Date,heureRendezVous:Date): Observable<object> {
+    const params = { dateRendezVous,heureRendezVous };
+    // Fiche_Suivie/verifier/Rendez-Vous
+    console.log(params)
+    return this.httpClient.get(`${this.baseUrl}Fiche_Suivie/verifier/Rendez-Vous}`,{ params, ...this.httpOptions })
+  }
 }
 // .pipe(
 //   catchError((error) => {
