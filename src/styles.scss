@@ -1,27 +1,21 @@
 @font-face {
   font-family: 'poppins';
   src: url('assets/font/Poppins-Regular.ttf') format('truetype');
-  /* Ajoutez d'autres formats de police si nécessaire */
 }
 @font-face {
   font-family: 'poppins medium';
   src: url('assets/font/Poppins-Medium.ttf') format('truetype');
-  /* Ajoutez d'autres formats de police si nécessaire */
 }
 @font-face {
   font-family: 'poppins bold';
   src: url('assets/font/Poppins-Bold.ttf') format('truetype');
-  /* Ajoutez d'autres formats de police si nécessaire */
 }
 
 *{
   scroll-behavior: smooth;
   font-family: "poppins";
-  // transition: .5s;
 }
-// body {
-//   zoom: 100%; /* Niveau de zoom par défaut (75% dans cet exemple) */
-// }
+
 $font-family-sans-serif :"poppins";
 $font-family-monospace : "poppins";
 $blue:    #107EC2 !default;
@@ -32,63 +26,21 @@ $red:     #CC151A !default;
 $yellow:  #FDD300 !default;
 $green:   #007759 !default;
 
-// @import "primeng/resources/themes/lara-light-blue/theme.css";
-// // @import "assets/css/theme.css";
-// @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
 @import "app/bootstrap/scss/bootstrap.scss";
 
-// /* You can add global styles to this file, and also import other style files */
 
-// // @import url("assets/css/bootstrap.min.css");
-// @import "app/bootstrap/scss/functions";
-
-// // 2. Include any default variable overrides here
-// $font-family-sans-serif:      "poppins" !default;
-// $font-family-monospace:       "poppins" !default;
-// @import "app/bootstrap/scss/variables";
-// // @import "app/bootstrap/scss/variables-dark";
-
-// // 4. Include any default map overrides here
-// // 5. Include remainder of required parts
-// // @import "app/bootstrap/scss/maps";
-// @import "app/bootstrap/scss/mixins";
-// @import "app/bootstrap/scss/root";
-
-
-// // 6. Optionally include any other parts as needed
-// @import "app/bootstrap/scss/utilities";
-// @import "app/bootstrap/scss/reboot";
-// @import "app/bootstrap/scss/type";
-// // @import "app/bootstrap/scss/images";
-// // @import "app/bootstrap/scss/helpers";
-// @import "app/bootstrap/scss/containers";
-// @import "app/bootstrap/scss/grid";
-// //*******formulaire********
-// // @import "app/bootstrap/scss/forms/floating-labels";
-// @import "app/bootstrap/scss/forms/form-check";// color-adjust: exact; // Keep themed appearance for print
-// @import "app/bootstrap/scss/forms/form-control";
-// @import "app/bootstrap/scss/forms/input-group";
-// //@import "app/bootstrap/scss/forms/form-range";
-// //@import "app/bootstrap/scss/forms/form-select";
-// //@import "app/bootstrap/scss/forms/form-text";
-// //@import "app/bootstrap/scss/forms/labels";
-// // @import "app/bootstrap/scss/forms/validation";
-
-// @import "app/bootstrap/scss/mixins/buttons";
-
-// .btn{
-//   @include button-variant($background:#FDD300,$border:#FDD300);
-// }
 .bodys{
-  width: calc(100% - 17rem);
+  // background-color: #312783;
+  width: calc(100% - 15rem);
   height: calc(100vh - 3.8rem);
-  margin:0rem 17rem;
-  // background-color: bisque;
+  margin:0rem 15rem;
   position: absolute;
   bottom: 0;
-  padding: 1.5rem 5rem;
+  padding: .2rem 0rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 .p-datatable .p-datatable-header {
   border-radius: 10px 10px 0px 0px;
@@ -100,12 +52,7 @@ $green:   #007759 !default;
 .p-calendar{
   height: 2.5rem;
 }
-// .p-button.p-button-icon-only {
-//   // background-color: #107EC2;
-// }
-// .p-element .p-ripple .p-datepicker-trigger .p-button-icon-only .ng-tns-c185893541-3 .p-button .p-component .ng-star-inserted{
-//   background-color: #c8d8e1;
-// }
+
 .p-treeselect .p-treeselect-label.p-placeholder{
   height: 2.5rem;
   width: 30rem;
@@ -121,10 +68,7 @@ $green:   #007759 !default;
   background-color: #107EC2;
   color: white;
 }
-// .p-datatable .p-sortable-column.p-highlight {
-//   background: #EFF6FF;
-//   color: #107EC2ed;
-// }
+
 svg{
   cursor: pointer;
 }
@@ -149,7 +93,6 @@ input{
   max-height: 17vh; 
   overflow: auto;
   padding-right: 10px; 
-  // box-shadow: inset 0em -.01em 1em .1em hsla(0, 0%, 0%, 0.1);
 }
 .divScrollD{
   @extend .divScroll;

@@ -6,63 +6,51 @@
 }
 
 .container-fluid {
-    width: calc(100% - 17rem);
+    width: calc(100% - 15rem);
     position: absolute;
     right: 0;
 }
 
 * {
-    font-size: large;
+    font-size: small;
 }
 
 span {
     margin-right: 10px;
 }
 .row{
-    height: 3.8rem;
-    // background-color: #e7f2f961;
+    height: 3rem;
     background-color: rgba(231, 242, 249, 0.35);
-    // padding-bottom: 200px
-    // background-color: rgb(231, 242, 249);
 
 }
-.col {
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-
-// .input-group-text img {
-//     height: 100%;
-//     width: auto;
-// }
 .aCenter{
-    display: flex;
-    align-items: center;
     justify-content: flex-end;
     padding: 0px ;
+    display: flex;
+    align-items: center;
 }
 .aCenterl{
-    @extend .aCenter;
-    padding-left: 5rem;
-    justify-content: flex-start;
-   .logo{
-        height: 70%;
+    padding-left: 3rem;
+    display: flex;
+    align-items: center;
+   img{
+        height: 60%;
         width: auto;
+        // margin-bottom: 500px
+        // margin: auto
     }
 
 
 } 
 .aCenterr{
     @extend .aCenter;
-    padding-right: 5rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding-right: 3rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
 .cont{
-        width: 10%;
-        height: 100%;
+        width: 30px;
+        height: 30px;
         // display: flex;
         position: relative;
     .circle{
@@ -86,13 +74,13 @@ span {
         transition: .3s ease-in-out;
 .pi-cog{
     // height: 0px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0);
 }
 }
 .overlay:hover{
     background-color:rgba(16, 126, 194, 0.7);
-    ;.pi-cog{    color: rgba(255, 255, 255, 1);
+    .pi-cog{    color: rgba(255, 255, 255, 1);
 
     }
 }
@@ -104,12 +92,12 @@ span {
 
 
 
-.body{
-    width: calc(100% - 17rem);
-    height: calc(100vh - 3.8rem);
-    margin:0rem 17rem;
-    // background-color: bisque;
-    position: absolute;
-    bottom: 0;
-    padding: 1.5rem 5rem;
-}
+    // .body{
+    //     width: calc(100% - 15rem);
+    //     height: calc(100vh - 3.8rem);
+    //     margin:0rem 15rem;
+    //     // background-color: bisque;
+    //     position: absolute;
+    //     bottom: 0;
+    //     padding: 1.5rem 3rem;
+    // }
