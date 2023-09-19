@@ -45,7 +45,7 @@ export class ConsultationsService {
     console.log(ficheConsultation);
     const params = { idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique,idMedicament,quantiteMedicamentPrescrite,posologieList };
     console.log(params)
-    return this.httpClient.post(`${this.baseUrl}Infirmiere/Ajouter/FicheConsultation/${idEtudiant}/${localStorage.getItem('id_infirmiere')}`,ficheConsultation, { params, ...this.httpOptions } );
+    return this.httpClient.post(`${this.baseUrl}Infirmiere/Ajouter/FicheConsultation/${idEtudiant}/${sessionStorage.getItem('id_infirmiere')}`,ficheConsultation, { params, ...this.httpOptions } );
   }
   suivre(fiche_suivie: any, idFicheConsultation: number, idSymptome: any, AnouveauxSymptomes: any, idExamen: any, AnouveauxExamens: any, idDiagnostique: any, AnouveauxDiagnostique: any,idMedicament:any,quantiteMedicamentPrescrite:any,psologieList:string[]): Observable<object> {
     const nouveauxSymptomes: string[] = AnouveauxSymptomes
@@ -56,7 +56,7 @@ export class ConsultationsService {
     console.log(ficheConsultation);
     const params = { idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique,idMedicament,quantiteMedicamentPrescrite,posologieList };
     console.log(params)
-    return this.httpClient.post(`${this.baseUrl}Fiche_consultation/Ajouter/FicheSuivie/${idFicheConsultation}/${localStorage.getItem('id_infirmiere')}`, fiche_suivie,{ params, ...this.httpOptions })
+    return this.httpClient.post(`${this.baseUrl}Fiche_consultation/Ajouter/FicheSuivie/${idFicheConsultation}/${sessionStorage.getItem('id_infirmiere')}`, fiche_suivie,{ params, ...this.httpOptions })
   }
   verifierRendezVous(dateRendezVous:Date,heureRendezVous:Date): Observable<object> {
     const params = { dateRendezVous,heureRendezVous };

@@ -116,7 +116,7 @@
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let consultation of etudiant.fichesConsultation">
+                            <tr *ngFor="let consultation of etudiant.fichesConsultation.reverse()">
                                 <ng-container *ngIf="consultation.visible == true" >
                                     <td>{{consultation.dateCreationFC}}</td>
                                     <td><span *ngFor="let diagnostics of consultation.diagnostiqueList">{{diagnostics.nomDiagnostique}}</span></td>
@@ -146,7 +146,7 @@
                             <th></th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let facture of etudiant.factures" >
+                            <tr *ngFor="let facture of etudiant.factures.reverse()" >
                                 <td *ngIf="facture.statutFacture == false">{{facture.dateCreationFacture}}</td>
                                 <td *ngIf="facture.statutFacture == false">{{facture.montantFacute}}</td>
                                 <td *ngIf="facture.statutFacture == false">
