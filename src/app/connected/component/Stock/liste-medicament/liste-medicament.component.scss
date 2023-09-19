@@ -15,12 +15,7 @@ h5 {
 }
 
 
-hr {
-    height: calc(1rem/6);
-    opacity: 100%;
-    width: auto;
 
-}
 
 
 img {
@@ -48,12 +43,7 @@ a {
 }.delete > path:hover{
     fill: #CC151A ;
 }
-.bhead {
-    border-radius: 10px;
-    padding: 5px 15px;
-    margin-left: calc(1rem/1.5);
-    margin-bottom: calc(1rem/1.7);
-}
+
     .forms-container {
         display: flex;
         min-height: 150px;

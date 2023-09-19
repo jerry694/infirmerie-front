@@ -2,110 +2,152 @@
   font-family: 'poppins';
   src: url('assets/font/Poppins-Regular.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'poppins medium';
   src: url('assets/font/Poppins-Medium.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'poppins bold';
   src: url('assets/font/Poppins-Bold.ttf') format('truetype');
 }
 
-*{
+* {
   scroll-behavior: smooth;
   font-family: "poppins";
 }
 
 $font-family-sans-serif :"poppins";
 $font-family-monospace : "poppins";
-$blue:    #107EC2 !default;
-$indigo:  #312783 !default;
-$purple:  #74226B !default;
-$pink:    #d63384 !default;
-$red:     #CC151A !default;
-$yellow:  #FDD300 !default;
-$green:   #007759 !default;
+$blue: #107EC2 !default;
+$indigo: #312783 !default;
+$purple: #74226B !default;
+$pink: #d63384 !default;
+$red: #CC151A !default;
+$yellow: #FDD300 !default;
+$green: #007759 !default;
 
 @import "primeicons/primeicons.css";
 
 @import "app/bootstrap/scss/bootstrap.scss";
 
+.d-flex {
+  h2 {
+    font-size: 24px;
+    margin-right: calc(1rem/1.5);
+    margin-bottom: 0px;
+    padding: 0px;
 
-.bodys{
+  }
+    hr {
+      margin: 0px;
+      margin-bottom: 6px;
+      height: calc(1rem/6);
+      opacity: 100%;
+      width: auto;
+    }
+    .bhead{
+      
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin-left: calc(1rem/1.5);
+    margin-bottom: 6px;
+    }
+}
+
+.bodys {
   // background-color: #312783;
   width: calc(100% - 15rem);
   height: calc(100vh - 3.8rem);
-  margin:0rem 15rem;
+  margin: 0rem 15rem;
   position: absolute;
   bottom: 0;
-  padding: .2rem 0rem;
+  padding: 0rem 0rem;
   padding-left: 3rem;
   padding-right: 3rem;
 }
+
 .p-datatable .p-datatable-header {
   border-radius: 10px 10px 0px 0px;
 }
-.p-button{
+
+.p-button {
   height: 2.5rem;
   border: #74226B;
 }
-.p-calendar{
+
+.p-calendar {
   height: 2.5rem;
 }
 
-.p-treeselect .p-treeselect-label.p-placeholder{
+.p-treeselect .p-treeselect-label.p-placeholder {
   height: 2.5rem;
   width: 30rem;
 }
-.p-treeselect  .p-highlight{
+
+.p-treeselect .p-highlight {
   width: 30rem;
   height: 2.5rem;
 }
-.p-treeselect-label{
+
+.p-treeselect-label {
   width: 30rem;
 }
+
 .p-treeselect.p-treeselect-chip .p-treeselect-token {
   background-color: #107EC2;
   color: white;
 }
 
-svg{
+svg {
   cursor: pointer;
 }
-input{
+
+input {
   height: 2.5rem;
 }
+
 .p-multiselect .p-multiselect-label.p-placeholder {
   font-size: medium;
   height: 2.5rem;
   padding: .5rem 1rem;
   width: 14rem;
-  
+
 }
+
 .p-multiselect .p-multiselect-label {
- font-size: medium;
- height: 2.5rem;
- padding: .5rem 1rem;
+  font-size: medium;
+  height: 2.5rem;
+  padding: .5rem 1rem;
 }
 
 
-.divScroll{
-  max-height: 17vh; 
+.divScroll {
+  max-height: 17vh;
   overflow: auto;
-  padding-right: 10px; 
+  padding-right: 10px;
 }
-.divScrollD{
+
+.divScrollD {
   @extend .divScroll;
-  max-height:28vh;
+  max-height: 28vh;
 }
-.divScroll::-webkit-scrollbar{
+
+.divScroll::-webkit-scrollbar {
   width: 5px;
-}.divScroll::-webkit-scrollbar-track{
+}
+
+.divScroll::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
-}.divScroll::-webkit-scrollbar-thumb{
+}
+
+.divScroll::-webkit-scrollbar-thumb {
   background: #107EC2;
   border-radius: 10px;
-}.divScroll::-webkit-scrollbar-thumb:hover{
+}
+
+.divScroll::-webkit-scrollbar-thumb:hover {
   background: #107ec28b;
 }
