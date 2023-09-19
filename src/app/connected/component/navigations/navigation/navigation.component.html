@@ -6,7 +6,6 @@
         <ul class="sidenav-nav bg-primary">
             <li class="sidenav-nav-item" >
                 <a routerLink="dashboard" routerLinkActive="active" class="sidenav-nav-link">
-                    <!-- <img src="../../../assets/img/Dashboard.svg" alt=""> -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
                         <g id="Dashboard" transform="translate(-104 -42)">
                           <rect id="Rectangle_258" data-name="Rectangle 258" width="12" height="9" rx="2" transform="translate(104 42)" fill="#fff"/>
@@ -21,50 +20,13 @@
             <span>
                 <li class="sidenav-nav-item" *ngFor="let nav of navData" >
                     <a [routerLink]="nav.routeLink" routerLinkActive="active" class="sidenav-nav-link">
-                        
                         <i [class]="nav.icon"></i>
                         <span class="sidenav-link-text">{{nav.label}}</span>
                     </a>
                 </li>
             </span>
-            <!-- <li class="sidenav-nav-item" >
-                <a routerLink="patient" routerLinkActive="active" class="sidenav-nav-link">
-                    
-                    <i class="pi pi-user-edit"></i>
-                    <span class="sidenav-link-text">Infirmerie</span>
-                </a>
-            </li>
-            <li class="sidenav-nav-item" >
-              <a routerLink="consultation" routerLinkActive="active" class="sidenav-nav-link">
-                    <i class="pi pi-folder-open"></i>
-                  <span class="sidenav-link-text">Consultation</span>
-              </a>
-          </li>
-            <li class="sidenav-nav-item" >
-                <a routerLink="facture" routerLinkActive="active" class="sidenav-nav-link">
-                    <i class="pi pi-money-bill"></i>
-                    <span class="sidenav-link-text">Facture</span>
-                </a>
-            </li>
-            <li class="sidenav-nav-item" >
-                <a routerLink="medicament" routerLinkActive="active" class="sidenav-nav-link">
-                    <i class="pi pi-shopping-cart"></i>
-                    <span class="sidenav-link-text">Stock</span>
-                </a>
-            </li>
-          <li class="sidenav-nav-item" >
-            <a routerLink="#" routerLinkActive="active" class="sidenav-nav-link">
-                
-                <i class="pi pi-chart-line"></i>
-                <span class="sidenav-link-text">Statistique</span>
-            </a>
-        </li> -->
         </ul>
         <div class="exit-button">
-            <!-- <a [routerLink]="" class="exit">
-                <img src="../../../assets/img/Deconnexion.svg" alt="">
-                <span>Deconnexion</span>
-            </a> -->
             <button class="btn  btn-warning exit" (click)="effacerLocalStorage()">
                 <a [routerLink]="">
                     <img src="./assets/img/Deconnexion.svg" alt="">
