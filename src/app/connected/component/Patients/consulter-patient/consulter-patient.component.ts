@@ -234,7 +234,7 @@ verifierRendezVous(){
     console.log(medicamentQuantiteListConsultation)
     // console.log(medicamentPosologieListConsultation)
 
-    this.consultationService.consulter(this.ficheConsultation.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxDiagnostique, idDiagnostique, nouveauxExamens, medicamentListConsultation, medicamentQuantiteListConsultation).subscribe(
+    this.consultationService.consulter(this.ficheConsultation.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxDiagnostique, idDiagnostique, nouveauxExamens, medicamentListConsultation, medicamentQuantiteListConsultation,medicamentPosologieListConsultation).subscribe(
       data => {
         // alert("Enregistrement réussi !");
         this.show("La consultation de l'etudiant " + this.etudiant.nom.toUpperCase() + " " + this.etudiant.prenom + " a ete enregistre avec succes", "Consultation", "success")

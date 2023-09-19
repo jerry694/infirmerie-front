@@ -224,7 +224,7 @@ export class SuiviConsultationComponent implements OnInit {
     console.log(medicamentQuantiteListSuivi)
     console.log(medicamentPosologieListSuivi)
 
-    this.consultationService.suivre(this.ficheSuivi.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique, medicamentListSuivie, medicamentQuantiteListSuivi).subscribe(
+    this.consultationService.suivre(this.ficheSuivi.value, parseInt(this.id), idSymptome, nouveauxSymptomes, idExamen, nouveauxExamens, idDiagnostique, nouveauxDiagnostique, medicamentListSuivie, medicamentQuantiteListSuivi,medicamentPosologieListSuivi).subscribe(
       data => {
         // alert("Enregistrement réussi !");
         // this.router.navigate(["patient"]);
