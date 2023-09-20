@@ -62,7 +62,7 @@ export class ConsultationsService {
     const params = { dateRendezVous,heureRendezVous };
     // Fiche_Suivie/verifier/Rendez-Vous
     console.log(params)
-    return this.httpClient.get(`${this.baseUrl}Fiche_Suivie/verifier/Rendez-Vous}`,{ params, ...this.httpOptions })
+    return this.httpClient.get(`${this.baseUrl}Fiche_Suivie/verifier/Rendez-Vous`,{ params, ...this.httpOptions })
   }
 }
 // .pipe(

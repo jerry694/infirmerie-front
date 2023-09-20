@@ -32,7 +32,7 @@ export class CreerMedicamentComponent {
 
   isDropdownOpen = false;
   creerMedicamentForm() {
-    const idInfirmiere = localStorage.getItem('id_infirmiere');
+    const idInfirmiere = sessionStorage.getItem('id_infirmiere');
 
     // Vérifier si l'id_Infirmiere est valide
     if (!idInfirmiere) {

@@ -88,7 +88,7 @@
                      <div *ngIf="etudiant.facture != null">
                         <h6>Medicaments</h6>
                        <span
-                            *ngFor="let medicamentS of etudiant.facture.ficheConsultation.medicamentListConsultation">{{medicamentS.medicament.nomMedicament}} {{medicamentS.medicament.dosage }}mg, </span>
+                            *ngFor="let medicamentS of etudiant.facture.ficheConsultation.medicamentListConsultation">{{medicamentS.medicament.nomMedicament}} {{medicamentS.medicament.dosage }}mg ({{medicamentS.posogie }}), </span>
                     </div> 
                     
                     <!-- soinsDispense -->

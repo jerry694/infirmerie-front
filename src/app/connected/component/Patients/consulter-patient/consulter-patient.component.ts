@@ -34,6 +34,7 @@ export class ConsulterPatientComponent implements OnInit {
   time = { hour: 13, minute: 30 };
   spinners = true;
   lDisabled: boolean[] = [false, false, false]
+  isDisable:boolean=true
 
 
 
@@ -188,11 +189,19 @@ export class ConsulterPatientComponent implements OnInit {
   }
 
 verifierRendezVous(){
-  this.consultationService.verifierRendezVous(this.ficheConsultation.value.dateProchainRendezVous,this.ficheConsultation.value.dateProchainRendezVous.getTime()).subscribe(
+  this.consultationService.verifierRendezVous(this.ficheConsultation.value.dateProchainRendezVous,this.ficheConsultation.value.dateProchainRendezVous).subscribe(
     data => {
       // alert("Enregistrement réussi !");
       this.show(data.toString(), "Rendez-Vous", "success")
       console.log(data)
+      if(data.toString()=='true'){
+        this.isDisable=true
+      }
+      else{
+        this.isDisable=false
+
+      }
+      console.log(this.isDisable)
       // this.router.navigate(["connect/patient"]);
 
       //redirection ici

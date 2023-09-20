@@ -228,6 +228,9 @@
                                         formControlName="dateProchainRendezVous" [minDate]="minDate"></p-calendar>
 
                                 </div>
+                                <div>
+                                    <span *ngIf="isDisable">heure prise</span>
+                                </div>
                             </div>
                             <!-- <pre>{{dateArrivee}}  |  {{dateSortie}}</pre> -->
                         </div>
@@ -249,8 +252,8 @@
                     <img src="./assets/img/annuler.svg" alt="">
                     <a>Annuler</a>
                 </button>
-                <button class="btn btn-success bdroite" type="submit">
-                    <img src="./assets/img/save.svg" alt="">
+                <button class="btn btn-success bdroite" [disabled]="isDisable" type="submit">
+                    <img src="./assets/img/save.svg"  alt="">
                     Enregistrer
                 </button>
             </form>
