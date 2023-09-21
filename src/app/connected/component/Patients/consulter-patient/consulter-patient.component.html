@@ -149,7 +149,7 @@
                                 *ngFor="let medicaments of medicamentListConsultation.controls;let i = index">
                                 <!-- <div class="medicaments">dssf</div> -->
                                 <ng-container *ngIf="i % 3 === 0" >
-                                    <div class="form-group col-md-6" style="padding-right: 0px" >
+                                    <div class="form-group col-md-5" style="padding-right: 0px" >
                                         <div class="input-group rect">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text igt"><img src="./assets/img/sang.svg"
@@ -166,18 +166,26 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-1  p-auto" style="margin-left: 0px;padding-left: 10px;">
-                                        <input pKeyFilter="int" type="number" class="text-center"  [placeholder]="' q ' + (i/3+1)"
-                                            [formControlName]="i+1" style="width: 3rem;">
+                                    <div class="form-group col-md-2 px-1 ">
+                                        <div class="input-group rect">
+                                            <input pKeyFilter="int" class="form-control text-center"  [placeholder]="' q ' + (i/3+1)"
+                                            [formControlName]="i+1" style="width: 3rem;" (blur)="verifierRendezVous()">
+                                        </div>
+                                        <div>
+                                            <span *ngIf="isDisable && ficheConsultation.value.dateProchainRendezVous!=null">Quantite insuffisante</span>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-2  p-auto" style="margin-left: 10px;margin-right: 10px;">
-                                        <input  type="tel" class="text-center" [placeholder]="' posologie ' + (i/3+1)"
+                                    <div class="form-group col-md-2 px-0">
+                                        <div class="input-group rect">
+                                            <input  type="tel" class="form-control" [placeholder]="' posologie ' + (i/3+1)"
                                             [formControlName]="i+2" style="width: 6rem;">
+                                        </div>
                                     </div>
-
                                     <div class="form-group col-md-1 ">
-                                        <p-button icon="pi pi-plus"
-                                            (onClick)="addmedicamentListConsultation()"></p-button>
+                                        <div class="input-group rect">
+                                            <p-button icon="pi pi-plus"
+                                                (onClick)="addmedicamentListConsultation()"></p-button>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-1 "  style="margin-left: 5px">
                                         <p-button icon="pi pi-times" styleClass="p-button-danger"
@@ -187,7 +195,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="form-group col-md-6 ">
+                            <div class="form-group col-md-6 " >
 
                                 <label>Examen</label>
                                 <div class="input-group rect">
@@ -199,7 +207,7 @@
                             <div class="form-group col-md-6 ">
                                 <label></label>
                                 <div class="input-group rect">
-                                    <input type="text" class="form-control" formControlName="nouveauxExamens" (input)="verifierRendezVous()"
+                                    <input type="text" class="form-control" formControlName="nouveauxExamens" 
                                         placeholder="Autres">
                                 </div>
 
@@ -225,27 +233,16 @@
                                 <div class="input-group rect">
 
                                     <p-calendar [showTime]="true" [showSeconds]="false" [showIcon]="true" 
-                                        formControlName="dateProchainRendezVous" [minDate]="minDate"></p-calendar>
+                                        formControlName="dateProchainRendezVous" [minDate]="minDate"  (onClose)="verifierRendezVous()"></p-calendar>
 
                                 </div>
                                 <div>
-                                    <span *ngIf="isDisable">heure prise</span>
+                                    <span *ngIf="isDisable && ficheConsultation.value.dateProchainRendezVous!=null">heure prise</span>
                                 </div>
                             </div>
                             <!-- <pre>{{dateArrivee}}  |  {{dateSortie}}</pre> -->
                         </div>
-                        <!-- <div class="col-md-6" ><input type="text" id="myInput" oninput="handleInput(event)" placeholder="Entrer du texte">
-    
-                            <script>
-                                function handleInput(event: Event) {
-                                    const inputElement = event.target as HTMLInputElement;
-                                    const inputValue = inputElement.value;
-                        
-                                    console.log('La valeur entrée est : ' + inputValue);
-                                }
-                            </script>
-                        </div> -->
-
+              
                     </div>
                 </div>
                 <button routerLink="../.." class="btn btn-danger bgauche">

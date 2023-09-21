@@ -135,16 +135,22 @@ input{
   font-size: medium;
   height: 2.5rem;
   padding: .5rem 1rem;
-  width: 14rem;
-  
+  width: 12rem;
+  // width: 100%;
+  max-width: max-content;
 }
+
 .p-multiselect .p-multiselect-label {
  font-size: medium;
  height: 2.5rem;
  padding: .5rem 1rem;
 }
 
-
+// .input-group>.p-button.p-button-icon-only {
+//   height: 2.5rem;
+//   width: 2.5rem;
+//   border: #74226B;
+// } 
 .divScroll{
   max-height: 17vh; 
   overflow: auto;
